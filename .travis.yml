@@ -1,0 +1,6 @@
+language: java
+ant test
+install: ant deps
+jdk:
+  - oraclejdk7
+  - openjdk7
