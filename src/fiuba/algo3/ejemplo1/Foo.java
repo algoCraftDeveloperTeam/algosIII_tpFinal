@@ -9,4 +9,8 @@ public class Foo {
 	public String doBar() {
 		return "Bar";
 	}
+
+	public String doBuz() {
+		return "Buz";
+	}
 }

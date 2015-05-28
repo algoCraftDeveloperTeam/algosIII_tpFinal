@@ -19,5 +19,11 @@ public class FooTest {
         Assert.assertEquals("Bar", result);
 	}
 	
-
+	@Test
+	public void doBuzShouldReturnBuz(){
+        Foo foo = new Foo();
+        String result = foo.doBuz();
+        Assert.assertEquals("Buz", result);
+	}
+	
 }
