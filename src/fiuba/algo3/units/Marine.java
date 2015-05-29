@@ -11,6 +11,7 @@ public class Marine extends Unit{
         construction_time = 3;
         unit_size = 1;
         life = 40;
+        for(int i = 0; i < 2; i++){}
     }
 
 }
