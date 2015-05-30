@@ -1,6 +1,6 @@
 package fiuba.algo3.buildings;
 
-import fiuba.algo3.resources.Mineral;
+import fiuba.algo3.player.Player;
 
 /**
  * Created by nsueiro on 28/05/15.
@@ -8,10 +8,8 @@ import fiuba.algo3.resources.Mineral;
 public class MineralGetter extends ResourceGetter {
 
     @Override
-    public Mineral collectResources(){
-        Mineral retValue = new Mineral(this.inStorage);
-        this.inStorage = 0;
-        return retValue;
+    public void addToPlayerStorage(Player player){
+        player.addMinerals(this.quantity);
     }
 
 }
