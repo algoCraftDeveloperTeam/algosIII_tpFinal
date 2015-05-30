@@ -9,7 +9,7 @@ public class UnitInConstruction {
 
     public UnitInConstruction(Unit unit) {
         unitToBeBuilt = unit;
-        remainingTurnsToBeBuilt = unit.getConstructionTime();
+        remainingTurnsToBeBuilt = unit.getTrainingTime();
     }
 
     public int getRemainingTurns() {

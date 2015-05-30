@@ -15,7 +15,7 @@ public class UnitInConstructionTest {
         Marine aMarine = new Marine();
         UnitInConstruction unitToBeBuilt = new UnitInConstruction(aMarine);
 
-        assertEquals(unitToBeBuilt.getRemainingTurns(), aMarine.getConstructionTime());
+        assertEquals(unitToBeBuilt.getRemainingTurns(), aMarine.getTrainingTime());
     }
 
     @Test
@@ -25,6 +25,6 @@ public class UnitInConstructionTest {
         UnitInConstruction unitToBeBuilt = new UnitInConstruction(aMarine);
         unitToBeBuilt.passTurn();
 
-        assertEquals(unitToBeBuilt.getRemainingTurns(), aMarine.getConstructionTime() - 1);
+        assertEquals(unitToBeBuilt.getRemainingTurns(), aMarine.getTrainingTime() - 1);
     }
 }
