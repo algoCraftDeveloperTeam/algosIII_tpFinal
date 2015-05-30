@@ -1,5 +1,7 @@
 package fiuba.algo3.units;
 
+import fiuba.algo3.gameVariables.Cost;
+
 /**
  * Created by mporto on 28/05/15.
  */
@@ -8,7 +10,8 @@ public class Marine extends Unit{
     public Marine() {
         sizeForTransport = 1;
         fieldOfVision = 7;
-        constructionTime = 3;
+        trainingCost = new Cost(50, 0);
+        trainingTime = 3;
         unitSize = 1;
         life = 40;
     }
