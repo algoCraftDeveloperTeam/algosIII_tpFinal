@@ -6,9 +6,8 @@ import org.junit.Test;
 public class MapTest{
 
 	@Test
-	public void isEmptyShouldReturnTrue(){
-        Map map = new Map();
-        Assert.assertTrue(map.isEmpty());
+	public void setUp(){
+        Map map = new Map(20);
 	}
 
 }
