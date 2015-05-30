@@ -3,7 +3,7 @@ package fiuba.algo3.units;
 /**
  * Created by mporto on 28/05/15.
  */
-public abstract class Unit {
+public class Unit {
 
     int sizeForTransport;
     int fieldOfVision;
