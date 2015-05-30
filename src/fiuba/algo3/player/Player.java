@@ -1,25 +1,26 @@
 package fiuba.algo3.player;
 
+import fiuba.algo3.gameVariables.PlayerResources;
+
 /**
  * Created by nsueiro on 29/05/15.
  */
 public class Player {
-    int gasStorage = 0;
-    int mineralStorage = 0;
+    PlayerResources resources = new PlayerResources();
 
     public int getGasStorage(){
-        return gasStorage;
+        return resources.getGasStorage();
     }
 
     public int getMineralStorage(){
-        return mineralStorage;
+        return resources.getMineralStorage();
     }
 
     public void addGas(int n){
-        gasStorage += n;
+        resources.addGas(n);
     }
 
     public void addMinerals(int n){
-        mineralStorage += n;
+        resources.addMinerals(n);
     }
 }

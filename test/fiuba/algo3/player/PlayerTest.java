@@ -21,12 +21,16 @@ public class PlayerTest {
     }
 
     @Test
-    public void testAddGas() throws Exception {
-
+    public void testAddGas(){
+        Player p = new Player();
+        p.addGas(10);
+        Assert.assertEquals(p.getGasStorage(), 10);
     }
 
     @Test
-    public void testAddMinerals() throws Exception {
-
+    public void testAddMinerals(){
+        Player p = new Player();
+        p.addMinerals(10);
+        Assert.assertEquals(p.getMineralStorage(), 10);
     }
 }
