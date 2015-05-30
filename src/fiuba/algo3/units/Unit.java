@@ -23,4 +23,8 @@ public abstract class Unit {
         
         return sizeForTransport;
     }
+
+    public int getConstructionTime() {
+        return constructionTime;
+    }
 }

@@ -29,4 +29,10 @@ public class MarineTest {
 
         assertEquals(1, this.aMarine.getSizeForTransport());
     }
+
+    @Test
+    public void testConstructionTimeEqualsTo3() throws Exception {
+
+        assertEquals(3, this.aMarine.getConstructionTime());
+    }
 }

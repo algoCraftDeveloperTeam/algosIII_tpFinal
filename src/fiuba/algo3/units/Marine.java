@@ -13,4 +13,5 @@ public class Marine extends Unit{
         life = 40;
     }
 
+
 }
