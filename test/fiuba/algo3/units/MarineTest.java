@@ -19,19 +19,19 @@ public class MarineTest {
     }
 
     @Test
-    public void testStartingLifeEqualsTo40() throws Exception {
+    public void testStartingLife() throws Exception {
 
         assertEquals(40, this.aMarine.getLife());
     }
 
     @Test
-    public void testSizeForTransportEqualsTo1() throws Exception {
+    public void testSizeForTransport() throws Exception {
 
         assertEquals(1, this.aMarine.getSizeForTransport());
     }
 
     @Test
-    public void testConstructionTimeEqualsTo3() throws Exception {
+    public void testConstructionTime() throws Exception {
 
         assertEquals(3, this.aMarine.getConstructionTime());
     }
