@@ -17,4 +17,14 @@ public class UnitInConstructionTest {
 
         assertEquals(unitToBeBuilt.getRemainingTurns(), aMarine.getConstructionTime());
     }
+
+    @Test
+    public void testConstructionTimeAfterOneTurnEqualsToTheOneOfTheUnitMinusOne() throws Exception {
+
+        Marine aMarine = new Marine();
+        UnitInConstruction unitToBeBuilt = new UnitInConstruction(aMarine);
+        unitToBeBuilt.passTurn();
+
+        assertEquals(unitToBeBuilt.getRemainingTurns(), aMarine.getConstructionTime() - 1);
+    }
 }

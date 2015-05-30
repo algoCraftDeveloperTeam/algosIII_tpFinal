@@ -15,4 +15,8 @@ public class UnitInConstruction {
     public int getRemainingTurns() {
         return remainingTurnsToBeBuilt;
     }
+
+    public void passTurn() {
+        remainingTurnsToBeBuilt--;
+    }
 }
