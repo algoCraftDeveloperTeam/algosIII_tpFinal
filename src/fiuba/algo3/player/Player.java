@@ -6,7 +6,7 @@ import fiuba.algo3.gameVariables.PlayerResources;
  * Created by nsueiro on 29/05/15.
  */
 public class Player {
-    PlayerResources resources = new PlayerResources();
+    PlayerResources resources = new PlayerResources(200, 0);
 
     public int getGasStorage(){
         return resources.getGasStorage();

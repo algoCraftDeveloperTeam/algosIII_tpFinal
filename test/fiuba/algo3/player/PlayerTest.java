@@ -1,6 +1,7 @@
 package fiuba.algo3.player;
 
 import junit.framework.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -8,29 +9,32 @@ import org.junit.Test;
  */
 public class PlayerTest {
 
+    private Player aPlayer;
+    @Before
+    public void setUp() throws Exception {
+        this.aPlayer = new Player();
+    }
     @Test
     public void testGasInStorageIsZeroWhenInitialized(){
-        Player p = new Player();
-        Assert.assertEquals(p.getGasStorage(), 0);
+        Assert.assertEquals(this.aPlayer.getGasStorage(), 0);
     }
 
     @Test
-    public void testMineralsInStorageIsZeroWhenInitialized(){
-        Player p = new Player();
-        Assert.assertEquals(p.getMineralStorage(), 0);
+    public void testMineralsInStorageWhenInitialized(){
+        Assert.assertEquals(this.aPlayer.getMineralStorage(), 200);
     }
 
     @Test
     public void testAddGas(){
-        Player p = new Player();
-        p.addGas(10);
-        Assert.assertEquals(p.getGasStorage(), 10);
+        this.aPlayer.addGas(10);
+        Assert.assertEquals(this.aPlayer.getGasStorage(), 10);
     }
 
     @Test
     public void testAddMinerals(){
-        Player p = new Player();
-        p.addMinerals(10);
-        Assert.assertEquals(p.getMineralStorage(), 10);
+        this.aPlayer.addMinerals(10);
+        Assert.assertEquals(this.aPlayer.getMineralStorage(), 210);
     }
+
+
 }

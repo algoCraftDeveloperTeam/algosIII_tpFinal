@@ -6,24 +6,25 @@ package fiuba.algo3.gameVariables;
 public class PlayerResources {
     int gasStorage, mineralStorage;
 
-    public PlayerResources(){
-        gasStorage = 0;
-        mineralStorage = 0;
+    public PlayerResources(int startingMineral, int startingGas){
+        this.mineralStorage = startingMineral;
+        this.gasStorage = startingGas;
+
     }
 
     public int getGasStorage(){
-        return gasStorage;
+        return this.gasStorage;
     }
 
     public int getMineralStorage(){
-        return mineralStorage;
+        return this.mineralStorage;
     }
 
     public void addGas(int n){
-        gasStorage += n;
+        this.gasStorage += n;
     }
 
     public void addMinerals(int n){
-        mineralStorage += n;
+        this.mineralStorage += n;
     }
 }
