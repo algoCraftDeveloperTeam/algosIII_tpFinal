@@ -1,5 +1,6 @@
 package fiuba.algo3.units;
 
+import fiuba.algo3.gameVariables.Cost;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,14 +20,26 @@ public class MarineTest {
     }
 
     @Test
-    public void testStartingLifeEqualsTo40() throws Exception {
+    public void testStartingLife() throws Exception {
 
         assertEquals(40, this.aMarine.getLife());
     }
 
     @Test
-    public void testSizeForTransportEqualsTo1() throws Exception {
+    public void testSizeForTransport() throws Exception {
 
         assertEquals(1, this.aMarine.getSizeForTransport());
+    }
+
+    @Test
+    public void testConstructionTime() throws Exception {
+
+        assertEquals(3, this.aMarine.getTrainingTime());
+    }
+
+    @Test
+    public void testTrainingCost() throws Exception {
+        Cost aMarineCost = aMarine.getTrainingCost();
+        assertEquals(50, aMarineCost.getMineralCost());
     }
 }
