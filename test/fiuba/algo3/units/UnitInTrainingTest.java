@@ -35,10 +35,10 @@ public class UnitInTrainingTest {
     public void testGetUnitBeingTrained() throws Exception {
         assertEquals(this.aMarine, this.unitToBeTrained.getUnitBeingTrained());
     }
-    /*
+
     @Test
     public void testUnitIsNotReadyWhileTrainingTimeIsGreaterThanZero() throws Exception {
         assertFalse("", this.unitToBeTrained.isReady());
     }
-    */
+
 }

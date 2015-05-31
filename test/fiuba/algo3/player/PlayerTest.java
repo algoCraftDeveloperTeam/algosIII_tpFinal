@@ -10,6 +10,7 @@ import org.junit.Test;
 public class PlayerTest {
 
     private Player aPlayer;
+
     @Before
     public void setUp() throws Exception {
         this.aPlayer = new Player();
@@ -35,6 +36,4 @@ public class PlayerTest {
         this.aPlayer.addMinerals(10);
         Assert.assertEquals(this.aPlayer.getMineralStorage(), 210);
     }
-
-
 }

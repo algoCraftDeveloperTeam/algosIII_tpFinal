@@ -23,9 +23,8 @@ public class UnitInTraining {
     public Unit getUnitBeingTrained() {
         return unitToBeTrained;
     }
-    /*
+
     public boolean isReady() {
         return this.getRemainingTurns() == 0;
     }
-    */
 }
