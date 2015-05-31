@@ -8,7 +8,7 @@ public class SpaceTest{
 	@Test
 	public void canBuildShouldReturnFalse(){
         Tile space = new Space();
-        Assert.assertFalse(space.canBuild());
+        Assert.assertFalse(space.canBuild(1));
 	}
 
 }

@@ -1,10 +1,19 @@
 package fiuba.algo3.map;
 
-public class Earth extends Tile{
+public class Earth extends Tile implements Buildable{
 
-	@Override
-	public boolean canBuild(){
-		return true;
+	private int building;
+
+	public Earth(){
+		building = 0;
+	}
+
+	public boolean canBuild(int i){
+		if (building == 0){
+			return true;
+		} else{
+			return false;
+		}
 	}
 
 }

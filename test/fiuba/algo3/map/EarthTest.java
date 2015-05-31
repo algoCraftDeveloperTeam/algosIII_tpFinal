@@ -8,7 +8,7 @@ public class EarthTest{
 	@Test
 	public void canBuildShouldReturnTrue(){
         Tile earth = new Earth();
-        Assert.assertTrue(earth.canBuild());
+        Assert.assertTrue(earth.canBuild(1));
 	}
 
 }

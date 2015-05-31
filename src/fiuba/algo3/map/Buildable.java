@@ -1,6 +1,6 @@
 package fiuba.algo3.map;
 
-public abstract class Tile{
+public interface Buildable {
 
 	abstract boolean canBuild(int i);
 

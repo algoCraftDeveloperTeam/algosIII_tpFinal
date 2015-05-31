@@ -1,9 +1,12 @@
 package fiuba.algo3.map;
 
-public class Space extends Tile{
+public class Space extends Tile implements Buildable{
 
-	@Override
-	public boolean canBuild(){
+	public Space(){
+		
+	}
+
+	public boolean canBuild(int i){
 		return false;
 	}
 
