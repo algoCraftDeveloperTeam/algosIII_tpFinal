@@ -12,11 +12,7 @@ public class Earth extends Tile implements Buildable{
 	}
 
 	public boolean canBuild(Building b){
-		if (building.isNil()){
-			return true;
-		} else{
-			return false;
-		}
+		return building.isNil();
 	}
 
 	public void build(Building b){
