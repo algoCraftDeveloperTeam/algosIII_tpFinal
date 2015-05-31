@@ -25,8 +25,7 @@ public class UnitInTraining {
     }
     /*
     public boolean isReady() {
-        int timeLeft = this.getRemainingTurns();
-        return timeLeft == 0;
+        return this.getRemainingTurns() == 0;
     }
     */
 }
