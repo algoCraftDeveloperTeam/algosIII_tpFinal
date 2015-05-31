@@ -7,4 +7,8 @@ public class Building {
     // TO DO: add cost atribute.
     int constructionTime;
     int life;
+
+    public boolean isNil(){
+    	return false;
+    }
 }
