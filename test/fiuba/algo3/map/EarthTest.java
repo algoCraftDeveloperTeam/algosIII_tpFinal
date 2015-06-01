@@ -1,5 +1,6 @@
 package fiuba.algo3.map;
 
+import fiuba.algo3.player.Player;
 import junit.framework.Assert;
 import org.junit.Test;
 import fiuba.algo3.player.Player;
@@ -14,7 +15,7 @@ public class EarthTest{
 	Buildable earth = new Earth();
 	Buildable gas = new Gas();
 	Buildable mineral = new Mineral();
-	Building barrack = new Barracks();
+	Building barrack = new Barracks(player);
 	Building mineralGetter = new MineralCenter(player);
 	Building gasGetter = new Asimilator(player);
 

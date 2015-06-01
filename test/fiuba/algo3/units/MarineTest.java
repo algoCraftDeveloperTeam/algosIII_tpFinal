@@ -22,7 +22,7 @@ public class MarineTest {
     @Test
     public void testStartingLife() throws Exception {
 
-        assertEquals(40, this.aMarine.getLife());
+        assertEquals(40, this.aMarine.getVitality());
     }
 
     @Test
