@@ -11,7 +11,7 @@ import fiuba.algo3.buildings.MineralCenter;
 public class GasTest{
 
 	Player player = new Player();
-	Buildable gas = new Gas();
+	Buildable gas;
 	Building barrack = new Barracks(player);
 	Building mineralGetter = new MineralCenter(player);
 	Building gasGetter = new Asimilator(player);
@@ -19,23 +19,48 @@ public class GasTest{
 	
 	@Test
 	public void canBuildBarrackShouldReturnFalse(){
-        Assert.assertFalse(gas.canBuild(barrack));
+		gas = new Gas();
+		Assert.assertFalse(gas.canBuild(barrack));
 	}
 
 	@Test
 	public void canBuildMineralGetterShouldReturnFalse(){
+		gas = new Gas();
         Assert.assertFalse(gas.canBuild(mineralGetter));
 	}
 
 	@Test
 	public void canBuildGasGetterShouldReturnTrue(){
+		gas = new Gas();
 		Assert.assertTrue(gas.canBuild(gasGetter));
 	}
 
-	/*@Test
+	@Test
 	public void canBuildOcupiedShouldReturnFalse(){
+		gas = new Gas();
 		gas.build(gasGetter);
 		Assert.assertFalse(gas.canBuild(gasGetter));
-	}*/
+	}
+
+	@Test
+	public void canDestroyNotOcupiedShouldReturnFalse(){
+		gas = new Gas();
+		Assert.assertFalse(gas.canDestroy());
+	}
+
+	@Test
+	public void canDestroyOcupiedShouldReturnTrue(){
+		gas = new Gas();
+		gas.build(gasGetter);
+		Assert.assertTrue(gas.canDestroy());
+	}
+
+	@Test
+	public void canBuildOnDestroyShouldReturnTrue(){
+		gas = new Gas();
+		gas.build(gasGetter);
+		gas.destroy();
+		Assert.assertTrue(gas.canBuild(gasGetter));
+	}
 
 }

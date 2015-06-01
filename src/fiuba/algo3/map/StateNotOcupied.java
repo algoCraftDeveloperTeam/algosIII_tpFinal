@@ -4,8 +4,12 @@ import fiuba.algo3.buildings.Building;
 
 public class StateNotOcupied implements BuildState{
 
-	public boolean canBuild(Building b){
-		return b.isEarthBuildable();
+	public boolean canBuild(){
+		return true;
+	}
+
+	public boolean canDestroy(){
+		return false;
 	}
 
 }

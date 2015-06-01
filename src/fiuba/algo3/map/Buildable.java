@@ -8,4 +8,8 @@ public interface Buildable {
 
 	void build(Building b);
 
+	boolean canDestroy();
+
+	void destroy();
+
 }

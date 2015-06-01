@@ -4,6 +4,8 @@ import fiuba.algo3.buildings.Building;
 
 public interface BuildState {
 
-	boolean canBuild(Building b);
+	public boolean canBuild();
+
+	public boolean canDestroy();
 
 }

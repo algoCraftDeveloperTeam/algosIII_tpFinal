@@ -8,13 +8,34 @@ import fiuba.algo3.buildings.Barracks;
 
 public class SpaceTest{
 
+	Player player = new Player();
+	Buildable space;
+	Building barrack = new Barracks(player);
+
+	@Test
+	public void canBuildNotOcupiedShouldReturnFalse(){
+		space = new Space();
+        Assert.assertFalse(space.canBuild(barrack));
+	}
+
+	@Test
+	public void canDestroyNotOcupiedShouldReturnFalse(){
+        space = new Space();
+        Assert.assertFalse(space.canDestroy());
+	}
+
 	@Test
 	public void canBuildShouldReturnFalse(){
-        Tile space = new Space();
-        Player owner = new Player();
-        Building barrack = new Barracks(owner);
-        space.build(barrack);
+		space = new Space();
+		space.build(barrack);
         Assert.assertFalse(space.canBuild(barrack));
+	}
+
+	@Test
+	public void canDestroyShouldReturnFalse(){
+        space = new Space();
+        space.destroy();
+        Assert.assertFalse(space.canDestroy());
 	}
 
 }
