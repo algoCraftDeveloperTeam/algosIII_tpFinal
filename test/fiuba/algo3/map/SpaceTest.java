@@ -1,39 +1,43 @@
 package fiuba.algo3.map;
 
-import fiuba.algo3.player.Player;
 import junit.framework.Assert;
 import org.junit.Test;
+import org.junit.Before;
+import fiuba.algo3.player.Player;
 import fiuba.algo3.buildings.Building;
 import fiuba.algo3.buildings.Barracks;
 
 public class SpaceTest{
 
-	Player player = new Player();
+	Player player;
 	Buildable space;
-	Building barrack = new Barracks(player);
+	Building barrack;
+
+	@Before
+	public void setUp(){
+		player = new Player();
+		space = new Space();
+		barrack = new Barracks(player);
+	}
 
 	@Test
 	public void canBuildNotOcupiedShouldReturnFalse(){
-		space = new Space();
-        Assert.assertFalse(space.canBuild(barrack));
+		Assert.assertFalse(space.canBuild(barrack));
 	}
 
 	@Test
 	public void canDestroyNotOcupiedShouldReturnFalse(){
-        space = new Space();
         Assert.assertFalse(space.canDestroy());
 	}
 
 	@Test
 	public void canBuildShouldReturnFalse(){
-		space = new Space();
 		space.build(barrack);
         Assert.assertFalse(space.canBuild(barrack));
 	}
 
 	@Test
 	public void canDestroyShouldReturnFalse(){
-        space = new Space();
         space.destroy();
         Assert.assertFalse(space.canDestroy());
 	}
