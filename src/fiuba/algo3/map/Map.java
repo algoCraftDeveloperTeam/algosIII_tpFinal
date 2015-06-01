@@ -1,8 +1,6 @@
 package fiuba.algo3.map;
 
 import java.util.Random;
-import java.io.PrintWriter;
-import java.io.File;
 
 public class Map{
 
@@ -49,25 +47,34 @@ public class Map{
 	}
 
 	private void placeMineralAndGas(int posX, int posY){
-		Random random = new Random();
-		int randomColGas = -dimention;
-		int randomRowGas = -dimention;
-		int randomColMineral = -dimention;
-		int randomRowMineral = -dimention;
-		while((posX + randomColGas < 0) || (posX + randomColGas >= dimention)){
-			randomColGas = random.nextInt(5) - 2;
+		Random rand = new Random();
+		int randColGas = -dimention;
+		int randRowGas = -dimention;
+		int randColMineral = -dimention;
+		int randRowMineral = -dimention;
+		while(isNotValid(posX, randColGas, posY, randRowGas)){
+			randColGas = rand.nextInt(5) - 2;
+			randRowGas = rand.nextInt(5) - 2;
 		}
-		while(((posY + randomRowGas < 0) || (posY + randomRowGas >= dimention)) || ((randomColGas == 0) && (randomRowGas == 0))){
-			randomRowGas = random.nextInt(5) - 2;
+		while(isNotValid(posX, randColMineral, posY, randRowMineral) ||
+				isOverGas(randColMineral, randColGas, randRowMineral, randRowGas)){
+			randColMineral = rand.nextInt(5) - 2;
+			randRowMineral = rand.nextInt(5) - 2;
 		}
-		while((posX + randomColMineral < 0) || (posX + randomColMineral >= dimention)){
-			randomColMineral = random.nextInt(5) - 2;
-		}
-		while(((posY + randomRowMineral < 0) || (posY + randomRowMineral >= dimention)) || ((randomColMineral == 0) && (randomRowMineral == 0)) || ((randomColGas == randomColMineral) && (randomRowGas == randomRowMineral))){
-			randomRowMineral = random.nextInt(5) - 2;
-		}
-		tiles[posX + randomColGas][posY + randomRowGas] = new Gas();
-		tiles[posX + randomColMineral][posY + randomRowMineral] = new Mineral();
+		tiles[posX + randColGas][posY + randRowGas] = new Gas();
+		tiles[posX + randColMineral][posY + randRowMineral] = new Mineral();
+	}
+
+	private boolean isNotValid(int x, int offsetX, int y, int offsetY){
+		return ((x+offsetX < 0) ||
+				(x+offsetX >= dimention) ||
+				(y+offsetY < 0) ||
+				(y+offsetY >= dimention) ||
+				(offsetX == 0 && offsetY == 0));
+	}
+
+	private boolean isOverGas(int x1, int x2, int y1, int y2){
+		return ((x1 == x2) && (y1 == y2));
 	}
 
 }
