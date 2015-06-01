@@ -21,4 +21,36 @@ public class LifeTest {
     public void testGetLife() throws Exception {
         assertEquals(40, this.aLife.getVitality());
     }
+
+    @Test
+    public void testAttackReducesShield() {
+        this.aLife.receiveAttack(20);
+        assertEquals(30, this.aLife.getShield());
+    }
+
+    @Test
+    public void testAttackDoesNotReduceVitality() {
+        this.aLife.receiveAttack(20);
+        assertEquals(40, this.aLife.getVitality());
+    }
+
+    @Test
+    public void testRegenerateShield() {
+        this.aLife.receiveAttack(20);
+        this.aLife.regenerateShield();
+        assertEquals(40, this.aLife.getShield());
+    }
+
+    @Test
+    public void testAttackGreaterThanShieldReducesVitality() {
+        this.aLife.receiveAttack(60);
+        assertEquals(30, this.aLife.getVitality());
+    }
+
+    @Test
+    public void testABrokenShieldCannotRegenerate() {
+        this.aLife.receiveAttack(60);
+        this.aLife.regenerateShield();
+        assertEquals(0, this.aLife.getShield());
+    }
 }
