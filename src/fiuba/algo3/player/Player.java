@@ -7,6 +7,7 @@ import fiuba.algo3.gameVariables.PlayerResources;
  */
 public class Player {
     PlayerResources resources = new PlayerResources(200, 0);
+    int availablePopulation = 0;
 
     public int getGasStorage(){
         return resources.getGasStorage();
@@ -22,5 +23,13 @@ public class Player {
 
     public void addMinerals(int n){
         resources.addMinerals(n);
+    }
+
+    public int getAvailablePopulation() {
+        return availablePopulation;
+    }
+
+    public void addAvailablePopulation(int i) {
+        this.availablePopulation += 5;
     }
 }

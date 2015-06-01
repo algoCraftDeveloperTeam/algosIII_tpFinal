@@ -1,12 +1,17 @@
 package fiuba.algo3.buildings;
 
+import fiuba.algo3.gameVariables.Cost;
+import fiuba.algo3.gameVariables.Life;
+import fiuba.algo3.player.Player;
+
 /**
  * Created by mporto on 30/05/15.
  */
 public class Building {
-    // TO DO: add cost atribute.
+    Cost constructionCost;
     int constructionTime;
-    int life;
+    Life life;
+    Player owner;
 
     public boolean isNil(){
     	return false;
