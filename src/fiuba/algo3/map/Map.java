@@ -1,6 +1,8 @@
 package fiuba.algo3.map;
 
 import java.util.Random;
+import java.io.PrintWriter;
+import java.io.File;
 
 public class Map{
 
@@ -47,7 +49,7 @@ public class Map{
 	}
 
 	private void placeMineralAndGas(int posX, int posY){
-		/*Random random = new Random();
+		Random random = new Random();
 		int randomColGas = -dimention;
 		int randomRowGas = -dimention;
 		int randomColMineral = -dimention;
@@ -61,11 +63,11 @@ public class Map{
 		while((posX + randomColMineral < 0) || (posX + randomColMineral >= dimention)){
 			randomColMineral = random.nextInt(5) - 2;
 		}
-		while(((posY + randomRowMineral < 0) || (posY + randomRowMineral >= dimention)) || ((randomColMineral == 0) && (randomRowMineral == 0)) !! ((randomColGas == randomColMineral) && (randomRowGas == randomRowMineral))){
+		while(((posY + randomRowMineral < 0) || (posY + randomRowMineral >= dimention)) || ((randomColMineral == 0) && (randomRowMineral == 0)) || ((randomColGas == randomColMineral) && (randomRowGas == randomRowMineral))){
 			randomRowMineral = random.nextInt(5) - 2;
 		}
 		tiles[posX + randomColGas][posY + randomRowGas] = new Gas();
-		tiles[posX + randomColMineral][posY + randomRowMineral] = new Mineral();*/
+		tiles[posX + randomColMineral][posY + randomRowMineral] = new Mineral();
 	}
 
 }
