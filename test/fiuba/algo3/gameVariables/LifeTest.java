@@ -53,4 +53,11 @@ public class LifeTest {
         this.aLife.regenerateShield();
         assertEquals(0, this.aLife.getShield());
     }
+
+    @Test
+    public void testShieldCannotRegeneratePastItsMaxValue() {
+        this.aLife.receiveAttack(5);
+        this.aLife.regenerateShield();
+        assertEquals(50, this.aLife.getShield());
+    }
 }
