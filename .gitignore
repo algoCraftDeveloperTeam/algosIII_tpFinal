@@ -8,8 +8,8 @@ tmp/
 bin/
 build.xml.old
 build.xml
-
 .idea/
 *.iml
 out/
 *.txt
+*.html
