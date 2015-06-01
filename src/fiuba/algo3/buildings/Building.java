@@ -12,7 +12,6 @@ public class Building {
     int constructionTime;
     Life life;
     Player owner;
-
     public boolean isNil(){
     	return false;
     }

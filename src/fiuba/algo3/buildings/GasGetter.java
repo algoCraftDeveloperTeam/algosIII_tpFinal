@@ -1,13 +1,15 @@
 package fiuba.algo3.buildings;
 
-import fiuba.algo3.player.Player;
+import fiuba.algo3.gameVariables.Cost;
 /**
  * Created by nsueiro on 29/05/15.
  */
-public class GasGetter extends ResourceGetter{
-
+public abstract class GasGetter extends ResourceGetter{
+    public GasGetter() {
+        this.constructionCost = new Cost(100, 0);
+    }
     @Override
-    public void addToPlayerStorage(Player player){
-        player.addGas(this.quantity);
+    public void addToPlayerStorage(){
+        owner.addGas(quantity);
     }
 }

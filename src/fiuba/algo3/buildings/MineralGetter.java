@@ -1,15 +1,17 @@
 package fiuba.algo3.buildings;
 
-import fiuba.algo3.player.Player;
+import fiuba.algo3.gameVariables.Cost;
 
 /**
  * Created by nsueiro on 28/05/15.
  */
-public class MineralGetter extends ResourceGetter {
-
+public abstract class MineralGetter extends ResourceGetter {
+    public MineralGetter() {
+        this.constructionCost = new Cost(50, 0);
+    }
     @Override
-    public void addToPlayerStorage(Player player){
-        player.addMinerals(this.quantity);
+    public void addToPlayerStorage(){
+        owner.addMinerals(quantity);
     }
 
 }
