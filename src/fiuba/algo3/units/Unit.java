@@ -1,26 +1,27 @@
 package fiuba.algo3.units;
 
 import fiuba.algo3.gameVariables.Cost;
+import fiuba.algo3.gameVariables.Life;
 
 /**
  * Created by mporto on 28/05/15.
  */
 public class Unit {
 
-    int sizeForTransport;
+    static int sizeForTransport;
     int fieldOfVision;
-    Cost trainingCost;
+    static Cost trainingCost;
     int trainingTime;
     // TO DO: add damage atribute.
-    int unitSize;
+    static int unitSize;
     // TO DO: add attack_range.
-    int life;
+    Life life;
 
-    public int getLife() {
-        return life;
+    public int getVitality() {
+        return life.getVitality();
     }
 
-    public int getSizeForTransport() {
+    public static int getSizeForTransport() {
         return sizeForTransport;
     }
 
@@ -28,7 +29,7 @@ public class Unit {
         return trainingTime;
     }
 
-    public Cost getTrainingCost() {
+    public static Cost getTrainingCost() {
         return trainingCost;
     }
 }
