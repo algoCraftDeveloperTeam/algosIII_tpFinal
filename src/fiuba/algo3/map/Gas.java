@@ -3,16 +3,16 @@ package fiuba.algo3.map;
 import fiuba.algo3.buildings.Building;
 import fiuba.algo3.buildings.NullBuilding;
 
-public class Earth extends Tile implements Buildable{
+public class Gas extends Tile implements Buildable{
 
 	private Building building;
 
-	public Earth(){
+	public Gas(){
 		building = new NullBuilding();
 	}
 
 	public boolean canBuild(Building b){
-		return building.isEarthBuildable();
+		return building.isGasBuildable();
 	}
 
 	public void build(Building b){

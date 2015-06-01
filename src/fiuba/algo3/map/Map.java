@@ -15,6 +15,8 @@ public class Map{
 		dimention = dim;
 		generateEarthAndSpace();
 		placeBases();
+		placeMineralAndGas(posXPlayer1, posYPlayer1);
+		placeMineralAndGas(posXPlayer2, posYPlayer2);
 	}
 
 	private void generateEarthAndSpace(){
@@ -42,6 +44,28 @@ public class Map{
 		posYPlayer1 = randomRow;
 		posXPlayer2 = dimention - randomCol - 1;
 		posYPlayer2 = dimention - randomRow - 1;
+	}
+
+	private void placeMineralAndGas(int posX, int posY){
+		/*Random random = new Random();
+		int randomColGas = -dimention;
+		int randomRowGas = -dimention;
+		int randomColMineral = -dimention;
+		int randomRowMineral = -dimention;
+		while((posX + randomColGas < 0) || (posX + randomColGas >= dimention)){
+			randomColGas = random.nextInt(5) - 2;
+		}
+		while(((posY + randomRowGas < 0) || (posY + randomRowGas >= dimention)) || ((randomColGas == 0) && (randomRowGas == 0))){
+			randomRowGas = random.nextInt(5) - 2;
+		}
+		while((posX + randomColMineral < 0) || (posX + randomColMineral >= dimention)){
+			randomColMineral = random.nextInt(5) - 2;
+		}
+		while(((posY + randomRowMineral < 0) || (posY + randomRowMineral >= dimention)) || ((randomColMineral == 0) && (randomRowMineral == 0)) !! ((randomColGas == randomColMineral) && (randomRowGas == randomRowMineral))){
+			randomRowMineral = random.nextInt(5) - 2;
+		}
+		tiles[posX + randomColGas][posY + randomRowGas] = new Gas();
+		tiles[posX + randomColMineral][posY + randomRowMineral] = new Mineral();*/
 	}
 
 }
