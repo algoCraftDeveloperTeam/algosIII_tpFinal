@@ -6,8 +6,8 @@ package fiuba.algo3.buildings;
 public class NullBuilding extends Building{
 
 	@Override
-	public boolean isNil(){
-		return true;
-	}
+	public boolean isEarthBuildable(){
+    	return false;
+    }
 
 }

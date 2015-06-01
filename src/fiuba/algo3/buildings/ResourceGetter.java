@@ -12,5 +12,9 @@ public abstract class ResourceGetter extends Building{
     public int getShield(){
         return life.getShield();
     }
+    @Override
+    public boolean isEarthBuildable(){
+    	return false;
+    }
     // TO DO: receiveAttack
 }

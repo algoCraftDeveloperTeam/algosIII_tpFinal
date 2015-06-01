@@ -6,18 +6,20 @@ import fiuba.algo3.buildings.NullBuilding;
 public class Earth extends Tile implements Buildable{
 
 	private Building building;
+	private BuildState state;
 
 	public Earth(){
-		building = new NullBuilding();
+		state = new StateNotOcupied();
 	}
 
 	public boolean canBuild(Building b){
-		return building.isEarthBuildable();
+		return state.canBuild(b);
 	}
 
 	public void build(Building b){
 		if (this.canBuild(b)){
 			building = b;
+			state = new StateOcupied();
 		}
 	}
 

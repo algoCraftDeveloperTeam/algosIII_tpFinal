@@ -12,7 +12,14 @@ public class Building {
     int constructionTime;
     Life life;
     Player owner;
-    public boolean isNil(){
+    public boolean isEarthBuildable(){
+    	return true;
+    }
+    public boolean isGasBuildable(){
     	return false;
     }
+    public boolean isMineralBuildable(){
+    	return false;
+    }
+    
 }

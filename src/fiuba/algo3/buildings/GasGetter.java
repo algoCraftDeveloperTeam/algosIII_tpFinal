@@ -12,4 +12,9 @@ public abstract class GasGetter extends ResourceGetter{
     public void addToPlayerStorage(){
         owner.addGas(quantity);
     }
+    @Override
+    public boolean isGasBuildable(){
+    	return true;
+    }
+    
 }

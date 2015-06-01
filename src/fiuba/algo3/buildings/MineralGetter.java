@@ -13,5 +13,9 @@ public abstract class MineralGetter extends ResourceGetter {
     public void addToPlayerStorage(){
         owner.addMinerals(quantity);
     }
+    @Override
+    public boolean isMineralBuildable(){
+    	return true;
+    }
 
 }
