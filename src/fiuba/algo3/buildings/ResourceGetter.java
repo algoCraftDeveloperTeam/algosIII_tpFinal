@@ -1,11 +1,16 @@
 package fiuba.algo3.buildings;
 
-import fiuba.algo3.player.Player;
-
 /**
  * Created by nsueiro on 29/05/15.
  */
-public abstract class ResourceGetter {
+public abstract class ResourceGetter extends Building{
     public int quantity = 10;
-    public abstract void addToPlayerStorage(Player player);
+    public abstract void addToPlayerStorage();
+    public int getVitality(){
+        return life.getVitality();
+    }
+    public int getShield(){
+        return life.getShield();
+    }
+    // TO DO: receiveAttack
 }
