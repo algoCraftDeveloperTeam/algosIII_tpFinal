@@ -8,33 +8,34 @@ import fiuba.algo3.buildings.Barracks;
 import fiuba.algo3.buildings.Asimilator;
 import fiuba.algo3.buildings.MineralCenter;
 
-public class EarthTest{
+public class GasTest{
 
 	Player player = new Player();
-	Buildable earth = new Earth();
+	Buildable gas = new Gas();
 	Building barrack = new Barracks(player);
 	Building mineralGetter = new MineralCenter(player);
 	Building gasGetter = new Asimilator(player);
 
+	
 	@Test
-	public void canBuildGasGetterShouldReturnFalse(){
-        Assert.assertFalse(earth.canBuild(gasGetter));
+	public void canBuildBarrackShouldReturnFalse(){
+        Assert.assertFalse(gas.canBuild(barrack));
 	}
 
 	@Test
 	public void canBuildMineralGetterShouldReturnFalse(){
-        Assert.assertFalse(earth.canBuild(mineralGetter));
+        Assert.assertFalse(gas.canBuild(mineralGetter));
 	}
 
 	@Test
-	public void canBuildBarrackShouldReturnTrue(){
-        Assert.assertTrue(earth.canBuild(barrack));
+	public void canBuildGasGetterShouldReturnTrue(){
+		Assert.assertTrue(gas.canBuild(gasGetter));
 	}
 
-	@Test
+	/*@Test
 	public void canBuildOcupiedShouldReturnFalse(){
-		earth.build(barrack);
-		Assert.assertFalse(earth.canBuild(barrack));
-	}
+		gas.build(gasGetter);
+		Assert.assertFalse(gas.canBuild(gasGetter));
+	}*/
 
 }

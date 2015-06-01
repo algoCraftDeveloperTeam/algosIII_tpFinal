@@ -12,7 +12,7 @@ public class Gas extends Tile implements Buildable{
 	}
 
 	public boolean canBuild(Building b){
-		return building.isGasBuildable();
+		return b.isGasBuildable();
 	}
 
 	public void build(Building b){

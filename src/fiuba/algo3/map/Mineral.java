@@ -12,7 +12,7 @@ public class Mineral extends Tile implements Buildable{
 	}
 
 	public boolean canBuild(Building b){
-		return building.isMineralBuildable();
+		return b.isMineralBuildable();
 	}
 
 	public void build(Building b){

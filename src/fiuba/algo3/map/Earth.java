@@ -1,7 +1,6 @@
 package fiuba.algo3.map;
 
 import fiuba.algo3.buildings.Building;
-import fiuba.algo3.buildings.NullBuilding;
 
 public class Earth extends Tile implements Buildable{
 
