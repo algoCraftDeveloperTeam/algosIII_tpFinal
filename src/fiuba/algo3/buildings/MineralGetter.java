@@ -8,6 +8,7 @@ import fiuba.algo3.gameVariables.Cost;
 public abstract class MineralGetter extends ResourceGetter {
     public MineralGetter() {
         this.constructionCost = new Cost(50, 0);
+        this.constructionTime = 4;
     }
     @Override
     public void addToPlayerStorage(){

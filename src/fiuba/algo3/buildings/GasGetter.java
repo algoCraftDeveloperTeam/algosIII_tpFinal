@@ -7,6 +7,7 @@ import fiuba.algo3.gameVariables.Cost;
 public abstract class GasGetter extends ResourceGetter{
     public GasGetter() {
         this.constructionCost = new Cost(100, 0);
+        this.constructionTime = 4;
     }
     @Override
     public void addToPlayerStorage(){
@@ -16,5 +17,4 @@ public abstract class GasGetter extends ResourceGetter{
     public boolean isGasBuildable(){
     	return true;
     }
-    
 }
