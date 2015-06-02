@@ -17,14 +17,11 @@ public class Mineral extends Tile{
 	}
 
 	public boolean canStand(Unit u){
-		return (occupantBuilding.canOccupy() && occupantUnit.canOccupy());
+		return false;
 	}
 
 	public void stand(Unit u){
-		if (this.canStand(u)){
-			unit = u;
-			occupantUnit = new StateOcupied();
-		}
+		
 	}
 
 }

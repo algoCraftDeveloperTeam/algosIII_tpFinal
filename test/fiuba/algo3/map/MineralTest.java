@@ -52,12 +52,6 @@ public class MineralTest{
 	}
 
 	@Test
-	public void testCanBuildOcupiedWithUnitShouldReturnFalse(){
-		mineral.stand(marine);
-		Assert.assertFalse(mineral.canBuild(mineralGetter));
-	}
-
-	@Test
 	public void testCanDestroyNotOcupiedShouldReturnFalse(){
 		Assert.assertFalse(mineral.canDestroy());
 	}
@@ -76,38 +70,25 @@ public class MineralTest{
 	}
 
 	@Test
-	public void testCanStandUnitShouldReturnTrue(){
-		Assert.assertTrue(mineral.canStand(marine));
-	}
-
-	@Test
-	public void testCanStandUnitWithBuildingShouldReturnFalse(){
-		mineral.build(mineralGetter);
-		Assert.assertFalse(mineral.canStand(marine));
-	}
-
-	@Test
-	public void testCanStandUnitWithUnitShouldReturnFalse(){
-		mineral.stand(marine);
+	public void testCanStandNotOcupiedShouldReturnFalse(){
 		Assert.assertFalse(mineral.canStand(marine));
 	}
 
 	@Test
 	public void testCanLeaveNotOcupiedShouldReturnFalse(){
-		Assert.assertFalse(mineral.canLeave());
+        Assert.assertFalse(mineral.canLeave());
 	}
 
 	@Test
-	public void testCanLeaveOcupiedShouldReturnTrue(){
+	public void testCanStandShouldReturnFalse(){
 		mineral.stand(marine);
-		Assert.assertTrue(mineral.canLeave());
+		Assert.assertFalse(mineral.canStand(marine));
 	}
 
 	@Test
-	public void testCanStandOnLeaveShouldReturnTrue(){
-		mineral.stand(marine);
-		mineral.leave();
-		Assert.assertTrue(mineral.canStand(marine));
+	public void testCanLeaveShouldReturnFalse(){
+        mineral.leave();
+        Assert.assertFalse(mineral.canLeave());
 	}
 
 }
