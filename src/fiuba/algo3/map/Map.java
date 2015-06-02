@@ -17,6 +17,7 @@ public class Map{
 		placeBases();
 		placeMineralAndGas(posXPlayer1, posYPlayer1);
 		placeMineralAndGas(posXPlayer2, posYPlayer2);
+		//showMap();
 	}
 
 	private void generateEarthAndSpace(){
@@ -77,4 +78,28 @@ public class Map{
 		return ((x1 == x2) && (y1 == y2));
 	}
 
+/*	private void showMap(){
+		for(int i = 0; i < dimention; i++){
+			String line = "";
+			for(int j = 0; j < dimention; j++){
+				line += writeTile(j,i);
+			}
+			System.out.println(line);
+		}
+	}
+
+	private boolean isBase(int col, int row){
+		return ((posXPlayer1 == col && posYPlayer1 == row) || (posXPlayer2 == col && posYPlayer2 == row));
+	}
+
+	private String writeTile(int col, int row){
+		if (isBase(col,row)){
+			return "o";
+		} else if (tiles[col][row] instanceof Earth){
+			return ".";
+		} else{
+			return "*";
+		}
+	}
+*/
 }
