@@ -1,12 +1,12 @@
 package fiuba.algo3.map;
 
-public class StateOcupied implements BuildState{
+public class StateOcupied implements OccupantState{
 
-	public boolean canBuild(){
+	public boolean canOccupy(){
 		return false;
 	}
 
-	public boolean canDestroy(){
+	public boolean canQuit(){
 		return true;
 	}
 
