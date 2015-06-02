@@ -6,18 +6,22 @@ import org.junit.Before;
 import fiuba.algo3.player.Player;
 import fiuba.algo3.buildings.Building;
 import fiuba.algo3.buildings.Barracks;
+import fiuba.algo3.units.Unit;
+import fiuba.algo3.units.Marine;
 
 public class SpaceTest{
 
 	Player player;
-	Buildable space;
+	Tile space;
 	Building barrack;
+	Unit marine;
 
 	@Before
 	public void setUp(){
 		player = new Player();
 		space = new Space();
 		barrack = new Barracks(player);
+		marine = new Marine();
 	}
 
 	@Test
@@ -31,6 +35,16 @@ public class SpaceTest{
 	}
 
 	@Test
+	public void testCanStandNotOcupiedShouldReturnFalse(){
+		Assert.assertFalse(space.canStand(marine));
+	}
+
+	@Test
+	public void testCanLeaveNotOcupiedShouldReturnFalse(){
+        Assert.assertFalse(space.canLeave());
+	}
+
+	@Test
 	public void testCanBuildShouldReturnFalse(){
 		space.build(barrack);
         Assert.assertFalse(space.canBuild(barrack));
@@ -40,6 +54,18 @@ public class SpaceTest{
 	public void testCanDestroyShouldReturnFalse(){
         space.destroy();
         Assert.assertFalse(space.canDestroy());
+	}
+
+	@Test
+	public void testCanStandShouldReturnFalse(){
+		space.stand(marine);
+		Assert.assertFalse(space.canStand(marine));
+	}
+
+	@Test
+	public void testCanLeaveShouldReturnFalse(){
+        space.leave();
+        Assert.assertFalse(space.canLeave());
 	}
 
 }

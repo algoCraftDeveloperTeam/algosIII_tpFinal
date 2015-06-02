@@ -8,14 +8,17 @@ import fiuba.algo3.buildings.Building;
 import fiuba.algo3.buildings.Barracks;
 import fiuba.algo3.buildings.Asimilator;
 import fiuba.algo3.buildings.MineralCenter;
+import fiuba.algo3.units.Unit;
+import fiuba.algo3.units.Marine;
 
 public class GasTest{
 
 	Player player;
-	Buildable gas;
+	Tile gas;
 	Building barrack;
 	Building mineralGetter;
 	Building gasGetter;
+	Unit marine;
 
 	@Before
 	public void setUp(){
@@ -24,6 +27,7 @@ public class GasTest{
 		barrack = new Barracks(player);
 		mineralGetter = new MineralCenter(player);
 		gasGetter = new Asimilator(player);
+		marine = new Marine();
 	}
 	
 	@Test
@@ -42,8 +46,14 @@ public class GasTest{
 	}
 
 	@Test
-	public void testCanBuildOcupiedShouldReturnFalse(){
+	public void testCanBuildOcupiedWithBuildingShouldReturnFalse(){
 		gas.build(gasGetter);
+		Assert.assertFalse(gas.canBuild(gasGetter));
+	}
+
+	@Test
+	public void testCanBuildOcupiedWithUnitShouldReturnFalse(){
+		gas.stand(marine);
 		Assert.assertFalse(gas.canBuild(gasGetter));
 	}
 
@@ -63,6 +73,41 @@ public class GasTest{
 		gas.build(gasGetter);
 		gas.destroy();
 		Assert.assertTrue(gas.canBuild(gasGetter));
+	}
+
+	@Test
+	public void testCanStandUnitShouldReturnTrue(){
+		Assert.assertTrue(gas.canStand(marine));
+	}
+
+	@Test
+	public void testCanStandUnitWithBuildingShouldReturnFalse(){
+		gas.build(gasGetter);
+		Assert.assertFalse(gas.canStand(marine));
+	}
+
+	@Test
+	public void testCanStandUnitWithUnitShouldReturnFalse(){
+		gas.stand(marine);
+		Assert.assertFalse(gas.canStand(marine));
+	}
+
+	@Test
+	public void testCanLeaveNotOcupiedShouldReturnFalse(){
+		Assert.assertFalse(gas.canLeave());
+	}
+
+	@Test
+	public void testCanLeaveOcupiedShouldReturnTrue(){
+		gas.stand(marine);
+		Assert.assertTrue(gas.canLeave());
+	}
+
+	@Test
+	public void testCanStandOnLeaveShouldReturnTrue(){
+		gas.stand(marine);
+		gas.leave();
+		Assert.assertTrue(gas.canStand(marine));
 	}
 
 }

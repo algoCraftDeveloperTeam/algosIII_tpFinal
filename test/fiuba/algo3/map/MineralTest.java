@@ -8,14 +8,17 @@ import fiuba.algo3.buildings.Building;
 import fiuba.algo3.buildings.Barracks;
 import fiuba.algo3.buildings.Asimilator;
 import fiuba.algo3.buildings.MineralCenter;
+import fiuba.algo3.units.Unit;
+import fiuba.algo3.units.Marine;
 
 public class MineralTest{
 
 	Player player;
-	Buildable mineral;
+	Tile mineral;
 	Building barrack;
 	Building mineralGetter;
 	Building gasGetter;
+	Unit marine;
 
 	@Before
 	public void setUp(){
@@ -24,6 +27,7 @@ public class MineralTest{
 		barrack = new Barracks(player);
 		mineralGetter = new MineralCenter(player);
 		gasGetter = new Asimilator(player);
+		marine = new Marine();
 	}
 
 	@Test
@@ -42,8 +46,14 @@ public class MineralTest{
 	}
 
 	@Test
-	public void testCanBuildOcupiedShouldReturnFalse(){
+	public void testCanBuildOcupieWithBuildingdShouldReturnFalse(){
 		mineral.build(mineralGetter);
+		Assert.assertFalse(mineral.canBuild(mineralGetter));
+	}
+
+	@Test
+	public void testCanBuildOcupiedWithUnitShouldReturnFalse(){
+		mineral.stand(marine);
 		Assert.assertFalse(mineral.canBuild(mineralGetter));
 	}
 
@@ -63,6 +73,41 @@ public class MineralTest{
 		mineral.build(mineralGetter);
 		mineral.destroy();
 		Assert.assertTrue(mineral.canBuild(mineralGetter));
+	}
+
+	@Test
+	public void testCanStandUnitShouldReturnTrue(){
+		Assert.assertTrue(mineral.canStand(marine));
+	}
+
+	@Test
+	public void testCanStandUnitWithBuildingShouldReturnFalse(){
+		mineral.build(mineralGetter);
+		Assert.assertFalse(mineral.canStand(marine));
+	}
+
+	@Test
+	public void testCanStandUnitWithUnitShouldReturnFalse(){
+		mineral.stand(marine);
+		Assert.assertFalse(mineral.canStand(marine));
+	}
+
+	@Test
+	public void testCanLeaveNotOcupiedShouldReturnFalse(){
+		Assert.assertFalse(mineral.canLeave());
+	}
+
+	@Test
+	public void testCanLeaveOcupiedShouldReturnTrue(){
+		mineral.stand(marine);
+		Assert.assertTrue(mineral.canLeave());
+	}
+
+	@Test
+	public void testCanStandOnLeaveShouldReturnTrue(){
+		mineral.stand(marine);
+		mineral.leave();
+		Assert.assertTrue(mineral.canStand(marine));
 	}
 
 }

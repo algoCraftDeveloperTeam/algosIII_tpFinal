@@ -9,14 +9,17 @@ import fiuba.algo3.buildings.Barracks;
 import fiuba.algo3.buildings.Asimilator;
 import fiuba.algo3.buildings.MineralCenter;
 import fiuba.algo3.buildings.NullBuilding;
+import fiuba.algo3.units.Unit;
+import fiuba.algo3.units.Marine;
 
 public class EarthTest{
 
 	Player player;
-	Buildable earth;
+	Tile earth;
 	Building barrack;
 	Building mineralGetter;
 	Building gasGetter;
+	Unit marine;
 
 	@Before
 	public void setUp(){
@@ -25,6 +28,7 @@ public class EarthTest{
 		barrack = new Barracks(player);
 		mineralGetter = new MineralCenter(player);
 		gasGetter = new Asimilator(player);
+		marine = new Marine();
 	}
 
 	@Test
@@ -43,8 +47,14 @@ public class EarthTest{
 	}
 
 	@Test
-	public void testCanBuildOcupiedShouldReturnFalse(){
+	public void testCanBuildOcupiedWithBuildingShouldReturnFalse(){
 		earth.build(barrack);
+		Assert.assertFalse(earth.canBuild(barrack));
+	}
+
+	@Test
+	public void testCanBuildOcupiedWithUnitShouldReturnFalse(){
+		earth.stand(marine);
 		Assert.assertFalse(earth.canBuild(barrack));
 	}
 
@@ -70,6 +80,41 @@ public class EarthTest{
 	public void testCanBuildNothingShouldReturnFalse(){
 		Building nullBuilding = new NullBuilding();
 		Assert.assertFalse(earth.canBuild(nullBuilding));
+	}
+
+	@Test
+	public void testCanStandUnitShouldReturnTrue(){
+		Assert.assertTrue(earth.canStand(marine));
+	}
+
+	@Test
+	public void testCanStandUnitWithBuildingShouldReturnFalse(){
+		earth.build(barrack);
+		Assert.assertFalse(earth.canStand(marine));
+	}
+
+	@Test
+	public void testCanStandUnitWithUnitShouldReturnFalse(){
+		earth.stand(marine);
+		Assert.assertFalse(earth.canStand(marine));
+	}
+
+	@Test
+	public void testCanLeaveNotOcupiedShouldReturnFalse(){
+		Assert.assertFalse(earth.canLeave());
+	}
+
+	@Test
+	public void testCanLeaveOcupiedShouldReturnTrue(){
+		earth.stand(marine);
+		Assert.assertTrue(earth.canLeave());
+	}
+
+	@Test
+	public void testCanStandOnLeaveShouldReturnTrue(){
+		earth.stand(marine);
+		earth.leave();
+		Assert.assertTrue(earth.canStand(marine));
 	}
 
 }
