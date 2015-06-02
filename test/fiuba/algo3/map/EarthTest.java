@@ -28,46 +28,46 @@ public class EarthTest{
 	}
 
 	@Test
-	public void canBuildGasGetterShouldReturnFalse(){
+	public void testCanBuildGasGetterShouldReturnFalse(){
 		Assert.assertFalse(earth.canBuild(gasGetter));
 	}
 
 	@Test
-	public void canBuildMineralGetterShouldReturnFalse(){
+	public void testCanBuildMineralGetterShouldReturnFalse(){
 		Assert.assertFalse(earth.canBuild(mineralGetter));
 	}
 
 	@Test
-	public void canBuildBarrackShouldReturnTrue(){
+	public void testCanBuildBarrackShouldReturnTrue(){
 		Assert.assertTrue(earth.canBuild(barrack));
 	}
 
 	@Test
-	public void canBuildOcupiedShouldReturnFalse(){
+	public void testCanBuildOcupiedShouldReturnFalse(){
 		earth.build(barrack);
 		Assert.assertFalse(earth.canBuild(barrack));
 	}
 
 	@Test
-	public void canDestroyNotOcupiedShouldReturnFalse(){
+	public void testCanDestroyNotOcupiedShouldReturnFalse(){
 		Assert.assertFalse(earth.canDestroy());
 	}
 
 	@Test
-	public void canDestroyOcupiedShouldReturnTrue(){
+	public void testCanDestroyOcupiedShouldReturnTrue(){
 		earth.build(barrack);
 		Assert.assertTrue(earth.canDestroy());
 	}
 
 	@Test
-	public void canBuildOnDestroyShouldReturnTrue(){
+	public void testCanBuildOnDestroyShouldReturnTrue(){
 		earth.build(barrack);
 		earth.destroy();
 		Assert.assertTrue(earth.canBuild(barrack));
 	}
 
 	@Test
-	public void canBuildNothingShouldReturnFalse(){
+	public void testCanBuildNothingShouldReturnFalse(){
 		Building nullBuilding = new NullBuilding();
 		Assert.assertFalse(earth.canBuild(nullBuilding));
 	}

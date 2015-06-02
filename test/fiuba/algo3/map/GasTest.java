@@ -27,39 +27,39 @@ public class GasTest{
 	}
 	
 	@Test
-	public void canBuildBarrackShouldReturnFalse(){
+	public void testCanBuildBarrackShouldReturnFalse(){
 		Assert.assertFalse(gas.canBuild(barrack));
 	}
 
 	@Test
-	public void canBuildMineralGetterShouldReturnFalse(){
+	public void testCanBuildMineralGetterShouldReturnFalse(){
 		Assert.assertFalse(gas.canBuild(mineralGetter));
 	}
 
 	@Test
-	public void canBuildGasGetterShouldReturnTrue(){
+	public void testCanBuildGasGetterShouldReturnTrue(){
 		Assert.assertTrue(gas.canBuild(gasGetter));
 	}
 
 	@Test
-	public void canBuildOcupiedShouldReturnFalse(){
+	public void testCanBuildOcupiedShouldReturnFalse(){
 		gas.build(gasGetter);
 		Assert.assertFalse(gas.canBuild(gasGetter));
 	}
 
 	@Test
-	public void canDestroyNotOcupiedShouldReturnFalse(){
+	public void testCanDestroyNotOcupiedShouldReturnFalse(){
 		Assert.assertFalse(gas.canDestroy());
 	}
 
 	@Test
-	public void canDestroyOcupiedShouldReturnTrue(){
+	public void testCanDestroyOcupiedShouldReturnTrue(){
 		gas.build(gasGetter);
 		Assert.assertTrue(gas.canDestroy());
 	}
 
 	@Test
-	public void canBuildOnDestroyShouldReturnTrue(){
+	public void testCanBuildOnDestroyShouldReturnTrue(){
 		gas.build(gasGetter);
 		gas.destroy();
 		Assert.assertTrue(gas.canBuild(gasGetter));

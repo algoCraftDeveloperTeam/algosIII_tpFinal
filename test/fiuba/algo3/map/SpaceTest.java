@@ -21,23 +21,23 @@ public class SpaceTest{
 	}
 
 	@Test
-	public void canBuildNotOcupiedShouldReturnFalse(){
+	public void testCanBuildNotOcupiedShouldReturnFalse(){
 		Assert.assertFalse(space.canBuild(barrack));
 	}
 
 	@Test
-	public void canDestroyNotOcupiedShouldReturnFalse(){
+	public void testCanDestroyNotOcupiedShouldReturnFalse(){
         Assert.assertFalse(space.canDestroy());
 	}
 
 	@Test
-	public void canBuildShouldReturnFalse(){
+	public void testCanBuildShouldReturnFalse(){
 		space.build(barrack);
         Assert.assertFalse(space.canBuild(barrack));
 	}
 
 	@Test
-	public void canDestroyShouldReturnFalse(){
+	public void testCanDestroyShouldReturnFalse(){
         space.destroy();
         Assert.assertFalse(space.canDestroy());
 	}

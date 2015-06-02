@@ -27,39 +27,39 @@ public class MineralTest{
 	}
 
 	@Test
-	public void canBuildBarrackShouldReturnFalse(){
+	public void testCanBuildBarrackShouldReturnFalse(){
 		Assert.assertFalse(mineral.canBuild(barrack));
 	}
 
 	@Test
-	public void canBuildGasGetterShouldReturnFalse(){
+	public void testCanBuildGasGetterShouldReturnFalse(){
 		Assert.assertFalse(mineral.canBuild(gasGetter));
 	}
 
 	@Test
-	public void canBuildMineralGetterShouldReturnTrue(){
+	public void testCanBuildMineralGetterShouldReturnTrue(){
 		Assert.assertTrue(mineral.canBuild(mineralGetter));
 	}
 
 	@Test
-	public void canBuildOcupiedShouldReturnFalse(){
+	public void testCanBuildOcupiedShouldReturnFalse(){
 		mineral.build(mineralGetter);
 		Assert.assertFalse(mineral.canBuild(mineralGetter));
 	}
 
 	@Test
-	public void canDestroyNotOcupiedShouldReturnFalse(){
+	public void testCanDestroyNotOcupiedShouldReturnFalse(){
 		Assert.assertFalse(mineral.canDestroy());
 	}
 
 	@Test
-	public void canDestroyOcupiedShouldReturnTrue(){
+	public void testCanDestroyOcupiedShouldReturnTrue(){
 		mineral.build(mineralGetter);
 		Assert.assertTrue(mineral.canDestroy());
 	}
 
 	@Test
-	public void canBuildOnDestroyShouldReturnTrue(){
+	public void testCanBuildOnDestroyShouldReturnTrue(){
 		mineral.build(mineralGetter);
 		mineral.destroy();
 		Assert.assertTrue(mineral.canBuild(mineralGetter));
