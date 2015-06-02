@@ -50,19 +50,12 @@ public class PlayerTest {
         BuildingInConstruction aBuildingInConstruction = this.aPlayer.build(buildingToBeConstructed);
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void testStartConstructionOfABuildingWithoutTheRequiredResources() throws Exception {
-        try {
-            Building buildingToBeConstructed1 = new Barracks(aPlayer);
-            BuildingInConstruction aBuildingInConstruction1 = this.aPlayer.build(buildingToBeConstructed1);
-            Building buildingToBeConstructed2 = new Barracks(aPlayer);
-            BuildingInConstruction aBuildingInConstruction2 = this.aPlayer.build(buildingToBeConstructed2);
-        } catch(Exception e){
-            // This is horrible
-            Assert.assertTrue(true);
-        }
-
-        //Assert.assertTrue(false);
-
+        // TO DO: Create a specific Exception for this situation.
+        Building buildingToBeConstructed1 = new Barracks(aPlayer);
+        BuildingInConstruction aBuildingInConstruction1 = this.aPlayer.build(buildingToBeConstructed1);
+        Building buildingToBeConstructed2 = new Barracks(aPlayer);
+        BuildingInConstruction aBuildingInConstruction2 = this.aPlayer.build(buildingToBeConstructed2);
     }
 }

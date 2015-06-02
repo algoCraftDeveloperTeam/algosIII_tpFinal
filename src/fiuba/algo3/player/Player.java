@@ -2,11 +2,9 @@ package fiuba.algo3.player;
 
 import fiuba.algo3.buildings.Building;
 import fiuba.algo3.buildings.BuildingInConstruction;
-import fiuba.algo3.buildings.MineralNexus;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.PlayerResources;
 import fiuba.algo3.gameVariables.Population;
-import fiuba.algo3.map.Mineral;
 
 /**
  * Created by nsueiro on 29/05/15.
@@ -44,7 +42,7 @@ public class Player {
             BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed);
             return buildingInConstruction;
         }
-        // Probably we should add an Error if the requirements aren't met.
+        // We should add an Error if the requirements aren't met.
         throw new Exception();
     }
 
