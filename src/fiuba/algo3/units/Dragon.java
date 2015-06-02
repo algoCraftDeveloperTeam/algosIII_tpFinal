@@ -6,13 +6,14 @@ import fiuba.algo3.gameVariables.Life;
 /**
  * Created by mporto on 02/06/15.
  */
-public class TransportVessel extends Unit{
-    public TransportVessel() {
-        sizeForTransport = 0;
+public class Dragon extends Unit{
+
+    public Dragon() {
+        sizeForTransport = 4;
         fieldOfVision = 8;
-        trainingTime = 7;
+        trainingTime = 6;
         unitSize = 2;
-        life = new Life(150, 0);
-        trainingCost = new Cost(100, 100);
+        life = new Life(100, 80);
+        trainingCost = new Cost(125, 50);
     }
 }

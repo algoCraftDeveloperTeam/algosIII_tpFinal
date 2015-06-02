@@ -9,50 +9,49 @@ import static org.junit.Assert.*;
 /**
  * Created by mporto on 02/06/15.
  */
-public class TransportVesselTest {
+public class DragonTest {
 
-    private TransportVessel aTransportVessel;
+    private Dragon aDragon;
 
     @Before
     public void setUp() throws Exception {
 
-        this.aTransportVessel = new TransportVessel();
+        this.aDragon = new Dragon();
     }
 
     @Test
     public void testStartingVitality() throws Exception {
 
-        assertEquals(150, this.aTransportVessel.getVitality());
+        assertEquals(100, this.aDragon.getVitality());
     }
 
     @Test
     public void testStartingShield() throws Exception {
 
-        assertEquals(0, this.aTransportVessel.getShield());
+        assertEquals(80, this.aDragon.getShield());
     }
 
     @Test
     public void testSizeForTransport() throws Exception {
 
-        assertEquals(0, this.aTransportVessel.getSizeForTransport());
+        assertEquals(4, this.aDragon.getSizeForTransport());
     }
 
     @Test
     public void testTrainingTime() throws Exception {
 
-        assertEquals(7, this.aTransportVessel.getTrainingTime());
+        assertEquals(6, this.aDragon.getTrainingTime());
     }
 
     @Test
     public void testMineralTrainingCost() throws Exception {
-        Cost aTransportVesselCost = aTransportVessel.getTrainingCost();
-        assertEquals(100, aTransportVesselCost.getMineralCost());
+        Cost aDragonCost = aDragon.getTrainingCost();
+        assertEquals(125, aDragonCost.getMineralCost());
     }
 
     @Test
     public void testGasTrainingCost() throws Exception {
-        Cost aTransportVesselCost = aTransportVessel.getTrainingCost();
-        assertEquals(100, aTransportVesselCost.getGasCost());
+        Cost aDragonCost = aDragon.getTrainingCost();
+        assertEquals(50, aDragonCost.getGasCost());
     }
-
 }
