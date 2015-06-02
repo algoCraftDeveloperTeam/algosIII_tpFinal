@@ -23,5 +23,17 @@ public abstract class Building {
     }
     public int getConstructionTime(){
         return constructionTime;
-    };
+    }
+    public Cost getConstructionCost(){
+        return constructionCost;
+    }
+    public int getVitality(){
+        return life.getVitality();
+    }
+    public int getShield(){
+        return life.getShield();
+    }
+
+
+
 }
