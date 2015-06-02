@@ -7,7 +7,7 @@ import fiuba.algo3.player.Player;
 /**
  * Created by mporto on 30/05/15.
  */
-public class Building {
+public abstract class Building {
     Cost constructionCost;
     int constructionTime;
     Life life;
@@ -21,5 +21,7 @@ public class Building {
     public boolean isMineralBuildable(){
     	return false;
     }
-    
+    public int getConstructionTime(){
+        return constructionTime;
+    };
 }
