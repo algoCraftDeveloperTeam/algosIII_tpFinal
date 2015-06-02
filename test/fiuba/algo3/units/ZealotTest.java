@@ -36,7 +36,7 @@ public class ZealotTest {
     }
 
     @Test
-    public void testConstructionTime() throws Exception {
+    public void testTrainingTime() throws Exception {
 
         assertEquals(4, this.aZealot.getTrainingTime());
     }

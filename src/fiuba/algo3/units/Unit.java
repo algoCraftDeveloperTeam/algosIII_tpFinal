@@ -32,4 +32,8 @@ public class Unit {
     public static Cost getTrainingCost() {
         return trainingCost;
     }
+
+    public int getShield() {
+        return life.getShield();
+    }
 }
