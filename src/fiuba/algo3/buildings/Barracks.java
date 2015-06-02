@@ -9,7 +9,8 @@ import fiuba.algo3.player.Player;
  */
 public class Barracks extends Building{
 
-    public Barracks(Player owner) {
+    public Barracks(Player p) {
+    	this.owner = p;
         this.constructionCost = new Cost(150, 0);
         this.constructionTime = 12;
         this.life = new Life(1000, 0);

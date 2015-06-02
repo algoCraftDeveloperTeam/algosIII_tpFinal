@@ -22,6 +22,7 @@ public class BarracksTest {
 
     @Test
     public void testTrainMarine() throws Exception {
+        this.aBarrack.trainMarine();
         assertTrue(true);
 
     }
