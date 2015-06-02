@@ -20,11 +20,19 @@ public class PlayerResources {
         return this.mineralStorage;
     }
 
-    public void addGas(int n){
-        this.gasStorage += n;
+    public void addGas(int i){
+        this.gasStorage += i;
     }
 
-    public void addMinerals(int n){
-        this.mineralStorage += n;
+    public void addMinerals(int i){
+        this.mineralStorage += i;
+    }
+
+    public void substractGas(int i) {
+        this.gasStorage -= i;
+    }
+
+    public void substractMinerals(int i) {
+        this.mineralStorage -= i;
     }
 }
