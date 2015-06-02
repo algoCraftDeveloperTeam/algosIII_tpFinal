@@ -1,5 +1,9 @@
 package fiuba.algo3.player;
 
+import fiuba.algo3.buildings.Barracks;
+import fiuba.algo3.buildings.Building;
+import fiuba.algo3.buildings.BuildingInConstruction;
+import fiuba.algo3.buildings.MineralNexus;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,5 +39,30 @@ public class PlayerTest {
     public void testAddMinerals(){
         this.aPlayer.addMinerals(10);
         Assert.assertEquals(this.aPlayer.getMineralStorage(), 210);
+    }
+
+    @Test
+    public void testStartConstructionOfABuildingWithTheRequiredResources() throws Exception {
+        // If you call the build method and you have the required resources you
+        // receive a BuildingInConstruction. Otherwise you an Error should be
+        // raised.
+        Building buildingToBeConstructed = new MineralNexus(aPlayer);
+        BuildingInConstruction aBuildingInConstruction = this.aPlayer.build(buildingToBeConstructed);
+    }
+
+    @Test
+    public void testStartConstructionOfABuildingWithoutTheRequiredResources() throws Exception {
+        try {
+            Building buildingToBeConstructed1 = new Barracks(aPlayer);
+            BuildingInConstruction aBuildingInConstruction1 = this.aPlayer.build(buildingToBeConstructed1);
+            Building buildingToBeConstructed2 = new Barracks(aPlayer);
+            BuildingInConstruction aBuildingInConstruction2 = this.aPlayer.build(buildingToBeConstructed2);
+        } catch(Exception e){
+            // This is horrible
+            Assert.assertTrue(true);
+        }
+
+        //Assert.assertTrue(false);
+
     }
 }

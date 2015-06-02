@@ -35,5 +35,7 @@ public abstract class Building {
     }
 
 
-
+    public Player getOwner() {
+        return owner;
+    }
 }
