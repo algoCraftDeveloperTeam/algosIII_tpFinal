@@ -1,6 +1,7 @@
 package fiuba.algo3.buildings;
 
 import fiuba.algo3.player.Player;
+import fiuba.algo3.units.UnitInTraining;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,9 +22,9 @@ public class BarracksTest {
     }
 
     @Test
-    public void testTrainMarine() throws Exception {
-        this.aBarrack.trainMarine();
-        assertTrue(true);
+    public void testTrainMarineWithRequiredResources() throws Exception {
+        UnitInTraining aMarineInTraining = this.aBarrack.trainMarine();
 
+        assertFalse(aMarineInTraining.isReady());
     }
 }
