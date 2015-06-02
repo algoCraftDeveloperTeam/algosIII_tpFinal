@@ -6,12 +6,6 @@ package fiuba.algo3.buildings;
 public abstract class ResourceGetter extends Building{
     public int quantity = 10;
     public abstract void addToPlayerStorage();
-    public int getVitality(){
-        return life.getVitality();
-    }
-    public int getShield(){
-        return life.getShield();
-    }
     @Override
     public boolean isEarthBuildable(){
     	return false;
