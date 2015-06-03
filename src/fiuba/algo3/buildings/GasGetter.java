@@ -5,7 +5,8 @@ import fiuba.algo3.gameVariables.Cost;
  * Created by nsueiro on 29/05/15.
  */
 public abstract class GasGetter extends ResourceGetter{
-    public GasGetter() {
+    public GasGetter(Player player) {
+        super(player);
         this.constructionCost = new Cost(100, 0);
         this.constructionTime = 4;
     }
