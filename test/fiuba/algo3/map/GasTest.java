@@ -52,12 +52,6 @@ public class GasTest{
 	}
 
 	@Test
-	public void testCanBuildOcupiedWithUnitShouldReturnFalse(){
-		gas.stand(marine);
-		Assert.assertFalse(gas.canBuild(gasGetter));
-	}
-
-	@Test
 	public void testCanDestroyNotOcupiedShouldReturnFalse(){
 		Assert.assertFalse(gas.canDestroy());
 	}
@@ -76,38 +70,25 @@ public class GasTest{
 	}
 
 	@Test
-	public void testCanStandUnitShouldReturnTrue(){
-		Assert.assertTrue(gas.canStand(marine));
-	}
-
-	@Test
-	public void testCanStandUnitWithBuildingShouldReturnFalse(){
-		gas.build(gasGetter);
-		Assert.assertFalse(gas.canStand(marine));
-	}
-
-	@Test
-	public void testCanStandUnitWithUnitShouldReturnFalse(){
-		gas.stand(marine);
+	public void testCanStandNotOcupiedShouldReturnFalse(){
 		Assert.assertFalse(gas.canStand(marine));
 	}
 
 	@Test
 	public void testCanLeaveNotOcupiedShouldReturnFalse(){
-		Assert.assertFalse(gas.canLeave());
+        Assert.assertFalse(gas.canLeave());
 	}
 
 	@Test
-	public void testCanLeaveOcupiedShouldReturnTrue(){
+	public void testCanStandShouldReturnFalse(){
 		gas.stand(marine);
-		Assert.assertTrue(gas.canLeave());
+		Assert.assertFalse(gas.canStand(marine));
 	}
 
 	@Test
-	public void testCanStandOnLeaveShouldReturnTrue(){
-		gas.stand(marine);
-		gas.leave();
-		Assert.assertTrue(gas.canStand(marine));
+	public void testCanLeaveShouldReturnFalse(){
+        gas.leave();
+        Assert.assertFalse(gas.canLeave());
 	}
 
 }

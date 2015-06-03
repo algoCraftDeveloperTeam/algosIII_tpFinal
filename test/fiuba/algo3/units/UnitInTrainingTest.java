@@ -26,7 +26,7 @@ public class UnitInTrainingTest {
 
     @Test
     public void testTrainingTimeAfterOneTurnEqualsToTheOneOfTheUnitMinusOne() throws Exception {
-        unitToBeTrained.passTurn();
+        this.unitToBeTrained.passTurn();
 
         assertEquals(this.unitToBeTrained.getRemainingTurns(), this.aMarine.getTrainingTime() - 1);
     }
@@ -41,4 +41,12 @@ public class UnitInTrainingTest {
         assertFalse("", this.unitToBeTrained.isReady());
     }
 
+    @Test
+    public void testUnitIsReadyWhenTrainingTimeIsEqualToZero() throws Exception {
+        for (int i = 0; i < 3; i++) {
+            this.unitToBeTrained.passTurn();
+        }
+
+        assertTrue("", this.unitToBeTrained.isReady());
+    }
 }
