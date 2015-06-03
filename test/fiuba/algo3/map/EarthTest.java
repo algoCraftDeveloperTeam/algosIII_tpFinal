@@ -84,19 +84,19 @@ public class EarthTest{
 
 	@Test
 	public void testCanStandUnitShouldReturnTrue(){
-		Assert.assertTrue(earth.canStand(marine));
+		Assert.assertTrue(earth.canStand());
 	}
 
 	@Test
 	public void testCanStandUnitWithBuildingShouldReturnFalse(){
 		earth.build(barrack);
-		Assert.assertFalse(earth.canStand(marine));
+		Assert.assertFalse(earth.canStand());
 	}
 
 	@Test
 	public void testCanStandUnitWithUnitShouldReturnFalse(){
 		earth.stand(marine);
-		Assert.assertFalse(earth.canStand(marine));
+		Assert.assertFalse(earth.canStand());
 	}
 
 	@Test
@@ -114,7 +114,7 @@ public class EarthTest{
 	public void testCanStandOnLeaveShouldReturnTrue(){
 		earth.stand(marine);
 		earth.leave();
-		Assert.assertTrue(earth.canStand(marine));
+		Assert.assertTrue(earth.canStand());
 	}
 
 }

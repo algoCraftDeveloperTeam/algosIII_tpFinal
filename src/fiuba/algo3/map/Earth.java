@@ -6,24 +6,22 @@ import fiuba.algo3.units.Unit;
 public class Earth extends Tile{
 
 	public boolean canBuild(Building b){
-		return (b.isEarthBuildable() && occupantBuilding.canOccupy() && occupantUnit.canOccupy());
+		return (b.isEarthBuildable() && building.canOccupy() && unit.canOccupy());
 	}
 
 	public void build(Building b){
 		if (this.canBuild(b)){
 			building = b;
-			occupantBuilding = new StateOcupied();
 		}
 	}
 
-	public boolean canStand(Unit u){
-		return (occupantBuilding.canOccupy() && occupantUnit.canOccupy());
+	public boolean canStand(){
+		return (building.canOccupy() && unit.canOccupy());
 	}
 
 	public void stand(Unit u){
-		if (this.canStand(u)){
+		if (this.canStand()){
 			unit = u;
-			occupantUnit = new StateOcupied();
 		}
 	}
 

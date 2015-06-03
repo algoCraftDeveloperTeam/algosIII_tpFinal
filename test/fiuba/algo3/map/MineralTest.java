@@ -71,7 +71,7 @@ public class MineralTest{
 
 	@Test
 	public void testCanStandNotOcupiedShouldReturnFalse(){
-		Assert.assertFalse(mineral.canStand(marine));
+		Assert.assertFalse(mineral.canStand());
 	}
 
 	@Test
@@ -82,7 +82,7 @@ public class MineralTest{
 	@Test
 	public void testCanStandShouldReturnFalse(){
 		mineral.stand(marine);
-		Assert.assertFalse(mineral.canStand(marine));
+		Assert.assertFalse(mineral.canStand());
 	}
 
 	@Test

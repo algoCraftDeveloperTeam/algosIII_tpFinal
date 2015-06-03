@@ -36,4 +36,13 @@ public class Unit {
     public int getShield() {
         return life.getShield();
     }
+
+    public boolean canOccupy(){
+        return false;
+    }
+
+    public boolean canQuit(){
+        return true;
+    }
+
 }

@@ -11,36 +11,28 @@ public abstract class Tile implements Buildable, Standable{
 
 	protected Unit unit;
 
-	protected OccupantState occupantBuilding;
-
-	protected OccupantState occupantUnit;
-
 	public Tile(){
 		building = new NullBuilding();
 		unit = new NullUnit();
-		occupantBuilding = new StateNotOcupied();
-		occupantUnit = new StateNotOcupied();
 	}
 
 	public boolean canDestroy(){
-		return occupantBuilding.canQuit();
+		return building.canQuit();
 	}
 
 	public void destroy(){
 		if (this.canDestroy()){
 			building = new NullBuilding();
-			occupantBuilding = new StateNotOcupied();
 		}
 	}
 
 	public boolean canLeave(){
-		return occupantUnit.canQuit();
+		return unit.canQuit();
 	}
 
 	public void leave(){
 		if (this.canLeave()){
 			unit = new NullUnit();
-			occupantUnit = new StateNotOcupied();
 		}
 	}
 

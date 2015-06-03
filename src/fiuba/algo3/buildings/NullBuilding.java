@@ -10,4 +10,14 @@ public class NullBuilding extends Building{
     	return false;
     }
 
+    @Override
+    public boolean canOccupy(){
+    	return true;
+    }
+
+    @Override
+    public boolean canQuit(){
+    	return false;
+    }
+
 }

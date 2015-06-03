@@ -6,17 +6,16 @@ import fiuba.algo3.units.Unit;
 public class Gas extends Tile{
 
 	public boolean canBuild(Building b){
-		return (b.isGasBuildable() && occupantBuilding.canOccupy() && occupantUnit.canOccupy());
+		return (b.isGasBuildable() && building.canOccupy() && unit.canOccupy());
 	}
 
 	public void build(Building b){
 		if (this.canBuild(b)){
 			building = b;
-			occupantBuilding = new StateOcupied();
 		}
 	}
 
-	public boolean canStand(Unit u){
+	public boolean canStand(){
 		return false;
 	}
 

@@ -34,8 +34,15 @@ public abstract class Building {
         return life.getShield();
     }
 
-
     public Player getOwner() {
         return owner;
+    }
+
+    public boolean canOccupy(){
+        return false;
+    }
+
+    public boolean canQuit(){
+        return true;
     }
 }

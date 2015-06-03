@@ -6,17 +6,16 @@ import fiuba.algo3.units.Unit;
 public class Mineral extends Tile{
 
 	public boolean canBuild(Building b){
-		return (b.isMineralBuildable() && occupantBuilding.canOccupy() && occupantUnit.canOccupy());
+		return (b.isMineralBuildable() && building.canOccupy() && unit.canOccupy());
 	}
 
 	public void build(Building b){
 		if (this.canBuild(b)){
 			building = b;
-			occupantBuilding = new StateOcupied();
 		}
 	}
 
-	public boolean canStand(Unit u){
+	public boolean canStand(){
 		return false;
 	}
 

@@ -36,7 +36,7 @@ public class SpaceTest{
 
 	@Test
 	public void testCanStandNotOcupiedShouldReturnFalse(){
-		Assert.assertFalse(space.canStand(marine));
+		Assert.assertFalse(space.canStand());
 	}
 
 	@Test
@@ -59,7 +59,7 @@ public class SpaceTest{
 	@Test
 	public void testCanStandShouldReturnFalse(){
 		space.stand(marine);
-		Assert.assertFalse(space.canStand(marine));
+		Assert.assertFalse(space.canStand());
 	}
 
 	@Test

@@ -4,7 +4,7 @@ import fiuba.algo3.units.Unit;
 
 public interface Standable {
 
-	boolean canStand(Unit u);
+	boolean canStand();
 
 	void stand(Unit u);
 

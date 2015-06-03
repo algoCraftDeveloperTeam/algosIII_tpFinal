@@ -71,7 +71,7 @@ public class GasTest{
 
 	@Test
 	public void testCanStandNotOcupiedShouldReturnFalse(){
-		Assert.assertFalse(gas.canStand(marine));
+		Assert.assertFalse(gas.canStand());
 	}
 
 	@Test
@@ -82,7 +82,7 @@ public class GasTest{
 	@Test
 	public void testCanStandShouldReturnFalse(){
 		gas.stand(marine);
-		Assert.assertFalse(gas.canStand(marine));
+		Assert.assertFalse(gas.canStand());
 	}
 
 	@Test

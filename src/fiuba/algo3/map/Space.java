@@ -13,7 +13,7 @@ public class Space extends Tile{
 
 	}
 
-	public boolean canStand(Unit u){
+	public boolean canStand(){
 		return false;
 	}
 
