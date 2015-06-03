@@ -1,9 +1,6 @@
 package fiuba.algo3.player;
 
-import fiuba.algo3.buildings.Barracks;
-import fiuba.algo3.buildings.Building;
-import fiuba.algo3.buildings.BuildingInConstruction;
-import fiuba.algo3.buildings.MineralNexus;
+import fiuba.algo3.buildings.*;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -58,4 +55,39 @@ public class PlayerTest {
         Building buildingToBeConstructed2 = new Barracks(aPlayer);
         BuildingInConstruction aBuildingInConstruction2 = this.aPlayer.build(buildingToBeConstructed2);
     }
+
+    @Test
+    public void testTerranFactoryCannotBeConstructedWithoutBarracks() {
+        Assert.assertFalse(this.aPlayer.allowTerranFactory());
+    }
+
+    @Test
+    public void testTerranFactoryCanBeConstructedWithBarracks() {
+        this.aPlayer.addFinishedBuilding(new Barracks(this.aPlayer));
+        Assert.assertTrue(this.aPlayer.allowTerranFactory());
+    }
+
+    @Test
+    public void testStargateCannotBeConstructedWithoutAccess() {
+        Assert.assertFalse(this.aPlayer.allowStargate());
+    }
+
+    @Test
+    public void testStargateCanBeConstructedWithAccess() {
+        this.aPlayer.addFinishedBuilding(new Access(this.aPlayer));
+        Assert.assertTrue(this.aPlayer.allowStargate());
+    }
+
+    @Test
+    public void testStarPortCannotBeConstructedWithoutTerranFactory() {
+        Assert.assertFalse(this.aPlayer.allowStarPort());
+    }
+
+    @Test
+    public void testStarPortCanBeConstructedWithTerranFactory() {
+        this.aPlayer.addFinishedBuilding(new TerranFactory(this.aPlayer));
+        Assert.assertTrue(this.aPlayer.allowStarPort());
+    }
+
+
 }
