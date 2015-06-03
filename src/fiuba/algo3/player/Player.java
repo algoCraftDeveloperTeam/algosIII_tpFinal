@@ -2,13 +2,13 @@ package fiuba.algo3.player;
 
 import fiuba.algo3.buildings.Building;
 import fiuba.algo3.buildings.BuildingInConstruction;
-import fiuba.algo3.buildings.NullBuilding;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.PlayerResources;
 import fiuba.algo3.gameVariables.Population;
+
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by nsueiro on 29/05/15.
@@ -16,7 +16,8 @@ import java.util.Iterator;
 public class Player {
     PlayerResources resources = new PlayerResources(200, 0);
     Population population = new Population();
-    List buildings = new ArrayList();
+    private List<BuildingInConstruction> buildingsInConstruction = new ArrayList<BuildingInConstruction>();
+    private List<Building> buildings = new ArrayList<Building>();
 
     public int getGasStorage(){
         return this.resources.getGasStorage();
@@ -44,8 +45,8 @@ public class Player {
 
     public BuildingInConstruction build(Building buildingToBeConstructed) throws Exception {
         if(this.verifyRequirements(buildingToBeConstructed)){
-            buildings.add(buildingToBeConstructed);
             BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed);
+            buildingsInConstruction.add(buildingInConstruction);
             return buildingInConstruction;
         }
         // We should add an Error if the requirements aren't met.
