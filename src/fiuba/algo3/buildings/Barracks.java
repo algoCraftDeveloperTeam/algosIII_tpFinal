@@ -23,4 +23,10 @@ public class Barracks extends Building{
         UnitInTraining aMarineInTraining = new UnitInTraining(aMarineToBeTrained);
         return aMarineInTraining;
     }
+
+    @Override
+    public boolean allowBuildTerranFactory(){
+        return true;
+    }
+
 }

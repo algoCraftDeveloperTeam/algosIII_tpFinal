@@ -33,9 +33,23 @@ public abstract class Building {
     public int getShield(){
         return life.getShield();
     }
-
-
     public Player getOwner() {
         return owner;
     }
+    public boolean verifyRequiredBuilding(){
+        return true;
+    }
+    public boolean allowBuildTerranFactory(){
+        return false;
+    }
+    public boolean allowBuildStarPort(){
+        return false;
+    }
+    public boolean allowBuildStargate(){
+        return false;
+    }
+    public boolean allowBuildTemplarArchives(){
+        return false;
+    }
+
 }

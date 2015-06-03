@@ -14,4 +14,14 @@ public class TerranFactory extends Building{
         this.constructionCost = new Cost(200, 100);
         this.life = new Life(1250, 0);
     }
+
+    @Override
+    public boolean verifyRequiredBuilding(){
+        return this.owner.allowTerranFactory();
+    }
+
+    @Override
+    public boolean allowBuildStarPort(){
+        return true;
+    }
 }

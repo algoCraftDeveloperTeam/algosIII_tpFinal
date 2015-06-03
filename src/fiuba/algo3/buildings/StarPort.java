@@ -14,4 +14,9 @@ public class StarPort extends Building {
         this.constructionTime = 10;
         this.owner = p;
     }
+
+    @Override
+    public boolean verifyRequiredBuilding(){
+        return this.owner.allowStarPort();
+    }
 }

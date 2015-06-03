@@ -13,4 +13,8 @@ public class Access extends Building{
         this.life = new Life(500, 500);
     }
 
+    @Override
+    public boolean allowBuildStargate(){
+        return true;
+    }
 }
