@@ -3,6 +3,7 @@ package fiuba.algo3.units;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;
+import fiuba.algo3.gameVariables.Position;
 
 /**
  * Created by mporto on 28/05/15.
@@ -15,6 +16,8 @@ public class Unit {
     int trainingTime;
     static int unitSize;
     Life life;
+    // TO DO: this is temporary, the units should be initialized with a position.
+    Position position = new Position(0, 0);
 
     public int getVitality() {
         return life.getVitality();
@@ -36,10 +39,16 @@ public class Unit {
         return life.getShield();
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
     public void receiveDamage(Damage damage) {
         // In the meantime the attackedUnit will always receive groundDamage.
         life.receiveAttack(damage.getGroundDamage());
     }
 
-
+    public void move(int x, int y) {
+        position.move(x, y);
+    }
 }

@@ -22,12 +22,23 @@ public class GroundUnitsTest {
     }
 
     @Test
-    public void testMarineAttacksGoliath() throws Exception {
+    public void testMarineAttacksGoliathWithinRange() throws Exception {
+        marine.move(1, 1);
+        goliath.move(2, 2);
         marine.attack(goliath);
         // 125 (goliath's vitality) - 6 (marine's attack) = 119
         int expectedRemainingVitality = 119;
 
         Assert.assertEquals(expectedRemainingVitality, goliath.getVitality());
+    }
+
+    @Test
+    public void testMarineAttacksGoliathsOutsideRange() throws Exception {
+        marine.move(11, 11);
+        goliath.move(15, 16);
+        marine.attack(goliath);
+
+        Assert.assertEquals(125, goliath.getVitality());
     }
 
     @Test
