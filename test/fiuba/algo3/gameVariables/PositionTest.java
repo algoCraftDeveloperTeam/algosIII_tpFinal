@@ -26,4 +26,18 @@ public class PositionTest {
     public void testGetY() throws Exception {
         Assert.assertEquals(5, aPosition.getY());
     }
+
+    @Test
+    public void testMoveInXAxis() throws Exception {
+        aPosition.move(2, 5);
+
+        Assert.assertEquals(2, aPosition.getX());
+    }
+
+    @Test
+    public void testMoveInYAxis() throws Exception {
+        aPosition.move(1, 6);
+
+        Assert.assertEquals(6, aPosition.getY());
+    }
 }
