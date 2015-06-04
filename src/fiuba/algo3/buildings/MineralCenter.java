@@ -8,7 +8,7 @@ import fiuba.algo3.player.Player;
  */
 public class MineralCenter extends MineralGetter {
     public MineralCenter(Player player) {
-        this.owner = player;
+        super(player);
         this.life = new Life(500,0);
     };
 }

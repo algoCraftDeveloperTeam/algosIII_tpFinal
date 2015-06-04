@@ -12,6 +12,12 @@ public abstract class Building {
     int constructionTime;
     Life life;
     Player owner;
+    public Building(Player player) {
+        this.owner = player;
+    }
+    public Building(){
+        
+    }
     public boolean isEarthBuildable(){
     	return true;
     }

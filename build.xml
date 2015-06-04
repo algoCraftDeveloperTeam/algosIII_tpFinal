@@ -43,7 +43,7 @@
 			<include name="*.jar" />
 		</fileset>
 	</path>
-	
+
 	<target name="setup">
 		<delete dir="${build}" />
 		<mkdir dir="${build}" />
@@ -158,8 +158,8 @@
 	<!-- Resolve dependencies -->
 	<target name="resolve" depends="install-ivy" description="--> retrieve dependencies with ivy">
 		<ivy:retrieve conf="build" pattern="${libs}/[artifact]-[type]-[revision].[ext]" />
-		<ivy:retrieve conf="analysis" pattern="${libs}/analysis/[artifact](-[classifier]).[ext]"/>	
-		
+		<ivy:retrieve conf="analysis" pattern="${libs}/analysis/[artifact](-[classifier]).[ext]"/>
+
 	</target>
 	<!-- End of 'Resolve dependencies -->
 

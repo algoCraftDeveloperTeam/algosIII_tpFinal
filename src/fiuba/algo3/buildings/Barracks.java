@@ -9,16 +9,17 @@ import fiuba.algo3.units.UnitInTraining;
 /**
  * Created by mporto on 30/05/15.
  */
-public class Barracks extends Building{
+public class Barracks extends Building implements UnitCreator{
 
-    public Barracks(Player owner) {
-    	this.owner = owner;
+    public Barracks(Player player) {
+    	super(player);
         this.constructionCost = new Cost(150, 0);
         this.constructionTime = 12;
         this.life = new Life(1000, 0);
     }
 
-    public UnitInTraining trainMarine() {
+    @Override
+    public UnitInTraining trainUnit() {
         Marine aMarineToBeTrained = new Marine();
         UnitInTraining aMarineInTraining = new UnitInTraining(aMarineToBeTrained);
         return aMarineInTraining;

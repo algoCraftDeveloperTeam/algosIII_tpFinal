@@ -23,7 +23,7 @@ public class BarracksTest {
 
     @Test
     public void testTrainMarineWithRequiredResources() throws Exception {
-        UnitInTraining aMarineInTraining = this.aBarrack.trainMarine();
+        UnitInTraining aMarineInTraining = this.aBarrack.trainUnit();
 
         assertFalse(aMarineInTraining.isReady());
     }

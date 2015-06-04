@@ -41,7 +41,7 @@ public class PlayerTest {
     @Test
     public void testStartConstructionOfABuildingWithTheRequiredResources() throws Exception {
         // If you call the build method and you have the required resources you
-        // receive a BuildingInConstruction. Otherwise you an Error should be
+        // receive a BuildingInConstruction. Otherwise an Error should be
         // raised.
         Building buildingToBeConstructed = new MineralNexus(aPlayer);
         BuildingInConstruction aBuildingInConstruction = this.aPlayer.build(buildingToBeConstructed);
@@ -80,6 +80,7 @@ public class PlayerTest {
 
     @Test
     public void testStarPortCannotBeConstructedWithoutTerranFactory() {
+        this.aPlayer.addFinishedBuilding(new Pylon(this.aPlayer));
         Assert.assertFalse(this.aPlayer.allowStarPort());
     }
 
@@ -89,5 +90,15 @@ public class PlayerTest {
         Assert.assertTrue(this.aPlayer.allowStarPort());
     }
 
+    @Test
+    public void testTemplarArchiveCannotBeConstructedWithoutStargate() {
+        Assert.assertFalse(this.aPlayer.allowTemplarArchives());
+    }
+
+    @Test
+    public void testTemplarArchiveCanBeConstructedWithStargate() {
+        this.aPlayer.addFinishedBuilding(new Stargate(this.aPlayer));
+        Assert.assertTrue(this.aPlayer.allowTemplarArchives());
+    }
 
 }

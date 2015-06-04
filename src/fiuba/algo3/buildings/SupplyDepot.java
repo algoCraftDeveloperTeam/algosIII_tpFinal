@@ -7,13 +7,12 @@ import fiuba.algo3.player.Player;
 /**
  * Created by mporto on 31/05/15.
  */
-public class SupplyDepot extends Building{
+public class SupplyDepot extends PopulationStorage{
 
-    public SupplyDepot(Player owner) {
+    public SupplyDepot(Player player) {
+        super(player);
         this.constructionTime = 6;
         this.constructionCost = new Cost(100, 0);
         this. life = new Life(500, 0);
-        this.owner = owner;
-        owner.addAvailablePopulation(5);
     }
 }

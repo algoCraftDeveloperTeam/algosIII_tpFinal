@@ -8,7 +8,7 @@ import fiuba.algo3.player.Player;
  */
 public class Refinery extends GasGetter {
     public Refinery(Player player) {
-        this.owner = player;
+        super(player);
         this.life = new Life(750, 0);
     }
 }
