@@ -1,6 +1,7 @@
 package fiuba.algo3.units;
 
 import fiuba.algo3.gameVariables.Cost;
+import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;
 
 /**
@@ -12,9 +13,7 @@ public class Unit {
     int fieldOfVision;
     static Cost trainingCost;
     int trainingTime;
-    // TO DO: add damage atribute.
     static int unitSize;
-    // TO DO: add attack_range.
     Life life;
 
     public int getVitality() {
@@ -36,4 +35,11 @@ public class Unit {
     public int getShield() {
         return life.getShield();
     }
+
+    public void receiveDamage(Damage damage) {
+        // In the meantime the attackedUnit will always receive groundDamage.
+        life.receiveAttack(damage.getGroundDamage());
+    }
+
+
 }
