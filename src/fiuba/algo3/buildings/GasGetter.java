@@ -1,6 +1,8 @@
 package fiuba.algo3.buildings;
 
 import fiuba.algo3.gameVariables.Cost;
+import fiuba.algo3.player.Player;
+
 /**
  * Created by nsueiro on 29/05/15.
  */
