@@ -1,23 +1,14 @@
 package fiuba.algo3.map;
 
-import fiuba.algo3.buildings.Building;
-import fiuba.algo3.units.Unit;
+import fiuba.algo3.buildings.Occupant;
 
 public class Space extends Tile{
 
-	public boolean canBuild(Building b){
+	public boolean canOccupy(Occupant newOccupant){
 		return false;
 	}
 
-	public void build(Building b){
-
-	}
-
-	public boolean canStand(Unit u){
-		return false;
-	}
-
-	public void stand(Unit u){
+	public void occupy(Occupant newOccupant){
 
 	}
 

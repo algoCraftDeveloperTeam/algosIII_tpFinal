@@ -1,46 +1,24 @@
 package fiuba.algo3.map;
 
-import fiuba.algo3.buildings.Building;
-import fiuba.algo3.buildings.NullBuilding;
-import fiuba.algo3.units.Unit;
-import fiuba.algo3.units.NullUnit;
+import fiuba.algo3.buildings.Occupant;
 
-public abstract class Tile implements Buildable, Standable{
+public abstract class Tile implements Pervadable{
 
-	protected Building building;
+	protected Occupant occupant;
 
-	protected Unit unit;
-
-	protected OccupantState occupantBuilding;
-
-	protected OccupantState occupantUnit;
+	protected boolean occupied;
 
 	public Tile(){
-		building = new NullBuilding();
-		unit = new NullUnit();
-		occupantBuilding = new StateNotOcupied();
-		occupantUnit = new StateNotOcupied();
+		occupied = false;
 	}
 
-	public boolean canDestroy(){
-		return occupantBuilding.canQuit();
+	public boolean canVacate(){
+		return occupied;
 	}
 
-	public void destroy(){
-		if (this.canDestroy()){
-			building = new NullBuilding();
-			occupantBuilding = new StateNotOcupied();
-		}
-	}
-
-	public boolean canLeave(){
-		return occupantUnit.canQuit();
-	}
-
-	public void leave(){
-		if (this.canLeave()){
-			unit = new NullUnit();
-			occupantUnit = new StateNotOcupied();
+	public boolean vacate(){
+		if (canVacate()){
+			occupied = false;
 		}
 	}
 

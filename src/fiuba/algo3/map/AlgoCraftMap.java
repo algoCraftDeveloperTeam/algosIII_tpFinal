@@ -17,10 +17,10 @@ public class AlgoCraftMap{
 		tiles = new HashMap<Coordinates,Tile>();
 		dimention = dim;
 		generateEarthAndSpace();
-		placeBases();
+		/*placeBases();
 		placeMineralAndGas(posXPlayer1, posYPlayer1);
 		placeMineralAndGas(posXPlayer2, posYPlayer2);
-		//showMap();
+		*///showMap();
 	}
 
 	private void generateEarthAndSpace(){
@@ -34,7 +34,7 @@ public class AlgoCraftMap{
 		}
 	}
 
-	private void placeBases(){
+	/*private void placeBases(){
 		Random random = new Random();
 		int randomRow = random.nextInt(dimention);
 		int randomCol;
@@ -85,7 +85,7 @@ public class AlgoCraftMap{
 
 	private boolean isOverGas(int x1, int x2, int y1, int y2){
 		return ((x1 == x2) && (y1 == y2));
-	}
+	}*/
 
 /*	private void showMap(){
 		for(int i = 0; i < dimention; i++){
