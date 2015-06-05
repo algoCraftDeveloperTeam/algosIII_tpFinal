@@ -33,4 +33,10 @@ public class CoordinatesTest{
 		Assert.assertFalse(coord1.equals(coord2));
 	}
 
+	@Test
+	public void testCoord5(){
+		Coordinates coord1 = new Coordinates(2,5);
+		Assert.assertFalse(coord1.equals(1));
+	}
+
 }

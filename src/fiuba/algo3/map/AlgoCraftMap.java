@@ -1,15 +1,19 @@
 package fiuba.algo3.map;
 
-//import java.util.Random;
+import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
 
-public class Map{
+public class AlgoCraftMap{
 
 	private Map<Coordinates,Tile> tiles;
 	private int dimention;
+	private int posXPlayer1;
+	private int posYPlayer1;
+	private int posXPlayer2;
+	private int posYPlayer2;
 
-	public Map(int dim){
+	public AlgoCraftMap(int dim){
 		tiles = new HashMap<Coordinates,Tile>();
 		dimention = dim;
 		generateEarthAndSpace();
