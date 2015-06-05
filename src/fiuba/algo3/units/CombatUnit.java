@@ -45,10 +45,6 @@ public class CombatUnit extends Unit{
         int distance = (int) Math.sqrt(Math.pow(distanceInX, 2) + Math.pow(distanceInY, 2));
 
         // In the mean time this will only check with the unit's ground attack range.
-        if(distance > this.getGroundAttackRange()){
-            return false;
-        }else{
-            return true;
-        }
+        return !(distance > this.getGroundAttackRange());
     }
 }
