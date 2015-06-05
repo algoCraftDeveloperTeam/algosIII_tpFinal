@@ -1,17 +1,16 @@
 package fiuba.algo3.map;
 
-import java.util.Random;
+//import java.util.Random;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Map{
 
-	private Tile[][] tiles;
+	private Map<Coordinates,Tile> tiles;
 	private int dimention;
-	private int posXPlayer1;
-	private int posYPlayer1;
-	private int posXPlayer2;
-	private int posYPlayer2;
 
 	public Map(int dim){
+		tiles = new HashMap<Coordinates,Tile>();
 		dimention = dim;
 		generateEarthAndSpace();
 		placeBases();
@@ -21,10 +20,12 @@ public class Map{
 	}
 
 	private void generateEarthAndSpace(){
-		tiles = new Tile[dimention][dimention];
+		Tile earth;
 		for(int i = 0; i < dimention; i++){
 			for(int j = 0; j < dimention; j++){
-				tiles[i][j] = new Earth();
+				Coordinates coord = new Coordinates(i,j);
+				earth = new Earth();
+				tiles.put(coord,earth);
 			}
 		}
 	}
@@ -62,8 +63,12 @@ public class Map{
 			randColMineral = rand.nextInt(5) - 2;
 			randRowMineral = rand.nextInt(5) - 2;
 		}
-		tiles[posX + randColGas][posY + randRowGas] = new Gas();
-		tiles[posX + randColMineral][posY + randRowMineral] = new Mineral();
+		Coordinates gasCoord = new Coordinates(posX + randColGas, posY + randRowGas);
+		Coordinates mineralCoord = new Coordinates(posX + randColMineral, posY + randRowMineral);
+		Tile gas = new Gas();
+		Tile mineral = new Mineral();
+		tiles.put(gasCoord,gas);
+		tiles.put(mineralCoord,mineral);
 	}
 
 	private boolean isNotValid(int x, int offsetX, int y, int offsetY){
