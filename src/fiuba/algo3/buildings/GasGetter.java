@@ -17,7 +17,7 @@ public abstract class GasGetter extends ResourceGetter{
         owner.addGas(quantity);
     }
     @Override
-    public boolean isGasBuildable(){
+    public boolean canOccupyGas(){
     	return true;
     }
 }

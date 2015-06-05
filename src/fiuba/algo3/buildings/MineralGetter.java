@@ -17,7 +17,7 @@ public abstract class MineralGetter extends ResourceGetter {
         owner.addMinerals(quantity);
     }
     @Override
-    public boolean isMineralBuildable(){
+    public boolean canOccupyMineral(){
     	return true;
     }
 

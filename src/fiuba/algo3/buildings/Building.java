@@ -3,11 +3,12 @@ package fiuba.algo3.buildings;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.player.Player;
+import fiuba.algo3.map.Occupant;
 
 /**
  * Created by mporto on 30/05/15.
  */
-public abstract class Building {
+public abstract class Building implements Occupant {
     Cost constructionCost;
     int constructionTime;
     Life life;
@@ -18,13 +19,13 @@ public abstract class Building {
     public Building(){
         
     }
-    public boolean isEarthBuildable(){
+    public boolean canOccupyEarth(){
     	return true;
     }
-    public boolean isGasBuildable(){
+    public boolean canOccupyGas(){
     	return false;
     }
-    public boolean isMineralBuildable(){
+    public boolean canOccupyMineral(){
     	return false;
     }
     public int getConstructionTime(){

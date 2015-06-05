@@ -12,7 +12,7 @@ public abstract class ResourceGetter extends Building{
     }
     public abstract void addToPlayerStorage();
     @Override
-    public boolean isEarthBuildable(){
+    public boolean canOccupyEarth(){
         return false;
     }
     // TO DO: receiveAttack

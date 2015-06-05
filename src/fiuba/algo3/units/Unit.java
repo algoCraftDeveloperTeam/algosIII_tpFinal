@@ -4,11 +4,12 @@ import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.gameVariables.Position;
+import fiuba.algo3.map.Occupant;
 
 /**
  * Created by mporto on 28/05/15.
  */
-public class Unit {
+public class Unit implements Occupant{
 
     static int sizeForTransport;
     int fieldOfVision;
@@ -50,5 +51,17 @@ public class Unit {
 
     public void move(int x, int y) {
         position.move(x, y);
+    }
+
+    public boolean canOccupyEarth(){
+        return true;
+    }
+
+    public boolean canOccupyGas(){
+        return false;
+    }
+
+    public boolean canOccupyMineral(){
+        return false;
     }
 }
