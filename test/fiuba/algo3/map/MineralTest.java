@@ -4,21 +4,19 @@ import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import fiuba.algo3.player.Player;
-import fiuba.algo3.buildings.Building;
 import fiuba.algo3.buildings.Barracks;
 import fiuba.algo3.buildings.Asimilator;
 import fiuba.algo3.buildings.MineralCenter;
-import fiuba.algo3.units.Unit;
 import fiuba.algo3.units.Marine;
 
 public class MineralTest{
 
 	Player player;
 	Tile mineral;
-	Building barrack;
-	Building mineralGetter;
-	Building gasGetter;
-	Unit marine;
+	Occupant barrack;
+	Occupant mineralGetter;
+	Occupant gasGetter;
+	Occupant marine;
 
 	@Before
 	public void setUp(){
@@ -30,65 +28,52 @@ public class MineralTest{
 		marine = new Marine();
 	}
 
+//	tests
+//		un gasgetter puede ocupar mineral --> false
+//		un mineralgetter puede ocupar mineral --> true
+//		una unidad puede ocupar mineral --> false
+//		una barraca puede ocupar mineral --> false
+//		un mineralGetter puede ocupar mineral ya ocupada --> false
+//		un mineralGetter puede desocupar mineral --> true
+//		un mineralGetter puede ocupar mineral previamente ocupada --> true
+
 	@Test
-	public void testCanBuildBarrackShouldReturnFalse(){
-		Assert.assertFalse(mineral.canBuild(barrack));
+	public void testMineralCanPutGasGetter(){
+		Assert.assertFalse(mineral.canPut(gasGetter));
 	}
 
 	@Test
-	public void testCanBuildGasGetterShouldReturnFalse(){
-		Assert.assertFalse(mineral.canBuild(gasGetter));
+	public void testMineralCanPutMineralGetter(){
+		Assert.assertTrue(mineral.canPut(mineralGetter));
 	}
 
 	@Test
-	public void testCanBuildMineralGetterShouldReturnTrue(){
-		Assert.assertTrue(mineral.canBuild(mineralGetter));
+	public void testMineralCanPutMarine(){
+		Assert.assertFalse(mineral.canPut(marine));
 	}
 
 	@Test
-	public void testCanBuildOcupieWithBuildingdShouldReturnFalse(){
-		mineral.build(mineralGetter);
-		Assert.assertFalse(mineral.canBuild(mineralGetter));
+	public void testMineralCanPutBarrack(){
+		Assert.assertFalse(mineral.canPut(barrack));
 	}
 
 	@Test
-	public void testCanDestroyNotOcupiedShouldReturnFalse(){
-		Assert.assertFalse(mineral.canDestroy());
+	public void testOccupiedMineralCanPutMineralGetter(){
+		mineral.put(mineralGetter);
+		Assert.assertFalse(mineral.canPut(mineralGetter));
 	}
 
 	@Test
-	public void testCanDestroyOcupiedShouldReturnTrue(){
-		mineral.build(mineralGetter);
-		Assert.assertTrue(mineral.canDestroy());
+	public void testOccupiedMineralWithMineralGetterCanDraw(){
+		mineral.put(mineralGetter);
+		Assert.assertTrue(mineral.canDraw());
 	}
 
 	@Test
-	public void testCanBuildOnDestroyShouldReturnTrue(){
-		mineral.build(mineralGetter);
-		mineral.destroy();
-		Assert.assertTrue(mineral.canBuild(mineralGetter));
-	}
-
-	@Test
-	public void testCanStandNotOcupiedShouldReturnFalse(){
-		Assert.assertFalse(mineral.canStand(marine));
-	}
-
-	@Test
-	public void testCanLeaveNotOcupiedShouldReturnFalse(){
-        Assert.assertFalse(mineral.canLeave());
-	}
-
-	@Test
-	public void testCanStandShouldReturnFalse(){
-		mineral.stand(marine);
-		Assert.assertFalse(mineral.canStand(marine));
-	}
-
-	@Test
-	public void testCanLeaveShouldReturnFalse(){
-        mineral.leave();
-        Assert.assertFalse(mineral.canLeave());
+	public void testVacatedMineralCanPutMineralGetter(){
+		mineral.put(mineralGetter);
+		mineral.draw();
+		Assert.assertTrue(mineral.canPut(mineralGetter));
 	}
 
 }

@@ -4,21 +4,19 @@ import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import fiuba.algo3.player.Player;
-import fiuba.algo3.buildings.Building;
 import fiuba.algo3.buildings.Barracks;
 import fiuba.algo3.buildings.Asimilator;
 import fiuba.algo3.buildings.MineralCenter;
-import fiuba.algo3.units.Unit;
 import fiuba.algo3.units.Marine;
 
 public class GasTest{
 
 	Player player;
 	Tile gas;
-	Building barrack;
-	Building mineralGetter;
-	Building gasGetter;
-	Unit marine;
+	Occupant barrack;
+	Occupant mineralGetter;
+	Occupant gasGetter;
+	Occupant marine;
 
 	@Before
 	public void setUp(){
@@ -30,65 +28,52 @@ public class GasTest{
 		marine = new Marine();
 	}
 	
+//	tests
+//		un gasgetter puede ocupar gas --> true
+//		un mineralgetter puede ocupar gas --> false
+//		una unidad puede ocupar gas --> false
+//		una barraca puede ocupar gas --> false
+//		un gasgetter puede ocupar gas ya ocupada --> false
+//		un gasgetter puede desocupar gas --> true
+//		un gasgetter puede ocupar gas previamente ocupada --> true
+
 	@Test
-	public void testCanBuildBarrackShouldReturnFalse(){
-		Assert.assertFalse(gas.canBuild(barrack));
+	public void testGasCanPutGasGetter(){
+		Assert.assertTrue(gas.canPut(gasGetter));
 	}
 
 	@Test
-	public void testCanBuildMineralGetterShouldReturnFalse(){
-		Assert.assertFalse(gas.canBuild(mineralGetter));
+	public void testGasCanPutMineralGetter(){
+		Assert.assertFalse(gas.canPut(mineralGetter));
 	}
 
 	@Test
-	public void testCanBuildGasGetterShouldReturnTrue(){
-		Assert.assertTrue(gas.canBuild(gasGetter));
+	public void testGasCanPutMarine(){
+		Assert.assertFalse(gas.canPut(marine));
 	}
 
 	@Test
-	public void testCanBuildOcupiedWithBuildingShouldReturnFalse(){
-		gas.build(gasGetter);
-		Assert.assertFalse(gas.canBuild(gasGetter));
+	public void testGasCanPutBarrack(){
+		Assert.assertFalse(gas.canPut(barrack));
 	}
 
 	@Test
-	public void testCanDestroyNotOcupiedShouldReturnFalse(){
-		Assert.assertFalse(gas.canDestroy());
+	public void testOccupiedGasCanPutGasGetter(){
+		gas.put(gasGetter);
+		Assert.assertFalse(gas.canPut(gasGetter));
 	}
 
 	@Test
-	public void testCanDestroyOcupiedShouldReturnTrue(){
-		gas.build(gasGetter);
-		Assert.assertTrue(gas.canDestroy());
+	public void testOccupiedGasWithGasGetterCanDraw(){
+		gas.put(gasGetter);
+		Assert.assertTrue(gas.canDraw());
 	}
 
 	@Test
-	public void testCanBuildOnDestroyShouldReturnTrue(){
-		gas.build(gasGetter);
-		gas.destroy();
-		Assert.assertTrue(gas.canBuild(gasGetter));
-	}
-
-	@Test
-	public void testCanStandNotOcupiedShouldReturnFalse(){
-		Assert.assertFalse(gas.canStand(marine));
-	}
-
-	@Test
-	public void testCanLeaveNotOcupiedShouldReturnFalse(){
-        Assert.assertFalse(gas.canLeave());
-	}
-
-	@Test
-	public void testCanStandShouldReturnFalse(){
-		gas.stand(marine);
-		Assert.assertFalse(gas.canStand(marine));
-	}
-
-	@Test
-	public void testCanLeaveShouldReturnFalse(){
-        gas.leave();
-        Assert.assertFalse(gas.canLeave());
+	public void testVacatedGasCanPutGasGetter(){
+		gas.put(gasGetter);
+		gas.draw();
+		Assert.assertTrue(gas.canPut(gasGetter));
 	}
 
 }

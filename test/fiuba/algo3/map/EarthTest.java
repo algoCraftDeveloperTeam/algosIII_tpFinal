@@ -4,22 +4,19 @@ import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import fiuba.algo3.player.Player;
-import fiuba.algo3.buildings.Building;
 import fiuba.algo3.buildings.Barracks;
 import fiuba.algo3.buildings.Asimilator;
 import fiuba.algo3.buildings.MineralCenter;
-import fiuba.algo3.buildings.NullBuilding;
-import fiuba.algo3.units.Unit;
 import fiuba.algo3.units.Marine;
 
 public class EarthTest{
 
 	Player player;
 	Tile earth;
-	Building barrack;
-	Building mineralGetter;
-	Building gasGetter;
-	Unit marine;
+	Occupant barrack;
+	Occupant mineralGetter;
+	Occupant gasGetter;
+	Occupant marine;
 
 	@Before
 	public void setUp(){
@@ -31,90 +28,74 @@ public class EarthTest{
 		marine = new Marine();
 	}
 
+//	tests
+//		un gasgetter puede ocupar tierra --> false
+//		un mineralgetter puede ocupar tierra --> false
+//		una unidad puede ocupar tierra --> true
+//		una barraca puede ocupar tierra --> true
+//		una unidad puede ocupar tierra ya ocupada --> false
+//		una barraca puede ocupar tierra ya ocupada --> false
+//		una unidad puede desocupar tierra --> true
+//		una barraca puede desocupar tierra --> true
+//		una unidad puede ocupar tierra previamente ocupada --> true
+//		una barraca puede ocupar tierra previamente ocupada --> true
+
 	@Test
-	public void testCanBuildGasGetterShouldReturnFalse(){
-		Assert.assertFalse(earth.canBuild(gasGetter));
+	public void testEarthCanPutGasGetter(){
+		Assert.assertFalse(earth.canPut(gasGetter));
 	}
 
 	@Test
-	public void testCanBuildMineralGetterShouldReturnFalse(){
-		Assert.assertFalse(earth.canBuild(mineralGetter));
+	public void testEarthCanPutMineralGetter(){
+		Assert.assertFalse(earth.canPut(mineralGetter));
 	}
 
 	@Test
-	public void testCanBuildBarrackShouldReturnTrue(){
-		Assert.assertTrue(earth.canBuild(barrack));
+	public void testEarthCanPutMarine(){
+		Assert.assertTrue(earth.canPut(marine));
 	}
 
 	@Test
-	public void testCanBuildOcupiedWithBuildingShouldReturnFalse(){
-		earth.build(barrack);
-		Assert.assertFalse(earth.canBuild(barrack));
+	public void testEarthCanPutBarrack(){
+		Assert.assertTrue(earth.canPut(barrack));
 	}
 
 	@Test
-	public void testCanBuildOcupiedWithUnitShouldReturnFalse(){
-		earth.stand(marine);
-		Assert.assertFalse(earth.canBuild(barrack));
+	public void testOccupiedEarthCanPutMarine(){
+		earth.put(barrack);
+		Assert.assertFalse(earth.canPut(marine));
 	}
 
 	@Test
-	public void testCanDestroyNotOcupiedShouldReturnFalse(){
-		Assert.assertFalse(earth.canDestroy());
+	public void testOccupiedEarthCanPutBarrack(){
+		earth.put(marine);
+		Assert.assertFalse(earth.canPut(barrack));
 	}
 
 	@Test
-	public void testCanDestroyOcupiedShouldReturnTrue(){
-		earth.build(barrack);
-		Assert.assertTrue(earth.canDestroy());
+	public void testOccupiedEarthWithMarineCanDraw(){
+		earth.put(barrack);
+		Assert.assertTrue(earth.canDraw());
 	}
 
 	@Test
-	public void testCanBuildOnDestroyShouldReturnTrue(){
-		earth.build(barrack);
-		earth.destroy();
-		Assert.assertTrue(earth.canBuild(barrack));
+	public void testOccupiedEarthWithBarrackCanDraw(){
+		earth.put(marine);
+		Assert.assertTrue(earth.canDraw());
 	}
 
 	@Test
-	public void testCanBuildNothingShouldReturnFalse(){
-		Building nullBuilding = new NullBuilding();
-		Assert.assertFalse(earth.canBuild(nullBuilding));
+	public void testVacatedEarthCanPutMarine(){
+		earth.put(barrack);
+		earth.draw();
+		Assert.assertTrue(earth.canPut(marine));
 	}
 
 	@Test
-	public void testCanStandUnitShouldReturnTrue(){
-		Assert.assertTrue(earth.canStand(marine));
-	}
-
-	@Test
-	public void testCanStandUnitWithBuildingShouldReturnFalse(){
-		earth.build(barrack);
-		Assert.assertFalse(earth.canStand(marine));
-	}
-
-	@Test
-	public void testCanStandUnitWithUnitShouldReturnFalse(){
-		earth.stand(marine);
-		Assert.assertFalse(earth.canStand(marine));
-	}
-
-	@Test
-	public void testCanLeaveNotOcupiedShouldReturnFalse(){
-		Assert.assertFalse(earth.canLeave());
-	}
-
-	@Test
-	public void testCanLeaveOcupiedShouldReturnTrue(){
-		earth.stand(marine);
-		Assert.assertTrue(earth.canLeave());
-	}
-
-	@Test
-	public void testCanStandOnLeaveShouldReturnTrue(){
-		earth.stand(marine);
-		earth.leave();
-		Assert.assertTrue(earth.canStand(marine));
+	public void testVacatedEarthCanPutBarrack(){
+		earth.put(marine);
+		earth.draw();
+		Assert.assertTrue(earth.canPut(barrack));
 	}
 
 }
