@@ -1,8 +1,8 @@
 package fiuba.algo3.combat;
 
-import fiuba.algo3.units.CombatUnit;
-import fiuba.algo3.units.Goliath;
-import fiuba.algo3.units.Marine;
+import fiuba.algo3.occupant.units.CombatUnit;
+import fiuba.algo3.occupant.units.Goliath;
+import fiuba.algo3.occupant.units.Marine;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

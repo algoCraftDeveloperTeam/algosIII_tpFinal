@@ -1,6 +1,6 @@
 package fiuba.algo3.player;
 
-import fiuba.algo3.buildings.*;
+import fiuba.algo3.occupant.buildings.*;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;

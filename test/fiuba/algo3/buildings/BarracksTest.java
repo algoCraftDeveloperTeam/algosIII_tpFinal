@@ -1,7 +1,8 @@
 package fiuba.algo3.buildings;
 
+import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.player.Player;
-import fiuba.algo3.units.UnitInTraining;
+import fiuba.algo3.occupant.units.UnitInTraining;
 import org.junit.Before;
 import org.junit.Test;
 

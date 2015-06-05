@@ -1,5 +1,6 @@
 package fiuba.algo3.buildings;
 
+import fiuba.algo3.occupant.buildings.Pylon;
 import fiuba.algo3.player.Player;
 import org.junit.Test;
 

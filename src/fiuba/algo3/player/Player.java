@@ -1,7 +1,7 @@
 package fiuba.algo3.player;
 
-import fiuba.algo3.buildings.Building;
-import fiuba.algo3.buildings.BuildingInConstruction;
+import fiuba.algo3.occupant.buildings.Building;
+import fiuba.algo3.occupant.buildings.BuildingInConstruction;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.PlayerResources;
 import fiuba.algo3.gameVariables.Population;

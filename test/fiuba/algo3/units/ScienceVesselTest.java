@@ -1,6 +1,7 @@
 package fiuba.algo3.units;
 
 import fiuba.algo3.gameVariables.Cost;
+import fiuba.algo3.occupant.units.ScienceVessel;
 import org.junit.Before;
 import org.junit.Test;
 

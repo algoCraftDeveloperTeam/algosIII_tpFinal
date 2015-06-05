@@ -1,5 +1,6 @@
 package fiuba.algo3.buildings;
 
+import fiuba.algo3.occupant.buildings.TemplarArchives;
 import fiuba.algo3.player.Player;
 import org.junit.Before;
 import org.junit.Test;

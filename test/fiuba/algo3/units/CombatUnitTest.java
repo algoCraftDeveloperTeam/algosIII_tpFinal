@@ -1,10 +1,10 @@
 package fiuba.algo3.units;
 
+import fiuba.algo3.occupant.units.CombatUnit;
+import fiuba.algo3.occupant.units.Goliath;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by mporto on 04/06/15.

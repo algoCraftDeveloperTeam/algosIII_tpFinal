@@ -1,5 +1,8 @@
 package fiuba.algo3.buildings;
 
+import fiuba.algo3.occupant.buildings.BuildingInConstruction;
+import fiuba.algo3.occupant.buildings.MineralGetter;
+import fiuba.algo3.occupant.buildings.MineralNexus;
 import fiuba.algo3.player.Player;
 import org.junit.Before;
 import org.junit.Test;

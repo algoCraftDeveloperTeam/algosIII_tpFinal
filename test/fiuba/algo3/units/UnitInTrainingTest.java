@@ -1,5 +1,7 @@
 package fiuba.algo3.units;
 
+import fiuba.algo3.occupant.units.Marine;
+import fiuba.algo3.occupant.units.UnitInTraining;
 import org.junit.Before;
 import org.junit.Test;
 

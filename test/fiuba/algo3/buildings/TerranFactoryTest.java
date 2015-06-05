@@ -1,5 +1,6 @@
 package fiuba.algo3.buildings;
 
+import fiuba.algo3.occupant.buildings.TerranFactory;
 import fiuba.algo3.player.Player;
 import junit.framework.Assert;
 import org.junit.Before;
