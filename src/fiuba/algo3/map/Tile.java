@@ -1,7 +1,5 @@
 package fiuba.algo3.map;
 
-import fiuba.algo3.buildings.Occupant;
-
 public abstract class Tile implements Pervadable{
 
 	protected Occupant occupant;
@@ -12,12 +10,12 @@ public abstract class Tile implements Pervadable{
 		occupied = false;
 	}
 
-	public boolean canVacate(){
+	public boolean canDraw(){
 		return occupied;
 	}
 
-	public boolean vacate(){
-		if (canVacate()){
+	public void draw(){
+		if (canDraw()){
 			occupied = false;
 		}
 	}

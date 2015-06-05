@@ -1,15 +1,13 @@
 package fiuba.algo3.map;
 
-import fiuba.algo3.units.Unit;
-
 public interface Pervadable {
 
-	boolean canOccupy(Occupant newOccupant);
+	boolean canPut(Occupant newOccupant);
 
-	void occupy(Occupant newOccupant);
+	void put(Occupant newOccupant);
 
-	boolean canVacate();
+	boolean canDraw();
 
-	void vacate();
+	void draw();
 
 }
