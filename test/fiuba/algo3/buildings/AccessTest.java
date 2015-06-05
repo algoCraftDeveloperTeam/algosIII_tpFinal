@@ -18,21 +18,6 @@ public class AccessTest {
     }
 
     @Test
-    public void testIsEarthBuildable() {
-        Assert.assertTrue(aAccess.isEarthBuildable());
-    }
-
-    @Test
-    public void testIsGasBuildable() {
-        Assert.assertFalse(aAccess.isGasBuildable());
-    }
-
-    @Test
-    public void testIsMineralBuildable() {
-        Assert.assertFalse(aAccess.isMineralBuildable());
-    }
-
-    @Test
     public void testGetConstructionTime() {
         Assert.assertEquals(8, aAccess.getConstructionTime());
     }

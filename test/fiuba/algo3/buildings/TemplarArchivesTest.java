@@ -18,21 +18,6 @@ public class TemplarArchivesTest {
     }
 
     @Test
-    public void testIsEarthBuildable() {
-        Assert.assertTrue(aTemplarArchives.isEarthBuildable());
-    }
-
-    @Test
-    public void testIsGasBuildable() {
-        Assert.assertFalse(aTemplarArchives.isGasBuildable());
-    }
-
-    @Test
-    public void testIsMineralBuildable() {
-        Assert.assertFalse(aTemplarArchives.isMineralBuildable());
-    }
-
-    @Test
     public void testGetConstructionTime() {
         Assert.assertEquals(9, aTemplarArchives.getConstructionTime());
     }

@@ -16,21 +16,6 @@ public class TerranFactoryTest {
     }
 
     @Test
-    public void testIsEarthBuildable() {
-        Assert.assertTrue(f.isEarthBuildable());
-    }
-
-    @Test
-    public void testIsGasBuildable() {
-        Assert.assertFalse(f.isGasBuildable());
-    }
-
-    @Test
-    public void testIsMineralBuildable() {
-        Assert.assertFalse(f.isMineralBuildable());
-    }
-
-    @Test
     public void testGetConstructionTime() {
         Assert.assertEquals(12, f.getConstructionTime());
     }

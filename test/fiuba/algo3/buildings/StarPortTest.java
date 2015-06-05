@@ -16,21 +16,6 @@ public class StarPortTest {
     }
 
     @Test
-    public void testIsEarthBuildable() {
-        Assert.assertTrue(sp.isEarthBuildable());
-    }
-
-    @Test
-    public void testIsGasBuildable() {
-        Assert.assertFalse(sp.isGasBuildable());
-    }
-
-    @Test
-    public void testIsMineralBuildable() {
-        Assert.assertFalse(sp.isMineralBuildable());
-    }
-
-    @Test
     public void testGetConstructionTime() {
         Assert.assertEquals(10, sp.getConstructionTime());
     }

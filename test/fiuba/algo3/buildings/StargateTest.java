@@ -18,21 +18,6 @@ public class StargateTest {
     }
 
     @Test
-    public void testIsEarthBuildable() {
-        Assert.assertTrue(aStargate.isEarthBuildable());
-    }
-
-    @Test
-    public void testIsGasBuildable() {
-        Assert.assertFalse(aStargate.isGasBuildable());
-    }
-
-    @Test
-    public void testIsMineralBuildable() {
-        Assert.assertFalse(aStargate.isMineralBuildable());
-    }
-
-    @Test
     public void testGetConstructionTime() {
         Assert.assertEquals(10, aStargate.getConstructionTime());
     }
