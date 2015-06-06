@@ -2,7 +2,6 @@ package fiuba.algo3.occupant.units;
 
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
-import fiuba.algo3.occupant.units.Unit;
 
 /**
  * Created by mporto on 02/06/15.
