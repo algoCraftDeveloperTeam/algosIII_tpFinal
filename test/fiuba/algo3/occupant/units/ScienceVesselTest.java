@@ -1,4 +1,4 @@
-package fiuba.algo3.units;
+package fiuba.algo3.occupant.units;
 
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.occupant.units.ScienceVessel;

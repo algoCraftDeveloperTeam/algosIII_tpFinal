@@ -1,4 +1,4 @@
-package fiuba.algo3.buildings;
+package fiuba.algo3.occupant.buildings;
 
 import fiuba.algo3.occupant.buildings.Access;
 import fiuba.algo3.player.Player;
