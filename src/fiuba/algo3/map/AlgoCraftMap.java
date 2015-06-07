@@ -3,6 +3,7 @@ package fiuba.algo3.map;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
+import fiuba.algo3.occupant.Occupant;
 
 public class AlgoCraftMap{
 
@@ -32,6 +33,15 @@ public class AlgoCraftMap{
 				tiles.put(coord,earth);
 			}
 		}
+	}
+
+	public boolean put(Occupant occupant, Coordinates coord){
+		boolean response = false;
+		if (tiles.containsKey(coord)){
+			Tile tile = tiles.get(coord);
+			response = tile.put(occupant);
+		}
+		return response;
 	}
 
 	/*private void placeBases(){
