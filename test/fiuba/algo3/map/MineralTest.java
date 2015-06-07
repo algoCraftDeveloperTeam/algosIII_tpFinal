@@ -40,28 +40,28 @@ public class MineralTest{
 
 	@Test
 	public void testMineralCanPutGasGetter(){
-		Assert.assertFalse(mineral.canPut(gasGetter));
+		Assert.assertFalse(mineral.put(gasGetter));
 	}
 
 	@Test
 	public void testMineralCanPutMineralGetter(){
-		Assert.assertTrue(mineral.canPut(mineralGetter));
+		Assert.assertTrue(mineral.put(mineralGetter));
 	}
 
 	@Test
 	public void testMineralCanPutMarine(){
-		Assert.assertFalse(mineral.canPut(marine));
+		Assert.assertFalse(mineral.put(marine));
 	}
 
 	@Test
 	public void testMineralCanPutBarrack(){
-		Assert.assertFalse(mineral.canPut(barrack));
+		Assert.assertFalse(mineral.put(barrack));
 	}
 
 	@Test
 	public void testOccupiedMineralCanPutMineralGetter(){
 		mineral.put(mineralGetter);
-		Assert.assertFalse(mineral.canPut(mineralGetter));
+		Assert.assertFalse(mineral.put(mineralGetter));
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class MineralTest{
 	public void testVacatedMineralCanPutMineralGetter(){
 		mineral.put(mineralGetter);
 		mineral.draw();
-		Assert.assertTrue(mineral.canPut(mineralGetter));
+		Assert.assertTrue(mineral.put(mineralGetter));
 	}
 
 }

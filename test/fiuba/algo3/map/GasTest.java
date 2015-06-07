@@ -40,28 +40,28 @@ public class GasTest{
 
 	@Test
 	public void testGasCanPutGasGetter(){
-		Assert.assertTrue(gas.canPut(gasGetter));
+		Assert.assertTrue(gas.put(gasGetter));
 	}
 
 	@Test
 	public void testGasCanPutMineralGetter(){
-		Assert.assertFalse(gas.canPut(mineralGetter));
+		Assert.assertFalse(gas.put(mineralGetter));
 	}
 
 	@Test
 	public void testGasCanPutMarine(){
-		Assert.assertFalse(gas.canPut(marine));
+		Assert.assertFalse(gas.put(marine));
 	}
 
 	@Test
 	public void testGasCanPutBarrack(){
-		Assert.assertFalse(gas.canPut(barrack));
+		Assert.assertFalse(gas.put(barrack));
 	}
 
 	@Test
 	public void testOccupiedGasCanPutGasGetter(){
 		gas.put(gasGetter);
-		Assert.assertFalse(gas.canPut(gasGetter));
+		Assert.assertFalse(gas.put(gasGetter));
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class GasTest{
 	public void testVacatedGasCanPutGasGetter(){
 		gas.put(gasGetter);
 		gas.draw();
-		Assert.assertTrue(gas.canPut(gasGetter));
+		Assert.assertTrue(gas.put(gasGetter));
 	}
 
 }

@@ -9,13 +9,11 @@ import fiuba.algo3.occupant.units.Marine;
 
 public class SpaceTest{
 
-	Player player;
 	Tile space;
 	Occupant marine;
 
 	@Before
 	public void setUp(){
-		player = new Player();
 		space = new Space();
 		marine = new Marine();
 	}
@@ -25,8 +23,7 @@ public class SpaceTest{
 
 	@Test
 	public void testSpaceCanPutMarine(){
-		space.put(marine);
-		Assert.assertFalse(space.canPut(marine));
+		Assert.assertFalse(space.put(marine));
 	}
 
 }

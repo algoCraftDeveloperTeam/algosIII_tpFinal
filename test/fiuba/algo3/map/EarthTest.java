@@ -43,34 +43,34 @@ public class EarthTest{
 
 	@Test
 	public void testEarthCanPutGasGetter(){
-		Assert.assertFalse(earth.canPut(gasGetter));
+		Assert.assertFalse(earth.put(gasGetter));
 	}
 
 	@Test
 	public void testEarthCanPutMineralGetter(){
-		Assert.assertFalse(earth.canPut(mineralGetter));
+		Assert.assertFalse(earth.put(mineralGetter));
 	}
 
 	@Test
 	public void testEarthCanPutMarine(){
-		Assert.assertTrue(earth.canPut(marine));
+		Assert.assertTrue(earth.put(marine));
 	}
 
 	@Test
 	public void testEarthCanPutBarrack(){
-		Assert.assertTrue(earth.canPut(barrack));
+		Assert.assertTrue(earth.put(barrack));
 	}
 
 	@Test
 	public void testOccupiedEarthCanPutMarine(){
 		earth.put(barrack);
-		Assert.assertFalse(earth.canPut(marine));
+		Assert.assertFalse(earth.put(marine));
 	}
 
 	@Test
 	public void testOccupiedEarthCanPutBarrack(){
 		earth.put(marine);
-		Assert.assertFalse(earth.canPut(barrack));
+		Assert.assertFalse(earth.put(barrack));
 	}
 
 	@Test
@@ -89,14 +89,14 @@ public class EarthTest{
 	public void testVacatedEarthCanPutMarine(){
 		earth.put(barrack);
 		earth.draw();
-		Assert.assertTrue(earth.canPut(marine));
+		Assert.assertTrue(earth.put(marine));
 	}
 
 	@Test
 	public void testVacatedEarthCanPutBarrack(){
 		earth.put(marine);
 		earth.draw();
-		Assert.assertTrue(earth.canPut(barrack));
+		Assert.assertTrue(earth.put(barrack));
 	}
 
 }

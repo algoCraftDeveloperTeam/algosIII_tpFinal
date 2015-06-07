@@ -4,15 +4,14 @@ import fiuba.algo3.occupant.Occupant;
 
 public class Mineral extends Tile{
 
-	public boolean canPut(Occupant newOccupant){
-		return (!occupied && newOccupant.canOccupyMineral());
-	}
-
-	public void put(Occupant newOccupant){
-		if (canPut(newOccupant)){
+	public boolean put(Occupant newOccupant){
+		boolean response = false;
+		if (!occupied && newOccupant.canOccupyMineral()){
 			occupied = true;
 			occupant = newOccupant;
+			response = true;
 		}
+		return response;
 	}
 
 }

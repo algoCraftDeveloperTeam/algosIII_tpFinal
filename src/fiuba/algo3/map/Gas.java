@@ -4,15 +4,14 @@ import fiuba.algo3.occupant.Occupant;
 
 public class Gas extends Tile{
 
-	public boolean canPut(Occupant newOccupant){
-		return (!occupied && newOccupant.canOccupyGas());
-	}
-
-	public void put(Occupant newOccupant){
-		if (canPut(newOccupant)){
+	public boolean put(Occupant newOccupant){
+		boolean response = false;
+		if (!occupied && newOccupant.canOccupyGas()){
 			occupied = true;
 			occupant = newOccupant;
+			response = true;
 		}
+		return response;
 	}
 
 }
