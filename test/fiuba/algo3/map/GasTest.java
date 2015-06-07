@@ -67,7 +67,7 @@ public class GasTest{
 	@Test
 	public void testOccupiedGasWithGasGetterCanDraw(){
 		gas.put(gasGetter);
-		Assert.assertTrue(gas.canDraw());
+		Assert.assertTrue(gas.draw());
 	}
 
 	@Test

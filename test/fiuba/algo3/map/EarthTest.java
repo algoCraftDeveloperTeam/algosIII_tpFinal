@@ -76,13 +76,13 @@ public class EarthTest{
 	@Test
 	public void testOccupiedEarthWithMarineCanDraw(){
 		earth.put(barrack);
-		Assert.assertTrue(earth.canDraw());
+		Assert.assertTrue(earth.draw());
 	}
 
 	@Test
 	public void testOccupiedEarthWithBarrackCanDraw(){
 		earth.put(marine);
-		Assert.assertTrue(earth.canDraw());
+		Assert.assertTrue(earth.draw());
 	}
 
 	@Test

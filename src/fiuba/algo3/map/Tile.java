@@ -12,14 +12,10 @@ public abstract class Tile implements Pervadable{
 		occupied = false;
 	}
 
-	public boolean canDraw(){
-		return occupied;
-	}
-
-	public void draw(){
-		if (canDraw()){
-			occupied = false;
-		}
+	public boolean draw(){
+		boolean response = occupied;
+		occupied = false;
+		return response;
 	}
 
 }

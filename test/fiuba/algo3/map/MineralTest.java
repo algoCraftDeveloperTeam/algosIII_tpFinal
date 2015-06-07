@@ -67,7 +67,7 @@ public class MineralTest{
 	@Test
 	public void testOccupiedMineralWithMineralGetterCanDraw(){
 		mineral.put(mineralGetter);
-		Assert.assertTrue(mineral.canDraw());
+		Assert.assertTrue(mineral.draw());
 	}
 
 	@Test

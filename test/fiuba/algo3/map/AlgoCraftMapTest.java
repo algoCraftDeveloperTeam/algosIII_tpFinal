@@ -9,20 +9,20 @@ public class AlgoCraftMapTest{
 
 	@Test
 	public void setUp(){
-        AlgoCraftMap map1 = new AlgoCraftMap(20);	// creamos varios mapas para la cobertura, ya que en la generacion se utilizan funciones random
+        AlgoCraftMap map = new AlgoCraftMap(20);	// creamos varios mapas para la cobertura, ya que en la generacion se utilizan funciones random
 		Coordinates coord = new Coordinates(2,2);
 		Occupant marine = new Marine();
-		Assert.assertTrue(map1.put(marine,coord));
+		Assert.assertTrue(map.put(marine,coord));
 	}
 
 	@Test
 	public void setUp2(){
-        AlgoCraftMap map1 = new AlgoCraftMap(20);	// creamos varios mapas para la cobertura, ya que en la generacion se utilizan funciones random
+        AlgoCraftMap map = new AlgoCraftMap(20);	// creamos varios mapas para la cobertura, ya que en la generacion se utilizan funciones random
 		Coordinates coord = new Coordinates(2,2);
 		Occupant marine1 = new Marine();
 		Occupant marine2 = new Marine();
-		map1.put(marine1,coord);
-		Assert.assertFalse(map1.put(marine2,coord));
+		map.put(marine1,coord);
+		Assert.assertFalse(map.put(marine2,coord));
 	}
 
 }

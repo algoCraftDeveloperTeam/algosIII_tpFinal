@@ -6,8 +6,6 @@ public interface Pervadable {
 
 	boolean put(Occupant newOccupant);
 
-	boolean canDraw();
-
-	void draw();
+	boolean draw();
 
 }
