@@ -10,6 +10,7 @@ import fiuba.algo3.player.Player;
 public class StarPort extends Building {
     public StarPort(Player player){
         super(player);
+        this.requiredBuildings.add(TerranFactory.class);
         this.constructionCost = new Cost(150, 100);
         this.life = new Life(1300, 0);
         this.constructionTime = 10;

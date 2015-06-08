@@ -13,6 +13,7 @@ import fiuba.algo3.occupant.units.UnitInTraining;
 public class TerranFactory extends Building implements UnitCreator{
     public TerranFactory(Player player){
         super(player);
+        this.requiredBuildings.add(Barracks.class);
         this.constructionTime = 12;
         this.constructionCost = new Cost(200, 100);
         this.life = new Life(1250, 0);

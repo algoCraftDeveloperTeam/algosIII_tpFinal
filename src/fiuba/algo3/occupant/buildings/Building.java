@@ -4,6 +4,8 @@ import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.player.Player;
 import fiuba.algo3.occupant.Occupant;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by mporto on 30/05/15.
@@ -13,8 +15,10 @@ public abstract class Building implements Occupant {
     int constructionTime;
     Life life;
     Player owner;
+    List<Class<?>> requiredBuildings;
     public Building(Player player) {
         this.owner = player;
+        requiredBuildings = new ArrayList<Class<?>>();
     }
     public Building(){
         
@@ -42,6 +46,9 @@ public abstract class Building implements Occupant {
     }
     public Player getOwner() {
         return owner;
+    }
+    public List<Class<?>> getRequiredBuildings(){
+        return requiredBuildings;
     }
     public boolean verifyRequiredBuilding(){
         return true;
