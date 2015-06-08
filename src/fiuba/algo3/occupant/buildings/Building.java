@@ -2,10 +2,8 @@ package fiuba.algo3.occupant.buildings;
 
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
-import fiuba.algo3.player.Player;
 import fiuba.algo3.occupant.Occupant;
-
-import java.util.ArrayList;
+import fiuba.algo3.player.Player;
 
 /**
  * Created by mporto on 30/05/15.

@@ -7,8 +7,6 @@ import fiuba.algo3.gameVariables.Position;
 import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.Occupant;
 
-import java.util.Map;
-
 /**
  * Created by mporto on 28/05/15.
  */
