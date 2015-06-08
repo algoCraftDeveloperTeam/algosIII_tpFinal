@@ -5,20 +5,26 @@ import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.player.Player;
 import fiuba.algo3.occupant.Occupant;
 
+import java.util.ArrayList;
+
 /**
  * Created by mporto on 30/05/15.
  */
 public abstract class Building implements Occupant {
+
     Cost constructionCost;
     int constructionTime;
     Life life;
     Player owner;
+
     public Building(Player player) {
         this.owner = player;
     }
+    /*
     public Building(){
         
     }
+    */
     public boolean canOccupyEarth(){
     	return true;
     }

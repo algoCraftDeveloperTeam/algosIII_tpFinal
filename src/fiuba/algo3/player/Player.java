@@ -53,10 +53,11 @@ public class Player {
         throw new Exception();
     }
 
-    // This methos should be private in the finished version
+    // This method should be private in the finished version
     public void addFinishedBuilding(Building building){
         this.buildings.add(building);
     }
+
     private boolean verifyRequirements(Building buildingToBeConstructed) {
         return (this.verifyCost(buildingToBeConstructed.getConstructionCost()) && buildingToBeConstructed.verifyRequiredBuilding());
     }
