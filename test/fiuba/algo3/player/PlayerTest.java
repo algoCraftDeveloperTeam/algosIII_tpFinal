@@ -1,6 +1,7 @@
 package fiuba.algo3.player;
 
 import fiuba.algo3.occupant.InsufficientResourcesException;
+import fiuba.algo3.occupant.MissingRequiredBuildingsException;
 import fiuba.algo3.occupant.buildings.*;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -40,22 +41,21 @@ public class PlayerTest {
     }
 
     @Test
-    public void testStartConstructionOfABuildingWithTheRequiredResources() throws InsufficientResourcesException{
-        // If you call the build method and you have the required resources you
-        // receive a BuildingInConstruction. Otherwise an Exception should be
-        // raised.
-        Building buildingToBeConstructed = new MineralNexus(this.aPlayer);
-        BuildingInConstruction aBuildingInConstruction = this.aPlayer.build(buildingToBeConstructed);
+    public void testStartConstructionOfABuildingWithTheRequiredResources()
+            throws InsufficientResourcesException, MissingRequiredBuildingsException {
+        this.aPlayer.build(new MineralNexus(this.aPlayer));
     }
 
     @Test(expected = InsufficientResourcesException.class)
-    public void testStartConstructionOfABuildingWithoutTheRequiredResources() throws InsufficientResourcesException {
+    public void testStartConstructionOfABuildingWithoutTheRequiredResources()
+            throws InsufficientResourcesException, MissingRequiredBuildingsException {
         this.aPlayer.build(new Barracks(this.aPlayer));
         this.aPlayer.build(new Barracks(this.aPlayer));
     }
 
     @Test
-    public void testConstructAFactoryHavingBarracksAndTheRequiredResources() throws Exception {
+    public void testConstructAFactoryHavingBarracksAndTheRequiredResources()
+            throws InsufficientResourcesException, MissingRequiredBuildingsException {
         this.aPlayer.addGas(100);
         this.aPlayer.addMinerals(200);
         this.aPlayer.addFinishedBuilding(new Barracks(this.aPlayer));
@@ -63,8 +63,17 @@ public class PlayerTest {
     }
 
     @Test(expected = InsufficientResourcesException.class)
-    public void testConstructAFactoryHavingBarracksAndWithoutTheRequiredResources() throws InsufficientResourcesException {
+    public void testConstructAFactoryHavingBarracksAndWithoutTheRequiredResources()
+            throws InsufficientResourcesException, MissingRequiredBuildingsException {
         this.aPlayer.addFinishedBuilding(new Barracks(this.aPlayer));
+        this.aPlayer.build(new TerranFactory(this.aPlayer));
+    }
+
+    @Test(expected = MissingRequiredBuildingsException.class)
+    public void testConstructAFactoryNotHavingBarracksAndHavingTheRequiredResources() throws
+            InsufficientResourcesException, MissingRequiredBuildingsException {
+        this.aPlayer.addGas(100);
+        this.aPlayer.addMinerals(200);
         this.aPlayer.build(new TerranFactory(this.aPlayer));
     }
 

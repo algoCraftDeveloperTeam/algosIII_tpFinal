@@ -1,6 +1,7 @@
 package fiuba.algo3.player;
 
 import fiuba.algo3.occupant.InsufficientResourcesException;
+import fiuba.algo3.occupant.MissingRequiredBuildingsException;
 import fiuba.algo3.occupant.buildings.Building;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
 import fiuba.algo3.gameVariables.Cost;
@@ -44,13 +45,16 @@ public class Player {
         this.population.addAvailablePopulation(i);
     }
 
-    public BuildingInConstruction build(Building buildingToBeConstructed) throws InsufficientResourcesException {
+    public BuildingInConstruction build(Building buildingToBeConstructed)
+            throws InsufficientResourcesException, MissingRequiredBuildingsException {
         try {
             this.verifyRequirements(buildingToBeConstructed);
             BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed);
             buildingsInConstruction.add(buildingInConstruction);
             return buildingInConstruction;
         }catch (InsufficientResourcesException ex){
+            throw ex;
+        }catch(MissingRequiredBuildingsException ex){
             throw ex;
         }
     }
@@ -60,13 +64,15 @@ public class Player {
         this.buildings.add(building);
     }
 
-    private void verifyRequirements(Building buildingToBeConstructed) throws InsufficientResourcesException{
+    private void verifyRequirements(Building buildingToBeConstructed) throws InsufficientResourcesException,
+            MissingRequiredBuildingsException {
         try {
             this.verifyCost(buildingToBeConstructed.getConstructionCost());
-            buildingToBeConstructed.verifyRequiredBuilding();
         }catch (InsufficientResourcesException ex){
             throw ex;
         }
+
+        if(!buildingToBeConstructed.verifyRequiredBuilding()) throw new MissingRequiredBuildingsException();
 
     }
 
