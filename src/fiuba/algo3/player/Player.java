@@ -1,5 +1,6 @@
 package fiuba.algo3.player;
 
+import fiuba.algo3.occupant.InsufficientResourcesException;
 import fiuba.algo3.occupant.buildings.Building;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
 import fiuba.algo3.gameVariables.Cost;
@@ -43,14 +44,15 @@ public class Player {
         this.population.addAvailablePopulation(i);
     }
 
-    public BuildingInConstruction build(Building buildingToBeConstructed) throws Exception {
-        if(this.verifyRequirements(buildingToBeConstructed)){
+    public BuildingInConstruction build(Building buildingToBeConstructed) throws InsufficientResourcesException {
+        try {
+            this.verifyRequirements(buildingToBeConstructed);
             BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed);
             buildingsInConstruction.add(buildingInConstruction);
             return buildingInConstruction;
+        }catch (InsufficientResourcesException ex){
+            throw ex;
         }
-        // We should add an Error if the requirements aren't met.
-        throw new Exception();
     }
 
     // This method should be private in the finished version
@@ -58,15 +60,21 @@ public class Player {
         this.buildings.add(building);
     }
 
-    private boolean verifyRequirements(Building buildingToBeConstructed) {
-        return (this.verifyCost(buildingToBeConstructed.getConstructionCost()) && buildingToBeConstructed.verifyRequiredBuilding());
+    private void verifyRequirements(Building buildingToBeConstructed) throws InsufficientResourcesException{
+        try {
+            this.verifyCost(buildingToBeConstructed.getConstructionCost());
+            buildingToBeConstructed.verifyRequiredBuilding();
+        }catch (InsufficientResourcesException ex){
+            throw ex;
+        }
+
     }
 
-    private boolean verifyCost(Cost constructionCost) {
+    private void verifyCost(Cost constructionCost) throws InsufficientResourcesException{
         boolean mineralStatus = this.resources.getMineralStorage() >= constructionCost.getMineralCost();
         boolean gasStatus = this.resources.getGasStorage() >= constructionCost.getGasCost();
 
-        return mineralStatus && gasStatus;
+        if(!(mineralStatus && gasStatus)) throw new InsufficientResourcesException();
     }
 
     public void substractMinerals(int mineralCost) {
