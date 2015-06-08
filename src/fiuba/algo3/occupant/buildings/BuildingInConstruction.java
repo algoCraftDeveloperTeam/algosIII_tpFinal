@@ -1,18 +1,28 @@
 package fiuba.algo3.occupant.buildings;
 
 
+import fiuba.algo3.gameVariables.Damage;
+import fiuba.algo3.gameVariables.Life;
+import fiuba.algo3.gameVariables.Position;
+import fiuba.algo3.occupant.Damageable;
+import fiuba.algo3.occupant.Occupant;
 import fiuba.algo3.player.Player;
 
 /**
  * Created by mporto on 30/05/15.
  */
-public class BuildingInConstruction {
+public class BuildingInConstruction implements Occupant, Damageable{
     private Building buildingInConstruction;
     private int remainingTurnsToBeFinished;
+    public Life life;
+    public Position position;
 
     public BuildingInConstruction(Building building) {
         this.buildingInConstruction = building;
         this.remainingTurnsToBeFinished = building.getConstructionTime();
+        this.life = new Life(this.buildingInConstruction.getVitality(),
+                this.buildingInConstruction.getShield());
+        this.position = new Position(0, 0);
         Player owner = building.getOwner();
         owner.substractMinerals(building.getConstructionCost().getMineralCost());
         owner.substractGas(building.getConstructionCost().getGasCost());
@@ -32,5 +42,42 @@ public class BuildingInConstruction {
 
     public boolean isReady() {
         return remainingTurnsToBeFinished == 0;
+    }
+
+    public int getVitality(){
+        return this.life.getVitality();
+    }
+
+    public int getShield(){
+        return this.life.getShield();
+    }
+
+    public void setPosition(int x, int y){
+        position.move(x, y);
+    }
+
+    @Override
+    public void receiveDamage(Damage damage) {
+        this.life.receiveAttack(damage.getGroundDamage());
+    }
+
+    @Override
+    public boolean canOccupyEarth() {
+        return true;
+    }
+
+    @Override
+    public boolean canOccupyGas() {
+        return false;
+    }
+
+    @Override
+    public boolean canOccupyMineral() {
+        return false;
+    }
+
+    @Override
+    public Position getPosition(){
+        return position;
     }
 }
