@@ -62,11 +62,12 @@ public class Player {
     }
 
     // This method should be private in the finished version
+    /*
     public void addFinishedBuilding(Building building){
         this.buildings.add(building);
     }
-
-    public void addFinishedBuilding2(Building building){
+    */
+    public void addFinishedBuilding(Building building){
         // TO DO: add building method getName.
         if(this.buildings2.containsKey(building.getClass())){
             this.buildings2.get(building.getClass()).add(building);
@@ -87,11 +88,13 @@ public class Player {
             MissingRequiredBuildingsException {
         try {
             this.verifyCost(buildingToBeConstructed.getConstructionCost());
+            this.verifyRequiredBuildings(buildingToBeConstructed.getRequiredBuildings());
         }catch (InsufficientResourcesException ex){
+            throw ex;
+        }catch (MissingRequiredBuildingsException ex){
             throw ex;
         }
 
-        if(!buildingToBeConstructed.verifyRequiredBuilding()) throw new MissingRequiredBuildingsException();
 
     }
 
