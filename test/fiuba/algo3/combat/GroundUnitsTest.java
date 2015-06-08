@@ -3,6 +3,8 @@ package fiuba.algo3.combat;
 import fiuba.algo3.occupant.units.CombatUnit;
 import fiuba.algo3.occupant.units.Goliath;
 import fiuba.algo3.occupant.units.Marine;
+import fiuba.algo3.map.AlgoCraftMap;
+import fiuba.algo3.map.Coordinates;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,17 +16,23 @@ public class GroundUnitsTest {
     
     private CombatUnit marine;
     private CombatUnit goliath;
+    private AlgoCraftMap algoCraftMap;
+    private Coordinates marineCoord;
+    private Coordinates goliathCoord;
     
     @Before
     public void setUp() throws Exception {
         marine = new Marine(); 
         goliath = new Goliath();
+        algoCraftMap = new AlgoCraftMap(10);
     }
 
     @Test
     public void testMarineAttacksGoliathWithinRange() throws Exception {
-        marine.move(1, 1);
-        goliath.move(2, 2);
+        marineCoord = new Coordinates(4,4);
+        goliathCoord = new Coordinates(5,6);
+        algoCraftMap.put(marine, marineCoord);
+        algoCraftMap.put(goliath, goliathCoord);
         marine.attack(goliath);
         // 125 (goliath's vitality) - 6 (marine's attack) = 119
         int expectedRemainingVitality = 119;
