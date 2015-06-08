@@ -44,16 +44,28 @@ public class PlayerTest {
         // If you call the build method and you have the required resources you
         // receive a BuildingInConstruction. Otherwise an Exception should be
         // raised.
-        Building buildingToBeConstructed = new MineralNexus(aPlayer);
+        Building buildingToBeConstructed = new MineralNexus(this.aPlayer);
         BuildingInConstruction aBuildingInConstruction = this.aPlayer.build(buildingToBeConstructed);
     }
 
     @Test(expected = InsufficientResourcesException.class)
     public void testStartConstructionOfABuildingWithoutTheRequiredResources() throws InsufficientResourcesException {
-        Building buildingToBeConstructed1 = new Barracks(aPlayer);
-        BuildingInConstruction aBuildingInConstruction1 = this.aPlayer.build(buildingToBeConstructed1);
-        Building buildingToBeConstructed2 = new Barracks(aPlayer);
-        BuildingInConstruction aBuildingInConstruction2 = this.aPlayer.build(buildingToBeConstructed2);
+        this.aPlayer.build(new Barracks(this.aPlayer));
+        this.aPlayer.build(new Barracks(this.aPlayer));
+    }
+
+    @Test
+    public void testConstructAFactoryHavingBarracksAndTheRequiredResources() throws Exception {
+        this.aPlayer.addGas(100);
+        this.aPlayer.addMinerals(200);
+        this.aPlayer.addFinishedBuilding(new Barracks(this.aPlayer));
+        this.aPlayer.build(new TerranFactory(this.aPlayer));
+    }
+
+    @Test(expected = InsufficientResourcesException.class)
+    public void testConstructAFactoryHavingBarracksAndWithoutTheRequiredResources() throws InsufficientResourcesException {
+        this.aPlayer.addFinishedBuilding(new Barracks(this.aPlayer));
+        this.aPlayer.build(new TerranFactory(this.aPlayer));
     }
 
     @Test
