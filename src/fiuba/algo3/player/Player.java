@@ -9,6 +9,7 @@ import fiuba.algo3.gameVariables.PlayerResources;
 import fiuba.algo3.gameVariables.Population;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class Player {
     Population population = new Population();
     private List<BuildingInConstruction> buildingsInConstruction = new ArrayList<BuildingInConstruction>();
     private List<Building> buildings = new ArrayList<Building>();
+    HashMap<Class<?>, List<Building>> buildings2 = new HashMap<>();
 
     public int getGasStorage(){
         return this.resources.getGasStorage();
@@ -64,6 +66,23 @@ public class Player {
         this.buildings.add(building);
     }
 
+    public void addFinishedBuilding2(Building building){
+        // TO DO: add building method getName.
+        if(this.buildings2.containsKey(building.getClass())){
+            this.buildings2.get(building.getClass()).add(building);
+        }else{
+            List<Building> buildingsOfTheType = new ArrayList<Building>();
+            buildingsOfTheType.add(building);
+            this.buildings2.put(building.getClass(), buildingsOfTheType);
+        }
+    }
+    private boolean hasBuilding(Class building){
+        if(this.buildings2.containsKey(building)){
+            return !this.buildings2.get(building).isEmpty();
+        }
+        return false;
+    }
+
     private void verifyRequirements(Building buildingToBeConstructed) throws InsufficientResourcesException,
             MissingRequiredBuildingsException {
         try {
@@ -83,6 +102,12 @@ public class Player {
         if(!(mineralStatus && gasStatus)) throw new InsufficientResourcesException();
     }
 
+    private void verifyRequiredBuildings(List<Class<?>> requiredBuildings) throws MissingRequiredBuildingsException{
+        Iterator<Class<?>> requiredBuilding = requiredBuildings.iterator();
+        while (requiredBuilding.hasNext()){
+            if(!this.hasBuilding(requiredBuilding.next().getClass())) throw new MissingRequiredBuildingsException();
+        }
+    }
     public void substractMinerals(int mineralCost) {
         this.resources.substractMinerals(mineralCost);
     }
