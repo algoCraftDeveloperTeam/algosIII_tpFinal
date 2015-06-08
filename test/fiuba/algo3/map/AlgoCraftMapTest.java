@@ -1,28 +1,42 @@
 package fiuba.algo3.map;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Before;
 import fiuba.algo3.occupant.Occupant;
 import fiuba.algo3.occupant.units.Marine;
+import fiuba.algo3.occupant.units.Zealot;
 
 public class AlgoCraftMapTest{
 
-	@Test
+	AlgoCraftMap algoCraftMap;
+
+	@Before
 	public void setUp(){
-        AlgoCraftMap map = new AlgoCraftMap(20);	// creamos varios mapas para la cobertura, ya que en la generacion se utilizan funciones random
-		Coordinates coord = new Coordinates(2,2);
-		Occupant marine = new Marine();
-		Assert.assertTrue(map.put(marine,coord));
+		algoCraftMap = new AlgoCraftMap(20);
 	}
 
 	@Test
-	public void setUp2(){
-        AlgoCraftMap map = new AlgoCraftMap(20);	// creamos varios mapas para la cobertura, ya que en la generacion se utilizan funciones random
+	public void testMapCanPutOccupant(){
 		Coordinates coord = new Coordinates(2,2);
-		Occupant marine1 = new Marine();
-		Occupant marine2 = new Marine();
-		map.put(marine1,coord);
-		Assert.assertFalse(map.put(marine2,coord));
+		Occupant marine = new Marine();
+		Assert.assertTrue(algoCraftMap.put(marine,coord));
+	}
+
+	@Test
+	public void testMapCanPutOccupantOnOccupiedTile(){
+		Coordinates coord = new Coordinates(2,2);
+		Occupant marine = new Marine();
+		Occupant zealot = new Zealot();
+		algoCraftMap.put(marine,coord);
+		Assert.assertFalse(algoCraftMap.put(zealot,coord));
+	}
+
+	@Test
+	public void testMapCanPutOccupantOnInvalidCoordinates(){
+		Coordinates coord = new Coordinates(40,2);
+		Occupant marine = new Marine();
+		Assert.assertFalse(algoCraftMap.put(marine,coord));
 	}
 
 }
