@@ -1,4 +1,4 @@
-package fiuba.algo3;
+package fiuba.algo3.exceptions;
 
 /**
  * Created by nsueiro on 09/06/15.

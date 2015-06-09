@@ -1,4 +1,4 @@
-package fiuba.algo3.occupant;
+package fiuba.algo3.exceptions;
 
 /**
  * Created by mporto on 08/06/15.

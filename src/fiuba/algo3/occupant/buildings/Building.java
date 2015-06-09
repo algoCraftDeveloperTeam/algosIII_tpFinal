@@ -1,8 +1,7 @@
 package fiuba.algo3.occupant.buildings;
 
-import fiuba.algo3.CannotOccupyTileException;
-import fiuba.algo3.EmptyTileException;
-import fiuba.algo3.KeyDoesNotExistsException;
+import fiuba.algo3.exceptions.CannotOccupyTileException;
+import fiuba.algo3.exceptions.KeyDoesNotExistsException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;

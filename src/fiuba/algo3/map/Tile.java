@@ -1,6 +1,6 @@
 package fiuba.algo3.map;
 
-import fiuba.algo3.EmptyTileException;
+import fiuba.algo3.exceptions.EmptyTileException;
 import fiuba.algo3.occupant.Occupant;
 
 public abstract class Tile implements Pervadable{

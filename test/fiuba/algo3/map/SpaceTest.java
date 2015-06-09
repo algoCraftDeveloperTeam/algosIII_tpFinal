@@ -1,11 +1,10 @@
 package fiuba.algo3.map;
 
 import fiuba.algo3.occupant.Occupant;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import fiuba.algo3.occupant.units.Marine;
-import fiuba.algo3.CannotOccupyTileException;
+import fiuba.algo3.exceptions.CannotOccupyTileException;
 
 public class SpaceTest{
 

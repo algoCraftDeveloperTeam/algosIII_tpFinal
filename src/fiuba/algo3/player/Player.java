@@ -3,8 +3,8 @@ package fiuba.algo3.player;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.PlayerResources;
 import fiuba.algo3.gameVariables.Population;
-import fiuba.algo3.occupant.InsufficientResourcesException;
-import fiuba.algo3.occupant.MissingRequiredBuildingsException;
+import fiuba.algo3.exceptions.InsufficientResourcesException;
+import fiuba.algo3.exceptions.MissingRequiredBuildingsException;
 import fiuba.algo3.occupant.buildings.Building;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
 

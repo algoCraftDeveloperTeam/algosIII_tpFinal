@@ -1,13 +1,12 @@
 package fiuba.algo3.map;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import fiuba.algo3.occupant.Occupant;
 import fiuba.algo3.occupant.units.Marine;
 import fiuba.algo3.occupant.units.Zealot;
-import fiuba.algo3.CannotOccupyTileException;
-import fiuba.algo3.KeyDoesNotExistsException;
+import fiuba.algo3.exceptions.CannotOccupyTileException;
+import fiuba.algo3.exceptions.KeyDoesNotExistsException;
 
 public class AlgoCraftMapTest{
 

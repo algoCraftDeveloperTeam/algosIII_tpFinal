@@ -1,7 +1,7 @@
 package fiuba.algo3.player;
 
-import fiuba.algo3.occupant.InsufficientResourcesException;
-import fiuba.algo3.occupant.MissingRequiredBuildingsException;
+import fiuba.algo3.exceptions.InsufficientResourcesException;
+import fiuba.algo3.exceptions.MissingRequiredBuildingsException;
 import fiuba.algo3.occupant.buildings.*;
 import static org.junit.Assert.*;
 import org.junit.Before;

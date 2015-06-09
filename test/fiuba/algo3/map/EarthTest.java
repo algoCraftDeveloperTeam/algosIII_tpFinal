@@ -1,8 +1,7 @@
 package fiuba.algo3.map;
 
-import fiuba.algo3.CannotOccupyTileException;
+import fiuba.algo3.exceptions.CannotOccupyTileException;
 import fiuba.algo3.occupant.Occupant;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import fiuba.algo3.player.Player;
@@ -10,7 +9,6 @@ import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.Asimilator;
 import fiuba.algo3.occupant.buildings.MineralCenter;
 import fiuba.algo3.occupant.units.Marine;
-import fiuba.algo3.CannotOccupyTileException;
 
 public class EarthTest{
 
