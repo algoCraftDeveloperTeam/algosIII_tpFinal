@@ -19,7 +19,7 @@ import java.util.Map;
 public class Player {
     PlayerResources resources = new PlayerResources(200, 0);
     Population population = new Population();
-    private List<BuildingInConstruction> buildingsInConstruction = new ArrayList<>();
+    private List<BuildingInConstruction> buildingsInConstruction = new ArrayList<BuildingInConstruction>();
     Map<Class<?>, List<Building>> buildings2 = new HashMap<Class<?>, List<Building>>();
 
     public int getGasStorage(){
@@ -64,7 +64,7 @@ public class Player {
         if(this.buildings2.containsKey(building.getClass())){
             this.buildings2.get(building.getClass()).add(building);
         }else{
-            List<Building> buildingsOfTheType = new ArrayList<>();
+            List<Building> buildingsOfTheType = new ArrayList<Building>();
             buildingsOfTheType.add(building);
             this.buildings2.put(building.getClass(), buildingsOfTheType);
         }
