@@ -1,18 +1,17 @@
 package fiuba.algo3.player;
 
+import fiuba.algo3.gameVariables.Cost;
+import fiuba.algo3.gameVariables.PlayerResources;
+import fiuba.algo3.gameVariables.Population;
 import fiuba.algo3.occupant.InsufficientResourcesException;
 import fiuba.algo3.occupant.MissingRequiredBuildingsException;
 import fiuba.algo3.occupant.buildings.Building;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
-import fiuba.algo3.gameVariables.Cost;
-import fiuba.algo3.gameVariables.PlayerResources;
-import fiuba.algo3.gameVariables.Population;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by nsueiro on 29/05/15.
@@ -20,8 +19,7 @@ import java.util.List;
 public class Player {
     PlayerResources resources = new PlayerResources(200, 0);
     Population population = new Population();
-    private List<BuildingInConstruction> buildingsInConstruction = new ArrayList<BuildingInConstruction>();
-    private List<Building> buildings = new ArrayList<Building>();
+    private List<BuildingInConstruction> buildingsInConstruction = new ArrayList<>();
     Map<Class<?>, List<Building>> buildings2 = new HashMap<Class<?>, List<Building>>();
 
     public int getGasStorage(){
@@ -62,27 +60,17 @@ public class Player {
         }
     }
 
-    // This method should be private in the finished version
-    /*
     public void addFinishedBuilding(Building building){
-        this.buildings.add(building);
-    }
-    */
-    public void addFinishedBuilding(Building building){
-        // TO DO: add building method getName.
         if(this.buildings2.containsKey(building.getClass())){
             this.buildings2.get(building.getClass()).add(building);
         }else{
-            List<Building> buildingsOfTheType = new ArrayList<Building>();
+            List<Building> buildingsOfTheType = new ArrayList<>();
             buildingsOfTheType.add(building);
             this.buildings2.put(building.getClass(), buildingsOfTheType);
         }
     }
-    private boolean hasBuilding(Class building){
-        if(this.buildings2.containsKey(building)){
-            return !this.buildings2.get(building).isEmpty();
-        }
-        return false;
+    private boolean hasBuilding(Class building) {
+        return this.buildings2.containsKey(building) && !this.buildings2.get(building).isEmpty();
     }
 
     private void verifyRequirements(Building buildingToBeConstructed) throws InsufficientResourcesException,
@@ -107,9 +95,8 @@ public class Player {
     }
 
     private void verifyRequiredBuildings(List<Class<?>> requiredBuildings) throws MissingRequiredBuildingsException{
-        Iterator<Class<?>> requiredBuilding = requiredBuildings.iterator();
-        while (requiredBuilding.hasNext()){
-            if(!this.hasBuilding(requiredBuilding.next())){
+        for (Class<?> requiredBuilding1 : requiredBuildings) {
+            if (!this.hasBuilding(requiredBuilding1)) {
                 throw new MissingRequiredBuildingsException();
             }
         }
