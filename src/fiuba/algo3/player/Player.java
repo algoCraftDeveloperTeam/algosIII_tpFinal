@@ -87,8 +87,8 @@ public class Player {
     private void verifyRequirements(Building buildingToBeConstructed) throws InsufficientResourcesException,
             MissingRequiredBuildingsException {
         try {
-            this.verifyCost(buildingToBeConstructed.getConstructionCost());
             this.verifyRequiredBuildings(buildingToBeConstructed.getRequiredBuildings());
+            this.verifyCost(buildingToBeConstructed.getConstructionCost());
         }catch (InsufficientResourcesException ex){
             throw ex;
         }catch (MissingRequiredBuildingsException ex){
@@ -108,7 +108,9 @@ public class Player {
     private void verifyRequiredBuildings(List<Class<?>> requiredBuildings) throws MissingRequiredBuildingsException{
         Iterator<Class<?>> requiredBuilding = requiredBuildings.iterator();
         while (requiredBuilding.hasNext()){
-            if(!this.hasBuilding(requiredBuilding.next().getClass())) throw new MissingRequiredBuildingsException();
+            if(!this.hasBuilding(requiredBuilding.next())){
+                throw new MissingRequiredBuildingsException();
+            }
         }
     }
     public void substractMinerals(int mineralCost) {
