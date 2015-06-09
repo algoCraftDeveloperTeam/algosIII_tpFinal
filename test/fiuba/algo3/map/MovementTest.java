@@ -1,7 +1,6 @@
 package fiuba.algo3.map;
 
 import fiuba.algo3.exceptions.CannotOccupyTileException;
-import fiuba.algo3.exceptions.DestinationIsOccupiedException;
 import fiuba.algo3.exceptions.InvalidMovementException;
 import fiuba.algo3.exceptions.KeyDoesNotExistsException;
 import fiuba.algo3.occupant.buildings.Barracks;
@@ -9,7 +8,6 @@ import fiuba.algo3.occupant.buildings.Building;
 import fiuba.algo3.occupant.units.Marine;
 import fiuba.algo3.occupant.units.Unit;
 import fiuba.algo3.player.Player;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
