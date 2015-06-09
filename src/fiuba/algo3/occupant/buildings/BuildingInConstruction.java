@@ -60,7 +60,7 @@ public class BuildingInConstruction implements Occupant, Damageable{
     public void setPosition(int x, int y, AlgoCraftMap map) throws EmptyTileException, KeyDoesNotExistsException,
             CannotOccupyTileException {
         Coordinates destination = new Coordinates(x, y);
-        map.move(this.position, destination);
+        map.put(this, destination);
         this.position = destination;
     }
 
