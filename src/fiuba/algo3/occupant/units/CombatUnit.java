@@ -2,7 +2,7 @@ package fiuba.algo3.occupant.units;
 
 import fiuba.algo3.gameVariables.AttackRange;
 import fiuba.algo3.gameVariables.Damage;
-import fiuba.algo3.gameVariables.Position;
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.Occupant;
 
@@ -41,11 +41,8 @@ public class CombatUnit extends Unit{
     }
 
     public boolean isWithinRange(Occupant occupant) {
-        Position unitPosition = occupant.getPosition();
-        int distanceInX = unitPosition.getX() - this.getPosition().getX();
-        int distanceInY = unitPosition.getY() - this.getPosition().getY();
-        int distance = (int) Math.sqrt(Math.pow(distanceInX, 2) + Math.pow(distanceInY, 2));
-
+        Coordinates unitPosition = occupant.getPosition();
+        int distance = this.position.distance(unitPosition);
         // In the meantime this will only check with the unit's ground attack range.
         return !(distance > this.getGroundAttackRange());
     }

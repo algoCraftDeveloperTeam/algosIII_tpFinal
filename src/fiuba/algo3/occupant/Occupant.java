@@ -1,6 +1,6 @@
 package fiuba.algo3.occupant;
 
-import fiuba.algo3.gameVariables.Position;
+import fiuba.algo3.map.Coordinates;
 
 public interface Occupant {
 
@@ -10,6 +10,6 @@ public interface Occupant {
 
 	boolean canOccupyMineral();
 
-	Position getPosition();
+	Coordinates getPosition();
 
 }

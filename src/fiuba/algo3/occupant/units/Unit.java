@@ -1,16 +1,16 @@
 package fiuba.algo3.occupant.units;
 
+import fiuba.algo3.CannotOccupyTileException;
 import fiuba.algo3.EmptyTileException;
+import fiuba.algo3.InvalidMovementException;
 import fiuba.algo3.KeyDoesNotExistsException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;
-import fiuba.algo3.gameVariables.Position;
 import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.Occupant;
-import sun.invoke.empty.Empty;
 
 /**
  * Created by mporto on 28/05/15.
@@ -46,7 +46,7 @@ public class Unit implements Occupant, Damageable {
         return life.getShield();
     }
 
-    public Position getPosition() {
+    public Coordinates getPosition() {
         return position;
     }
 
@@ -55,14 +55,16 @@ public class Unit implements Occupant, Damageable {
         life.receiveAttack(damage.getGroundDamage());
     }
 
-    public void move(int x, int y, AlgoCraftMap map) {
+    public void move(int x, int y, AlgoCraftMap map) throws InvalidMovementException{
         try {
             Coordinates destination = new Coordinates(x, y);
-            map.move(this.position, destination);
-        } catch (KeyDoesNotExistsException, EmptyTileException)
-
-
-
+            if (this.position.distance(destination) <= this.fieldOfVision) {
+                map.move(this.position, destination);
+                this.position = destination;
+            }
+        } catch (KeyDoesNotExistsException | EmptyTileException | CannotOccupyTileException e) {
+            throw new InvalidMovementException();
+        }
     }
 
     public boolean canOccupyEarth() {
