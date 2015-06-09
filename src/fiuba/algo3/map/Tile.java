@@ -1,5 +1,6 @@
 package fiuba.algo3.map;
 
+import fiuba.algo3.EmptyTileException;
 import fiuba.algo3.occupant.Occupant;
 
 public abstract class Tile implements Pervadable{
@@ -18,4 +19,18 @@ public abstract class Tile implements Pervadable{
 		return response;
 	}
 
+	public void clear() {
+		this.occupied = false;
+	}
+
+	public Occupant getOccupant() throws EmptyTileException{
+		if (!this.isOccupied()){
+			throw new EmptyTileException();
+		}
+		return this.occupant;
+	}
+
+	public boolean isOccupied(){
+		return this.occupied;
+	}
 }

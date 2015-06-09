@@ -1,9 +1,11 @@
 package fiuba.algo3.map;
 
-import java.util.Random;
-import java.util.Map;
-import java.util.HashMap;
+import fiuba.algo3.EmptyTileException;
+import fiuba.algo3.KeyDoesNotExistsException;
 import fiuba.algo3.occupant.Occupant;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AlgoCraftMap{
 
@@ -44,6 +46,20 @@ public class AlgoCraftMap{
 		return response;
 	}
 
+	private void clearTile (Coordinates coord) {
+		Tile current = tiles.get(coord);
+		current.clear();
+	}
+
+	public void move(Coordinates origin, Coordinates destination) throws EmptyTileException, KeyDoesNotExistsException {
+		if (!tiles.containsKey(origin) || !tiles.containsKey(destination)) {
+			throw new KeyDoesNotExistsException();
+		}
+		Occupant current = tiles.get(origin).getOccupant();
+		tiles.get(origin).clear();
+		this.put(current, destination);
+
+	}
 	/*private void placeBases(){
 		Random random = new Random();
 		int randomRow = random.nextInt(dimention);
