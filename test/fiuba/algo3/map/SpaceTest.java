@@ -4,7 +4,6 @@ import fiuba.algo3.occupant.Occupant;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
-import fiuba.algo3.player.Player;
 import fiuba.algo3.occupant.units.Marine;
 
 public class SpaceTest{
@@ -23,7 +22,11 @@ public class SpaceTest{
 
 	@Test
 	public void testSpaceCanPutMarine(){
-		Assert.assertFalse(space.put(marine));
+		try {
+			Assert.assertFalse(space.put(marine));
+		} catch (fiuba.algo3.CannotOccupyTileException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

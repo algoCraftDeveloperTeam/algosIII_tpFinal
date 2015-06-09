@@ -40,41 +40,77 @@ public class GasTest{
 
 	@Test
 	public void testGasCanPutGasGetter(){
-		Assert.assertTrue(gas.put(gasGetter));
+		try {
+			Assert.assertTrue(gas.put(gasGetter));
+		} catch (fiuba.algo3.CannotOccupyTileException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testGasCanPutMineralGetter(){
-		Assert.assertFalse(gas.put(mineralGetter));
+		try {
+			Assert.assertFalse(gas.put(mineralGetter));
+		} catch (fiuba.algo3.CannotOccupyTileException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testGasCanPutMarine(){
-		Assert.assertFalse(gas.put(marine));
+		try {
+			Assert.assertFalse(gas.put(marine));
+		} catch (fiuba.algo3.CannotOccupyTileException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testGasCanPutBarrack(){
-		Assert.assertFalse(gas.put(barrack));
+		try {
+			Assert.assertFalse(gas.put(barrack));
+		} catch (fiuba.algo3.CannotOccupyTileException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testOccupiedGasCanPutGasGetter(){
-		gas.put(gasGetter);
-		Assert.assertFalse(gas.put(gasGetter));
+		try {
+			gas.put(gasGetter);
+		} catch (fiuba.algo3.CannotOccupyTileException e) {
+			e.printStackTrace();
+		}
+		try {
+			Assert.assertFalse(gas.put(gasGetter));
+		} catch (fiuba.algo3.CannotOccupyTileException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testOccupiedGasWithGasGetterCanDraw(){
-		gas.put(gasGetter);
+		try {
+			gas.put(gasGetter);
+		} catch (fiuba.algo3.CannotOccupyTileException e) {
+			e.printStackTrace();
+		}
 		Assert.assertTrue(gas.draw());
 	}
 
 	@Test
 	public void testVacatedGasCanPutGasGetter(){
-		gas.put(gasGetter);
+		try {
+			gas.put(gasGetter);
+		} catch (fiuba.algo3.CannotOccupyTileException e) {
+			e.printStackTrace();
+		}
 		gas.draw();
-		Assert.assertTrue(gas.put(gasGetter));
+		try {
+			Assert.assertTrue(gas.put(gasGetter));
+		} catch (fiuba.algo3.CannotOccupyTileException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
