@@ -1,9 +1,13 @@
 package fiuba.algo3.occupant.buildings;
 
 
+import fiuba.algo3.CannotOccupyTileException;
+import fiuba.algo3.EmptyTileException;
+import fiuba.algo3.KeyDoesNotExistsException;
 import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;
-import fiuba.algo3.gameVariables.Position;
+import fiuba.algo3.map.AlgoCraftMap;
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.Occupant;
 import fiuba.algo3.player.Player;
@@ -15,7 +19,7 @@ public class BuildingInConstruction implements Occupant, Damageable{
     private Building buildingInConstruction;
     private int remainingTurnsToBeFinished;
     public Life life;
-    public Position position;
+    public Coordinates position;
     private Player owner;
 
     public BuildingInConstruction(Building building) {
@@ -24,7 +28,7 @@ public class BuildingInConstruction implements Occupant, Damageable{
         this.owner = building.getOwner();
         this.life = new Life(this.buildingInConstruction.getVitality(),
                 this.buildingInConstruction.getShield());
-        this.position = new Position(0, 0);
+        this.position = new Coordinates(0, 0);
 
         owner.substractMinerals(building.getConstructionCost().getMineralCost());
         owner.substractGas(building.getConstructionCost().getGasCost());
@@ -53,9 +57,11 @@ public class BuildingInConstruction implements Occupant, Damageable{
     public int getShield(){
         return this.life.getShield();
     }
-
-    public void setPosition(int x, int y){
-        position.move(x, y);
+    public void setPosition(int x, int y, AlgoCraftMap map) throws EmptyTileException, KeyDoesNotExistsException,
+            CannotOccupyTileException {
+        Coordinates destination = new Coordinates(x, y);
+        map.move(this.position, destination);
+        this.position = destination;
     }
 
     @Override
@@ -79,7 +85,7 @@ public class BuildingInConstruction implements Occupant, Damageable{
     }
 
     @Override
-    public Position getPosition(){
+    public Coordinates getPosition(){
         return position;
     }
 }
