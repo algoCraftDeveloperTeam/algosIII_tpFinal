@@ -2,8 +2,8 @@ package fiuba.algo3.map;
 
 public class Coordinates{
 
-	private int x;
-	private int y;
+	public int x;
+	public int y;
 
 	public Coordinates(int valueX, int valueY){
 		x = valueX;
@@ -22,6 +22,13 @@ public class Coordinates{
 			return (x == other.x && y == other.y);
 		}
 		return false;
+	}
+
+	public int distance(Coordinates c){
+		int distanceX = x - c.x;
+		int distanceY = y - c.y;
+		int distance = (int) Math.sqrt(Math.pow(distanceX,2) + Math.pow(distanceY,2));
+		return distance;
 	}
 
 }
