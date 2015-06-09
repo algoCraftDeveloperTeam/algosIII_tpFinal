@@ -12,16 +12,4 @@ public class Stargate extends Building{
         this.constructionTime = 10;
         this.life = new Life(600, 600);
     }
-
-    @Override
-    public boolean verifyRequiredBuilding(){
-        return this.owner.allowStargate();
-    }
-
-    @Override
-    public boolean allowBuildTemplarArchives(){
-        return true;
-    }
-
-
 }

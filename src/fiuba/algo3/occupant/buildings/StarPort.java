@@ -15,10 +15,4 @@ public class StarPort extends Building {
         this.life = new Life(1300, 0);
         this.constructionTime = 10;
     }
-
-    @Override
-    public boolean verifyRequiredBuilding(){
-        return this.owner.allowStarPort();
-    }
-
 }

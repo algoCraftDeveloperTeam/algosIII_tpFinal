@@ -120,44 +120,4 @@ public class Player {
     public void substractGas(int gasCost) {
         this.resources.substractGas(gasCost);
     }
-
-    public boolean allowTerranFactory(){
-        boolean founded = false;
-        Iterator it = buildings.iterator();
-        while(it.hasNext() && !founded){
-            Building iElement = (Building) it.next();
-            founded = iElement.allowBuildTerranFactory();
-        }
-        return founded;
-    }
-
-    public boolean allowStarPort(){
-        boolean founded = false;
-        Iterator it = buildings.iterator();
-        while(it.hasNext() && !founded){
-            Building iElement = (Building) it.next();
-            founded = iElement.allowBuildStarPort();
-        }
-        return founded;
-    }
-
-    public boolean allowStargate(){
-        boolean founded = false;
-        Iterator it = buildings.iterator();
-        while(it.hasNext() && !founded){
-            Building iElement = (Building) it.next();
-            founded = iElement.allowBuildStargate();
-        }
-        return founded;
-    }
-
-    public boolean allowTemplarArchives(){
-        boolean founded = false;
-        Iterator it = buildings.iterator();
-        while(it.hasNext() && !founded){
-            Building iElement = (Building) it.next();
-            founded = iElement.allowBuildTemplarArchives();
-        }
-        return founded;
-    }
 }

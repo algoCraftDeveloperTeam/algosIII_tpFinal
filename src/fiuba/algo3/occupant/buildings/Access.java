@@ -21,9 +21,4 @@ public class Access extends Building implements UnitCreator{
         UnitInTraining aZealotInTraining = new UnitInTraining(aZealotToBeTrained);
         return aZealotInTraining;
     }
-
-    @Override
-    public boolean allowBuildStargate(){
-        return true;
-    }
 }

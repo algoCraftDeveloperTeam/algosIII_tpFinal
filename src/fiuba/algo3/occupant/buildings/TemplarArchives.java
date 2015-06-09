@@ -12,10 +12,4 @@ public class TemplarArchives extends Building{
         this.constructionTime = 9;
         this.life = new Life(500, 500);
     }
-
-    @Override
-    public boolean verifyRequiredBuilding(){
-        return this.owner.allowTemplarArchives();
-    }
-
 }

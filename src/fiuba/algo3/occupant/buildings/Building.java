@@ -55,21 +55,6 @@ public abstract class Building implements Occupant, Damageable {
     public List<Class<?>> getRequiredBuildings(){
         return requiredBuildings;
     }
-    public boolean verifyRequiredBuilding(){
-        return true;
-    }
-    public boolean allowBuildTerranFactory(){
-        return false;
-    }
-    public boolean allowBuildStarPort(){
-        return false;
-    }
-    public boolean allowBuildStargate(){
-        return false;
-    }
-    public boolean allowBuildTemplarArchives(){
-        return false;
-    }
     public void setPosition(int x, int y){
         position.move(x, y);
     }

@@ -20,16 +20,6 @@ public class TerranFactory extends Building implements UnitCreator{
     }
 
     @Override
-    public boolean verifyRequiredBuilding(){
-        return this.owner.allowTerranFactory();
-    }
-
-    @Override
-    public boolean allowBuildStarPort(){
-        return true;
-    }
-
-    @Override
     public UnitInTraining trainUnit(){
         Goliath aGoliathToBeTrained = new Goliath();
         UnitInTraining aGoliathInTraining = new UnitInTraining(aGoliathToBeTrained);
