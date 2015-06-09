@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import fiuba.algo3.occupant.units.Marine;
+import fiuba.algo3.CannotOccupyTileException;
 
 public class SpaceTest{
 
@@ -20,13 +21,9 @@ public class SpaceTest{
 //	tests
 //		un marine puede ocupar espacio --> false
 
-	@Test
-	public void testSpaceCanPutMarine(){
-		try {
-			Assert.assertFalse(space.put(marine));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
+	@Test (expected = CannotOccupyTileException.class)
+	public void testSpaceCanPutMarine() throws CannotOccupyTileException{
+		space.put(marine);
 	}
 
 }

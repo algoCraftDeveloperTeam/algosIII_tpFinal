@@ -9,6 +9,7 @@ import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.Asimilator;
 import fiuba.algo3.occupant.buildings.MineralCenter;
 import fiuba.algo3.occupant.units.Marine;
+import fiuba.algo3.CannotOccupyTileException;
 
 public class MineralTest{
 
@@ -38,79 +39,43 @@ public class MineralTest{
 //		un mineralGetter puede desocupar mineral --> true
 //		un mineralGetter puede ocupar mineral previamente ocupada --> true
 
-	@Test
-	public void testMineralCanPutGasGetter(){
-		try {
-			Assert.assertFalse(mineral.put(gasGetter));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
+	@Test (expected = CannotOccupyTileException.class)
+	public void testMineralCanPutGasGetter() throws CannotOccupyTileException{
+		mineral.put(gasGetter);
 	}
 
 	@Test
-	public void testMineralCanPutMineralGetter(){
-		try {
-			Assert.assertTrue(mineral.put(mineralGetter));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
+	public void testMineralCanPutMineralGetter() throws CannotOccupyTileException{
+		mineral.put(mineralGetter);
+	}
+
+	@Test (expected = CannotOccupyTileException.class)
+	public void testMineralCanPutMarine() throws CannotOccupyTileException{
+		mineral.put(marine);
+	}
+
+	@Test (expected = CannotOccupyTileException.class)
+	public void testMineralCanPutBarrack() throws CannotOccupyTileException{
+		mineral.put(barrack);
+	}
+
+	@Test (expected = CannotOccupyTileException.class)
+	public void testOccupiedMineralCanPutMineralGetter() throws CannotOccupyTileException{
+		mineral.put(mineralGetter);
+		mineral.put(mineralGetter);
 	}
 
 	@Test
-	public void testMineralCanPutMarine(){
-		try {
-			Assert.assertFalse(mineral.put(marine));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Test
-	public void testMineralCanPutBarrack(){
-		try {
-			Assert.assertFalse(mineral.put(barrack));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Test
-	public void testOccupiedMineralCanPutMineralGetter(){
-		try {
-			mineral.put(mineralGetter);
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
-		try {
-			Assert.assertFalse(mineral.put(mineralGetter));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Test
-	public void testOccupiedMineralWithMineralGetterCanDraw(){
-		try {
-			mineral.put(mineralGetter);
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
-		Assert.assertTrue(mineral.draw());
-	}
-
-	@Test
-	public void testVacatedMineralCanPutMineralGetter(){
-		try {
-			mineral.put(mineralGetter);
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
+	public void testOccupiedMineralWithMineralGetterCanDraw() throws CannotOccupyTileException{
+		mineral.put(mineralGetter);
 		mineral.draw();
-		try {
-			Assert.assertTrue(mineral.put(mineralGetter));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
+	}
+
+	@Test
+	public void testVacatedMineralCanPutMineralGetter() throws CannotOccupyTileException{
+		mineral.put(mineralGetter);
+		mineral.draw();
+		mineral.put(mineralGetter);
 	}
 
 }

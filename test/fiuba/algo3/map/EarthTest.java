@@ -10,6 +10,7 @@ import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.Asimilator;
 import fiuba.algo3.occupant.buildings.MineralCenter;
 import fiuba.algo3.occupant.units.Marine;
+import fiuba.algo3.CannotOccupyTileException;
 
 public class EarthTest{
 
@@ -47,109 +48,57 @@ public class EarthTest{
 		earth.put(gasGetter);
 	}
 
-	@Test
-	public void testEarthCanPutMineralGetter(){
-		try {
-			Assert.assertFalse(earth.put(mineralGetter));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
+	@Test (expected = CannotOccupyTileException.class)
+	public void testEarthCanPutMineralGetter() throws CannotOccupyTileException{
+		earth.put(mineralGetter);
 	}
 
 	@Test
-	public void testEarthCanPutMarine(){
-		try {
-			Assert.assertTrue(earth.put(marine));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
+	public void testEarthCanPutMarine() throws CannotOccupyTileException{
+		earth.put(marine);
 	}
 
 	@Test
-	public void testEarthCanPutBarrack(){
-		try {
-			Assert.assertTrue(earth.put(barrack));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
+	public void testEarthCanPutBarrack() throws CannotOccupyTileException{
+		earth.put(barrack);
+	}
+
+	@Test (expected = CannotOccupyTileException.class)
+	public void testOccupiedEarthCanPutMarine() throws CannotOccupyTileException{
+		earth.put(barrack);
+		earth.put(marine);
+	}
+
+	@Test (expected = CannotOccupyTileException.class)
+	public void testOccupiedEarthCanPutBarrack() throws CannotOccupyTileException{
+		earth.put(marine);
+		earth.put(barrack);
 	}
 
 	@Test
-	public void testOccupiedEarthCanPutMarine(){
-		try {
-			earth.put(barrack);
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
-		try {
-			Assert.assertFalse(earth.put(marine));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Test
-	public void testOccupiedEarthCanPutBarrack(){
-		try {
-			earth.put(marine);
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
-		try {
-			Assert.assertFalse(earth.put(barrack));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Test
-	public void testOccupiedEarthWithMarineCanDraw(){
-		try {
-			earth.put(barrack);
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
-		Assert.assertTrue(earth.draw());
-	}
-
-	@Test
-	public void testOccupiedEarthWithBarrackCanDraw(){
-		try {
-			earth.put(marine);
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
-		Assert.assertTrue(earth.draw());
-	}
-
-	@Test
-	public void testVacatedEarthCanPutMarine(){
-		try {
-			earth.put(barrack);
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
+	public void testOccupiedEarthWithMarineCanDraw() throws CannotOccupyTileException{
+		earth.put(barrack);
 		earth.draw();
-		try {
-			Assert.assertTrue(earth.put(marine));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
 	}
 
 	@Test
-	public void testVacatedEarthCanPutBarrack(){
-		try {
-			earth.put(marine);
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
+	public void testOccupiedEarthWithBarrackCanDraw() throws CannotOccupyTileException{
+		earth.put(marine);
 		earth.draw();
-		try {
-			Assert.assertTrue(earth.put(barrack));
-		} catch (fiuba.algo3.CannotOccupyTileException e) {
-			e.printStackTrace();
-		}
+	}
+
+	@Test
+	public void testVacatedEarthCanPutMarine() throws CannotOccupyTileException{
+		earth.put(barrack);
+		earth.draw();
+		earth.put(marine);
+	}
+
+	@Test
+	public void testVacatedEarthCanPutBarrack() throws CannotOccupyTileException{
+		earth.put(marine);
+		earth.draw();
+		earth.put(barrack);
 	}
 
 }

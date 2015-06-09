@@ -6,6 +6,8 @@ import org.junit.Before;
 import fiuba.algo3.occupant.Occupant;
 import fiuba.algo3.occupant.units.Marine;
 import fiuba.algo3.occupant.units.Zealot;
+import fiuba.algo3.CannotOccupyTileException;
+import fiuba.algo3.KeyDoesNotExistsException;
 
 public class AlgoCraftMapTest{
 
@@ -17,26 +19,26 @@ public class AlgoCraftMapTest{
 	}
 
 	@Test
-	public void testMapCanPutOccupant(){
+	public void testMapCanPutOccupant() throws CannotOccupyTileException, KeyDoesNotExistsException{
 		Coordinates coord = new Coordinates(2,2);
 		Occupant marine = new Marine();
-		Assert.assertTrue(algoCraftMap.put(marine,coord));
+		algoCraftMap.put(marine,coord);
 	}
 
-	@Test
-	public void testMapCanPutOccupantOnOccupiedTile(){
+	@Test (expected = CannotOccupyTileException.class)
+	public void testMapCanPutOccupantOnOccupiedTile() throws CannotOccupyTileException, KeyDoesNotExistsException{
 		Coordinates coord = new Coordinates(2,2);
 		Occupant marine = new Marine();
 		Occupant zealot = new Zealot();
 		algoCraftMap.put(marine,coord);
-		Assert.assertFalse(algoCraftMap.put(zealot,coord));
+		algoCraftMap.put(zealot,coord);
 	}
 
-	@Test
-	public void testMapCanPutOccupantOnInvalidCoordinates(){
+	@Test (expected = KeyDoesNotExistsException.class)
+	public void testMapCanPutOccupantOnInvalidCoordinates() throws CannotOccupyTileException, KeyDoesNotExistsException{
 		Coordinates coord = new Coordinates(40,2);
 		Occupant marine = new Marine();
-		Assert.assertFalse(algoCraftMap.put(marine,coord));
+		algoCraftMap.put(marine,coord);
 	}
 
 }
