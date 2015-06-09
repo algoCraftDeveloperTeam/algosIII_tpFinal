@@ -1,5 +1,6 @@
 package fiuba.algo3.map;
 
+import fiuba.algo3.CannotOccupyTileException;
 import fiuba.algo3.EmptyTileException;
 import fiuba.algo3.KeyDoesNotExistsException;
 import fiuba.algo3.occupant.Occupant;
@@ -37,13 +38,13 @@ public class AlgoCraftMap{
 		}
 	}
 
-	public boolean put(Occupant occupant, Coordinates coord){
-		boolean response = false;
+	public void put(Occupant occupant, Coordinates coord) throws CannotOccupyTileException, KeyDoesNotExistsException{
 		if (tiles.containsKey(coord)){
 			Tile tile = tiles.get(coord);
-			response = tile.put(occupant);
+			tile.put(occupant);
+		} else {
+			throw new KeyDoesNotExistsException();
 		}
-		return response;
 	}
 
 	private void clearTile (Coordinates coord) {
@@ -51,14 +52,11 @@ public class AlgoCraftMap{
 		current.clear();
 	}
 
-	public void move(Coordinates origin, Coordinates destination) throws EmptyTileException, KeyDoesNotExistsException {
-		if (!tiles.containsKey(origin) || !tiles.containsKey(destination)) {
-			throw new KeyDoesNotExistsException();
-		}
+	public void move(Coordinates origin, Coordinates destination) throws EmptyTileException, CannotOccupyTileException,
+			KeyDoesNotExistsException{
 		Occupant current = tiles.get(origin).getOccupant();
-		tiles.get(origin).clear();
 		this.put(current, destination);
-
+		this.clearTile(origin);
 	}
 	/*private void placeBases(){
 		Random random = new Random();
