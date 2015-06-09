@@ -24,7 +24,7 @@ public class Unit implements Occupant, Damageable {
     int trainingTime;
     Life life;
     // TO DO: this is temporary, the units should be initialized with a position.
-    Coordinates position = new Coordinates(0, 0);
+    Coordinates position;
 
     public static int getSizeForTransport() {
         return sizeForTransport;
@@ -65,6 +65,12 @@ public class Unit implements Occupant, Damageable {
         } catch (KeyDoesNotExistsException | EmptyTileException | CannotOccupyTileException e) {
             throw new InvalidMovementException();
         }
+    }
+
+    public void setPosition(int x, int y, AlgoCraftMap map) throws KeyDoesNotExistsException, CannotOccupyTileException{
+        Coordinates destination = new Coordinates(x, y);
+        map.put(this, destination);
+        this.position = destination;
     }
 
     public boolean canOccupyEarth() {

@@ -60,10 +60,9 @@ public abstract class Building implements Occupant, Damageable {
     public List<Class<?>> getRequiredBuildings(){
         return requiredBuildings;
     }
-    public void setPosition(int x, int y, AlgoCraftMap map) throws EmptyTileException, KeyDoesNotExistsException,
-            CannotOccupyTileException{
+    public void setPosition(int x, int y, AlgoCraftMap map) throws KeyDoesNotExistsException, CannotOccupyTileException{
         Coordinates destination = new Coordinates(x, y);
-        map.move(this.position, destination);
+        map.put(this, destination);
         this.position = destination;
     }
     public void receiveDamage(Damage damage){
