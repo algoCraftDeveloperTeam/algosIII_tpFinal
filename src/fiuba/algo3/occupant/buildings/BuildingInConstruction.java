@@ -5,7 +5,6 @@ import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.gameVariables.Position;
 import fiuba.algo3.occupant.Damageable;
-import fiuba.algo3.occupant.InsufficientResourcesException;
 import fiuba.algo3.occupant.Occupant;
 import fiuba.algo3.player.Player;
 
@@ -19,14 +18,10 @@ public class BuildingInConstruction implements Occupant, Damageable{
     public Position position;
     private Player owner;
 
-    public BuildingInConstruction(Building building) throws InsufficientResourcesException {
+    public BuildingInConstruction(Building building) {
         this.buildingInConstruction = building;
         this.remainingTurnsToBeFinished = building.getConstructionTime();
         this.owner = building.getOwner();
-        if (this.owner.getGasStorage() < this.buildingInConstruction.getConstructionCost().getGasCost() ||
-                this.owner.getMineralStorage() < this.buildingInConstruction.getConstructionCost().getMineralCost()){
-            throw new InsufficientResourcesException();
-        }
         this.life = new Life(this.buildingInConstruction.getVitality(),
                 this.buildingInConstruction.getShield());
         this.position = new Position(0, 0);
