@@ -8,6 +8,7 @@ public class Stargate extends Building{
 
     public Stargate(Player player) {
     	super(player);
+        this.requiredBuildings.add(Access.class);
         this.constructionCost = new Cost(150, 150);
         this.constructionTime = 10;
         this.life = new Life(600, 600);

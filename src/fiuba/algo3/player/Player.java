@@ -10,6 +10,7 @@ import fiuba.algo3.gameVariables.Population;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Iterator;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class Player {
     Population population = new Population();
     private List<BuildingInConstruction> buildingsInConstruction = new ArrayList<BuildingInConstruction>();
     private List<Building> buildings = new ArrayList<Building>();
-    HashMap<Class<?>, List<Building>> buildings2 = new HashMap<>();
+    Map<Class<?>, List<Building>> buildings2 = new HashMap<Class<?>, List<Building>>();
 
     public int getGasStorage(){
         return this.resources.getGasStorage();
