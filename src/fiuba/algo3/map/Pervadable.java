@@ -1,10 +1,11 @@
 package fiuba.algo3.map;
 
+import fiuba.algo3.CannotOccupyTileException;
 import fiuba.algo3.occupant.Occupant;
 
 public interface Pervadable {
 
-	boolean put(Occupant newOccupant);
+	void put(Occupant newOccupant) throws CannotOccupyTileException;
 
 	boolean draw();
 
