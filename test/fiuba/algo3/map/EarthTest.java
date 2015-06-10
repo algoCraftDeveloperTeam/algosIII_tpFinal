@@ -1,6 +1,7 @@
 package fiuba.algo3.map;
 
 import fiuba.algo3.exceptions.CannotOccupyTileException;
+import fiuba.algo3.exceptions.EmptyTileException;
 import fiuba.algo3.occupant.Occupant;
 import org.junit.Test;
 import org.junit.Before;
@@ -97,6 +98,11 @@ public class EarthTest{
 		earth.put(marine);
 		earth.draw();
 		earth.put(barrack);
+	}
+
+	@Test (expected = EmptyTileException.class)
+	public void testGetOccupantEmpty() throws EmptyTileException{
+		marine = earth.getOccupant();
 	}
 
 }
