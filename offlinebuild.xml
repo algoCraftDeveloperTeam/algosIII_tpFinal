@@ -45,6 +45,7 @@
     </path>
 
     <target name="setup">
+        <delete dir="${build}" />
         <mkdir dir="${build}" />
         <mkdir dir="${build}/classes" />
         <mkdir dir="${build}/tests" />
