@@ -1,5 +1,7 @@
 package fiuba.algo3.occupant.units;
 
+import fiuba.algo3.exceptions.UnitNotReadyException;
+
 /**
  * Created by mporto on 30/05/15.
  */
@@ -20,7 +22,10 @@ public class UnitInTraining {
         remainingTurnsToBeTrained--;
     }
 
-    public Unit getUnitBeingTrained() {
+    public Unit getUnitBeingTrained() throws UnitNotReadyException {
+        if (remainingTurnsToBeTrained > 0){
+            throw new UnitNotReadyException();
+        }
         return unitToBeTrained;
     }
 

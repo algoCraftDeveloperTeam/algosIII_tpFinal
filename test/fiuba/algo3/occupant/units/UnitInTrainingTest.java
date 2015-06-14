@@ -1,7 +1,6 @@
 package fiuba.algo3.occupant.units;
 
-import fiuba.algo3.occupant.units.Marine;
-import fiuba.algo3.occupant.units.UnitInTraining;
+import fiuba.algo3.exceptions.UnitNotReadyException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,8 +32,17 @@ public class UnitInTrainingTest {
         assertEquals(this.unitToBeTrained.getRemainingTurns(), this.aMarine.getTrainingTime() - 1);
     }
 
+    @Test(expected = UnitNotReadyException.class)
+    public void testGetUnitBeingTrainedWhenNotReady() throws UnitNotReadyException {
+        this.unitToBeTrained.getUnitBeingTrained();
+        assertTrue("UnitNotReadyException was not raise", false);
+    }
+
     @Test
-    public void testGetUnitBeingTrained() throws Exception {
+    public void testGetUnitBeingTrainedWhenReady() throws UnitNotReadyException {
+        for (int i = 0; i < 4; i++) {
+            this.unitToBeTrained.passTurn();
+        }
         assertEquals(this.aMarine, this.unitToBeTrained.getUnitBeingTrained());
     }
 
