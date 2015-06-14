@@ -24,7 +24,7 @@ public class EarthTest{
 	public void setUp(){
 		player = new Player();
 		earth = new Earth();
-		barrack = new Barracks(player);
+		barrack = new Barracks(player, 0, 0);
 		mineralGetter = new MineralCenter(player);
 		gasGetter = new Asimilator(player);
 		marine = new Marine();

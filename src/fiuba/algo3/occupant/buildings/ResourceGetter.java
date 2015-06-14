@@ -7,8 +7,8 @@ import fiuba.algo3.player.Player;
  */
 public abstract class ResourceGetter extends Building{
     public int quantity = 10;
-    public ResourceGetter(Player player){
-        super(player);
+    public ResourceGetter(Player player, int coordX, int coordY){
+        super(player, coordX, coordY);
     }
     public abstract void addToPlayerStorage();
     @Override

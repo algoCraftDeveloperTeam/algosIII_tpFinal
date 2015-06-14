@@ -49,7 +49,7 @@ public class MovementTest {
     public void testSetPositionToAnOccupiedOneByABuildingShouldRaiseCannotOccupyTileException()
             throws KeyDoesNotExistsException, CannotOccupyTileException {
         Player player = new Player();
-        Building building = new Barracks(player);
+        Building building = new Barracks(player, 0, 0);
         building.setPosition(1, 1, algoCraftMap);
         unit.setPosition(1, 1, algoCraftMap);
     }
@@ -82,7 +82,7 @@ public class MovementTest {
     public void testUnitMovesToAnOccupiedPositionByABuildingShouldRaiseInvalidMovementException()
             throws KeyDoesNotExistsException, CannotOccupyTileException, InvalidMovementException {
         Player player = new Player();
-        Building building = new Barracks(player);
+        Building building = new Barracks(player, 0, 0);
         building.setPosition(2, 2, algoCraftMap);
         unit.setPosition(1, 1, algoCraftMap);
         unit.move(2, 2, algoCraftMap);

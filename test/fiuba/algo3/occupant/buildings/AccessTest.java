@@ -1,6 +1,5 @@
 package fiuba.algo3.occupant.buildings;
 
-import fiuba.algo3.occupant.buildings.Access;
 import fiuba.algo3.player.Player;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +14,7 @@ public class AccessTest {
     @Before
     public void setUp() throws Exception {
         this.owner = new Player();
-        this.aAccess = new Access(owner);
+        this.aAccess = new Access(owner, 0, 0);
     }
 
     @Test

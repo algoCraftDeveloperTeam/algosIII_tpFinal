@@ -23,7 +23,7 @@ public class MineralTest{
 	public void setUp(){
 		player = new Player();
 		mineral = new Mineral();
-		barrack = new Barracks(player);
+		barrack = new Barracks(player, 0, 0);
 		mineralGetter = new MineralCenter(player);
 		gasGetter = new Asimilator(player);
 		marine = new Marine();

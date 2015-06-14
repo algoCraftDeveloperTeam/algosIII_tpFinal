@@ -1,6 +1,5 @@
 package fiuba.algo3.occupant.buildings;
 
-import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.player.Player;
 import fiuba.algo3.occupant.units.UnitInTraining;
 import org.junit.Before;
@@ -19,7 +18,7 @@ public class BarracksTest {
     @Before
     public void setUp() throws Exception {
         this.owner = new Player();
-        this.aBarrack = new Barracks(owner);
+        this.aBarrack = new Barracks(owner, 0, 0);
     }
 
     @Test

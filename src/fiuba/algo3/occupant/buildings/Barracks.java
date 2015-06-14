@@ -11,8 +11,8 @@ import fiuba.algo3.occupant.units.UnitInTraining;
  */
 public class Barracks extends Building implements UnitCreator{
 
-    public Barracks(Player player) {
-    	super(player);
+    public Barracks(Player player, int coordX, int coordY) {
+    	super(player, coordX, coordY);
         this.constructionCost = new Cost(150, 0);
         this.constructionTime = 12;
         this.life = new Life(1000, 0);

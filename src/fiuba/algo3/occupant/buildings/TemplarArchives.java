@@ -6,8 +6,8 @@ import fiuba.algo3.player.Player;
 
 public class TemplarArchives extends Building{
 
-    public TemplarArchives(Player player) {
-        super(player);
+    public TemplarArchives(Player player, int coordX, int coordY) {
+        super(player, coordX, coordY);
         this.requiredBuildings.add(Stargate.class);
         this.constructionCost = new Cost(150, 200);
         this.constructionTime = 9;

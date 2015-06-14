@@ -1,10 +1,12 @@
 package fiuba.algo3.player;
 
+import fiuba.algo3.exceptions.DestinationIsOccupiedException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.PlayerResources;
 import fiuba.algo3.gameVariables.Population;
 import fiuba.algo3.exceptions.InsufficientResourcesException;
 import fiuba.algo3.exceptions.MissingRequiredBuildingsException;
+import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.occupant.buildings.Building;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
 
@@ -46,9 +48,12 @@ public class Player {
         this.population.addAvailablePopulation(i);
     }
 
-    public BuildingInConstruction build(Building buildingToBeConstructed)
-            throws InsufficientResourcesException, MissingRequiredBuildingsException {
+    public BuildingInConstruction build(Building buildingToBeConstructed, AlgoCraftMap map)
+            throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
         try {
+            if (map.isOccupied(buildingToBeConstructed.getPosition())) {
+                throw new DestinationIsOccupiedException();
+            }
             this.verifyRequirements(buildingToBeConstructed);
             BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed);
             buildingsInConstruction.add(buildingInConstruction);

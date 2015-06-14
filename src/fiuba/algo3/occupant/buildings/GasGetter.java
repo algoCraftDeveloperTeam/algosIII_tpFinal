@@ -8,7 +8,7 @@ import fiuba.algo3.player.Player;
  */
 public abstract class GasGetter extends ResourceGetter{
     public GasGetter(Player player) {
-        super(player);
+        super(player, 0, 0);
         this.constructionCost = new Cost(100, 0);
         this.constructionTime = 4;
     }

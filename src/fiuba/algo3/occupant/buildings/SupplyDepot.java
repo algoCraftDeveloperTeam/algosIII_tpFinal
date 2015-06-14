@@ -9,8 +9,8 @@ import fiuba.algo3.player.Player;
  */
 public class SupplyDepot extends PopulationStorage{
 
-    public SupplyDepot(Player player) {
-        super(player);
+    public SupplyDepot(Player player, int coordX, int coordY) {
+        super(player, coordX, coordY);
         this.constructionTime = 6;
         this.constructionCost = new Cost(100, 0);
         this. life = new Life(500, 0);

@@ -26,11 +26,11 @@ public abstract class Building implements Occupant, Damageable {
     Coordinates position;
     List<Class<?>> requiredBuildings;
 
-    public Building(Player player) {
+    public Building(Player player, int coordX, int coordY) {
         this.owner = player;
         requiredBuildings = new ArrayList<Class<?>>();
         this.owner = player;
-        this.position = new Coordinates(0, 0);
+        this.position = new Coordinates(coordX, coordY);
     }
     public boolean canOccupyEarth(){
     	return true;

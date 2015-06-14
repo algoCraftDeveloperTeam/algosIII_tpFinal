@@ -8,8 +8,8 @@ import fiuba.algo3.occupant.units.Zealot;
 
 public class Access extends Building implements UnitCreator{
 
-    public Access(Player player) {
-    	super(player);
+    public Access(Player player, int coordX, int coordY) {
+    	super(player, coordX, coordY);
         this.constructionCost = new Cost(150, 0);
         this.constructionTime = 8;
         this.life = new Life(500, 500);

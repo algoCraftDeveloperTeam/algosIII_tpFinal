@@ -1,6 +1,5 @@
 package fiuba.algo3.occupant.buildings;
 
-import fiuba.algo3.occupant.buildings.Stargate;
 import fiuba.algo3.player.Player;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +14,7 @@ public class StargateTest {
     @Before
     public void setUp() throws Exception {
         this.owner = new Player();
-        this.aStargate = new Stargate(owner);
+        this.aStargate = new Stargate(owner, 0, 0);
     }
 
     @Test

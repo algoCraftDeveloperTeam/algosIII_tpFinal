@@ -8,7 +8,7 @@ import fiuba.algo3.player.Player;
  */
 public abstract class MineralGetter extends ResourceGetter {
     public MineralGetter(Player player) {
-        super(player);
+        super(player, 0, 0);
         this.constructionCost = new Cost(50, 0);
         this.constructionTime = 4;
     }

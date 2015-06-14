@@ -9,8 +9,8 @@ import fiuba.algo3.player.Player;
  */
 public class Pylon extends PopulationStorage{
 
-    public Pylon(Player player) {
-        super(player);
+    public Pylon(Player player, int coordX, int coordY) {
+        super(player, coordX, coordY);
         this.constructionTime = 5;
         this.constructionCost = new Cost(100, 0);
         this. life = new Life(250, 250);

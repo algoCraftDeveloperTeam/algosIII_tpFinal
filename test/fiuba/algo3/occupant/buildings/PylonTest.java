@@ -1,6 +1,5 @@
 package fiuba.algo3.occupant.buildings;
 
-import fiuba.algo3.occupant.buildings.Pylon;
 import fiuba.algo3.player.Player;
 import org.junit.Test;
 
@@ -15,7 +14,7 @@ public class PylonTest {
     public void testNewPylonRaisesPlayerAvailablePopulation() throws Exception {
         Player aPlayer = new Player();
         int startingAvailablePopulation = aPlayer.getAvailablePopulation();
-        Pylon aPylon = new Pylon(aPlayer);
+        Pylon aPylon = new Pylon(aPlayer, 0, 0);
 
         assertEquals(startingAvailablePopulation + 5, aPlayer.getAvailablePopulation());
     }

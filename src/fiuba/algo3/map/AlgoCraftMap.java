@@ -58,6 +58,10 @@ public class AlgoCraftMap{
 		this.put(current, destination);
 		this.clearTile(origin);
 	}
+
+	public boolean isOccupied(Coordinates coord) {
+		return tiles.get(coord).isOccupied();
+	}
 	/*private void placeBases(){
 		Random random = new Random();
 		int randomRow = random.nextInt(dimention);

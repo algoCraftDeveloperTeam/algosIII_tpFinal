@@ -1,6 +1,5 @@
 package fiuba.algo3.occupant.buildings;
 
-import fiuba.algo3.occupant.buildings.StarPort;
 import fiuba.algo3.player.Player;
 import junit.framework.Assert;
 import org.junit.Before;
@@ -13,7 +12,7 @@ public class StarPortTest {
     private StarPort sp;
     @Before
     public void setUp() {
-        sp = new StarPort(new Player());
+        sp = new StarPort(new Player(), 0, 0);
     }
 
     @Test
