@@ -25,7 +25,7 @@ public class GroundUnitVSBuildingTest {
     public void setUp() throws Exception {
         player = new Player();
         mineralNexus = new MineralNexus(player);
-        building = new BuildingInConstruction(mineralNexus);
+        building = new BuildingInConstruction(mineralNexus, 2, 2);
         marine = new Marine();
         algoCraftMap = new AlgoCraftMap(20);
     }
@@ -33,7 +33,6 @@ public class GroundUnitVSBuildingTest {
     @Test
     public void testMarineAttacksBuildingWithinRange() throws Exception {
         marine.setPosition(1,1,algoCraftMap);
-        building.setPosition(2,2,algoCraftMap);
         marine.attack(building);
         // 250 (building's shield) - 6 (marine's attack) = 244
         Assert.assertEquals(244, building.getShield());

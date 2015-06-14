@@ -55,7 +55,7 @@ public class Player {
                 throw new DestinationIsOccupiedException();
             }
             this.verifyRequirements(buildingToBeConstructed);
-            BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed);
+            BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed, 0, 0);
             buildingsInConstruction.add(buildingInConstruction);
             return buildingInConstruction;
         }catch (InsufficientResourcesException ex){

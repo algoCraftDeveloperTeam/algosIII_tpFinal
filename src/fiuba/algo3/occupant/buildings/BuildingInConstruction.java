@@ -22,13 +22,13 @@ public class BuildingInConstruction implements Occupant, Damageable{
     public Coordinates position;
     private Player owner;
 
-    public BuildingInConstruction(Building building) {
+    public BuildingInConstruction(Building building, int coordX, int coordY) {
         this.buildingInConstruction = building;
         this.remainingTurnsToBeFinished = building.getConstructionTime();
         this.owner = building.getOwner();
         this.life = new Life(this.buildingInConstruction.getVitality(),
                 this.buildingInConstruction.getShield());
-        this.position = new Coordinates(0, 0);
+        this.position = new Coordinates(coordX, coordY);
 
         owner.substractMinerals(building.getConstructionCost().getMineralCost());
         owner.substractGas(building.getConstructionCost().getGasCost());

@@ -19,7 +19,7 @@ public class BuildingInConstructionTest {
     public void setUp() throws Exception {
         this.player = new Player();
         this.aMineralGetter = new MineralNexus(player);
-        this.aBuildingInConstruction = new BuildingInConstruction(aMineralGetter);
+        this.aBuildingInConstruction = new BuildingInConstruction(aMineralGetter, 0, 0);
     }
 
     @Test
