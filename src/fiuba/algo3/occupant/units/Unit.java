@@ -4,6 +4,7 @@ import fiuba.algo3.exceptions.CannotOccupyTileException;
 import fiuba.algo3.exceptions.EmptyTileException;
 import fiuba.algo3.exceptions.InvalidMovementException;
 import fiuba.algo3.exceptions.KeyDoesNotExistsException;
+import fiuba.algo3.game.TurnAware;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;
@@ -15,7 +16,7 @@ import fiuba.algo3.occupant.Occupant;
 /**
  * Created by mporto on 28/05/15.
  */
-public class Unit implements Occupant, Damageable {
+public class Unit implements Occupant, Damageable, TurnAware {
 
     static int sizeForTransport;
     static Cost trainingCost;
@@ -83,5 +84,10 @@ public class Unit implements Occupant, Damageable {
 
     public boolean canOccupyMineral() {
         return false;
+    }
+
+    @Override
+    public void passTurn() {
+        this.life.regenerateShield();
     }
 }

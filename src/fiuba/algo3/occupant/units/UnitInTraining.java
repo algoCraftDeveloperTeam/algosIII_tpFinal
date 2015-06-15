@@ -1,11 +1,12 @@
 package fiuba.algo3.occupant.units;
 
 import fiuba.algo3.exceptions.UnitNotReadyException;
+import fiuba.algo3.game.TurnAware;
 
 /**
  * Created by mporto on 30/05/15.
  */
-public class UnitInTraining {
+public class UnitInTraining implements TurnAware {
     private Unit unitToBeTrained;
     private int remainingTurnsToBeTrained;
 
