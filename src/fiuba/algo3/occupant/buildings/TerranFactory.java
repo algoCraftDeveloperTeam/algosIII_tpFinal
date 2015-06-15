@@ -1,8 +1,10 @@
 
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.exceptions.UnitNotReadyException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
+import fiuba.algo3.occupant.units.Unit;
 import fiuba.algo3.player.Player;
 import fiuba.algo3.occupant.units.Goliath;
 import fiuba.algo3.occupant.units.UnitInTraining;
@@ -13,10 +15,11 @@ import java.util.Queue;
 /**
  * Created by nsueiro on 01/06/15.
  */
-public class TerranFactory extends Building implements UnitCreator{
+public class TerranFactory extends Building implements UnitCreator {
 
     private Queue<UnitInTraining> trainingQueue;
-    public TerranFactory(Player player, int coordX, int coordY){
+
+    public TerranFactory(Player player, int coordX, int coordY) {
         super(player, coordX, coordY);
         this.requiredBuildings.add(Barracks.class);
         this.constructionTime = 12;
@@ -26,7 +29,7 @@ public class TerranFactory extends Building implements UnitCreator{
     }
 
     @Override
-    public void trainUnit(){
+    public void trainUnit() {
         Goliath aGoliathToBeTrained = new Goliath();
         UnitInTraining aGoliathInTraining = new UnitInTraining(aGoliathToBeTrained);
         this.trainingQueue.add(aGoliathInTraining);
@@ -37,5 +40,12 @@ public class TerranFactory extends Building implements UnitCreator{
         super.passTurn();
         UnitInTraining firstUnit = this.trainingQueue.peek();
         firstUnit.passTurn();
+    }
+
+    @Override
+    public Unit getUnitInTraining() throws UnitNotReadyException {
+        Unit current = this.trainingQueue.peek().getUnitBeingTrained();
+        this.trainingQueue.remove();
+        return current;
     }
 }

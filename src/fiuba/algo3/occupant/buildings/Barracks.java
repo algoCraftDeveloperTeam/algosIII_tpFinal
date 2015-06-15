@@ -1,8 +1,10 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.exceptions.UnitNotReadyException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.occupant.units.Marine;
+import fiuba.algo3.occupant.units.Unit;
 import fiuba.algo3.occupant.units.UnitInTraining;
 import fiuba.algo3.player.Player;
 
@@ -36,5 +38,12 @@ public class Barracks extends Building implements UnitCreator{
         super.passTurn();
         UnitInTraining firstUnit = this.trainingQueue.peek();
         firstUnit.passTurn();
+    }
+
+    @Override
+    public Unit getUnitInTraining() throws UnitNotReadyException {
+        Unit current = this.trainingQueue.peek().getUnitBeingTrained();
+        this.trainingQueue.remove();
+        return current;
     }
 }
