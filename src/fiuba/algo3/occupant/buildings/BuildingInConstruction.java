@@ -4,6 +4,7 @@ package fiuba.algo3.occupant.buildings;
 import fiuba.algo3.exceptions.CannotOccupyTileException;
 import fiuba.algo3.exceptions.EmptyTileException;
 import fiuba.algo3.exceptions.KeyDoesNotExistsException;
+import fiuba.algo3.game.TurnAware;
 import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.map.AlgoCraftMap;
@@ -15,7 +16,7 @@ import fiuba.algo3.player.Player;
 /**
  * Created by mporto on 30/05/15.
  */
-public class BuildingInConstruction implements Occupant, Damageable{
+public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
     private Building buildingInConstruction;
     private int remainingTurnsToBeFinished;
     public Life life;
@@ -47,7 +48,7 @@ public class BuildingInConstruction implements Occupant, Damageable{
     }
 
     public boolean isReady() {
-        return remainingTurnsToBeFinished == 0;
+        return remainingTurnsToBeFinished <= 0;
     }
 
     public int getVitality(){
@@ -57,6 +58,7 @@ public class BuildingInConstruction implements Occupant, Damageable{
     public int getShield(){
         return this.life.getShield();
     }
+
     public void setPosition(int x, int y, AlgoCraftMap map) throws EmptyTileException, KeyDoesNotExistsException,
             CannotOccupyTileException {
         Coordinates destination = new Coordinates(x, y);

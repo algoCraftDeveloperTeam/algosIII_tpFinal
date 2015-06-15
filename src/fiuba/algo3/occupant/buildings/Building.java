@@ -2,6 +2,7 @@ package fiuba.algo3.occupant.buildings;
 
 import fiuba.algo3.exceptions.CannotOccupyTileException;
 import fiuba.algo3.exceptions.KeyDoesNotExistsException;
+import fiuba.algo3.game.TurnAware;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;
@@ -17,7 +18,7 @@ import java.util.List;
 /**
  * Created by mporto on 30/05/15.
  */
-public abstract class Building implements Occupant, Damageable {
+public abstract class Building implements Occupant, Damageable, TurnAware{
 
     Cost constructionCost;
     int constructionTime;
@@ -70,5 +71,10 @@ public abstract class Building implements Occupant, Damageable {
 
     public Coordinates getPosition(){
         return position;
+    }
+
+    @Override
+    public void passTurn(){
+        this.life.regenerateShield();
     }
 }
