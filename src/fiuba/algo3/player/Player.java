@@ -121,9 +121,11 @@ public class Player implements TurnAware{
         }
         // This is awful. Must find a better way to iterate over hashMap values
         // without casting.
-        for (Object aC : buildings2.values()) {
-            TurnAware current = (TurnAware) aC;
-            current.passTurn();
+        for(List list : buildings2.values()) {
+            for(Object building : list){
+                TurnAware buildingAsTurnAware = (TurnAware) building;
+                buildingAsTurnAware.passTurn();
+            }
         }
     }
 }
