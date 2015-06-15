@@ -1,24 +1,22 @@
 package fiuba.algo3.player;
 
 import fiuba.algo3.exceptions.DestinationIsOccupiedException;
+import fiuba.algo3.exceptions.InsufficientResourcesException;
+import fiuba.algo3.exceptions.MissingRequiredBuildingsException;
+import fiuba.algo3.game.TurnAware;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.PlayerResources;
 import fiuba.algo3.gameVariables.Population;
-import fiuba.algo3.exceptions.InsufficientResourcesException;
-import fiuba.algo3.exceptions.MissingRequiredBuildingsException;
 import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.occupant.buildings.Building;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by nsueiro on 29/05/15.
  */
-public class Player {
+public class Player implements TurnAware{
     PlayerResources resources = new PlayerResources(200, 0);
     Population population = new Population();
     private List<BuildingInConstruction> buildingsInConstruction = new ArrayList<BuildingInConstruction>();
@@ -55,7 +53,9 @@ public class Player {
                 throw new DestinationIsOccupiedException();
             }
             this.verifyRequirements(buildingToBeConstructed);
-            BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed, 0, 0);
+            int coordX = buildingToBeConstructed.getPosition().getX();
+            int coordY = buildingToBeConstructed.getPosition().getY();
+            BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed, coordX, coordY);
             buildingsInConstruction.add(buildingInConstruction);
             return buildingInConstruction;
         }catch (InsufficientResourcesException ex){
@@ -112,5 +112,18 @@ public class Player {
 
     public void substractGas(int gasCost) {
         this.resources.substractGas(gasCost);
+    }
+
+    @Override
+    public void passTurn() {
+        for(TurnAware building : buildingsInConstruction){
+            building.passTurn();
+        }
+        // This is awful. Must find a better way to iterate over hashMap values
+        // without casting.
+        for (Object aC : buildings2.values()) {
+            TurnAware current = (TurnAware) aC;
+            current.passTurn();
+        }
     }
 }
