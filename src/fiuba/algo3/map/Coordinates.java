@@ -31,4 +31,11 @@ public class Coordinates{
 		return distance;
 	}
 
+	public int getY() {
+		return y;
+	}
+
+	public int getX() {
+		return x;
+	}
 }
