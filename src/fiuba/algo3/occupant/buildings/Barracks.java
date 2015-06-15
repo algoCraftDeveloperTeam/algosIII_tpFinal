@@ -2,26 +2,39 @@ package fiuba.algo3.occupant.buildings;
 
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
-import fiuba.algo3.player.Player;
 import fiuba.algo3.occupant.units.Marine;
 import fiuba.algo3.occupant.units.UnitInTraining;
+import fiuba.algo3.player.Player;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Created by mporto on 30/05/15.
  */
 public class Barracks extends Building implements UnitCreator{
 
+    private Queue<UnitInTraining> trainingQueue;
+
     public Barracks(Player player, int coordX, int coordY) {
     	super(player, coordX, coordY);
         this.constructionCost = new Cost(150, 0);
         this.constructionTime = 12;
         this.life = new Life(1000, 0);
+        this.trainingQueue = new LinkedList<UnitInTraining>();
     }
 
     @Override
-    public UnitInTraining trainUnit() {
+    public void trainUnit() {
         Marine aMarineToBeTrained = new Marine();
         UnitInTraining aMarineInTraining = new UnitInTraining(aMarineToBeTrained);
-        return aMarineInTraining;
+        this.trainingQueue.add(aMarineInTraining);
+    }
+
+    @Override
+    public void passTurn() {
+        super.passTurn();
+        UnitInTraining firstUnit = this.trainingQueue.peek();
+        firstUnit.passTurn();
     }
 }
