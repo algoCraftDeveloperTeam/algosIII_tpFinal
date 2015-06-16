@@ -3,6 +3,7 @@ package fiuba.algo3.occupant.buildings;
 import fiuba.algo3.player.Player;
 import org.junit.Before;
 import org.junit.Test;
+import fiuba.algo3.map.AlgoCraftMap;
 
 import org.junit.Assert;
 
@@ -13,7 +14,7 @@ public class TemplarArchivesTest {
 
     @Before
     public void setUp() throws Exception {
-        this.owner = new Player();
+        this.owner = new Player(new AlgoCraftMap(20));
         this.aTemplarArchives = new TemplarArchives(owner, 0, 0);
     }
 

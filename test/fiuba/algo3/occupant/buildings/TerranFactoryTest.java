@@ -4,6 +4,7 @@ import fiuba.algo3.player.Player;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import fiuba.algo3.map.AlgoCraftMap;
 
 /**
  * Created by nsueiro on 01/06/15.
@@ -12,7 +13,7 @@ public class TerranFactoryTest {
     private TerranFactory f;
     @Before
     public void setUp() {
-        f = new TerranFactory(new Player(), 0, 0);
+        f = new TerranFactory(new Player(new AlgoCraftMap(20)), 0, 0);
     }
 
     @Test

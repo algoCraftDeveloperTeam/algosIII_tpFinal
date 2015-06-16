@@ -3,6 +3,7 @@ package fiuba.algo3.occupant.buildings;
 import fiuba.algo3.exceptions.UnitNotReadyException;
 import fiuba.algo3.player.Player;
 import org.junit.Before;
+import fiuba.algo3.map.AlgoCraftMap;
 import org.junit.Test;
 
 /**
@@ -13,7 +14,7 @@ public class UnitCreatorTest {
     private Barracks aBarrack;
     @Before
     public void setUp() throws Exception {
-        player = new Player();
+        player = new Player(new AlgoCraftMap(20));
         aBarrack = new Barracks(player, 1, 1);
 
     }

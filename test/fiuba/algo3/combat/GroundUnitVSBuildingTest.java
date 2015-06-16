@@ -23,7 +23,7 @@ public class GroundUnitVSBuildingTest {
 
     @Before
     public void setUp() throws Exception {
-        player = new Player();
+        player = new Player(new AlgoCraftMap(20));
         mineralNexus = new MineralNexus(player);
         building = new BuildingInConstruction(mineralNexus, 2, 2);
         marine = new Marine();

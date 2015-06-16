@@ -10,6 +10,7 @@ import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.Asimilator;
 import fiuba.algo3.occupant.buildings.MineralCenter;
 import fiuba.algo3.occupant.units.Marine;
+import fiuba.algo3.map.AlgoCraftMap;
 
 public class EarthTest{
 
@@ -22,7 +23,7 @@ public class EarthTest{
 
 	@Before
 	public void setUp(){
-		player = new Player();
+		player = new Player(new AlgoCraftMap(20));
 		earth = new Earth();
 		barrack = new Barracks(player, 0, 0);
 		mineralGetter = new MineralCenter(player);

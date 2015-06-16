@@ -2,6 +2,7 @@ package fiuba.algo3.occupant.buildings;
 
 import fiuba.algo3.player.Player;
 import org.junit.Before;
+import fiuba.algo3.map.AlgoCraftMap;
 import org.junit.Test;
 
 import org.junit.Assert;
@@ -13,7 +14,7 @@ public class StargateTest {
 
     @Before
     public void setUp() throws Exception {
-        this.owner = new Player();
+        this.owner = new Player(new AlgoCraftMap(20));
         this.aStargate = new Stargate(owner, 0, 0);
     }
 

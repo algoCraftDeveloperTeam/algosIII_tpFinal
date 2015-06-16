@@ -22,8 +22,7 @@ public class PlayerTest {
 
     @Before
     public void setUp() throws Exception {
-        this.aPlayer = new Player();
-        this.map = new AlgoCraftMap(20);
+        this.aPlayer = new Player(new AlgoCraftMap(20));
     }
     @Test
     public void testGasInStorageIsZeroWhenInitialized(){

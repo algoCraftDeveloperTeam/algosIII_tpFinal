@@ -2,6 +2,7 @@ package fiuba.algo3.occupant.buildings;
 
 import fiuba.algo3.player.Player;
 import org.junit.Before;
+import fiuba.algo3.map.AlgoCraftMap;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -17,7 +18,7 @@ public class BuildingInConstructionTest {
 
     @Before
     public void setUp() throws Exception {
-        this.player = new Player();
+        this.player = new Player(new AlgoCraftMap(20));
         this.aMineralGetter = new MineralNexus(player);
         this.aBuildingInConstruction = new BuildingInConstruction(aMineralGetter, 0, 0);
     }

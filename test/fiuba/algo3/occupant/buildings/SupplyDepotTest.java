@@ -2,6 +2,7 @@ package fiuba.algo3.occupant.buildings;
 
 import fiuba.algo3.player.Player;
 import org.junit.Test;
+import fiuba.algo3.map.AlgoCraftMap;
 
 import static org.junit.Assert.*;
 
@@ -12,7 +13,7 @@ public class SupplyDepotTest {
 
     @Test
     public void testNewSupplyDepotRaisesPlayerAvailablePopulation() throws Exception {
-        Player aPlayer = new Player();
+        Player aPlayer = new Player(new AlgoCraftMap(20));
         int startingAvailablePopulation = aPlayer.getAvailablePopulation();
         SupplyDepot aSupplyDepot = new SupplyDepot(aPlayer, 0, 0);
 
