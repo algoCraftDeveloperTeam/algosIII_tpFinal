@@ -13,7 +13,10 @@ import fiuba.algo3.occupant.buildings.Building;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
 import fiuba.algo3.occupant.units.Unit;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by nsueiro on 29/05/15.
@@ -27,13 +30,13 @@ public class Player implements TurnAware{
     List <Unit> units;
     AlgoCraftMap algoCraftMap;
 
-    public Player(){
+    public Player(AlgoCraftMap map){
         resources = new PlayerResources(200, 0);
         population = new Population();
         buildingsInConstruction = new ArrayList<BuildingInConstruction>();
         buildings = new HashMap<Class<?>, List<Building>>();
         units = new ArrayList<Unit>();
-        //algoCraftMap = map;
+        algoCraftMap = map;
     }
 
     public int getGasStorage(){
@@ -60,10 +63,10 @@ public class Player implements TurnAware{
         this.population.addAvailablePopulation(i);
     }
 
-    public BuildingInConstruction build(Building buildingToBeConstructed, AlgoCraftMap map)
+    public BuildingInConstruction build(Building buildingToBeConstructed)
             throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
         try {
-            if (map.isOccupied(buildingToBeConstructed.getPosition())) {
+            if (algoCraftMap.isOccupied(buildingToBeConstructed.getPosition())) {
                 throw new DestinationIsOccupiedException();
             }
             this.verifyRequirements(buildingToBeConstructed);

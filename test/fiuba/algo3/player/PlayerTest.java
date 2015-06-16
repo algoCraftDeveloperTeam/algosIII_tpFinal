@@ -50,14 +50,14 @@ public class PlayerTest {
     @Test
     public void testStartConstructionOfABuildingWithTheRequiredResources()
             throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
-        this.aPlayer.build(new MineralNexus(this.aPlayer), map);
+        this.aPlayer.build(new MineralNexus(this.aPlayer));
     }
 
     @Test(expected = InsufficientResourcesException.class)
     public void testStartConstructionOfABuildingWithoutTheRequiredResources()
             throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
-        this.aPlayer.build(new Barracks(this.aPlayer, 0, 0), map);
-        this.aPlayer.build(new Barracks(this.aPlayer, 1, 1), map);
+        this.aPlayer.build(new Barracks(this.aPlayer, 0, 0));
+        this.aPlayer.build(new Barracks(this.aPlayer, 1, 1));
     }
 
     @Test
@@ -66,14 +66,14 @@ public class PlayerTest {
         this.aPlayer.addGas(100);
         this.aPlayer.addMinerals(200);
         this.aPlayer.addFinishedBuilding(new Barracks(this.aPlayer, 0, 0));
-        this.aPlayer.build(new TerranFactory(this.aPlayer, 1, 1), map);
+        this.aPlayer.build(new TerranFactory(this.aPlayer, 1, 1));
     }
 
     @Test(expected = InsufficientResourcesException.class)
     public void testConstructAFactoryHavingBarracksAndWithoutTheRequiredResources()
             throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
         this.aPlayer.addFinishedBuilding(new Barracks(this.aPlayer, 0, 0));
-        this.aPlayer.build(new TerranFactory(this.aPlayer, 1, 1), map);
+        this.aPlayer.build(new TerranFactory(this.aPlayer, 1, 1));
     }
 
     @Test(expected = MissingRequiredBuildingsException.class)
@@ -81,6 +81,6 @@ public class PlayerTest {
             InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
         this.aPlayer.addGas(100);
         this.aPlayer.addMinerals(200);
-        this.aPlayer.build(new TerranFactory(this.aPlayer, 0, 0), map);
+        this.aPlayer.build(new TerranFactory(this.aPlayer, 0, 0));
     }
 }
