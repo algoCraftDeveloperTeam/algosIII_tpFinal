@@ -23,7 +23,7 @@ public class Player implements TurnAware{
     Population population = new Population();
     private List<BuildingInConstruction> buildingsInConstruction = new ArrayList<BuildingInConstruction>();
     Map<Class<?>, List<Building>> buildings2 = new HashMap<Class<?>, List<Building>>();
-    List <Unit> unitList = new List<Unit>();
+    List <Unit> unitList = new ArrayList<Unit>();
 
     public int getGasStorage(){
         return this.resources.getGasStorage();
