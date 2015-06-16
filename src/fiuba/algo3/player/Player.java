@@ -19,11 +19,22 @@ import java.util.*;
  * Created by nsueiro on 29/05/15.
  */
 public class Player implements TurnAware{
-    PlayerResources resources = new PlayerResources(200, 0);
-    Population population = new Population();
-    private List<BuildingInConstruction> buildingsInConstruction = new ArrayList<BuildingInConstruction>();
-    Map<Class<?>, List<Building>> buildings2 = new HashMap<Class<?>, List<Building>>();
-    List <Unit> unitList = new ArrayList<Unit>();
+
+    PlayerResources resources;
+    Population population;
+    private List<BuildingInConstruction> buildingsInConstruction;
+    Map<Class<?>, List<Building>> buildings;
+    List <Unit> units;
+    AlgoCraftMap algoCraftMap;
+
+    public Player(){
+        resources = new PlayerResources(200, 0);
+        population = new Population();
+        buildingsInConstruction = new ArrayList<BuildingInConstruction>();
+        buildings = new HashMap<Class<?>, List<Building>>();
+        units = new ArrayList<Unit>();
+        //algoCraftMap = map;
+    }
 
     public int getGasStorage(){
         return this.resources.getGasStorage();
@@ -69,16 +80,16 @@ public class Player implements TurnAware{
     }
 
     public void addFinishedBuilding(Building building){
-        if(this.buildings2.containsKey(building.getClass())){
-            this.buildings2.get(building.getClass()).add(building);
+        if(this.buildings.containsKey(building.getClass())){
+            this.buildings.get(building.getClass()).add(building);
         }else{
             List<Building> buildingsOfTheType = new ArrayList<Building>();
             buildingsOfTheType.add(building);
-            this.buildings2.put(building.getClass(), buildingsOfTheType);
+            this.buildings.put(building.getClass(), buildingsOfTheType);
         }
     }
     private boolean hasBuilding(Class building) {
-        return this.buildings2.containsKey(building) && !this.buildings2.get(building).isEmpty();
+        return this.buildings.containsKey(building) && !this.buildings.get(building).isEmpty();
     }
 
     private void verifyRequirements(Building buildingToBeConstructed) throws InsufficientResourcesException,
@@ -124,7 +135,7 @@ public class Player implements TurnAware{
         }
         // This is awful. Must find a better way to iterate over hashMap values
         // without casting.
-        for(List list : buildings2.values()) {
+        for(List list : buildings.values()) {
             for(Object building : list){
                 TurnAware buildingAsTurnAware = (TurnAware) building;
                 buildingAsTurnAware.passTurn();
@@ -133,6 +144,6 @@ public class Player implements TurnAware{
     }
 
     public void addUnit(Unit unit, Coordinates coord){
-        this.unitList.add(unit);
+        this.units.add(unit);
     }
 }
