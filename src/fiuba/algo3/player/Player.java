@@ -8,8 +8,10 @@ import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.PlayerResources;
 import fiuba.algo3.gameVariables.Population;
 import fiuba.algo3.map.AlgoCraftMap;
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.buildings.Building;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
+import fiuba.algo3.occupant.units.Unit;
 
 import java.util.*;
 
@@ -21,6 +23,7 @@ public class Player implements TurnAware{
     Population population = new Population();
     private List<BuildingInConstruction> buildingsInConstruction = new ArrayList<BuildingInConstruction>();
     Map<Class<?>, List<Building>> buildings2 = new HashMap<Class<?>, List<Building>>();
+    List <Unit> unitList = new List<Unit>();
 
     public int getGasStorage(){
         return this.resources.getGasStorage();
@@ -127,5 +130,9 @@ public class Player implements TurnAware{
                 buildingAsTurnAware.passTurn();
             }
         }
+    }
+
+    public void addUnit(Unit unit, Coordinates coord){
+        this.unitList.add(unit);
     }
 }
