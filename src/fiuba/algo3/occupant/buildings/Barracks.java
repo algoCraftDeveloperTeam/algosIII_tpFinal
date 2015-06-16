@@ -41,9 +41,9 @@ public class Barracks extends Building implements UnitCreator{
     }
 
     @Override
-    public Unit getUnitInTraining() throws UnitNotReadyException {
+    public void getUnitInTraining() throws UnitNotReadyException {
         Unit current = this.trainingQueue.peek().getUnitBeingTrained();
         this.trainingQueue.remove();
-        return current;
+        this.owner.addUnit(current, this.position);
     }
 }
