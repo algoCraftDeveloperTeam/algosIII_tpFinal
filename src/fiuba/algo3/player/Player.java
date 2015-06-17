@@ -138,6 +138,9 @@ public class Player implements TurnAware{
                 buildingAsTurnAware.passTurn();
             }
         }
+        for(Unit unit : this.units){
+            unit.passTurn();
+        }
     }
 
     public void addUnit(Unit unit, Coordinates coord){
