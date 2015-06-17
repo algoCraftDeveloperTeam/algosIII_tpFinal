@@ -1,8 +1,6 @@
 package fiuba.algo3.player;
 
-import fiuba.algo3.exceptions.DestinationIsOccupiedException;
-import fiuba.algo3.exceptions.InsufficientResourcesException;
-import fiuba.algo3.exceptions.MissingRequiredBuildingsException;
+import fiuba.algo3.exceptions.*;
 import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.MineralNexus;
@@ -21,7 +19,7 @@ public class PlayerTest {
 
     @Before
     public void setUp() throws Exception {
-        this.aPlayer = new Player(new AlgoCraftMap(20));
+        this.aPlayer = new Player(new AlgoCraftMap(100));
     }
     @Test
     public void testGasInStorageIsZeroWhenInitialized(){
@@ -47,20 +45,20 @@ public class PlayerTest {
 
     @Test
     public void testStartConstructionOfABuildingWithTheRequiredResources()
-            throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
-        this.aPlayer.build(new MineralNexus(this.aPlayer));
+            throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException, CannotOccupyTileException, KeyDoesNotExistsException {
+        this.aPlayer.build(new MineralNexus(this.aPlayer, 99, 99));
     }
 
     @Test(expected = InsufficientResourcesException.class)
     public void testStartConstructionOfABuildingWithoutTheRequiredResources()
-            throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
+            throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException, CannotOccupyTileException, KeyDoesNotExistsException {
         this.aPlayer.build(new Barracks(this.aPlayer, 0, 0));
         this.aPlayer.build(new Barracks(this.aPlayer, 1, 1));
     }
 
     @Test
     public void testConstructAFactoryHavingBarracksAndTheRequiredResources()
-            throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
+            throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException, CannotOccupyTileException, KeyDoesNotExistsException {
         this.aPlayer.addGas(100);
         this.aPlayer.addMinerals(200);
         this.aPlayer.addFinishedBuilding(new Barracks(this.aPlayer, 0, 0));
@@ -69,14 +67,14 @@ public class PlayerTest {
 
     @Test(expected = InsufficientResourcesException.class)
     public void testConstructAFactoryHavingBarracksAndWithoutTheRequiredResources()
-            throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
+            throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException, CannotOccupyTileException, KeyDoesNotExistsException {
         this.aPlayer.addFinishedBuilding(new Barracks(this.aPlayer, 0, 0));
         this.aPlayer.build(new TerranFactory(this.aPlayer, 1, 1));
     }
 
     @Test(expected = MissingRequiredBuildingsException.class)
     public void testConstructAFactoryNotHavingBarracksAndHavingTheRequiredResources() throws
-            InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
+            InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException, CannotOccupyTileException, KeyDoesNotExistsException {
         this.aPlayer.addGas(100);
         this.aPlayer.addMinerals(200);
         this.aPlayer.build(new TerranFactory(this.aPlayer, 0, 0));

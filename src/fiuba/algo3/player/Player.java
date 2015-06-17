@@ -1,8 +1,6 @@
 package fiuba.algo3.player;
 
-import fiuba.algo3.exceptions.DestinationIsOccupiedException;
-import fiuba.algo3.exceptions.InsufficientResourcesException;
-import fiuba.algo3.exceptions.MissingRequiredBuildingsException;
+import fiuba.algo3.exceptions.*;
 import fiuba.algo3.game.TurnAware;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.PlayerResources;
@@ -64,22 +62,18 @@ public class Player implements TurnAware{
     }
 
     public BuildingInConstruction build(Building buildingToBeConstructed)
-            throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
-        try {
-            if (this.algoCraftMap.isOccupied(buildingToBeConstructed.getPosition())) {
-                throw new DestinationIsOccupiedException();
-            }
-            this.verifyRequirements(buildingToBeConstructed);
-            int coordX = buildingToBeConstructed.getPosition().getX();
-            int coordY = buildingToBeConstructed.getPosition().getY();
-            BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed, coordX, coordY);
-            buildingsInConstruction.add(buildingInConstruction);
-            return buildingInConstruction;
-        }catch (InsufficientResourcesException ex){
-            throw ex;
-        }catch(MissingRequiredBuildingsException ex){
-            throw ex;
+            throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException, CannotOccupyTileException, KeyDoesNotExistsException {
+
+        if (this.algoCraftMap.isOccupied(buildingToBeConstructed.getPosition())) {
+           throw new DestinationIsOccupiedException();
         }
+        this.verifyRequirements(buildingToBeConstructed);
+        int coordX = buildingToBeConstructed.getPosition().getX();
+        int coordY = buildingToBeConstructed.getPosition().getY();
+        BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed, coordX, coordY);
+        this.algoCraftMap.put(buildingInConstruction, new Coordinates(coordX, coordY));
+        buildingsInConstruction.add(buildingInConstruction);
+        return buildingInConstruction;
     }
 
     public void addFinishedBuilding(Building building){

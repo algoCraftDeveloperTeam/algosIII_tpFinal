@@ -1,10 +1,10 @@
 package fiuba.algo3.combat;
 
+import fiuba.algo3.map.AlgoCraftMap;
+import fiuba.algo3.occupant.buildings.Access;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
-import fiuba.algo3.occupant.buildings.MineralNexus;
 import fiuba.algo3.occupant.units.CombatUnit;
 import fiuba.algo3.occupant.units.Marine;
-import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.player.Player;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,7 +16,7 @@ import org.junit.Test;
 public class GroundUnitVSBuildingTest {
 
     private CombatUnit marine;
-    private MineralNexus mineralNexus;
+    private Access access;
     private Player player;
     private BuildingInConstruction building;
     private AlgoCraftMap algoCraftMap;
@@ -24,8 +24,8 @@ public class GroundUnitVSBuildingTest {
     @Before
     public void setUp() throws Exception {
         player = new Player(new AlgoCraftMap(20));
-        mineralNexus = new MineralNexus(player);
-        building = new BuildingInConstruction(mineralNexus, 2, 2);
+        access = new Access(player, 0, 0);
+        building = new BuildingInConstruction(access, 0, 0);
         marine = new Marine();
         algoCraftMap = new AlgoCraftMap(20);
     }
@@ -34,8 +34,8 @@ public class GroundUnitVSBuildingTest {
     public void testMarineAttacksBuildingWithinRange() throws Exception {
         marine.setPosition(1,1,algoCraftMap);
         marine.attack(building);
-        // 250 (building's shield) - 6 (marine's attack) = 244
-        Assert.assertEquals(244, building.getShield());
+        // 500 (building's shield) - 6 (marine's attack) = 494
+        Assert.assertEquals(494, building.getShield());
     }
 
     @Test
@@ -44,6 +44,6 @@ public class GroundUnitVSBuildingTest {
         building.setPosition(15,16,algoCraftMap);
         marine.attack(building);
         
-        Assert.assertEquals(250, building.getShield());
+        Assert.assertEquals(500, building.getShield());
     }
 }
