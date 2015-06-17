@@ -43,8 +43,8 @@ public class AlgoCraftMap{
 	private void generateFixedMineralAndGas() {
 		Tile gas = new Gas();
 		Tile mineral = new Mineral();
-		Coordinates coord1 = new Coordinates(3,3);
-		Coordinates coord2 = new Coordinates(4,4);
+		Coordinates coord1 = new Coordinates(99,99);
+		Coordinates coord2 = new Coordinates(99,99);
 		this.tiles.put(coord1, gas);
 		this.tiles.put(coord2, mineral);
 	}
