@@ -66,7 +66,7 @@ public class Player implements TurnAware{
     public BuildingInConstruction build(Building buildingToBeConstructed)
             throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException {
         try {
-            if (algoCraftMap.isOccupied(buildingToBeConstructed.getPosition())) {
+            if (this.algoCraftMap.isOccupied(buildingToBeConstructed.getPosition())) {
                 throw new DestinationIsOccupiedException();
             }
             this.verifyRequirements(buildingToBeConstructed);
@@ -148,5 +148,6 @@ public class Player implements TurnAware{
 
     public void addUnit(Unit unit, Coordinates coord){
         this.units.add(unit);
+        this.algoCraftMap.locate(unit, coord);
     }
 }

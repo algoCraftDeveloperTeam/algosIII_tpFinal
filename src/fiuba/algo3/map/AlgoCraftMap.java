@@ -4,6 +4,7 @@ import fiuba.algo3.exceptions.CannotOccupyTileException;
 import fiuba.algo3.exceptions.EmptyTileException;
 import fiuba.algo3.exceptions.KeyDoesNotExistsException;
 import fiuba.algo3.occupant.Occupant;
+import fiuba.algo3.occupant.units.Unit;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,6 +45,30 @@ public class AlgoCraftMap{
 			tile.put(occupant);
 		} else {
 			throw new KeyDoesNotExistsException();
+		}
+	}
+
+	public void locate(Unit unit, Coordinates coord) {
+		boolean located = false;
+		int coordX = coord.getX();
+		int coordY = coord.getY();
+		int dim = 1;
+		while(!located){
+			int i = -dim;
+			while(i <= dim && !located){
+				int j = -dim;
+				while(j <= dim && !located){
+					try{
+						located = true;
+						unit.setPosition(coordX+j,coordY+i,this);
+					} catch(KeyDoesNotExistsException | CannotOccupyTileException ex){
+						located = false;
+					}
+					j++;
+				}
+				i++;
+			}
+			dim++;
 		}
 	}
 

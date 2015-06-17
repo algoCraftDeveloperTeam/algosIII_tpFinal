@@ -15,10 +15,9 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by nsueiro on 30/05/15.
  */
-public class PlayerTest {
+public class PlayerTest {   
 
     private Player aPlayer;
-    private AlgoCraftMap map;
 
     @Before
     public void setUp() throws Exception {
