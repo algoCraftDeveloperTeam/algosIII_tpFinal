@@ -34,12 +34,12 @@ public class BuildingInConstructionTest {
 
         assertEquals(this.aMineralGetter.getConstructionTime() - 1, this.aBuildingInConstruction.getRemainingTurns());
     }
-
+/*
     @Test
     public void testGetBuildingInConstruction() throws Exception {
         assertEquals(this.aMineralGetter, this.aBuildingInConstruction.getBuildingInConstruction());
     }
-
+*/
     @Test
     public void testBuildingIsNotFinishedWhileTrainingTimeIsGreaterThanZero() throws Exception {
         assertFalse(this.aBuildingInConstruction.isReady());
