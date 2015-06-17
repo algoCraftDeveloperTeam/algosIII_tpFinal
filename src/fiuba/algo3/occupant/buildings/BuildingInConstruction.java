@@ -77,21 +77,21 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
 
     @Override
     public boolean canOccupyEarth() {
-        return true;
+        return this.buildingInConstruction.canOccupyEarth();
     }
 
     @Override
     public boolean canOccupyGas() {
-        return false;
+        return this.buildingInConstruction.canOccupyGas();
     }
 
     @Override
     public boolean canOccupyMineral() {
-        return false;
+        return this.buildingInConstruction.canOccupyMineral();
     }
 
     @Override
     public Coordinates getPosition(){
-        return position;
+        return this.position;
     }
 }

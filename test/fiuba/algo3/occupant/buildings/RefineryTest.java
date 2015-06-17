@@ -15,7 +15,7 @@ public class RefineryTest {
     @Before
     public void setUp(){
         this.p = new Player(new AlgoCraftMap(20));
-        this.r = new Refinery(p);
+        this.r = new Refinery(p, 0, 0);
     }
 
     @Test

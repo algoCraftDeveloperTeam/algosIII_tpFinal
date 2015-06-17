@@ -9,7 +9,6 @@ import fiuba.algo3.occupant.buildings.Asimilator;
 import fiuba.algo3.occupant.buildings.MineralCenter;
 import fiuba.algo3.occupant.units.Marine;
 import fiuba.algo3.exceptions.CannotOccupyTileException;
-import fiuba.algo3.map.AlgoCraftMap;
 
 public class MineralTest{
 
@@ -25,8 +24,8 @@ public class MineralTest{
 		player = new Player(new AlgoCraftMap(20));
 		mineral = new Mineral();
 		barrack = new Barracks(player, 0, 0);
-		mineralGetter = new MineralCenter(player);
-		gasGetter = new Asimilator(player);
+		mineralGetter = new MineralCenter(player, 1, 1);
+		gasGetter = new Asimilator(player, 1, 1);
 		marine = new Marine();
 	}
 

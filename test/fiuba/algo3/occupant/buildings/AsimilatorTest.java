@@ -15,7 +15,7 @@ public class AsimilatorTest {
     @Before
     public void setUp(){
         this.p = new Player(new AlgoCraftMap(20));
-        this.a = new Asimilator(p);
+        this.a = new Asimilator(p, 1, 1);
     }
 
     @Test

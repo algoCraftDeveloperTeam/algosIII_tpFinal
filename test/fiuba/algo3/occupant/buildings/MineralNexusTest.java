@@ -15,7 +15,7 @@ public class MineralNexusTest {
     @Before
     public void setUp(){
         this.p = new Player(new AlgoCraftMap(20));
-        this.mn = new MineralNexus(p);
+        this.mn = new MineralNexus(p, 0, 0);
     }
 
     @Test

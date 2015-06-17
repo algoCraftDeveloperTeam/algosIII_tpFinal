@@ -15,7 +15,7 @@ public class MineralCenterTest {
     @Before
     public void setUp(){
         this.p = new Player(new AlgoCraftMap(20));
-        this.mc = new MineralCenter(p);
+        this.mc = new MineralCenter(p, 0, 0);
     }
 
     @Test
