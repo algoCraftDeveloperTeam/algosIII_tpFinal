@@ -1,11 +1,10 @@
 package fiuba.algo3.occupant.units;
 
 import fiuba.algo3.gameVariables.Cost;
-import fiuba.algo3.occupant.units.Goliath;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by mporto on 02/06/15.
