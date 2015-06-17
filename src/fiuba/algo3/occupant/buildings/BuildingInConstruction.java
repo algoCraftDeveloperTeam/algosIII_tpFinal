@@ -1,6 +1,7 @@
 package fiuba.algo3.occupant.buildings;
 
 
+import fiuba.algo3.exceptions.BuildingNotReadyException;
 import fiuba.algo3.exceptions.CannotOccupyTileException;
 import fiuba.algo3.exceptions.EmptyTileException;
 import fiuba.algo3.exceptions.KeyDoesNotExistsException;
@@ -43,7 +44,10 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
         remainingTurnsToBeFinished--;
     }
 
-    public Building getBuildingInConstruction() {
+    public Building getBuildingInConstruction() throws BuildingNotReadyException {
+        if(!this.isReady()) {
+            throw new BuildingNotReadyException();
+        }
         return buildingInConstruction;
     }
 
