@@ -24,7 +24,7 @@ public class Game implements TurnAware{
 
     @Override
     public void passTurn() {
-        activePlayer.passTurn();
+        activePlayer.passTurn();000000
     }
 
     public void build(Building building) throws InsufficientResourcesException, CannotOccupyTileException, MissingRequiredBuildingsException, DestinationIsOccupiedException, KeyDoesNotExistsException {
@@ -36,5 +36,9 @@ public class Game implements TurnAware{
         activePlayer = inactivePlayer;
         activePlayer.passTurn();
         inactivePlayer = playerAux;
+    }
+
+    public Player getActivePlayer(){
+        return activePlayer;
     }
 }
