@@ -97,6 +97,14 @@ public class AlgoCraftMap{
 	public boolean isOccupied(Coordinates coord) {
 		return tiles.get(coord).isOccupied();
 	}
+
+	public Occupant getOccupant(Coordinates coordinate) throws EmptyTileException {
+		try {
+			return this.tiles.get(coordinate).getOccupant();
+		} catch (EmptyTileException ex) {
+			return null;
+		}
+	}
 	/*private void placeBases(){
 		Random random = new Random();
 		int randomRow = random.nextInt(dimention);
