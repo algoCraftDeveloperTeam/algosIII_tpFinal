@@ -41,4 +41,8 @@ public class Game implements TurnAware{
     public Player getActivePlayer(){
         return activePlayer;
     }
+
+    public AlgoCraftMap getAlgoCraftMap() {
+        return this.algoCraftMap;
+    }
 }
