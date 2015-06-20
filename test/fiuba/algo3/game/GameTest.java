@@ -13,9 +13,7 @@ import org.junit.Test;
  */
 public class GameTest {
 
-    //private AlgoCraftMap algoCraftMap;
     private Game game;
-    //private Player player1, player2;
 
     @Before
     public void setUp() throws Exception {
