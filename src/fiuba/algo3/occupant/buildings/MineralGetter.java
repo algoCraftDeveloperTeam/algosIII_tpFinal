@@ -13,12 +13,16 @@ public abstract class MineralGetter extends ResourceGetter {
         this.constructionTime = 4;
     }
     @Override
-    public void addToPlayerStorage(){
+    protected void addToPlayerStorage(){
         owner.addMinerals(quantity);
     }
     @Override
     public boolean canOccupyMineral(){
     	return true;
     }
-
+    @Override
+    public void passTurn(){
+        super.passTurn();
+        this.addToPlayerStorage();
+    }
 }

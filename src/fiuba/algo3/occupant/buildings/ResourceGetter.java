@@ -10,7 +10,7 @@ public abstract class ResourceGetter extends Building{
     public ResourceGetter(Player player, int coordX, int coordY){
         super(player, coordX, coordY);
     }
-    public abstract void addToPlayerStorage();
+    protected abstract void addToPlayerStorage();
     @Override
     public boolean canOccupyEarth(){
         return false;
