@@ -68,8 +68,7 @@ public class Unit implements Occupant, Damageable, TurnAware {
         }
     }
 
-    public void setPosition(int x, int y, AlgoCraftMap map) throws KeyDoesNotExistsException, CannotOccupyTileException{
-        Coordinates destination = new Coordinates(x, y);
+    public void setPosition(AlgoCraftMap map, Coordinates destination) throws KeyDoesNotExistsException, CannotOccupyTileException{
         map.put(this, destination);
         this.position = destination;
     }

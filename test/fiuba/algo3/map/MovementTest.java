@@ -17,6 +17,7 @@ import org.junit.Test;
 public class MovementTest {
 
     private Unit unit;
+    private Coordinates position;
     private AlgoCraftMap algoCraftMap;
 
     @Before
@@ -28,21 +29,24 @@ public class MovementTest {
     @Test
     public void testSetAValidPosition()
             throws KeyDoesNotExistsException, CannotOccupyTileException {
-        unit.setPosition(1, 1, algoCraftMap);
+        position = new Coordinates(1, 1);
+        unit.setPosition(algoCraftMap, position);
     }
 
     @Test(expected = KeyDoesNotExistsException.class)
     public void testSetAnInvalidPositionShouldRaiseKeyDoesNotExistsException()
             throws KeyDoesNotExistsException, CannotOccupyTileException {
-        unit.setPosition(-1, -1, algoCraftMap);
+        position = new Coordinates(-1, -1);
+        unit.setPosition(algoCraftMap, position);
     }
 
     @Test(expected = CannotOccupyTileException.class)
     public void testSetPositionToAnOccupiedOneByAnUnitShouldRaiseCannotOccupyTileException()
             throws KeyDoesNotExistsException, CannotOccupyTileException {
+        position = new Coordinates(1, 1);
         Unit unit1 = new Marine();
-        unit1.setPosition(1, 1, algoCraftMap);
-        unit.setPosition(1, 1, algoCraftMap);
+        unit1.setPosition(algoCraftMap, position);
+        unit.setPosition(algoCraftMap, position);
     }
 
     @Test(expected = CannotOccupyTileException.class)
@@ -51,20 +55,23 @@ public class MovementTest {
         Player player = new Player(new AlgoCraftMap(20));
         Building building = new Barracks(player, new Coordinates(0, 0));
         building.setPosition(1, 1, algoCraftMap);
-        unit.setPosition(1, 1, algoCraftMap);
+        position = new Coordinates(1, 1);
+        unit.setPosition(algoCraftMap, position);
     }
 
     @Test
     public void testUnitMovesToAValidPositionWithinItsMovementRange()
             throws KeyDoesNotExistsException, CannotOccupyTileException, InvalidMovementException {
-        unit.setPosition(1, 1, algoCraftMap);
+        position = new Coordinates(1, 1);
+        unit.setPosition(algoCraftMap, position);
         unit.move(2, 2, algoCraftMap);
     }
 
     @Test(expected = InvalidMovementException.class)
     public void testUnitMovesToAnInvalidPositionWithinItsMovementRangeShouldRaiseInvalidMovementException()
             throws KeyDoesNotExistsException, CannotOccupyTileException, InvalidMovementException {
-        unit.setPosition(1, 1, algoCraftMap);
+        position = new Coordinates(1, 1);
+        unit.setPosition(algoCraftMap, position);
         unit.move(-1, -1, algoCraftMap);
     }
 
@@ -72,9 +79,10 @@ public class MovementTest {
     @Test(expected = InvalidMovementException.class)
     public void testUnitMovesToAnOccupiedPositionByAnUnitShouldRaiseInvalidMovementException()
             throws KeyDoesNotExistsException, CannotOccupyTileException, InvalidMovementException {
+        position = new Coordinates(1, 1);
         Unit unit1 = new Marine();
-        unit1.setPosition(2, 2, algoCraftMap);
-        unit.setPosition(1, 1, algoCraftMap);
+        unit1.setPosition(algoCraftMap, new Coordinates(2,2));
+        unit.setPosition(algoCraftMap, position);
         unit.move(2, 2, algoCraftMap);
     }
 
@@ -84,7 +92,8 @@ public class MovementTest {
         Player player = new Player(new AlgoCraftMap(20));
         Building building = new Barracks(player, new Coordinates(0, 0));
         building.setPosition(2, 2, algoCraftMap);
-        unit.setPosition(1, 1, algoCraftMap);
+        position = new Coordinates(1, 1);
+        unit.setPosition(algoCraftMap, position);
         unit.move(2, 2, algoCraftMap);
     }
 }
