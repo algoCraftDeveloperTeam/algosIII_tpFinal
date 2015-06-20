@@ -70,7 +70,8 @@ public class AlgoCraftMap{
 				while(j <= dim && !located){
 					try{
 						located = true;
-						unit.setPosition(coordX+j,coordY+i,this);
+						Coordinates destination = new Coordinates(coordX+j, coordY+i);
+						unit.setPosition(this, destination);
 					} catch(KeyDoesNotExistsException | CannotOccupyTileException ex){
 						located = false;
 					}

@@ -33,7 +33,7 @@ public class GroundUnitVSBuildingTest {
 
     @Test
     public void testMarineAttacksBuildingWithinRange() throws Exception {
-        marine.setPosition(1,1,algoCraftMap);
+        marine.setPosition(algoCraftMap, new Coordinates(1,1));
         marine.attack(building);
         // 500 (building's shield) - 6 (marine's attack) = 494
         Assert.assertEquals(494, building.getShield());
@@ -41,7 +41,7 @@ public class GroundUnitVSBuildingTest {
 
     @Test
     public void testMarineAttacksBuildingOutOfRange() throws Exception {
-        marine.setPosition(5,5,algoCraftMap);
+        marine.setPosition(algoCraftMap, new Coordinates(5,5));
         building.setPosition(15,16,algoCraftMap);
         marine.attack(building);
         
