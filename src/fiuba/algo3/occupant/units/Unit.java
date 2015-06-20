@@ -56,9 +56,8 @@ public class Unit implements Occupant, Damageable, TurnAware {
         life.receiveAttack(damage.getGroundDamage());
     }
 
-    public void move(int x, int y, AlgoCraftMap map) throws InvalidMovementException{
+    public void move(AlgoCraftMap map, Coordinates destination) throws InvalidMovementException{
         try {
-            Coordinates destination = new Coordinates(x, y);
             if (this.position.distance(destination) <= this.fieldOfVision) {
                 map.move(this.position, destination);
                 this.position = destination;

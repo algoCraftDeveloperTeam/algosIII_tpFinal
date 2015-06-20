@@ -64,7 +64,7 @@ public class MovementTest {
             throws KeyDoesNotExistsException, CannotOccupyTileException, InvalidMovementException {
         position = new Coordinates(1, 1);
         unit.setPosition(algoCraftMap, position);
-        unit.move(2, 2, algoCraftMap);
+        unit.move(algoCraftMap, new Coordinates(2,2));
     }
 
     @Test(expected = InvalidMovementException.class)
@@ -72,7 +72,7 @@ public class MovementTest {
             throws KeyDoesNotExistsException, CannotOccupyTileException, InvalidMovementException {
         position = new Coordinates(1, 1);
         unit.setPosition(algoCraftMap, position);
-        unit.move(-1, -1, algoCraftMap);
+        unit.move(algoCraftMap, new Coordinates(-1, -1));
     }
 
     // Maybe the exception to be raised should be DestinationIsOccupiedException
@@ -83,7 +83,7 @@ public class MovementTest {
         Unit unit1 = new Marine();
         unit1.setPosition(algoCraftMap, new Coordinates(2,2));
         unit.setPosition(algoCraftMap, position);
-        unit.move(2, 2, algoCraftMap);
+        unit.move(algoCraftMap, new Coordinates(2, 2));
     }
 
     @Test(expected = InvalidMovementException.class)
@@ -94,6 +94,6 @@ public class MovementTest {
         building.setPosition(2, 2, algoCraftMap);
         position = new Coordinates(1, 1);
         unit.setPosition(algoCraftMap, position);
-        unit.move(2, 2, algoCraftMap);
+        unit.move(algoCraftMap, new Coordinates(2,2));
     }
 }
