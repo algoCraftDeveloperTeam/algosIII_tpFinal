@@ -84,6 +84,10 @@ public class Player implements TurnAware{
             buildingsOfTheType.add(building);
             this.buildings.put(building.getClass(), buildingsOfTheType);
         }
+        this.algoCraftMap.clearTile(building.getPosition());
+        try {
+            this.algoCraftMap.put(building, building.getPosition());
+        } catch (CannotOccupyTileException | KeyDoesNotExistsException e) {}
     }
     private boolean hasBuilding(Class building) {
         return this.buildings.containsKey(building) && !this.buildings.get(building).isEmpty();
