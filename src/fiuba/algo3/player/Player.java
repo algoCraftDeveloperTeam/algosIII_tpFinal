@@ -128,6 +128,13 @@ public class Player implements TurnAware{
     @Override
     public void passTurn() {
         for(TurnAware building : buildingsInConstruction){
+            BuildingInConstruction bic = (BuildingInConstruction) building;
+            if(bic.isReady()){
+                try {
+                    Building ready = bic.getBuildingInConstruction();
+                    this.addFinishedBuilding(ready);
+                } catch (BuildingNotReadyException ex){}
+            }
             building.passTurn();
         }
         // This is awful. Must find a better way to iterate over hashMap values
