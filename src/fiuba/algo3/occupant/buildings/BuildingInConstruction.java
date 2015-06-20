@@ -52,7 +52,7 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
     }
 
     public boolean isReady() {
-        return remainingTurnsToBeFinished <= 0;
+        return remainingTurnsToBeFinished == 0;
     }
 
     public int getVitality(){
