@@ -82,7 +82,7 @@ public class AlgoCraftMap{
 		}
 	}
 
-	private void clearTile (Coordinates coord) {
+	public void clearTile (Coordinates coord) {
 		Tile current = tiles.get(coord);
 		current.clear();
 	}
