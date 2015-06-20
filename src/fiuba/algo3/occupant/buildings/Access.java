@@ -3,10 +3,11 @@ package fiuba.algo3.occupant.buildings;
 import fiuba.algo3.exceptions.UnitNotReadyException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.units.Unit;
-import fiuba.algo3.player.Player;
 import fiuba.algo3.occupant.units.UnitInTraining;
 import fiuba.algo3.occupant.units.Zealot;
+import fiuba.algo3.player.Player;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -25,7 +26,7 @@ public class Access extends Building implements UnitCreator{
 
     @Override
     public void trainUnit(){
-        Zealot aZealotToBeTrained = new Zealot();
+        Zealot aZealotToBeTrained = new Zealot(new Coordinates(1, 1));
         UnitInTraining aZealotInTraining = new UnitInTraining(aZealotToBeTrained);
         this.trainingQueue.add(aZealotInTraining);
     }
