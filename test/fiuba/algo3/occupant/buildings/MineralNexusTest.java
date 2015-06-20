@@ -1,5 +1,6 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
 import junit.framework.Assert;
 import org.junit.Before;
@@ -15,7 +16,7 @@ public class MineralNexusTest {
     @Before
     public void setUp(){
         this.p = new Player(new AlgoCraftMap(20));
-        this.mn = new MineralNexus(p, 0, 0);
+        this.mn = new MineralNexus(p, new Coordinates(0, 0));
     }
 
     @Test

@@ -1,5 +1,6 @@
 package fiuba.algo3.game;
 
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.Building;
 import fiuba.algo3.player.Player;
@@ -32,7 +33,7 @@ public class GameTest {
 
     @Test
     public void testBuildingInConstructionRemainingTurnsReducesInOneWhenAWholeTurnPasses() throws Exception {
-        Building barrack = new Barracks(game.getActivePlayer(), 1, 1);
+        Building barrack = new Barracks(game.getActivePlayer(), new Coordinates(1, 1));
         game.endTurn();
         game.endTurn();
 

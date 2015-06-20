@@ -23,9 +23,9 @@ public class GasTest{
 	public void setUp(){
 		player = new Player(new AlgoCraftMap(20));
 		gas = new Gas();
-		barrack = new Barracks(player, 0, 0);
-		mineralGetter = new MineralCenter(player, 1, 1);
-		gasGetter = new Asimilator(player, 2, 2);
+		barrack = new Barracks(player, new Coordinates(0, 0));
+		mineralGetter = new MineralCenter(player, new Coordinates(1, 1));
+		gasGetter = new Asimilator(player, new Coordinates(2, 2));
 		marine = new Marine();
 	}
 	

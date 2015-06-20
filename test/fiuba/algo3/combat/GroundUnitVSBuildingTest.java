@@ -1,6 +1,7 @@
 package fiuba.algo3.combat;
 
 import fiuba.algo3.map.AlgoCraftMap;
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.buildings.Access;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
 import fiuba.algo3.occupant.units.CombatUnit;
@@ -24,8 +25,8 @@ public class GroundUnitVSBuildingTest {
     @Before
     public void setUp() throws Exception {
         player = new Player(new AlgoCraftMap(20));
-        access = new Access(player, 0, 0);
-        building = new BuildingInConstruction(access, 0, 0);
+        access = new Access(player, new Coordinates(0, 0));
+        building = new BuildingInConstruction(access, new Coordinates(0, 0));
         marine = new Marine();
         algoCraftMap = new AlgoCraftMap(20);
     }

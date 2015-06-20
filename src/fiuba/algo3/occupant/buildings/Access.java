@@ -16,8 +16,8 @@ public class Access extends Building implements UnitCreator{
 
     private Queue<UnitInTraining> trainingQueue;
 
-    public Access(Player player, int coordX, int coordY) {
-    	super(player, coordX, coordY);
+    public Access(Player player, Coordinates coordinate) {
+    	super(player, coordinate);
         this.constructionCost = new Cost(150, 0);
         this.constructionTime = 8;
         this.life = new Life(500, 500);
@@ -26,7 +26,7 @@ public class Access extends Building implements UnitCreator{
 
     @Override
     public void trainUnit(){
-        Zealot aZealotToBeTrained = new Zealot(new Coordinates(1, 1));
+        Zealot aZealotToBeTrained = new Zealot();
         UnitInTraining aZealotInTraining = new UnitInTraining(aZealotToBeTrained);
         this.trainingQueue.add(aZealotInTraining);
     }

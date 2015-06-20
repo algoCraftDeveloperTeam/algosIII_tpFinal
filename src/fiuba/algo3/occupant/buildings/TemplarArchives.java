@@ -2,12 +2,13 @@ package fiuba.algo3.occupant.buildings;
 
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
 
 public class TemplarArchives extends Building{
 
-    public TemplarArchives(Player player, int coordX, int coordY) {
-        super(player, coordX, coordY);
+    public TemplarArchives(Player player, Coordinates coordinate) {
+        super(player, coordinate);
         this.requiredBuildings.add(Stargate.class);
         this.constructionCost = new Cost(150, 200);
         this.constructionTime = 9;

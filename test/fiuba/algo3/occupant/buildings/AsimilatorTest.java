@@ -1,5 +1,6 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
 import junit.framework.Assert;
 import org.junit.Before;
@@ -15,7 +16,7 @@ public class AsimilatorTest {
     @Before
     public void setUp(){
         this.p = new Player(new AlgoCraftMap(20));
-        this.a = new Asimilator(p, 1, 1);
+        this.a = new Asimilator(p, new Coordinates(0, 0));
     }
 
     @Test

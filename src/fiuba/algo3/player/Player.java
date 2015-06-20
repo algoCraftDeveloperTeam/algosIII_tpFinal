@@ -70,7 +70,7 @@ public class Player implements TurnAware{
         this.verifyRequirements(buildingToBeConstructed);
         int coordX = buildingToBeConstructed.getPosition().getX();
         int coordY = buildingToBeConstructed.getPosition().getY();
-        BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed, coordX, coordY);
+        BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed, new Coordinates(coordX, coordY));
         this.algoCraftMap.put(buildingInConstruction, new Coordinates(coordX, coordY));
         buildingsInConstruction.add(buildingInConstruction);
         return buildingInConstruction;

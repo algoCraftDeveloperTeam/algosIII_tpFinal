@@ -1,5 +1,6 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
 import junit.framework.Assert;
 import fiuba.algo3.map.AlgoCraftMap;
@@ -13,7 +14,7 @@ public class StarPortTest {
     private StarPort sp;
     @Before
     public void setUp() {
-        sp = new StarPort(new Player(new AlgoCraftMap(20)), 0, 0);
+        sp = new StarPort(new Player(new AlgoCraftMap(20)), new Coordinates(0, 0));
     }
 
     @Test

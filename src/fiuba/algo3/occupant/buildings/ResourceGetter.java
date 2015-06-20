@@ -1,5 +1,6 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
 
 /**
@@ -7,13 +8,12 @@ import fiuba.algo3.player.Player;
  */
 public abstract class ResourceGetter extends Building{
     public int quantity = 10;
-    public ResourceGetter(Player player, int coordX, int coordY){
-        super(player, coordX, coordY);
+    public ResourceGetter(Player player, Coordinates coordinate){
+        super(player, coordinate);
     }
     protected abstract void addToPlayerStorage();
     @Override
     public boolean canOccupyEarth(){
         return false;
     }
-    // TO DO: receiveAttack
 }

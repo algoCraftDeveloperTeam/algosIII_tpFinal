@@ -1,5 +1,6 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
 import junit.framework.Assert;
 import org.junit.Before;
@@ -13,7 +14,7 @@ public class TerranFactoryTest {
     private TerranFactory f;
     @Before
     public void setUp() {
-        f = new TerranFactory(new Player(new AlgoCraftMap(20)), 0, 0);
+        f = new TerranFactory(new Player(new AlgoCraftMap(20)), new Coordinates(0, 0));
     }
 
     @Test

@@ -4,6 +4,7 @@ package fiuba.algo3.occupant.buildings;
 import fiuba.algo3.exceptions.UnitNotReadyException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.units.Unit;
 import fiuba.algo3.player.Player;
 import fiuba.algo3.occupant.units.Goliath;
@@ -19,8 +20,8 @@ public class TerranFactory extends Building implements UnitCreator {
 
     private Queue<UnitInTraining> trainingQueue;
 
-    public TerranFactory(Player player, int coordX, int coordY) {
-        super(player, coordX, coordY);
+    public TerranFactory(Player player, Coordinates coordinate) {
+        super(player, coordinate);
         this.requiredBuildings.add(Barracks.class);
         this.constructionTime = 12;
         this.constructionCost = new Cost(200, 100);

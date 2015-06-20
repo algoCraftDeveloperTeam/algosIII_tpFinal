@@ -10,7 +10,6 @@ import fiuba.algo3.occupant.units.Unit;
 import fiuba.algo3.player.Player;
 import org.junit.Before;
 import org.junit.Test;
-import fiuba.algo3.map.AlgoCraftMap;
 
 /**
  * Created by mporto on 09/06/15.
@@ -50,7 +49,7 @@ public class MovementTest {
     public void testSetPositionToAnOccupiedOneByABuildingShouldRaiseCannotOccupyTileException()
             throws KeyDoesNotExistsException, CannotOccupyTileException {
         Player player = new Player(new AlgoCraftMap(20));
-        Building building = new Barracks(player, 0, 0);
+        Building building = new Barracks(player, new Coordinates(0, 0));
         building.setPosition(1, 1, algoCraftMap);
         unit.setPosition(1, 1, algoCraftMap);
     }
@@ -83,7 +82,7 @@ public class MovementTest {
     public void testUnitMovesToAnOccupiedPositionByABuildingShouldRaiseInvalidMovementException()
             throws KeyDoesNotExistsException, CannotOccupyTileException, InvalidMovementException {
         Player player = new Player(new AlgoCraftMap(20));
-        Building building = new Barracks(player, 0, 0);
+        Building building = new Barracks(player, new Coordinates(0, 0));
         building.setPosition(2, 2, algoCraftMap);
         unit.setPosition(1, 1, algoCraftMap);
         unit.move(2, 2, algoCraftMap);

@@ -3,6 +3,7 @@ package fiuba.algo3.occupant.buildings;
 import fiuba.algo3.exceptions.UnitNotReadyException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.units.Marine;
 import fiuba.algo3.occupant.units.Unit;
 import fiuba.algo3.occupant.units.UnitInTraining;
@@ -18,8 +19,8 @@ public class Barracks extends Building implements UnitCreator{
 
     private Queue<UnitInTraining> trainingQueue;
 
-    public Barracks(Player player, int coordX, int coordY) {
-    	super(player, coordX, coordY);
+    public Barracks(Player player, Coordinates coordinate) {
+    	super(player, coordinate);
         this.constructionCost = new Cost(150, 0);
         this.constructionTime = 12;
         this.life = new Life(1000, 0);

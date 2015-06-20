@@ -1,5 +1,6 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
 import fiuba.algo3.map.AlgoCraftMap;
 import junit.framework.Assert;
@@ -15,7 +16,7 @@ public class RefineryTest {
     @Before
     public void setUp(){
         this.p = new Player(new AlgoCraftMap(20));
-        this.r = new Refinery(p, 0, 0);
+        this.r = new Refinery(p, new Coordinates(0, 0));
     }
 
     @Test

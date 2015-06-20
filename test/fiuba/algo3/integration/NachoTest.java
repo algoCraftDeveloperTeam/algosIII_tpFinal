@@ -20,7 +20,7 @@ public class NachoTest {
         Assert.assertEquals(0, game.getActivePlayer().getGasStorage());
         Assert.assertEquals(200, game.getActivePlayer().getMineralStorage());
 
-        game.build(new MineralCenter(game.getActivePlayer(), 99, 99));
+        game.build(new MineralCenter(game.getActivePlayer(), new Coordinates(99, 99)));
         // Building something substracts player resources
         Assert.assertEquals(150, game.getActivePlayer().getMineralStorage());
 
