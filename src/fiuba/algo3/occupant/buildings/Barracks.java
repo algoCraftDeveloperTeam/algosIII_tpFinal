@@ -40,6 +40,13 @@ public class Barracks extends Building implements UnitCreator{
         if(this.trainingQueue.isEmpty()) return;
         UnitInTraining firstUnit = this.trainingQueue.peek();
         firstUnit.passTurn();
+        if(firstUnit.isReady()){
+            try {
+                this.trainingQueue.remove();
+                Unit trainedUnit = firstUnit.getUnitBeingTrained();
+                this.owner.addTrainedUnit(trainedUnit, this.position);
+            } catch (UnitNotReadyException e){}
+        }
     }
 
     @Override
