@@ -1,12 +1,9 @@
 package fiuba.algo3;
 
-import javax.swing.JLabel;
-import javax.swing.JFrame;
-import javax.swing.JToolBar;
-import javax.swing.JButton;
-import java.awt.Container;
-import java.awt.BorderLayout;
 import fiuba.algo3.game.AlgoCraftModel;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class AlgoCraftView extends JFrame{
 
@@ -20,7 +17,7 @@ public class AlgoCraftView extends JFrame{
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		sideMenu = new SideMenu((int) (getWidth() * 0.2), getHeight());
-		map = new MapView((int) (getWidth() * 0.8), getHeight());
+		map = new MapView(getWidth(), getHeight());
 		add(sideMenu, BorderLayout.WEST);
 		add(map, BorderLayout.EAST);
 	}
