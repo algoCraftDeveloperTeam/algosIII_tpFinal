@@ -8,7 +8,7 @@ public class AlgoCraftView extends JFrame{
 	
 	private JLabel texto1;
 
-	public AlgoCraftView(AlgoCraftModel gameModel) {
+	public AlgoCraftView(AlgoCraftModel algoCraftModel) {
 		setBounds(500,250,300,250);
 		setVisible(true);
 		setResizable(false);

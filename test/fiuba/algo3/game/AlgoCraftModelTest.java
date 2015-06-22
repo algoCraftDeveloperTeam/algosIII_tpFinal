@@ -13,27 +13,27 @@ import org.junit.Test;
  */
 public class AlgoCraftModelTest {
 
-    private AlgoCraftModel game;
+    private AlgoCraftModel algoCraftModel;
 
     @Before
     public void setUp() throws Exception {
-        game = new AlgoCraftModel();
+        algoCraftModel = new AlgoCraftModel();
     }
 
     @Test
     public void testEndTurnCausesToChangeActivePlayer() throws Exception {
-        Player oldActivePlayer = game.getActivePlayer();
-        game.endTurn();
-        Player newActivePlayer = game.getActivePlayer();
+        Player oldActivePlayer = algoCraftModel.getActivePlayer();
+        algoCraftModel.endTurn();
+        Player newActivePlayer = algoCraftModel.getActivePlayer();
 
         Assert.assertNotEquals(oldActivePlayer, newActivePlayer);
     }
 
     @Test
     public void testBuildingInConstructionRemainingTurnsReducesInOneWhenAWholeTurnPasses() throws Exception {
-        Building barrack = new Barracks(game.getActivePlayer(), new Coordinates(1, 1));
-        game.endTurn();
-        game.endTurn();
+        Building barrack = new Barracks(algoCraftModel.getActivePlayer(), new Coordinates(1, 1));
+        algoCraftModel.endTurn();
+        algoCraftModel.endTurn();
 
 
     }
