@@ -60,10 +60,9 @@ public abstract class Building implements Occupant, Damageable, TurnAware{
     public List<Class<?>> getRequiredBuildings(){
         return requiredBuildings;
     }
-    public void setPosition(int x, int y, AlgoCraftMap map) throws KeyDoesNotExistsException, CannotOccupyTileException{
-        Coordinates destination = new Coordinates(x, y);
-        map.put(this, destination);
-        this.position = destination;
+    public void setPosition(AlgoCraftMap map, Coordinates coordinates) throws KeyDoesNotExistsException, CannotOccupyTileException{
+        map.put(this, coordinates);
+        this.position = coordinates;
     }
     public void receiveDamage(Damage damage){
         life.receiveAttack(damage.getGroundDamage());

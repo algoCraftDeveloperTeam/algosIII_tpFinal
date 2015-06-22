@@ -54,8 +54,8 @@ public class MovementTest {
             throws KeyDoesNotExistsException, CannotOccupyTileException {
         Player player = new Player(new AlgoCraftMap(20));
         Building building = new Barracks(player, new Coordinates(0, 0));
-        building.setPosition(1, 1, algoCraftMap);
         position = new Coordinates(1, 1);
+        building.setPosition(algoCraftMap, position);
         unit.setPosition(algoCraftMap, position);
     }
 
@@ -91,7 +91,7 @@ public class MovementTest {
             throws KeyDoesNotExistsException, CannotOccupyTileException, InvalidMovementException {
         Player player = new Player(new AlgoCraftMap(20));
         Building building = new Barracks(player, new Coordinates(0, 0));
-        building.setPosition(2, 2, algoCraftMap);
+        building.setPosition(algoCraftMap, new Coordinates(2, 2));
         position = new Coordinates(1, 1);
         unit.setPosition(algoCraftMap, position);
         unit.move(algoCraftMap, new Coordinates(2,2));
