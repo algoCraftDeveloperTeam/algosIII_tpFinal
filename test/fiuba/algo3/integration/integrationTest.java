@@ -105,20 +105,20 @@ public class integrationTest {
     }
 
     public void testDeadBuildingsAndUnitsAreRemovedFromMap() throws Exception{
-        this.game.build(new Barracks(this.game.getActivePlayer(), new Coordinates(1, 1)));
-        this.game.endTurn();
-        this.game.build(new Barracks(this.game.getActivePlayer(), new Coordinates(1, 2)));
-        this.game.endTurn();
+        this.algoCraftModel.build(new Barracks(this.algoCraftModel.getActivePlayer(), new Coordinates(1, 1)));
+        this.algoCraftModel.endTurn();
+        this.algoCraftModel.build(new Barracks(this.algoCraftModel.getActivePlayer(), new Coordinates(1, 2)));
+        this.algoCraftModel.endTurn();
         for(int i = 0; i < 20; i++){
-            this.game.endTurn();
+            this.algoCraftModel.endTurn();
         }
-        Marine marine = (Marine) this.game.getAlgoCraftMap().getOccupant(new Coordinates(0, 0));
+        Marine marine = (Marine) this.algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(0, 0));
         for(int i = 0; i < 167; i++){
-            marine.attack((Damageable) this.game.getAlgoCraftMap().getOccupant(new Coordinates(1, 2)));
-            this.game.endTurn();
-            this.game.endTurn();
+            marine.attack((Damageable) this.algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(1, 2)));
+            this.algoCraftModel.endTurn();
+            this.algoCraftModel.endTurn();
         }
-        Assert.assertFalse(this.game.getAlgoCraftMap().isOccupied(new Coordinates(1, 2)));
+        Assert.assertFalse(this.algoCraftModel.getAlgoCraftMap().isOccupied(new Coordinates(1, 2)));
 
     }
 }
