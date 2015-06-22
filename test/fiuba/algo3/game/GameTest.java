@@ -11,13 +11,13 @@ import org.junit.Test;
 /**
  * Created by nsueiro on 17/06/15.
  */
-public class GameTest {
+public class AlgoCraftModelTest {
 
-    private Game game;
+    private AlgoCraftModel game;
 
     @Before
     public void setUp() throws Exception {
-        game = new Game();
+        game = new AlgoCraftModel();
     }
 
     @Test

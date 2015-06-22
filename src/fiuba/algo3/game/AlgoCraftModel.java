@@ -8,13 +8,13 @@ import fiuba.algo3.player.Player;
 /**
  * Created by montag on 6/17/15.
  */
-public class Game implements TurnAware{
+public class AlgoCraftModel implements TurnAware{
 
     private Player player1, player2;
     private AlgoCraftMap algoCraftMap;
     private Player activePlayer, inactivePlayer;
 
-    public Game(){
+    public AlgoCraftModel(){
         algoCraftMap = new AlgoCraftMap(5);
         player1 = new Player(algoCraftMap);
         player2 = new Player(algoCraftMap);

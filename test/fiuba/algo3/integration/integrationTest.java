@@ -1,6 +1,6 @@
 package fiuba.algo3.integration;
 
-import fiuba.algo3.game.Game;
+import fiuba.algo3.game.AlgoCraftModel;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
@@ -15,10 +15,10 @@ import org.junit.Test;
  * Created by nsueiro on 19/06/15.
  */
 public class integrationTest {
-    private Game game;
+    private AlgoCraftModel game;
     @Before
     public void setUp() throws Exception {
-        game = new Game();
+        game = new AlgoCraftModel();
     }
 
     @Test
@@ -72,7 +72,7 @@ public class integrationTest {
     }
 
     @Test
-    public void testGameScenario() throws Exception {
+    public void testAlgoCraftModelScenario() throws Exception {
         game.build(new Barracks(game.getActivePlayer(), new Coordinates(1, 1)));
 
         // Building something substracts player resources

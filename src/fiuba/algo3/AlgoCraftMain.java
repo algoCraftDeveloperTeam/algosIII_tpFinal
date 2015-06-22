@@ -1,12 +1,12 @@
 package fiuba.algo3;
 
 import fiuba.algo3.AlgoCraftView;
-import fiuba.algo3.game.Game;
+import fiuba.algo3.game.AlgoCraftModel;
 
 public class AlgoCraftMain{
 
 	public static void main(String[] args) {
-		Game game = new Game();
+		AlgoCraftModel game = new AlgoCraftModel();
 		AlgoCraftView ventana = new AlgoCraftView(game);
 	}
 
