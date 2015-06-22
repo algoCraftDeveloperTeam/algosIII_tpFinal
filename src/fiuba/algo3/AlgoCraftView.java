@@ -11,6 +11,7 @@ import fiuba.algo3.game.AlgoCraftModel;
 public class AlgoCraftView extends JFrame{
 
 	private SideMenu sideMenu;
+	private MapView map;
 
 	public AlgoCraftView(AlgoCraftModel algoCraftModel) {
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -19,6 +20,8 @@ public class AlgoCraftView extends JFrame{
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		sideMenu = new SideMenu((int) (getWidth() * 0.2), getHeight());
+		map = new MapView((int) (getWidth() * 0.8), getHeight());
 		add(sideMenu, BorderLayout.WEST);
+		add(map, BorderLayout.EAST);
 	}
 }
