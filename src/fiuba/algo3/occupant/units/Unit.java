@@ -12,11 +12,12 @@ import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.Occupant;
+import fiuba.algo3.player.Player;
 
 /**
  * Created by mporto on 28/05/15.
  */
-public class Unit implements Occupant, Damageable, TurnAware {
+public abstract class Unit implements Occupant, Damageable, TurnAware {
 
     static int sizeForTransport;
     static Cost trainingCost;
@@ -24,8 +25,8 @@ public class Unit implements Occupant, Damageable, TurnAware {
     int fieldOfVision;
     int trainingTime;
     Life life;
-    // TO DO: this is temporary, the units should be initialized with a position.
     Coordinates position;
+    Player owner;
 
     public static int getSizeForTransport() {
         return sizeForTransport;
@@ -54,6 +55,9 @@ public class Unit implements Occupant, Damageable, TurnAware {
     public void receiveDamage(Damage damage) {
         // In the meantime the attackedUnit will always receive groundDamage.
         life.receiveAttack(damage.getGroundDamage());
+        if(this.life.getVitality() < 0){
+            this.owner.removeUnit(this);
+        }
     }
 
     public void move(AlgoCraftMap map, Coordinates destination) throws InvalidMovementException{
@@ -87,5 +91,11 @@ public class Unit implements Occupant, Damageable, TurnAware {
     @Override
     public void passTurn() {
         this.life.regenerateShield();
+    }
+
+    public abstract boolean isWithinRange(CombatUnit attacker);
+
+    public void setOwner(Player owner){
+       this.owner = owner;
     }
 }

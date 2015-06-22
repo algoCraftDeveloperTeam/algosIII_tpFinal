@@ -10,6 +10,7 @@ import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.Occupant;
+import fiuba.algo3.occupant.units.CombatUnit;
 import fiuba.algo3.player.Player;
 
 import java.util.ArrayList;
@@ -65,7 +66,11 @@ public abstract class Building implements Occupant, Damageable, TurnAware{
         this.position = coordinates;
     }
     public void receiveDamage(Damage damage){
-        life.receiveAttack(damage.getGroundDamage());
+
+        this.life.receiveAttack(damage.getGroundDamage());
+        if(this.life.getVitality() < 0){
+            this.owner.removeBuilding(this);
+        }
     }
 
     public Coordinates getPosition(){
@@ -75,5 +80,13 @@ public abstract class Building implements Occupant, Damageable, TurnAware{
     @Override
     public void passTurn(){
         this.life.regenerateShield();
+    }
+
+    @Override
+    public boolean isWithinRange(CombatUnit attacker) {
+         Coordinates unitPosition = attacker.getPosition();
+        int distance = this.position.distance(unitPosition);
+        // In the meantime this will only check with the unit's ground attack range.
+        return !(distance > attacker.getGroundAttackRange());
     }
 }
