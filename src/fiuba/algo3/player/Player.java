@@ -137,6 +137,43 @@ public class Player implements TurnAware{
 
     @Override
     public void passTurn() {
+        List<Coordinates> coordinatesToClear = new ArrayList<Coordinates>();
+        List<BuildingInConstruction> bicToBeRemoved = new ArrayList<BuildingInConstruction>();
+        for(BuildingInConstruction bic : this.buildingsInConstruction){
+            if(bic.getVitality() < 0){
+                bicToBeRemoved.add(bic);
+                coordinatesToClear.add(bic.getPosition());
+            }
+        }
+        this.buildingsInConstruction.removeAll(bicToBeRemoved);
+
+        List<Building> bToBeRemoved = new ArrayList<Building>();
+        for(List types : this.buildings.values()){
+            for(Object obj : types){
+                Building building = (Building) obj;
+                if(building.getVitality() < 0){
+                    bToBeRemoved.add(building);
+                    coordinatesToClear.add(building.getPosition());
+                }
+            }
+        }
+        for(Building building : bToBeRemoved){
+            buildings.get(building.getClass()).remove(building);
+        }
+
+        List<Unit> uToBeRemoved = new ArrayList<Unit>();
+        for(Unit unit : this.units){
+            if(unit.getVitality() < 0){
+                uToBeRemoved.add(unit);
+                coordinatesToClear.add(unit.getPosition());
+            }
+        }
+        this.units.removeAll(uToBeRemoved);
+
+        for(Coordinates coordinate : coordinatesToClear){
+            this.algoCraftMap.clearTile(coordinate);
+        }
+
         for(TurnAware building : buildingsInConstruction){
             BuildingInConstruction bic = (BuildingInConstruction) building;
             if(bic.isReady()){
