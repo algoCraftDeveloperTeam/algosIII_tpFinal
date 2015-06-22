@@ -1,4 +1,4 @@
-package fiuba.algo3;
+package fiuba.algo3.view;
 
 import fiuba.algo3.game.AlgoCraftModel;
 

@@ -1,14 +1,11 @@
-package fiuba.algo3;
+package fiuba.algo3.view;
 
-import javax.swing.JPanel;
-import javax.swing.border.EtchedBorder;
+import javax.swing.*;
 import javax.swing.border.Border;
-import java.awt.Color;
-import java.awt.event.MouseListener;
+import javax.swing.border.EtchedBorder;
+import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.awt.Graphics;
-import java.awt.Image;
-import fiuba.algo3.game.AlgoCraftModel;
+import java.awt.event.MouseListener;
 
 public class MapView extends JPanel implements MouseListener{
 

@@ -1,6 +1,5 @@
-package fiuba.algo3;
+package fiuba.algo3.view;
 
-import fiuba.algo3.AlgoCraftView;
 import fiuba.algo3.game.AlgoCraftModel;
 
 public class AlgoCraftMain{
