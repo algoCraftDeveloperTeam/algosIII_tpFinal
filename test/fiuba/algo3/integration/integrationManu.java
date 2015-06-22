@@ -9,13 +9,13 @@ import org.junit.Test;
 public class integrationManu {
 
     @Test
-    public void testGameSimulation() throws Exception {
+    public void testAlgoCraftModelSimulation() throws Exception {
         Assert.assertTrue(true);
         /*
-        Game game = new Game();
-        Building building = new Barracks(game.getActivePlayer(), 1, 1);
-        game.endTurn();
-        Building building1 = new Barracks(game.getActivePlayer(), 3, 3);
+        AlgoCraftModel algoCraftModel = new AlgoCraftModel();
+        Building building = new Barracks(algoCraftModel.getActivePlayer(), 1, 1);
+        algoCraftModel.endTurn();
+        Building building1 = new Barracks(algoCraftModel.getActivePlayer(), 3, 3);
         */
     }
 }

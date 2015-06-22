@@ -2,13 +2,13 @@ package fiuba.algo3;
 
 import javax.swing.JLabel;
 import javax.swing.JFrame;
-import fiuba.algo3.game.Game;
+import fiuba.algo3.game.AlgoCraftModel;
 
 public class AlgoCraftView extends JFrame{
 	
 	private JLabel texto1;
 
-	public AlgoCraftView(Game gameModel) {
+	public AlgoCraftView(AlgoCraftModel algoCraftModel) {
 		setBounds(500,250,300,250);
 		setVisible(true);
 		setResizable(false);

@@ -1,6 +1,6 @@
 package fiuba.algo3.integration;
 
-import fiuba.algo3.game.Game;
+import fiuba.algo3.game.AlgoCraftModel;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.buildings.Barracks;
@@ -16,90 +16,90 @@ import org.junit.Test;
  * Created by nsueiro on 19/06/15.
  */
 public class integrationTest {
-    private Game game;
+    private AlgoCraftModel algoCraftModel;
     @Before
     public void setUp() throws Exception {
-        game = new Game();
+        algoCraftModel = new AlgoCraftModel();
     }
 
     @Test
     public void testResourceGetterIntegrationTest() throws Exception {
-        Player player1 = game.getActivePlayer();
+        Player player1 = algoCraftModel.getActivePlayer();
         // Initialization tests
-        Assert.assertEquals(0, game.getActivePlayer().getGasStorage());
-        Assert.assertEquals(200, game.getActivePlayer().getMineralStorage());
+        Assert.assertEquals(0, algoCraftModel.getActivePlayer().getGasStorage());
+        Assert.assertEquals(200, algoCraftModel.getActivePlayer().getMineralStorage());
 
-        game.build(new MineralCenter(game.getActivePlayer(), new Coordinates(99, 99)));
+        algoCraftModel.build(new MineralCenter(algoCraftModel.getActivePlayer(), new Coordinates(99, 99)));
         // Building something substracts player resources
-        Assert.assertEquals(150, game.getActivePlayer().getMineralStorage());
+        Assert.assertEquals(150, algoCraftModel.getActivePlayer().getMineralStorage());
 
-        BuildingInConstruction current = (BuildingInConstruction) game.getAlgoCraftMap().getOccupant(new Coordinates(99, 99));
+        BuildingInConstruction current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(99, 99));
         // Building is not operational until it's finished
         Assert.assertEquals(4, current.getRemainingTurns());
         Assert.assertFalse(current.isReady());
-        game.endTurn();
+        algoCraftModel.endTurn();
         // Testing the change of active player
-        Assert.assertNotEquals(player1, game.getActivePlayer());
-        game.endTurn();
+        Assert.assertNotEquals(player1, algoCraftModel.getActivePlayer());
+        algoCraftModel.endTurn();
         // Testing the change of active player cycle
-        Assert.assertEquals(player1, game.getActivePlayer());
-        current = (BuildingInConstruction) game.getAlgoCraftMap().getOccupant(new Coordinates(99, 99));
+        Assert.assertEquals(player1, algoCraftModel.getActivePlayer());
+        current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(99, 99));
         Assert.assertEquals(3, current.getRemainingTurns());
         Assert.assertFalse(current.isReady());
 
-        game.endTurn();
-        game.endTurn();
+        algoCraftModel.endTurn();
+        algoCraftModel.endTurn();
         // 2 turns remaining
-        game.endTurn();
-        game.endTurn();
+        algoCraftModel.endTurn();
+        algoCraftModel.endTurn();
         // 1 turn remaining
-        game.endTurn();
-        game.endTurn();
+        algoCraftModel.endTurn();
+        algoCraftModel.endTurn();
         // Building should be ready
-        current = (BuildingInConstruction) game.getAlgoCraftMap().getOccupant(new Coordinates(99, 99));
+        current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(99, 99));
         Assert.assertTrue(current.isReady());
         Assert.assertEquals(0, current.getRemainingTurns());
 
-        game.endTurn();
-        game.endTurn();
+        algoCraftModel.endTurn();
+        algoCraftModel.endTurn();
         // Resource Getter adds resources to it's owner every turn
-        Assert.assertEquals(160, game.getActivePlayer().getMineralStorage());
-        game.endTurn();
-        game.endTurn();
-        Assert.assertEquals(170, game.getActivePlayer().getMineralStorage());
-        game.endTurn();
-        game.endTurn();
-        Assert.assertEquals(180, game.getActivePlayer().getMineralStorage());
+        Assert.assertEquals(160, algoCraftModel.getActivePlayer().getMineralStorage());
+        algoCraftModel.endTurn();
+        algoCraftModel.endTurn();
+        Assert.assertEquals(170, algoCraftModel.getActivePlayer().getMineralStorage());
+        algoCraftModel.endTurn();
+        algoCraftModel.endTurn();
+        Assert.assertEquals(180, algoCraftModel.getActivePlayer().getMineralStorage());
     }
 
     @Test
-    public void testGameScenario() throws Exception {
-        game.build(new Barracks(game.getActivePlayer(), new Coordinates(1, 1)));
+    public void testAlgoCraftModelScenario() throws Exception {
+        algoCraftModel.build(new Barracks(algoCraftModel.getActivePlayer(), new Coordinates(1, 1)));
 
         // Building something substracts player resources
-        Assert.assertEquals(50, game.getActivePlayer().getMineralStorage());
-        BuildingInConstruction current = (BuildingInConstruction) game.getAlgoCraftMap().getOccupant(new Coordinates(1, 1));
+        Assert.assertEquals(50, algoCraftModel.getActivePlayer().getMineralStorage());
+        BuildingInConstruction current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(1, 1));
 
         // Building is not operational until it's finished
         Assert.assertEquals(12, current.getRemainingTurns());
         Assert.assertFalse(current.isReady());
-        game.endTurn();
+        algoCraftModel.endTurn();
 
-        game.build(new Barracks(game.getActivePlayer(), new Coordinates(2, 2)));
+        algoCraftModel.build(new Barracks(algoCraftModel.getActivePlayer(), new Coordinates(2, 2)));
 
         // I wait for the buildings to be ready.
-        for (int i = 0; i < 25; i++) game.endTurn();
+        for (int i = 0; i < 25; i++) algoCraftModel.endTurn();
 
         // This line it's a test, because now that the building is ready I should find a Building and not a
         // BuildingInConstruction
-        Barracks building = (Barracks) game.getAlgoCraftMap().getOccupant(new Coordinates(1,1));
+        Barracks building = (Barracks) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(1,1));
         building.trainUnit();
 
         // I wait for the marine to be ready.
-        for (int i = 0; i < 100; i++) game.endTurn();
+        for (int i = 0; i < 100; i++) algoCraftModel.endTurn();
 
-        Marine marine = (Marine) game.getAlgoCraftMap().getOccupant(new Coordinates(0, 0));
-        Barracks opponentBuilding = (Barracks) game.getAlgoCraftMap().getOccupant(new Coordinates(2, 2));
+        Marine marine = (Marine) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(0, 0));
+        Barracks opponentBuilding = (Barracks) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(2, 2));
         marine.attack(opponentBuilding);
         Assert.assertEquals(994, opponentBuilding.getVitality());
     }
