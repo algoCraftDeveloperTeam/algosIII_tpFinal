@@ -84,7 +84,7 @@ public class integrationTest {
         Assert.assertFalse(current.isReady());
         game.endTurn();
 
-        game.build(new Barracks(game.getActivePlayer(), new Coordinates(4, 4)));
+        game.build(new Barracks(game.getActivePlayer(), new Coordinates(2, 2)));
 
         // I wait for the buildings to be ready.
         for (int i = 0; i < 25; i++) game.endTurn();
@@ -98,8 +98,8 @@ public class integrationTest {
         for (int i = 0; i < 100; i++) game.endTurn();
 
         Marine marine = (Marine) game.getAlgoCraftMap().getOccupant(new Coordinates(0, 0));
-        Barracks opponentBuilding = (Barracks) game.getAlgoCraftMap().getOccupant(new Coordinates(4, 4));
-        //marine.attack(opponentBuilding);
-        //Assert.assertEquals(994, opponentBuilding.getVitality());
+        Barracks opponentBuilding = (Barracks) game.getAlgoCraftMap().getOccupant(new Coordinates(2, 2));
+        marine.attack(opponentBuilding);
+        Assert.assertEquals(994, opponentBuilding.getVitality());
     }
 }
