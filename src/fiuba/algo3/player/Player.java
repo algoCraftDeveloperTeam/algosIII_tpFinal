@@ -198,6 +198,7 @@ public class Player implements TurnAware{
     }
 
     public void addUnit(Unit unit, Coordinates coord){
+        unit.setOwner(this);
         this.units.add(unit);
         this.algoCraftMap.locate(unit, coord);
     }

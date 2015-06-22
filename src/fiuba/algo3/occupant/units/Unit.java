@@ -12,6 +12,7 @@ import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.Occupant;
+import fiuba.algo3.player.Player;
 
 /**
  * Created by mporto on 28/05/15.
@@ -25,6 +26,7 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
     int trainingTime;
     Life life;
     Coordinates position;
+    Player owner;
 
     public static int getSizeForTransport() {
         return sizeForTransport;
@@ -89,4 +91,8 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
     }
 
     public abstract boolean isWithinRange(CombatUnit attacker);
+
+    public void setOwner(Player owner){
+       this.owner = owner;
+    }
 }
