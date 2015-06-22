@@ -12,6 +12,7 @@ import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.Occupant;
+import fiuba.algo3.occupant.units.CombatUnit;
 import fiuba.algo3.player.Player;
 
 /**
@@ -93,5 +94,13 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
     @Override
     public Coordinates getPosition(){
         return this.position;
+    }
+
+    @Override
+    public boolean isWithinRange(CombatUnit attacker) {
+        Coordinates unitPosition = attacker.getPosition();
+        int distance = this.position.distance(unitPosition);
+        // In the meantime this will only check with the unit's ground attack range.
+        return !(distance > attacker.getGroundAttackRange());
     }
 }

@@ -16,7 +16,7 @@ import fiuba.algo3.occupant.Occupant;
 /**
  * Created by mporto on 28/05/15.
  */
-public class Unit implements Occupant, Damageable, TurnAware {
+public abstract class Unit implements Occupant, Damageable, TurnAware {
 
     static int sizeForTransport;
     static Cost trainingCost;
@@ -24,7 +24,6 @@ public class Unit implements Occupant, Damageable, TurnAware {
     int fieldOfVision;
     int trainingTime;
     Life life;
-    // TO DO: this is temporary, the units should be initialized with a position.
     Coordinates position;
 
     public static int getSizeForTransport() {
@@ -88,4 +87,6 @@ public class Unit implements Occupant, Damageable, TurnAware {
     public void passTurn() {
         this.life.regenerateShield();
     }
+
+    public abstract boolean isWithinRange(CombatUnit attacker);
 }

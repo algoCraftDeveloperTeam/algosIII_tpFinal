@@ -6,7 +6,7 @@ import fiuba.algo3.gameVariables.Life;
 /**
  * Created by mporto on 02/06/15.
  */
-public class Dragon extends Unit{
+public class Dragon extends CombatUnit{
 
     public Dragon() {
         sizeForTransport = 4;

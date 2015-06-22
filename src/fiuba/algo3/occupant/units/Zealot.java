@@ -6,7 +6,7 @@ import fiuba.algo3.gameVariables.Life;
 /**
  * Created by mporto on 01/06/15.
  */
-public class Zealot extends Unit{
+public class Zealot extends CombatUnit{
 
     public Zealot() {
         sizeForTransport = 2;

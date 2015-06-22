@@ -6,7 +6,7 @@ import fiuba.algo3.gameVariables.Life;
 /**
  * Created by mporto on 02/06/15.
  */
-public class Wraith extends Unit{
+public class Wraith extends CombatUnit{
     public Wraith() {
         sizeForTransport = 0;
         fieldOfVision = 7;
