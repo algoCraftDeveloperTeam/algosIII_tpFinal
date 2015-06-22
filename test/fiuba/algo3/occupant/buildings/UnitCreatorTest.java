@@ -13,6 +13,7 @@ import org.junit.Test;
 public class UnitCreatorTest {
     private Player player;
     private Barracks aBarrack;
+
     @Before
     public void setUp() throws Exception {
         player = new Player(new AlgoCraftMap(20));
@@ -23,13 +24,6 @@ public class UnitCreatorTest {
     @Test(expected = UnitNotReadyException.class)
     public void testGetInUnitInTrainingThrowsExceptionWhenUnitIsNotReady() throws UnitNotReadyException {
         aBarrack.trainUnit();
-        aBarrack.getUnitInTraining();
-    }
-
-    @Test
-    public void testGetUnitInTrainingReturnsUnitIfUnitIsReady() throws UnitNotReadyException {
-        aBarrack.trainUnit();
-        for (int i = 0; i < 3; i++) aBarrack.passTurn();
         aBarrack.getUnitInTraining();
     }
 }
