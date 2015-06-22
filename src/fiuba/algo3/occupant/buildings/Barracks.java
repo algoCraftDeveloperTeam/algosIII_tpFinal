@@ -37,6 +37,7 @@ public class Barracks extends Building implements UnitCreator{
     @Override
     public void passTurn() {
         super.passTurn();
+        if(this.trainingQueue.isEmpty()) return;
         UnitInTraining firstUnit = this.trainingQueue.peek();
         firstUnit.passTurn();
     }

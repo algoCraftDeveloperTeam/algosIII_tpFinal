@@ -15,7 +15,7 @@ public class Game implements TurnAware{
     private Player activePlayer, inactivePlayer;
 
     public Game(){
-        algoCraftMap = new AlgoCraftMap(100);
+        algoCraftMap = new AlgoCraftMap(5);
         player1 = new Player(algoCraftMap);
         player2 = new Player(algoCraftMap);
         activePlayer = player1;

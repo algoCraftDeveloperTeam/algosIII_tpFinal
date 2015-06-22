@@ -2,19 +2,27 @@ package fiuba.algo3.integration;
 
 import fiuba.algo3.game.Game;
 import fiuba.algo3.map.Coordinates;
+import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
 import fiuba.algo3.occupant.buildings.MineralCenter;
+import fiuba.algo3.occupant.units.Marine;
 import fiuba.algo3.player.Player;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Created by nsueiro on 19/06/15.
  */
-public class NachoTest {
+public class integrationTest {
+    private Game game;
+    @Before
+    public void setUp() throws Exception {
+        game = new Game();
+    }
+
     @Test
     public void testResourceGetterIntegrationTest() throws Exception {
-        Game game = new Game();
         Player player1 = game.getActivePlayer();
         // Initialization tests
         Assert.assertEquals(0, game.getActivePlayer().getGasStorage());
@@ -61,5 +69,37 @@ public class NachoTest {
         game.endTurn();
         game.endTurn();
         Assert.assertEquals(180, game.getActivePlayer().getMineralStorage());
+    }
+
+    @Test
+    public void testGameScenario() throws Exception {
+        game.build(new Barracks(game.getActivePlayer(), new Coordinates(1, 1)));
+
+        // Building something substracts player resources
+        Assert.assertEquals(50, game.getActivePlayer().getMineralStorage());
+        BuildingInConstruction current = (BuildingInConstruction) game.getAlgoCraftMap().getOccupant(new Coordinates(1, 1));
+
+        // Building is not operational until it's finished
+        Assert.assertEquals(12, current.getRemainingTurns());
+        Assert.assertFalse(current.isReady());
+        game.endTurn();
+
+        game.build(new Barracks(game.getActivePlayer(), new Coordinates(4, 4)));
+
+        // I wait for the buildings to be ready.
+        for (int i = 0; i < 25; i++) game.endTurn();
+
+        // This line it's a test, because now that the building is ready I should find a Building and not a
+        // BuildingInConstruction
+        Barracks building = (Barracks) game.getAlgoCraftMap().getOccupant(new Coordinates(1,1));
+        building.trainUnit();
+
+        // I wait for the marine to be ready.
+        for (int i = 0; i < 100; i++) game.endTurn();
+
+        Marine marine = (Marine) game.getAlgoCraftMap().getOccupant(new Coordinates(0, 0));
+        Barracks opponentBuilding = (Barracks) game.getAlgoCraftMap().getOccupant(new Coordinates(4, 4));
+        //marine.attack(opponentBuilding);
+        //Assert.assertEquals(994, opponentBuilding.getVitality());
     }
 }
