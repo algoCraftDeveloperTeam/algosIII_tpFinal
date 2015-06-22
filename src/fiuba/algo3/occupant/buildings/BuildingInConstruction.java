@@ -74,6 +74,9 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
     @Override
     public void receiveDamage(Damage damage) {
         this.life.receiveAttack(damage.getGroundDamage());
+        if(this.life.getVitality() < 0){
+            this.owner.removeBuildingInConstruction(this);
+        }
     }
 
     @Override

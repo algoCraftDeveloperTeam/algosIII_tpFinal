@@ -66,7 +66,11 @@ public abstract class Building implements Occupant, Damageable, TurnAware{
         this.position = coordinates;
     }
     public void receiveDamage(Damage damage){
-        life.receiveAttack(damage.getGroundDamage());
+
+        this.life.receiveAttack(damage.getGroundDamage());
+        if(this.life.getVitality() < 0){
+            this.owner.removeBuilding(this);
+        }
     }
 
     public Coordinates getPosition(){

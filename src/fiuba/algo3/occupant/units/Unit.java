@@ -55,6 +55,9 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
     public void receiveDamage(Damage damage) {
         // In the meantime the attackedUnit will always receive groundDamage.
         life.receiveAttack(damage.getGroundDamage());
+        if(this.life.getVitality() < 0){
+            this.owner.removeUnit(this);
+        }
     }
 
     public void move(AlgoCraftMap map, Coordinates destination) throws InvalidMovementException{
