@@ -2,6 +2,7 @@ package fiuba.algo3.integration;
 
 import fiuba.algo3.game.Game;
 import fiuba.algo3.map.Coordinates;
+import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
 import fiuba.algo3.occupant.buildings.MineralCenter;
@@ -101,5 +102,23 @@ public class integrationTest {
         Barracks opponentBuilding = (Barracks) game.getAlgoCraftMap().getOccupant(new Coordinates(2, 2));
         marine.attack(opponentBuilding);
         Assert.assertEquals(994, opponentBuilding.getVitality());
+    }
+
+    public void testDeadBuildingsAndUnitsAreRemovedFromMap() throws Exception{
+        this.game.build(new Barracks(this.game.getActivePlayer(), new Coordinates(1, 1)));
+        this.game.endTurn();
+        this.game.build(new Barracks(this.game.getActivePlayer(), new Coordinates(1, 2)));
+        this.game.endTurn();
+        for(int i = 0; i < 20; i++){
+            this.game.endTurn();
+        }
+        Marine marine = (Marine) this.game.getAlgoCraftMap().getOccupant(new Coordinates(0, 0));
+        for(int i = 0; i < 167; i++){
+            marine.attack((Damageable) this.game.getAlgoCraftMap().getOccupant(new Coordinates(1, 2)));
+            this.game.endTurn();
+            this.game.endTurn();
+        }
+        Assert.assertFalse(this.game.getAlgoCraftMap().isOccupied(new Coordinates(1, 2)));
+
     }
 }
