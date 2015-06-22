@@ -2,12 +2,16 @@ package fiuba.algo3;
 
 import javax.swing.JLabel;
 import javax.swing.JFrame;
+import fiuba.algo3.game.Game;
 
-public class HolaMundoSwing extends JFrame{
+public class AlgoCraftView extends JFrame{
 	
 	private JLabel texto1;
 
-	public HolaMundoSwing() {
+	public AlgoCraftView(Game gameModel) {
+		setBounds(500,250,300,250);
+		setVisible(true);
+		setResizable(false);
 		setLayout(null);
 		texto1=new JLabel("Nacho y Manu putos :D");
 		texto1.setBounds(100,100,200,40);
