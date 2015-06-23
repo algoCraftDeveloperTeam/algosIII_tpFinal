@@ -23,7 +23,7 @@ public class MovementTest {
     @Before
     public void setUp() throws Exception {
         unit = new Marine();
-        algoCraftMap = new AlgoCraftMap(20);
+        algoCraftMap = AlgoCraftMap.generateTestMap();
     }
 
     @Test
@@ -52,7 +52,7 @@ public class MovementTest {
     @Test(expected = CannotOccupyTileException.class)
     public void testSetPositionToAnOccupiedOneByABuildingShouldRaiseCannotOccupyTileException()
             throws KeyDoesNotExistsException, CannotOccupyTileException {
-        Player player = new Player(new AlgoCraftMap(20));
+        Player player = new Player(algoCraftMap);
         Building building = new Barracks(player, new Coordinates(0, 0));
         position = new Coordinates(1, 1);
         building.setPosition(algoCraftMap, position);
@@ -89,7 +89,7 @@ public class MovementTest {
     @Test(expected = InvalidMovementException.class)
     public void testUnitMovesToAnOccupiedPositionByABuildingShouldRaiseInvalidMovementException()
             throws KeyDoesNotExistsException, CannotOccupyTileException, InvalidMovementException {
-        Player player = new Player(new AlgoCraftMap(20));
+        Player player = new Player(algoCraftMap);
         Building building = new Barracks(player, new Coordinates(0, 0));
         building.setPosition(algoCraftMap, new Coordinates(2, 2));
         position = new Coordinates(1, 1);

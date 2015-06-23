@@ -1,11 +1,11 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
 import org.junit.Test;
-import fiuba.algo3.map.AlgoCraftMap;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by mporto on 31/05/15.
@@ -14,7 +14,7 @@ public class PylonTest {
 
     @Test
     public void testNewPylonRaisesPlayerAvailablePopulation() throws Exception {
-        Player aPlayer = new Player(new AlgoCraftMap(20));
+        Player aPlayer = new Player(AlgoCraftMap.generateTestMap());
         int startingAvailablePopulation = aPlayer.getAvailablePopulation();
         Pylon aPylon = new Pylon(aPlayer, new Coordinates(0, 0));
 

@@ -28,6 +28,11 @@ public class AlgoCraftMap{
 		*///showMap();
 	}
 
+	public static AlgoCraftMap generateTestMap(){
+        AlgoCraftMap testMap = new AlgoCraftMap(100);
+        testMap.generateEarthAndSpace();
+        return testMap;
+    }
 	private void generateEarthAndSpace(){
 		Tile earth;
 		for(int i = 0; i < dimention; i++){

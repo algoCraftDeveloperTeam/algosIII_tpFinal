@@ -1,14 +1,14 @@
 package fiuba.algo3.map;
 
-import org.junit.Test;
-import org.junit.Assert;
-import org.junit.Before;
-import fiuba.algo3.occupant.Occupant;
-import fiuba.algo3.occupant.units.Unit;
-import fiuba.algo3.occupant.units.Marine;
-import fiuba.algo3.occupant.units.Zealot;
 import fiuba.algo3.exceptions.CannotOccupyTileException;
 import fiuba.algo3.exceptions.KeyDoesNotExistsException;
+import fiuba.algo3.occupant.Occupant;
+import fiuba.algo3.occupant.units.Marine;
+import fiuba.algo3.occupant.units.Unit;
+import fiuba.algo3.occupant.units.Zealot;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 public class AlgoCraftMapTest{
 
@@ -16,7 +16,7 @@ public class AlgoCraftMapTest{
 
 	@Before
 	public void setUp(){
-		algoCraftMap = new AlgoCraftMap(20);
+		algoCraftMap = AlgoCraftMap.generateTestMap();
 	}
 
 	@Test
@@ -37,7 +37,7 @@ public class AlgoCraftMapTest{
 
 	@Test (expected = KeyDoesNotExistsException.class)
 	public void testMapCanPutOccupantOnInvalidCoordinates() throws CannotOccupyTileException, KeyDoesNotExistsException{
-		Coordinates coord = new Coordinates(40,2);
+		Coordinates coord = new Coordinates(-1,-1);
 		Occupant marine = new Marine();
 		algoCraftMap.put(marine,coord);
 	}

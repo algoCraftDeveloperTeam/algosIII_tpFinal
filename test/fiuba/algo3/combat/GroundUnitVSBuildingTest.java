@@ -24,11 +24,11 @@ public class GroundUnitVSBuildingTest {
 
     @Before
     public void setUp() throws Exception {
-        player = new Player(new AlgoCraftMap(20));
+        algoCraftMap = AlgoCraftMap.generateTestMap();
+        player = new Player(algoCraftMap);
         access = new Access(player, new Coordinates(0, 0));
         building = new BuildingInConstruction(access, new Coordinates(0, 0));
         marine = new Marine();
-        algoCraftMap = new AlgoCraftMap(20);
     }
 
     @Test

@@ -1,9 +1,9 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
 import junit.framework.Assert;
-import fiuba.algo3.map.AlgoCraftMap;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class MineralCenterTest {
     private Player p;
     @Before
     public void setUp(){
-        this.p = new Player(new AlgoCraftMap(20));
+        this.p = new Player(AlgoCraftMap.generateTestMap());
         this.mc = new MineralCenter(p, new Coordinates(0, 0));
     }
 

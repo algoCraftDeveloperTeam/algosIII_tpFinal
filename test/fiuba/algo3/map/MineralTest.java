@@ -1,14 +1,14 @@
 package fiuba.algo3.map;
 
+import fiuba.algo3.exceptions.CannotOccupyTileException;
 import fiuba.algo3.occupant.Occupant;
-import org.junit.Test;
-import org.junit.Before;
-import fiuba.algo3.player.Player;
-import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.Asimilator;
+import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.MineralCenter;
 import fiuba.algo3.occupant.units.Marine;
-import fiuba.algo3.exceptions.CannotOccupyTileException;
+import fiuba.algo3.player.Player;
+import org.junit.Before;
+import org.junit.Test;
 
 public class MineralTest{
 
@@ -21,7 +21,7 @@ public class MineralTest{
 
 	@Before
 	public void setUp(){
-		player = new Player(new AlgoCraftMap(20));
+		player = new Player(AlgoCraftMap.generateTestMap());
 		mineral = new Mineral();
 		barrack = new Barracks(player, new Coordinates(0, 0));
 		mineralGetter = new MineralCenter(player, new Coordinates(1, 1));
