@@ -10,12 +10,11 @@ import fiuba.algo3.map.Tile;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
-public class MapView extends JPanel implements MouseListener{
+public class MapView extends JPanel{
 
 	/**
 	 * 
@@ -27,7 +26,6 @@ public class MapView extends JPanel implements MouseListener{
 
 	public MapView(int x, int y, int width, int height, AlgoCraftMap modelMap)
             throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-		addMouseListener(this);
 		setBounds(x, y, width, height);
 		setBackground(Color.YELLOW);
 		setAlignmentY(Component.TOP_ALIGNMENT);
@@ -47,6 +45,7 @@ public class MapView extends JPanel implements MouseListener{
                 Tile actualTile = algoCraftMap.getTile(actualPosition);
                 Class<?> viewClass = tileGenerator.get(actualTile.getClass());
                 TileView tileView = (TileView) viewClass.newInstance();
+                tileView.setModelTile(actualTile);
                 add(tileView);
             }
         }
@@ -59,29 +58,4 @@ public class MapView extends JPanel implements MouseListener{
 		tileGenerator.put(Gas.class, GasTileView.class);
 		tileGenerator.put(Space.class, SpaceTileView.class);
     }
-
-    @Override
-	public void mouseClicked(MouseEvent e) {
-		System.out.println("mouseClicked");
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		System.out.println("mouseExited");
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		System.out.println("mouseEntered");
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		System.out.println("mouseReleased");
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		System.out.println("mousePressed");
-	}
 }

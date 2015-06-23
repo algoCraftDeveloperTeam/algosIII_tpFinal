@@ -33,4 +33,8 @@ public abstract class Tile implements Pervadable{
 	public boolean isOccupied(){
 		return this.occupied;
 	}
+
+	public void ocuparTurbio(){
+		this.occupied = true;
+	}
 }
