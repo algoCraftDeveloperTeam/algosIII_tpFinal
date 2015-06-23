@@ -27,7 +27,6 @@ public class MapView extends JPanel{
 	public MapView(int x, int y, int width, int height, AlgoCraftMap modelMap)
             throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
 		setBounds(x, y, width, height);
-		setBackground(Color.YELLOW);
 		setAlignmentY(Component.TOP_ALIGNMENT);
 		setAlignmentX(Component.LEFT_ALIGNMENT);
 		dimention = modelMap.getDimention();
