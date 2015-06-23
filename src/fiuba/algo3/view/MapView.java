@@ -21,8 +21,8 @@ public class MapView extends JPanel implements MouseListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-    HashMap<Class<?>, Class<?>> tileGenerator;
-    AlgoCraftMap algoCraftMap;
+    private HashMap<Class<?>, Class<?>> tileGenerator;
+    private AlgoCraftMap algoCraftMap;
     private int dimention;
 
 	public MapView(int x, int y, int width, int height, AlgoCraftMap algoCraftMap)
@@ -37,18 +37,6 @@ public class MapView extends JPanel implements MouseListener{
 		this.dimention = algoCraftMap.getDimention();
         this.generateTileViews();
         this.generateMapView();
-
-		/*for (int i = 0; i < (this.dimention * this.dimention); i++){
-			JPanel panel = new JPanel();
-			if (i % 3 == 0){
-				panel.setBackground(Color.RED);
-			} else if(i % 3 == 1){
-				panel.setBackground(Color.BLUE);		******EJEMPLO PARA VISUALIZAR******
-			} else{
-				panel.setBackground(Color.GREEN);
-			}
-			add(panel);
-		}*/
 	}
 
     private void generateMapView()
@@ -65,8 +53,6 @@ public class MapView extends JPanel implements MouseListener{
     }
 
     private void generateTileViews() {
-        // Con la clase del tile del modelo, usamos la clase correspondiente de
-        // tileView para crear un tileView
 		tileGenerator = new HashMap<Class<?>, Class<?>>();
 		tileGenerator.put(Earth.class, EarthTileView.class);
 		tileGenerator.put(Mineral.class, MineralTileView.class);

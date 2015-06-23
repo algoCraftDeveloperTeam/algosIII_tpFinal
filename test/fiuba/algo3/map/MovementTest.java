@@ -23,7 +23,7 @@ public class MovementTest {
     @Before
     public void setUp() throws Exception {
         unit = new Marine();
-        algoCraftMap = AlgoCraftMap.generateTestMap();
+        algoCraftMap = (new AlgoCraftMap(1)).testMap();
     }
 
     @Test

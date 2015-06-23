@@ -14,7 +14,7 @@ public class PylonTest {
 
     @Test
     public void testNewPylonRaisesPlayerAvailablePopulation() throws Exception {
-        Player aPlayer = new Player(AlgoCraftMap.generateTestMap());
+        Player aPlayer = new Player((new AlgoCraftMap(1)).testMap());
         int startingAvailablePopulation = aPlayer.getAvailablePopulation();
         Pylon aPylon = new Pylon(aPlayer, new Coordinates(0, 0));
 

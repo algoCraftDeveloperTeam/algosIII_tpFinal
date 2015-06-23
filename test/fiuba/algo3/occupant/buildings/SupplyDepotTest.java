@@ -14,7 +14,7 @@ public class SupplyDepotTest {
 
     @Test
     public void testNewSupplyDepotRaisesPlayerAvailablePopulation() throws Exception {
-        Player aPlayer = new Player(AlgoCraftMap.generateTestMap());
+        Player aPlayer = new Player((new AlgoCraftMap(1)).testMap());
         int startingAvailablePopulation = aPlayer.getAvailablePopulation();
         SupplyDepot aSupplyDepot = new SupplyDepot(aPlayer, new Coordinates(0, 0));
 

@@ -16,7 +16,7 @@ public class UnitCreatorTest {
 
     @Before
     public void setUp() throws Exception {
-        player = new Player(AlgoCraftMap.generateTestMap());
+        player = new Player((new AlgoCraftMap(1)).testMap());
         aBarrack = new Barracks(player, new Coordinates(1, 1));
 
     }

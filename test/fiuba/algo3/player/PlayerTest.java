@@ -20,7 +20,7 @@ public class PlayerTest {
 
     @Before
     public void setUp() throws Exception {
-        this.aPlayer = new Player(AlgoCraftMap.generateTestMap());
+        this.aPlayer = new Player((new AlgoCraftMap(1)).testMap());
     }
     @Test
     public void testGasInStorageIsZeroWhenInitialized(){
@@ -47,7 +47,7 @@ public class PlayerTest {
     @Test
     public void testStartConstructionOfABuildingWithTheRequiredResources()
             throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException, CannotOccupyTileException, KeyDoesNotExistsException {
-        this.aPlayer.build(new MineralNexus(this.aPlayer, new Coordinates(99, 99)));
+        this.aPlayer.build(new MineralNexus(this.aPlayer, new Coordinates(19, 19)));
     }
 
     @Test(expected = InsufficientResourcesException.class)

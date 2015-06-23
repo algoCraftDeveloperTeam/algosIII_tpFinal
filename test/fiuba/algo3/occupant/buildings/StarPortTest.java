@@ -14,7 +14,7 @@ public class StarPortTest {
     private StarPort sp;
     @Before
     public void setUp() {
-        sp = new StarPort(new Player(AlgoCraftMap.generateTestMap()), new Coordinates(0, 0));
+        sp = new StarPort(new Player((new AlgoCraftMap(1)).testMap()), new Coordinates(0, 0));
     }
 
     @Test

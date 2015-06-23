@@ -15,7 +15,7 @@ public class MineralCenterTest {
     private Player p;
     @Before
     public void setUp(){
-        this.p = new Player(AlgoCraftMap.generateTestMap());
+        this.p = new Player((new AlgoCraftMap(1)).testMap());
         this.mc = new MineralCenter(p, new Coordinates(0, 0));
     }
 

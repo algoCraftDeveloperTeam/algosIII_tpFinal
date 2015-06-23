@@ -19,7 +19,7 @@ public class BuildingInConstructionTest {
 
     @Before
     public void setUp() throws Exception {
-        this.player = new Player(AlgoCraftMap.generateTestMap());
+        this.player = new Player((new AlgoCraftMap(1)).testMap());
         this.aMineralGetter = new MineralNexus(player, new Coordinates(0, 0));
         this.aBuildingInConstruction = new BuildingInConstruction(aMineralGetter, new Coordinates(0, 0));
     }

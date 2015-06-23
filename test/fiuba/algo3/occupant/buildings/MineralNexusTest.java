@@ -15,7 +15,7 @@ public class MineralNexusTest {
     private Player p;
     @Before
     public void setUp(){
-        this.p = new Player(AlgoCraftMap.generateTestMap());
+        this.p = new Player((new AlgoCraftMap(1)).testMap());
         this.mn = new MineralNexus(p, new Coordinates(0, 0));
     }
 

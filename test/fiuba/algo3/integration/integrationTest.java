@@ -2,6 +2,7 @@ package fiuba.algo3.integration;
 
 import fiuba.algo3.game.AlgoCraftModel;
 import fiuba.algo3.map.Coordinates;
+import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
@@ -20,6 +21,8 @@ public class integrationTest {
     @Before
     public void setUp() throws Exception {
         algoCraftModel = new AlgoCraftModel();
+        AlgoCraftMap algoCraftMap = algoCraftModel.getAlgoCraftMap();
+        algoCraftMap.testMap();
     }
 
     @Test
@@ -29,11 +32,11 @@ public class integrationTest {
         Assert.assertEquals(0, algoCraftModel.getActivePlayer().getGasStorage());
         Assert.assertEquals(200, algoCraftModel.getActivePlayer().getMineralStorage());
 
-        algoCraftModel.build(new MineralCenter(algoCraftModel.getActivePlayer(), new Coordinates(99, 99)));
+        algoCraftModel.build(new MineralCenter(algoCraftModel.getActivePlayer(), new Coordinates(19, 19)));
         // Building something substracts player resources
         Assert.assertEquals(150, algoCraftModel.getActivePlayer().getMineralStorage());
 
-        BuildingInConstruction current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(99, 99));
+        BuildingInConstruction current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(19, 19));
         // Building is not operational until it's finished
         Assert.assertEquals(4, current.getRemainingTurns());
         Assert.assertFalse(current.isReady());
@@ -43,7 +46,7 @@ public class integrationTest {
         algoCraftModel.endTurn();
         // Testing the change of active player cycle
         Assert.assertEquals(player1, algoCraftModel.getActivePlayer());
-        current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(99, 99));
+        current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(19, 19));
         Assert.assertEquals(3, current.getRemainingTurns());
         Assert.assertFalse(current.isReady());
 
@@ -56,7 +59,7 @@ public class integrationTest {
         algoCraftModel.endTurn();
         algoCraftModel.endTurn();
         // Building should be ready
-        current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(99, 99));
+        current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(19, 19));
         Assert.assertTrue(current.isReady());
         Assert.assertEquals(0, current.getRemainingTurns());
 

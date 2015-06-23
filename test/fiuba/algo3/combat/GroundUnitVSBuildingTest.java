@@ -24,7 +24,7 @@ public class GroundUnitVSBuildingTest {
 
     @Before
     public void setUp() throws Exception {
-        algoCraftMap = AlgoCraftMap.generateTestMap();
+        algoCraftMap = (new AlgoCraftMap(1)).testMap();
         player = new Player(algoCraftMap);
         access = new Access(player, new Coordinates(0, 0));
         building = new BuildingInConstruction(access, new Coordinates(0, 0));

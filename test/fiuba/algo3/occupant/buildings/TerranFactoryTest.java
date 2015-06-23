@@ -14,7 +14,7 @@ public class TerranFactoryTest {
     private TerranFactory f;
     @Before
     public void setUp() {
-        f = new TerranFactory(new Player(AlgoCraftMap.generateTestMap()), new Coordinates(0, 0));
+        f = new TerranFactory(new Player((new AlgoCraftMap(1)).testMap()), new Coordinates(0, 0));
     }
 
     @Test

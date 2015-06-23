@@ -17,7 +17,7 @@ public class PlayerTest {
 
     @Before
     public void setUp() {
-        player = new Player(AlgoCraftMap.generateTestMap());
+        player = new Player((new AlgoCraftMap(1)).testMap());
     }
 
     @Test(expected = CannotOccupyTileException.class)

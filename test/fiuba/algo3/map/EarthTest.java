@@ -22,7 +22,7 @@ public class EarthTest{
 
 	@Before
 	public void setUp(){
-		player = new Player(AlgoCraftMap.generateTestMap());
+		player = new Player((new AlgoCraftMap(1)).testMap());
 		earth = new Earth();
 		barrack = new Barracks(player, new Coordinates(0, 0));
 		mineralGetter = new MineralCenter(player, new Coordinates(1, 1));

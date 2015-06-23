@@ -14,7 +14,7 @@ public class StargateTest {
 
     @Before
     public void setUp() throws Exception {
-        this.owner = new Player(AlgoCraftMap.generateTestMap());
+        this.owner = new Player((new AlgoCraftMap(1)).testMap());
         this.aStargate = new Stargate(owner, new Coordinates(0, 0));
     }
 

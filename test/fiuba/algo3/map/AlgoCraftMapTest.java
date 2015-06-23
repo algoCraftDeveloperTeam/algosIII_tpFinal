@@ -16,7 +16,7 @@ public class AlgoCraftMapTest{
 
 	@Before
 	public void setUp(){
-		algoCraftMap = AlgoCraftMap.generateTestMap();
+		algoCraftMap = (new AlgoCraftMap(1)).testMap();
 	}
 
 	@Test

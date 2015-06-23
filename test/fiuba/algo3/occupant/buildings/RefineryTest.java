@@ -15,7 +15,7 @@ public class RefineryTest {
     private Player p;
     @Before
     public void setUp(){
-        this.p = new Player(AlgoCraftMap.generateTestMap());
+        this.p = new Player((new AlgoCraftMap(1)).testMap());
         this.r = new Refinery(p, new Coordinates(0, 0));
     }
 

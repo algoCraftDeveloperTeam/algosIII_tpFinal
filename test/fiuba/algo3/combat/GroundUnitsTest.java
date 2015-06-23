@@ -22,7 +22,7 @@ public class GroundUnitsTest {
     public void setUp() throws Exception {
         marine = new Marine(); 
         goliath = new Goliath();
-        algoCraftMap = AlgoCraftMap.generateTestMap();
+        algoCraftMap = (new AlgoCraftMap(1)).testMap();
     }
 
     @Test
