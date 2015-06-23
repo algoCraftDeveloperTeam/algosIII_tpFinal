@@ -6,15 +6,9 @@ import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.event.*;
 
-public class MoveButton extends ActionButton{
+public abstract class ActionButton extends JButton{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	public ActionButton() {
 
-	public MoveButton() {
-		setText("Move");
-		setVisible(true);
 	}
 }

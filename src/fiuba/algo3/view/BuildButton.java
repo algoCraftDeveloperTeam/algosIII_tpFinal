@@ -6,7 +6,7 @@ import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.event.*;
 
-public class BuildButton extends JButton{
+public class BuildButton extends ActionButton{
 
 	/**
 	 * 
