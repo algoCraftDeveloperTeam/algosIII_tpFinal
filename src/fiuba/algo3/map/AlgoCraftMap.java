@@ -110,7 +110,12 @@ public class AlgoCraftMap{
 	public Tile getTile(Coordinates coordinate){
         return this.tiles.get(coordinate);
     }
-	/*private void placeBases(){
+
+    public int getDimention() {
+        return dimention;
+    }
+
+   /*private void placeBases(){
 		Random random = new Random();
 		int randomRow = random.nextInt(dimention);
 		int randomCol;

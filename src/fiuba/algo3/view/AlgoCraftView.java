@@ -17,7 +17,7 @@ public class AlgoCraftView extends JFrame{
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		getContentPane().setLayout(null);
 		sideMenu = new SideMenu(0, 0, (int) (getWidth() * 0.2), getHeight());
-		mapView = new MapView((int) (getWidth() * 0.2), 0, (int) (getWidth() * 0.8), getHeight());
+		mapView = new MapView((int) (getWidth() * 0.2), 0, (int) (getWidth() * 0.8), getHeight(), algoCraftModel.getAlgoCraftMap());
 		getContentPane().add(sideMenu);
 		getContentPane().add(mapView);
 	}
