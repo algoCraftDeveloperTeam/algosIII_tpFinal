@@ -106,6 +106,10 @@ public class AlgoCraftMap{
 			return null;
 		}
 	}
+
+	public Tile getTile(Coordinates coordinate){
+        return this.tiles.get(coordinate);
+    }
 	/*private void placeBases(){
 		Random random = new Random();
 		int randomRow = random.nextInt(dimention);
