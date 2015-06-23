@@ -7,10 +7,15 @@ import java.awt.*;
 
 public class SideMenu extends JPanel{
 
-	public SideMenu(int width, int height) {
-		Border etched = new EtchedBorder();
-		setBorder(etched);
-		setBackground(Color.orange);
-		setSize(width, height);
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public SideMenu(int x, int y, int width, int height) {
+		setBounds(x, y, width, height);
+		setBackground(Color.ORANGE);
+		setAlignmentY(Component.TOP_ALIGNMENT);
+		setAlignmentX(Component.LEFT_ALIGNMENT);
 	}
 }

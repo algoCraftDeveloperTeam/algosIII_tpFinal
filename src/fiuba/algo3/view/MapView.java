@@ -9,12 +9,17 @@ import java.awt.event.MouseListener;
 
 public class MapView extends JPanel implements MouseListener{
 
-	public MapView(int width, int height) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public MapView(int x, int y, int width, int height) {
+		setBounds(x, y, width, height);
+		setBackground(Color.YELLOW);
+		setAlignmentY(Component.TOP_ALIGNMENT);
+		setAlignmentX(Component.LEFT_ALIGNMENT);
 		addMouseListener(this);
-		Border etched = new EtchedBorder();
-		setBorder(etched);
-		setBackground(Color.yellow);
-		setSize(width, height);
 	}
 
 	@Override
