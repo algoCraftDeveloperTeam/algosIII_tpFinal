@@ -3,6 +3,9 @@ package fiuba.algo3.view;
 import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.map.Earth;
+import fiuba.algo3.map.Gas;
+import fiuba.algo3.map.Mineral;
+import fiuba.algo3.map.Space;
 import fiuba.algo3.map.Tile;
 
 import javax.swing.*;
@@ -65,10 +68,10 @@ public class MapView extends JPanel implements MouseListener{
         // Con la clase del tile del modelo, usamos la clase correspondiente de
         // tileView para crear un tileView
 		tileGenerator = new HashMap<Class<?>, Class<?>>();
-		tileGenerator.put(Earth.class, EarthTileView.class);/*
+		tileGenerator.put(Earth.class, EarthTileView.class);
 		tileGenerator.put(Mineral.class, MineralTileView.class);
 		tileGenerator.put(Gas.class, GasTileView.class);
-		tileGenerator.put(Space.class, SpaceTileView.class);*/
+		tileGenerator.put(Space.class, SpaceTileView.class);
     }
 
     @Override
