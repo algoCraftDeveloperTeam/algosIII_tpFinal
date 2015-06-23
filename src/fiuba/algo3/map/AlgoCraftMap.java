@@ -36,8 +36,8 @@ public class AlgoCraftMap{
 	private void generateMineralAndGas(){
 		Tile mineral;
 		Tile gas;
-		Coordinates coord1 = new Coordinates(2,3);
-		Coordinates coord2 = new Coordinates(3,2);
+		Coordinates coord1 = new Coordinates(1,2);
+		Coordinates coord2 = new Coordinates(2,1);
 		Coordinates coord3 = new Coordinates(dimention-2,dimention-3);
 		Coordinates coord4 = new Coordinates(dimention-3,dimention-2);
 		mineral = new Mineral();
