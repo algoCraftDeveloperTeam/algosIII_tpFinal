@@ -3,17 +3,13 @@ package fiuba.algo3.view;
 import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.map.Earth;
-import fiuba.algo3.map.Gas;
-import fiuba.algo3.map.Space;
-import fiuba.algo3.map.Mineral;
 import fiuba.algo3.map.Tile;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 public class MapView extends JPanel implements MouseListener{
@@ -26,7 +22,8 @@ public class MapView extends JPanel implements MouseListener{
     AlgoCraftMap algoCraftMap;
     private int dimention;
 
-	public MapView(int x, int y, int width, int height, AlgoCraftMap algoCraftMap) {
+	public MapView(int x, int y, int width, int height, AlgoCraftMap algoCraftMap)
+            throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
 		addMouseListener(this);
 		setBounds(x, y, width, height);
 		setBackground(Color.YELLOW);
@@ -51,20 +48,22 @@ public class MapView extends JPanel implements MouseListener{
 		}*/
 	}
 
-    private void generateMapView() {
+    private void generateMapView()
+            throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         for (int i = 0; i < dimention; i++){
             for (int j = 0; j < dimention; j++){
                 Coordinates actualPosition = new Coordinates(j, i);
-                /*Tile actualTile = algoCraftMap.getTile(actualPosition);
+                Tile actualTile = algoCraftMap.getTile(actualPosition);
                 Class<?> viewClass = tileGenerator.get(actualTile.getClass());
-                TileView tileView = NUEVA INSTANCIA DE VIEWCLASS
-                add(tileView);*/
+                TileView tileView = (TileView) viewClass.newInstance();
+                add(tileView);
             }
         }
     }
 
-    private void generateTileViews() {	// Con la clase del tile del modelo, usamos la clase correspondiente de
-    									//tileView para crear un tileView
+    private void generateTileViews() {
+        // Con la clase del tile del modelo, usamos la clase correspondiente de
+        // tileView para crear un tileView
 		tileGenerator = new HashMap<Class<?>, Class<?>>();
 		tileGenerator.put(Earth.class, EarthTileView.class);/*
 		tileGenerator.put(Mineral.class, MineralTileView.class);
