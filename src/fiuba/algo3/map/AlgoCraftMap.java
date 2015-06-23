@@ -52,6 +52,7 @@ public class AlgoCraftMap{
 
 	public AlgoCraftMap testMap(){
 		tiles.clear();
+		dimention = 20;
 		Tile earth;
 		Tile mineral;
 		Tile gas;

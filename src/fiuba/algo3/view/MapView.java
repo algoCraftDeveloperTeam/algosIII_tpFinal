@@ -25,18 +25,18 @@ public class MapView extends JPanel implements MouseListener{
     private AlgoCraftMap algoCraftMap;
     private int dimention;
 
-	public MapView(int x, int y, int width, int height, AlgoCraftMap algoCraftMap)
+	public MapView(int x, int y, int width, int height, AlgoCraftMap modelMap)
             throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
 		addMouseListener(this);
 		setBounds(x, y, width, height);
 		setBackground(Color.YELLOW);
 		setAlignmentY(Component.TOP_ALIGNMENT);
 		setAlignmentX(Component.LEFT_ALIGNMENT);
-		setLayout(new GridLayout(algoCraftMap.getDimention(), algoCraftMap.getDimention()));
-        this.algoCraftMap = algoCraftMap;
-		this.dimention = algoCraftMap.getDimention();
-        this.generateTileViews();
-        this.generateMapView();
+		dimention = modelMap.getDimention();
+		setLayout(new GridLayout(dimention, dimention));
+        algoCraftMap = modelMap;
+        generateTileViews();
+        generateMapView();
 	}
 
     private void generateMapView()
