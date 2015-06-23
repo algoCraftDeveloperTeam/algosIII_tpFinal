@@ -3,6 +3,9 @@ package fiuba.algo3.view;
 import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.map.Earth;
+import fiuba.algo3.map.Gas;
+import fiuba.algo3.map.Space;
+import fiuba.algo3.map.Mineral;
 import fiuba.algo3.map.Tile;
 
 import javax.swing.*;
@@ -19,43 +22,54 @@ public class MapView extends JPanel implements MouseListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-    HashMap<Class<?>, TileView> tileViews;
-    HashMap<Coordinates, Color> algoCraftMapView;
+    HashMap<Class<?>, Class<?>> tileGenerator;
     AlgoCraftMap algoCraftMap;
+    private int dimention;
 
 	public MapView(int x, int y, int width, int height, AlgoCraftMap algoCraftMap) {
+		addMouseListener(this);
 		setBounds(x, y, width, height);
 		setBackground(Color.YELLOW);
 		setAlignmentY(Component.TOP_ALIGNMENT);
 		setAlignmentX(Component.LEFT_ALIGNMENT);
-		addMouseListener(this);
-		Border etched = new EtchedBorder();
-		setBorder(etched);
-		setBackground(Color.yellow);
-		setSize(width, height);
+		setLayout(new GridLayout(algoCraftMap.getDimention(), algoCraftMap.getDimention()));
         this.algoCraftMap = algoCraftMap;
-        
-        // algoCraftMapView initialization.
+		this.dimention = algoCraftMap.getDimention();
         this.generateTileViews();
-        this.generateAlgoCraftMapView();
+        this.generateMapView();
+
+		/*for (int i = 0; i < (this.dimention * this.dimention); i++){
+			JPanel panel = new JPanel();
+			if (i % 3 == 0){
+				panel.setBackground(Color.RED);
+			} else if(i % 3 == 1){
+				panel.setBackground(Color.BLUE);		******EJEMPLO PARA VISUALIZAR******
+			} else{
+				panel.setBackground(Color.GREEN);
+			}
+			add(panel);
+		}*/
 	}
 
-    private void generateAlgoCraftMapView() {
-        int dimention = algoCraftMap.getDimention();
-        algoCraftMapView = new HashMap<>();
-
+    private void generateMapView() {
         for (int i = 0; i < dimention; i++){
             for (int j = 0; j < dimention; j++){
-                Coordinates actualPosition = new Coordinates(i, j);
-                Tile actualTile = algoCraftMap.getTile(actualPosition);
-                algoCraftMapView.put(actualPosition, tileViews.get(actualTile.getClass()).getTileColor());
+                Coordinates actualPosition = new Coordinates(j, i);
+                /*Tile actualTile = algoCraftMap.getTile(actualPosition);
+                Class<?> viewClass = tileGenerator.get(actualTile.getClass());
+                TileView tileView = NUEVA INSTANCIA DE VIEWCLASS
+                add(tileView);*/
             }
         }
     }
 
-    private void generateTileViews() {
-        tileViews = new HashMap<>();
-        tileViews.put(Earth.class, new EarthTileView());
+    private void generateTileViews() {	// Con la clase del tile del modelo, usamos la clase correspondiente de
+    									//tileView para crear un tileView
+		tileGenerator = new HashMap<Class<?>, Class<?>>();
+		tileGenerator.put(Earth.class, EarthTileView.class);/*
+		tileGenerator.put(Mineral.class, MineralTileView.class);
+		tileGenerator.put(Gas.class, GasTileView.class);
+		tileGenerator.put(Space.class, SpaceTileView.class);*/
     }
 
     @Override
