@@ -4,6 +4,8 @@ import fiuba.algo3.game.AlgoCraftModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.lang.reflect.InvocationTargetException;
 
 public class AlgoCraftView extends JFrame{
@@ -19,7 +21,7 @@ public class AlgoCraftView extends JFrame{
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		getContentPane().setLayout(null);
 		sideMenu = new SideMenu(0, 0, (int) (getWidth() * 0.2), getHeight());
-		mapView = new MapView((int) (getWidth() * 0.2), 0, (int) (getWidth() * 0.8), getHeight(), algoCraftModel.getAlgoCraftMap());
+		mapView = new MapView((int) (getWidth() * 0.2), 0, (int) (getWidth() * 0.8), getHeight(), algoCraftModel.getAlgoCraftMap(), sideMenu.getActionButtons());
 		getContentPane().add(sideMenu);
 		getContentPane().add(mapView);
 	}

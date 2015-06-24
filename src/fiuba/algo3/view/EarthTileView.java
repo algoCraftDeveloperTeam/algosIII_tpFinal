@@ -23,6 +23,9 @@ public class EarthTileView extends TileView implements MouseListener{
 		} else{
 			modelTile.ocuparTurbio();
 			setBackground(Color.ORANGE);
+			for(ActionButton observer : observers){
+	            observer.build();
+	        }
 		}
 	}
 

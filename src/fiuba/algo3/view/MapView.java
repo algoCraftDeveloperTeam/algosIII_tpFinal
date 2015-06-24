@@ -13,6 +13,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapView extends JPanel{
 
@@ -24,7 +26,7 @@ public class MapView extends JPanel{
     private AlgoCraftMap algoCraftMap;
     private int dimention;
 
-	public MapView(int x, int y, int width, int height, AlgoCraftMap modelMap)
+	public MapView(int x, int y, int width, int height, AlgoCraftMap modelMap, List<ActionButton> buttons)
             throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
 		setBounds(x, y, width, height);
 		setAlignmentY(Component.TOP_ALIGNMENT);
@@ -33,10 +35,10 @@ public class MapView extends JPanel{
 		setLayout(new GridLayout(dimention, dimention));
         algoCraftMap = modelMap;
         generateTileViews();
-        generateMapView();
+        generateMapView(buttons);
 	}
 
-    private void generateMapView()
+    private void generateMapView(List<ActionButton> buttons)
             throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         for (int i = 0; i < dimention; i++){
             for (int j = 0; j < dimention; j++){
@@ -45,6 +47,7 @@ public class MapView extends JPanel{
                 Class<?> viewClass = tileGenerator.get(actualTile.getClass());
                 TileView tileView = (TileView) viewClass.newInstance();
                 tileView.setModelTile(actualTile);
+                tileView.setObservers(buttons);
                 add(tileView);
             }
         }
