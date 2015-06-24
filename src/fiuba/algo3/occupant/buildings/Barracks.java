@@ -44,7 +44,7 @@ public class Barracks extends UnitCreator{
             try {
                 this.trainingQueue.remove();
                 Unit trainedUnit = firstUnit.getUnitBeingTrained();
-                this.owner.addTrainedUnit(trainedUnit, this.position);
+                this.owner.addUnit(trainedUnit, this.position);
             } catch (UnitNotReadyException e){}
         }
     }

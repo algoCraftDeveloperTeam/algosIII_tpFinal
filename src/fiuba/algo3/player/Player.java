@@ -90,11 +90,6 @@ public class Player implements TurnAware{
         } catch (CannotOccupyTileException | KeyDoesNotExistsException e) {}
     }
 
-    public void addTrainedUnit(Unit unit, Coordinates coordinate){
-        this.units.add(unit);
-        this.algoCraftMap.locate(unit, coordinate);
-    }
-
     private boolean hasBuilding(Class building) {
         return this.buildings.containsKey(building) && !this.buildings.get(building).isEmpty();
     }
