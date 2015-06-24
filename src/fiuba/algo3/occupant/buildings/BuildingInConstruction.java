@@ -95,6 +95,21 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
     }
 
     @Override
+    public boolean canAttack() {
+        return false;
+    }
+
+    @Override
+    public boolean canBuild() {
+        return false;
+    }
+
+    @Override
+    public boolean canMove() {
+        return false;
+    }
+
+    @Override
     public Coordinates getPosition(){
         return this.position;
     }

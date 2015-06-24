@@ -34,15 +34,36 @@ public abstract class Building implements Occupant, Damageable, TurnAware{
         this.owner = player;
         this.position = coordinate;
     }
+    @Override
     public boolean canOccupyEarth(){
     	return true;
     }
+
+    @Override
     public boolean canOccupyGas(){
     	return false;
     }
+
+    @Override
     public boolean canOccupyMineral(){
     	return false;
     }
+
+    @Override
+    public boolean canBuild() {
+        return false;
+    }
+
+    @Override
+    public boolean canAttack() {
+        return false;
+    }
+
+    @Override
+    public boolean canMove() {
+        return false;
+    }
+
     public int getConstructionTime(){
         return constructionTime;
     }

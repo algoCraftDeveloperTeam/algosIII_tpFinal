@@ -10,6 +10,11 @@ public interface Occupant {
 
 	boolean canOccupyMineral();
 
+	boolean canBuild();
+
+    boolean canMove();
+
+    boolean canAttack();
 	Coordinates getPosition();
 
 }
