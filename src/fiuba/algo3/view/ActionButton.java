@@ -11,4 +11,8 @@ public abstract class ActionButton extends JButton{
 	public ActionButton() {
 
 	}
+
+	public void build(){
+		setEnabled(false);
+	}
 }

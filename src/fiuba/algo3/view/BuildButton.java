@@ -17,4 +17,8 @@ public class BuildButton extends ActionButton{
 		setText("Build");
 		setVisible(true);
 	}
+
+	public void build(){
+		setEnabled(true);
+	}
 }
