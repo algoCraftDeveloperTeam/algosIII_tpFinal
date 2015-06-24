@@ -76,15 +76,33 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
         this.position = destination;
     }
 
+    @Override
     public boolean canOccupyEarth() {
         return true;
     }
 
+    @Override
     public boolean canOccupyGas() {
         return false;
     }
 
+    @Override
     public boolean canOccupyMineral() {
+        return false;
+    }
+
+    @Override
+    public boolean canBuild(){
+        return false;
+    }
+
+    @Override
+    public boolean canMove() {
+        return true;
+    }
+
+    @Override
+    public boolean canAttack() {
         return false;
     }
 

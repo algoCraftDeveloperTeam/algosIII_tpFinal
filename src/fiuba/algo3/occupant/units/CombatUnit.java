@@ -22,6 +22,11 @@ public class CombatUnit extends Unit{
         }
     }
 
+    @Override
+    public boolean canAttack() {
+        return true;
+    }
+
     public int getGroundAttackRange() {
         return attackRange.getGroundRange();
     }
