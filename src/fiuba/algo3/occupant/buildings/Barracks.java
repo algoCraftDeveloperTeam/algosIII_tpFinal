@@ -15,7 +15,7 @@ import java.util.Queue;
 /**
  * Created by mporto on 30/05/15.
  */
-public class Barracks extends Building implements UnitCreator{
+public class Barracks extends UnitCreator{
 
     private Queue<UnitInTraining> trainingQueue;
 

@@ -1,10 +1,8 @@
 package fiuba.algo3.occupant.buildings;
 
-import fiuba.algo3.exceptions.UnitNotReadyException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.map.Coordinates;
-import fiuba.algo3.occupant.units.Unit;
 import fiuba.algo3.occupant.units.UnitInTraining;
 import fiuba.algo3.occupant.units.Zealot;
 import fiuba.algo3.player.Player;
@@ -12,7 +10,7 @@ import fiuba.algo3.player.Player;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Access extends Building implements UnitCreator{
+public class Access extends UnitCreator{
 
     private Queue<UnitInTraining> trainingQueue;
 
@@ -38,10 +36,12 @@ public class Access extends Building implements UnitCreator{
         firstUnit.passTurn();
     }
 
+    /*
     @Override
     public void getUnitInTraining() throws UnitNotReadyException {
         Unit current = this.trainingQueue.peek().getUnitBeingTrained();
         this.trainingQueue.remove();
         this.owner.addUnit(current, this.position);
     }
+    */
 }
