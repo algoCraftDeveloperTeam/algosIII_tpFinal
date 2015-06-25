@@ -73,6 +73,8 @@ public class Player implements TurnAware{
         BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed, new Coordinates(coordX, coordY));
         this.algoCraftMap.put(buildingInConstruction, new Coordinates(coordX, coordY));
         buildingsInConstruction.add(buildingInConstruction);
+        this.substractMinerals(buildingToBeConstructed.getConstructionCost().getMineralCost());
+        this.substractGas(buildingToBeConstructed.getConstructionCost().getGasCost());
         return buildingInConstruction;
     }
 

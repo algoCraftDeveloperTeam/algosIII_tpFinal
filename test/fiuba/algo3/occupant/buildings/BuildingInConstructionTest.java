@@ -45,12 +45,4 @@ public class BuildingInConstructionTest {
     public void testBuildingIsNotFinishedWhileTrainingTimeIsGreaterThanZero() throws Exception {
         assertFalse(this.aBuildingInConstruction.isReady());
     }
-
-    @Test
-    public void testBuildingSubstractsResourcesFromPlayer() {
-        int gasResourcesLeft = this.player.getGasStorage();
-        int mineralResourcesLeft = this.player.getMineralStorage();
-        assertTrue(gasResourcesLeft == 0 && mineralResourcesLeft == 150);
-    }
-    
 }

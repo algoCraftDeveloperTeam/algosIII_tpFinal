@@ -32,9 +32,6 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
         this.life = new Life(this.buildingInConstruction.getVitality(),
                 this.buildingInConstruction.getShield());
         this.position = coordinate;
-
-        owner.substractMinerals(building.getConstructionCost().getMineralCost());
-        owner.substractGas(building.getConstructionCost().getGasCost());
     }
 
     public int getRemainingTurns() {
