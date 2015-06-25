@@ -22,7 +22,7 @@ public class GasTest{
 	@Before
 	public void setUp(){
 		player = new Player((new AlgoCraftMap(1)).testMap());
-		gas = new Gas();
+		gas = new Gas(new Coordinates(0,0));
 		barrack = new Barracks(player, new Coordinates(0, 0));
 		mineralGetter = new MineralCenter(player, new Coordinates(1, 1));
 		gasGetter = new Asimilator(player, new Coordinates(2, 2));

@@ -38,4 +38,9 @@ public class GasTileView extends TileView implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		System.out.println("mousePressed From Gas Tile");
 	}
+	
+	@Override
+	public void printOccupied(){
+		setBackground(Color.ORANGE);
+	}
 }

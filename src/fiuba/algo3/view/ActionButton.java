@@ -5,14 +5,18 @@ import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.event.*;
+import fiuba.algo3.map.Tile;
+import fiuba.algo3.game.AlgoCraftModel;
 
 public abstract class ActionButton extends JButton{
 
-	public ActionButton() {
+	protected AlgoCraftModel gameModel;
 
-	}
-
-	public void build(){
+	public ActionButton(AlgoCraftModel algoCraftModel) {
+		gameModel = algoCraftModel;
+		setVisible(true);
 		setEnabled(false);
 	}
+
+	public abstract void setBehavior(Tile modelTile, TileView viewTile);
 }

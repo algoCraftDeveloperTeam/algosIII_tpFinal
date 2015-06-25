@@ -38,4 +38,9 @@ public class MineralTileView extends TileView implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		System.out.println("mousePressed From Mineral Tile");
 	}
+	
+	@Override
+	public void printOccupied(){
+		setBackground(Color.ORANGE);
+	}
 }

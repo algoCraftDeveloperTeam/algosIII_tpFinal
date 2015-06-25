@@ -27,7 +27,7 @@ public class AlgoCraftMap{
 		for(int i = 0; i < dimention; i++){
 			for(int j = 0; j < dimention; j++){
 				Coordinates coord = new Coordinates(i,j);
-				earth = new Earth();
+				earth = new Earth(coord);
 				tiles.put(coord,earth);
 			}
 		}
@@ -40,13 +40,13 @@ public class AlgoCraftMap{
 		Coordinates coord2 = new Coordinates(2,1);
 		Coordinates coord3 = new Coordinates(dimention-2,dimention-3);
 		Coordinates coord4 = new Coordinates(dimention-3,dimention-2);
-		mineral = new Mineral();
+		mineral = new Mineral(coord1);
 		tiles.put(coord1,mineral);
-		gas = new Gas();
+		gas = new Gas(coord2);
 		tiles.put(coord2,gas);
-		gas = new Gas();
+		gas = new Gas(coord3);
 		tiles.put(coord3,gas);
-		mineral = new Mineral();
+		mineral = new Mineral(coord4);
 		tiles.put(coord4,mineral);
 	}
 
@@ -59,15 +59,15 @@ public class AlgoCraftMap{
 		for(int i = 0; i < 20; i++){
 			for(int j = 0; j < 20; j++){
 				Coordinates coord = new Coordinates(i,j);
-				earth = new Earth();
+				earth = new Earth(coord);
 				tiles.put(coord,earth);
 			}
 		}
 		Coordinates coord1 = new Coordinates(19,19);
 		Coordinates coord2 = new Coordinates(18,19);
-		mineral = new Mineral();
+		mineral = new Mineral(coord1);
 		tiles.put(coord1,mineral);
-		gas = new Gas();
+		gas = new Gas(coord2);
 		tiles.put(coord2,gas);
 		return this;
 	}

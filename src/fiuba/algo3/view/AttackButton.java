@@ -5,6 +5,8 @@ import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.event.*;
+import fiuba.algo3.map.Tile;
+import fiuba.algo3.game.AlgoCraftModel;
 
 public class AttackButton extends ActionButton{
 
@@ -13,8 +15,12 @@ public class AttackButton extends ActionButton{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public AttackButton() {
+	public AttackButton(AlgoCraftModel algoCraftModel) {
+		super(algoCraftModel);
 		setText("Attack");
-		setVisible(true);
+	}
+
+	public void setBehavior(Tile modelTile, TileView viewTile){
+		setEnabled(modelTile.isOccupied());
 	}
 }

@@ -13,7 +13,7 @@ public class SpaceTest{
 
 	@Before
 	public void setUp(){
-		space = new Space();
+		space = new Space(new Coordinates(0,0));
 		marine = new Marine();
 	}
 

@@ -9,8 +9,11 @@ public abstract class Tile implements Pervadable{
 
 	protected boolean occupied;
 
-	public Tile(){
+	protected Coordinates position;
+
+	public Tile(Coordinates coordinates){
 		occupied = false;
+		position = coordinates;
 	}
 
 	public boolean draw(){
@@ -36,5 +39,9 @@ public abstract class Tile implements Pervadable{
 
 	public void ocuparTurbio(){
 		this.occupied = true;
+	}
+
+	public Coordinates getPosition(){
+		return position;
 	}
 }
