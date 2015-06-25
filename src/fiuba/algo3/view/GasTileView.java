@@ -16,27 +16,25 @@ public class GasTileView extends TileView implements MouseListener{
 
     @Override
 	public void mouseClicked(MouseEvent e) {
-		System.out.println("mouseClicked From Gas Tile");
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		System.out.println("mouseExited From Gas Tile");
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		System.out.println("mouseEntered From Gas Tile");
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		System.out.println("mouseReleased From Gas Tile");
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		System.out.println("mousePressed From Gas Tile");
+		for(ActionButton observer : observers){
+            observer.setBehavior(modelTile, this);
+        }
 	}
 	
 	@Override

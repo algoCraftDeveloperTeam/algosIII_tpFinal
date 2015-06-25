@@ -29,14 +29,49 @@ public class BuildButton extends ActionButton implements ActionListener{
 
 	public void actionPerformed(ActionEvent e)
     {
-    	Access a = new Access(gameModel.getActivePlayer(), actionTile.getPosition());
-    	try{
-    		gameModel.build(a);
-    		actionTileView.printOccupied();
-    	} catch(InsufficientResourcesException | CannotOccupyTileException | MissingRequiredBuildingsException | DestinationIsOccupiedException | KeyDoesNotExistsException ex){
-    		System.out.println("excepcion");
+    	String[] p = {"Access", "Barracks", "Asimilator", "Mineral Center", "Mineral Nexus", "Pylon", "Refinery"};
+    	JFrame f = new JFrame("input");
+    	String choice = (String) JOptionPane.showInputDialog(f,"Que edificio construir","elegir", JOptionPane.QUESTION_MESSAGE,null,p,p[0]);
+    	if(choice != null){
+	    	try{
+	    		Building building = new Pylon(gameModel.getActivePlayer(), actionTile.getPosition());
+	    		switch (choice){
+	    			case "Access":
+	    				building = new Access(gameModel.getActivePlayer(), actionTile.getPosition());
+	    				break;
+	    			case "Barracks":
+	    				building = new Barracks(gameModel.getActivePlayer(), actionTile.getPosition());
+	    				break;
+	    			case "Asimilator":
+	    				building = new Asimilator(gameModel.getActivePlayer(), actionTile.getPosition());
+	    				break;
+	    			case "Mineral Center":
+	    				building = new MineralCenter(gameModel.getActivePlayer(), actionTile.getPosition());
+	    				break;
+	    			case "Mineral Nexus":
+	    				building = new MineralNexus(gameModel.getActivePlayer(), actionTile.getPosition());
+	    				break;
+	    			case "Pylon":
+	    				building = new Pylon(gameModel.getActivePlayer(), actionTile.getPosition());
+	    				break;
+	    			case "Refinery":
+	    				building = new Refinery(gameModel.getActivePlayer(), actionTile.getPosition());
+	    				break;
+	    		}
+	    		gameModel.build(building);
+	    		actionTileView.printOccupied();
+	    	} catch(KeyDoesNotExistsException ex){
+	    		System.out.println("KeyDoesNotExistsException");
+	    	} catch(InsufficientResourcesException ex){
+	    		System.out.println("InsufficientResourcesException");
+	    	} catch(CannotOccupyTileException ex){
+	    		System.out.println("CannotOccupyTileException");
+	    	} catch(MissingRequiredBuildingsException ex){
+	    		System.out.println("MissingRequiredBuildingsException");
+	    	} catch(DestinationIsOccupiedException ex){
+	    		System.out.println("DestinationIsOccupiedException");
+	    	}
     	}
-    	System.out.println(actionTile.isOccupied());
     }  
 	
 	public void setBehavior(Tile modelTile, TileView viewTile){

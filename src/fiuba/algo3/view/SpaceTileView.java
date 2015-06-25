@@ -16,27 +16,25 @@ public class SpaceTileView extends TileView implements MouseListener{
 
     @Override
 	public void mouseClicked(MouseEvent e) {
-		System.out.println("mouseClicked From Space Tile");
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		System.out.println("mouseExited From Space Tile");
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		System.out.println("mouseEntered From Space Tile");
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		System.out.println("mouseReleased From Space Tile");
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		System.out.println("mousePressed From Space Tile");
+		for(ActionButton observer : observers){
+            observer.setBehavior(modelTile, this);
+        }
 	}
 	
 	@Override
