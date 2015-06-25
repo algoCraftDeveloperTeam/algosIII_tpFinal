@@ -64,9 +64,6 @@ public class Player implements TurnAware{
     public BuildingInConstruction build(Building buildingToBeConstructed)
             throws InsufficientResourcesException, MissingRequiredBuildingsException, DestinationIsOccupiedException, CannotOccupyTileException, KeyDoesNotExistsException {
 
-        if (this.algoCraftMap.isOccupied(buildingToBeConstructed.getPosition())) {
-           throw new DestinationIsOccupiedException();
-        }
         this.verifyRequirements(buildingToBeConstructed);
         int coordX = buildingToBeConstructed.getPosition().getX();
         int coordY = buildingToBeConstructed.getPosition().getY();
