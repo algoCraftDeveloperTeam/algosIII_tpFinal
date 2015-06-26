@@ -9,7 +9,10 @@ import fiuba.algo3.map.Tile;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.game.AlgoCraftModel;
 import fiuba.algo3.occupant.buildings.*;
+import java.lang.reflect.*;
 import fiuba.algo3.exceptions.*;
+import java.lang.reflect.Constructor;
+import fiuba.algo3.player.Player;
 
 public class BuildButton extends ActionButton implements ActionListener{
 
@@ -27,37 +30,15 @@ public class BuildButton extends ActionButton implements ActionListener{
 		addActionListener(this);
 	}
 
-	public void actionPerformed(ActionEvent e)
-    {
-    	String[] p = {"Access", "Barracks", "Asimilator", "Mineral Center", "Mineral Nexus", "Pylon", "Refinery"};
+	public void actionPerformed(ActionEvent e) {
+    	String[] options = {"Access", "Barracks", "Asimilator", "MineralCenter", "MineralNexus", "Pylon", "Refinery"};
     	JFrame f = new JFrame("input");
-    	String choice = (String) JOptionPane.showInputDialog(f,"Que edificio construir","elegir", JOptionPane.QUESTION_MESSAGE,null,p,p[0]);
+    	String choice = (String) JOptionPane.showInputDialog(f,"Que edificio construir","elegir", JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
     	if(choice != null){
 	    	try{
-	    		Building building = new Pylon(gameModel.getActivePlayer(), actionTile.getPosition());
-	    		switch (choice){
-	    			case "Access":
-	    				building = new Access(gameModel.getActivePlayer(), actionTile.getPosition());
-	    				break;
-	    			case "Barracks":
-	    				building = new Barracks(gameModel.getActivePlayer(), actionTile.getPosition());
-	    				break;
-	    			case "Asimilator":
-	    				building = new Asimilator(gameModel.getActivePlayer(), actionTile.getPosition());
-	    				break;
-	    			case "Mineral Center":
-	    				building = new MineralCenter(gameModel.getActivePlayer(), actionTile.getPosition());
-	    				break;
-	    			case "Mineral Nexus":
-	    				building = new MineralNexus(gameModel.getActivePlayer(), actionTile.getPosition());
-	    				break;
-	    			case "Pylon":
-	    				building = new Pylon(gameModel.getActivePlayer(), actionTile.getPosition());
-	    				break;
-	    			case "Refinery":
-	    				building = new Refinery(gameModel.getActivePlayer(), actionTile.getPosition());
-	    				break;
-	    		}
+	    		Class<?> buildingClass = Class.forName("fiuba.algo3.occupant.buildings."+choice);
+	    		Constructor constructor = buildingClass.getConstructor(new Class[]{Player.class, Coordinates.class});
+                Building building = (Building) constructor.newInstance(gameModel.getActivePlayer(), actionTile.getPosition());
 	    		gameModel.build(building);
 	    		actionTileView.printOccupied();
 	    	} catch(KeyDoesNotExistsException ex){
@@ -70,6 +51,8 @@ public class BuildButton extends ActionButton implements ActionListener{
 	    		System.out.println("MissingRequiredBuildingsException");
 	    	} catch(DestinationIsOccupiedException ex){
 	    		System.out.println("DestinationIsOccupiedException");
+	    	} catch(NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException | ClassNotFoundException ex){
+	    		System.out.println("Instantiation Problem");
 	    	}
     	}
     }  
