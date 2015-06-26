@@ -26,4 +26,10 @@ public abstract class UnitCreator extends Building{
         this.trainingQueue.remove();
         this.owner.addUnit(current, this.position);
     }
+
+    @Override
+    public boolean canCreate() {
+        return true;
+    }
+
 }

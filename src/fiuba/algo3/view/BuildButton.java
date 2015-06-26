@@ -20,7 +20,6 @@ public class BuildButton extends ActionButton implements ActionListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ActionListener build;
 	private Tile actionTile;
 	private TileView actionTileView;
 
@@ -29,11 +28,17 @@ public class BuildButton extends ActionButton implements ActionListener{
 		setText("Build");
 		addActionListener(this);
 	}
+	
+	public void setBehavior(Tile modelTile, TileView viewTile){
+		setEnabled(!modelTile.isOccupied());
+		actionTile = modelTile;
+		actionTileView = viewTile;
+	}
 
 	public void actionPerformed(ActionEvent e) {
     	String[] options = {"Access", "Barracks", "Asimilator", "MineralCenter", "MineralNexus", "Pylon", "Refinery"};
     	JFrame f = new JFrame("input");
-    	String choice = (String) JOptionPane.showInputDialog(f,"Que edificio construir","elegir", JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
+    	String choice = (String) JOptionPane.showInputDialog(f,"Choose a Building","Build", JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
     	if(choice != null){
 	    	try{
 	    		Class<?> buildingClass = Class.forName("fiuba.algo3.occupant.buildings."+choice);
@@ -56,10 +61,4 @@ public class BuildButton extends ActionButton implements ActionListener{
 	    	}
     	}
     }  
-	
-	public void setBehavior(Tile modelTile, TileView viewTile){
-		setEnabled(!modelTile.isOccupied());
-		actionTile = modelTile;
-		actionTileView = viewTile;
-	}
 }

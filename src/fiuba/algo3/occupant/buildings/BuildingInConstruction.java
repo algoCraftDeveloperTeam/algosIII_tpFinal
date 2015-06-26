@@ -92,12 +92,12 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
     }
 
     @Override
-    public boolean canAttack() {
+    public boolean canCreate() {
         return false;
     }
 
     @Override
-    public boolean canBuild() {
+    public boolean canAttack() {
         return false;
     }
 

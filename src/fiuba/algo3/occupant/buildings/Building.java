@@ -50,7 +50,7 @@ public abstract class Building implements Occupant, Damageable, TurnAware{
     }
 
     @Override
-    public boolean canBuild() {
+    public boolean canCreate() {
         return false;
     }
 
