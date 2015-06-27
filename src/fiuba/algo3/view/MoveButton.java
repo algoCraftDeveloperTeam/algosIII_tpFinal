@@ -27,7 +27,7 @@ public class MoveButton extends ActionButton implements ActionListener{
 	public void setBehavior(Tile modelTile, TileView viewTile){
 		try{
 			occupant = modelTile.getOccupant();
-			setEnabled(occupant.canMove());
+			setEnabled(occupant.canMove() && (gameModel.getActivePlayer() == occupant.getOwner()));
 		} catch (EmptyTileException ex){
 			setEnabled(false);
 		}

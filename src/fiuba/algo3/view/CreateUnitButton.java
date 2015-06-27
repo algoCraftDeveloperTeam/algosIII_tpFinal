@@ -27,7 +27,7 @@ public class CreateUnitButton extends ActionButton implements ActionListener{
 	public void setBehavior(Tile modelTile, TileView viewTile){
 		try{
 			occupant = modelTile.getOccupant();
-			setEnabled(occupant.canCreate());
+			setEnabled(occupant.canCreate() && (gameModel.getActivePlayer() == occupant.getOwner()));
 		} catch (EmptyTileException ex){
 			setEnabled(false);
 		}

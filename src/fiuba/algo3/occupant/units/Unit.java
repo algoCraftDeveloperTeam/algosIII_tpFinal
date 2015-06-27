@@ -111,6 +111,11 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
         this.life.regenerateShield();
     }
 
+    @Override
+    public Player getOwner(){
+        return owner;
+    }
+
     public abstract boolean isWithinRange(CombatUnit attacker);
 
     public void setOwner(Player owner){

@@ -110,6 +110,11 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
     public Coordinates getPosition(){
         return this.position;
     }
+    
+    @Override
+    public Player getOwner() {
+        return owner;
+    }
 
     @Override
     public boolean isWithinRange(CombatUnit attacker) {

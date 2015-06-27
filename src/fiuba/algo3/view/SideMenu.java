@@ -16,6 +16,7 @@ public class SideMenu extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	List<ActionButton> actionButtons;
+	PassTurnButton passTurnButton;
 
 	public SideMenu(int x, int y, int width, int height, AlgoCraftModel algoCraftModel) {
 		setBounds(x, y, width, height);
@@ -27,10 +28,12 @@ public class SideMenu extends JPanel{
 		AttackButton attackButton = new AttackButton(algoCraftModel);
 		BuildButton buildButton = new BuildButton(algoCraftModel);
 		CreateUnitButton createUnitButton = new CreateUnitButton(algoCraftModel);
+		passTurnButton = new PassTurnButton(algoCraftModel);
 		add(moveButton);
 		add(attackButton);
 		add(buildButton);
 		add(createUnitButton);
+		add(passTurnButton);
 		actionButtons.add(moveButton);
 		actionButtons.add(attackButton);
 		actionButtons.add(buildButton);

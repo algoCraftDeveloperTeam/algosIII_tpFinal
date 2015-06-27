@@ -27,7 +27,7 @@ public class AttackButton extends ActionButton implements ActionListener{
 	public void setBehavior(Tile modelTile, TileView viewTile){
 		try{
 			occupant = modelTile.getOccupant();
-			setEnabled(occupant.canAttack());
+			setEnabled(occupant.canAttack() && (gameModel.getActivePlayer() == occupant.getOwner()));
 		} catch (EmptyTileException ex){
 			setEnabled(false);
 		}
