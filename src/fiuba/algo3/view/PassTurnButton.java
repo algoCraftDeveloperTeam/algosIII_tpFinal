@@ -11,6 +11,7 @@ import fiuba.algo3.game.AlgoCraftModel;
 public class PassTurnButton extends JButton implements ActionListener{
 
 	protected AlgoCraftModel gameModel;
+	protected MapView mapView;
 	protected JLabel playerName;
 
 	public PassTurnButton(AlgoCraftModel algoCraftModel, JLabel actualPlayerName) {
@@ -23,9 +24,14 @@ public class PassTurnButton extends JButton implements ActionListener{
 		addActionListener(this);
 	}
 
+	public void setMap(MapView map){
+		mapView = map;
+	}
+
 	public void actionPerformed(ActionEvent e) {
     	System.out.println("cambio de turno");
     	gameModel.endTurn();
+    	mapView.refreshTiles();
 		playerName.setText(gameModel.getActivePlayer().getName());
     }
 }

@@ -24,6 +24,7 @@ public class MapView extends JPanel{
 	private static final long serialVersionUID = 1L;
     private HashMap<Class<?>, Class<?>> tileGenerator;
     private AlgoCraftMap algoCraftMap;
+    private List<TileView> tiles;
     private int dimention;
 
 	public MapView(int x, int y, int width, int height, AlgoCraftMap modelMap, List<ActionButton> buttons)
@@ -34,6 +35,7 @@ public class MapView extends JPanel{
 		dimention = modelMap.getDimention();
 		setLayout(new GridLayout(dimention, dimention));
         algoCraftMap = modelMap;
+        tiles = new ArrayList<TileView>();
         generateTileViews();
         generateMapView(buttons);
 	}
@@ -48,6 +50,7 @@ public class MapView extends JPanel{
                 TileView tileView = (TileView) viewClass.newInstance();
                 tileView.setModelTile(actualTile);
                 tileView.setObservers(buttons);
+                tiles.add(tileView);
                 add(tileView);
             }
         }
@@ -59,5 +62,11 @@ public class MapView extends JPanel{
 		tileGenerator.put(Mineral.class, MineralTileView.class);
 		tileGenerator.put(Gas.class, GasTileView.class);
 		tileGenerator.put(Space.class, SpaceTileView.class);
+    }
+
+    public void refreshTiles(){
+        for(TileView tile : tiles){
+            tile.refreshOccupant();
+        }
     }
 }

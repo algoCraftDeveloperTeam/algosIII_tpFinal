@@ -29,5 +29,5 @@ public abstract class TileView extends JComponent{
 		observers = buttons;
 	}
 
-	public abstract void printOccupied();
+	public abstract void refreshOccupant();
 }

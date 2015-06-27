@@ -38,7 +38,7 @@ public class EarthTileView extends TileView implements MouseListener{
 	}
 
 	@Override
-	public void printOccupied(){
+	public void refreshOccupant(){
 		setBackground(Color.ORANGE);
 	}
 }

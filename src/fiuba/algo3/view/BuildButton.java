@@ -45,7 +45,7 @@ public class BuildButton extends ActionButton implements ActionListener{
 	    		Constructor constructor = buildingClass.getConstructor(new Class[]{Player.class, Coordinates.class});
                 Building building = (Building) constructor.newInstance(gameModel.getActivePlayer(), actionTile.getPosition());
 	    		gameModel.build(building);
-	    		actionTileView.printOccupied();
+	    		actionTileView.refreshOccupant();
 	    	} catch(KeyDoesNotExistsException | InsufficientResourcesException | CannotOccupyTileException | 
 	    			MissingRequiredBuildingsException | DestinationIsOccupiedException ex){
 	    		System.out.println(ex.getMessage());

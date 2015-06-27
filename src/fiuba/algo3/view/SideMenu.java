@@ -42,6 +42,13 @@ public class SideMenu extends JPanel{
 		actionButtons.add(createUnitButton);
 	}
 
+	public void setMap(MapView map){
+		for(ActionButton actionButton : actionButtons){
+            actionButton.setMap(map);
+        }
+        passTurnButton.setMap(map);
+	}
+
 	public List<ActionButton> getActionButtons(){
 		return actionButtons;
 	}
