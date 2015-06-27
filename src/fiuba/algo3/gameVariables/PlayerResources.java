@@ -1,5 +1,7 @@
 package fiuba.algo3.gameVariables;
 
+import fiuba.algo3.exceptions.SubtractedResourcesGreaterThanStoragedException;
+
 /**
  * Created by nsueiro on 30/05/15.
  */
@@ -34,5 +36,10 @@ public class PlayerResources {
 
     public void substractMinerals(int i) {
         this.mineralStorage -= i;
+    }
+
+    public void subtractResources(Cost resources) throws SubtractedResourcesGreaterThanStoragedException {
+        if(this.mineralStorage - resources.getMineralCost() < 0 || this.gasStorage - resources.getGasCost() < 0)
+            throw new SubtractedResourcesGreaterThanStoragedException();
     }
 }
