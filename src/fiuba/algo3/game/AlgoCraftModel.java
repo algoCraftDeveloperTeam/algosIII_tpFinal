@@ -21,7 +21,7 @@ public class AlgoCraftModel implements TurnAware{
         players = new LinkedList<>();
         algoCraftMap = new AlgoCraftMap(10);
         int numberOfPlayers = 2;
-        for (int i = 0; i < numberOfPlayers; i++) players.add(new Player(algoCraftMap));
+        for (int i = 0; i < numberOfPlayers; i++) players.add(new Player(algoCraftMap,"Player " + String.valueOf(i+1)));
         activePlayer = players.remove();
     }
 

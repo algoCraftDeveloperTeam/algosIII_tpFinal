@@ -27,6 +27,7 @@ public class Player implements TurnAware{
     Map<Class<?>, List<Building>> buildings;
     List <Unit> units;
     AlgoCraftMap algoCraftMap;
+    String playerName;
 
     public Player(AlgoCraftMap map){
         resources = new PlayerResources(200, 0);
@@ -37,12 +38,26 @@ public class Player implements TurnAware{
         algoCraftMap = map;
     }
 
+    public Player(AlgoCraftMap map, String name){
+        resources = new PlayerResources(200, 0);
+        population = new Population();
+        buildingsInConstruction = new ArrayList<BuildingInConstruction>();
+        buildings = new HashMap<Class<?>, List<Building>>();
+        units = new ArrayList<Unit>();
+        algoCraftMap = map;
+        playerName = name;
+    }
+
     public int getGasStorage(){
         return this.resources.getGasStorage();
     }
 
     public int getMineralStorage(){
         return this.resources.getMineralStorage();
+    }
+
+    public String getName(){
+        return playerName;
     }
 
     public void addGas(int n){
