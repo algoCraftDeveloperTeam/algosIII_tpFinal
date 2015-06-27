@@ -1,10 +1,9 @@
 package fiuba.algo3.view;
 
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
 import fiuba.algo3.map.Tile;
-import java.util.ArrayList;
+
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
 /**

@@ -1,14 +1,13 @@
 package fiuba.algo3.view;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.EtchedBorder;
-import java.awt.*;
-import java.awt.event.*;
-import fiuba.algo3.map.Tile;
-import fiuba.algo3.game.AlgoCraftModel;
 import fiuba.algo3.exceptions.EmptyTileException;
+import fiuba.algo3.game.AlgoCraftModel;
+import fiuba.algo3.map.Tile;
 import fiuba.algo3.occupant.Occupant;
+import fiuba.algo3.occupant.buildings.UnitCreator;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CreateUnitButton extends ActionButton implements ActionListener{
 
@@ -59,5 +58,7 @@ public class CreateUnitButton extends ActionButton implements ActionListener{
 	    	}
     	}*/
     	System.out.println("creando...");
+        UnitCreator unitCreator = (UnitCreator) occupant;
+        unitCreator.trainUnit();
     }
 }

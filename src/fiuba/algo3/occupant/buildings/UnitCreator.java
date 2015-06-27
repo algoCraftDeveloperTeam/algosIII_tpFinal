@@ -19,7 +19,7 @@ public abstract class UnitCreator extends Building{
         super(player, coordinate);
     }
 
-    abstract void trainUnit();
+    public abstract void trainUnit();
 
     public void getUnitInTraining() throws UnitNotReadyException {
         Unit current = this.trainingQueue.peek().getUnitBeingTrained();
