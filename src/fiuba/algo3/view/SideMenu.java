@@ -16,6 +16,7 @@ public class SideMenu extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	List<ActionButton> actionButtons;
+	List<PlayerData> playerData;
 	PassTurnButton passTurnButton;
 
 	public SideMenu(int x, int y, int width, int height, AlgoCraftModel algoCraftModel) {
@@ -24,26 +25,38 @@ public class SideMenu extends JPanel{
 		setAlignmentX(Component.LEFT_ALIGNMENT);
 		setLayout(new GridLayout(20, 2));
 		actionButtons = new ArrayList<ActionButton>();
-		MoveButton moveButton = new MoveButton(algoCraftModel);
-		AttackButton attackButton = new AttackButton(algoCraftModel);
-		BuildButton buildButton = new BuildButton(algoCraftModel);
-		CreateUnitButton createUnitButton = new CreateUnitButton(algoCraftModel);
-		JLabel actualPlayerName = new JLabel("null");
-		JLabel actualPlayerGas = new JLabel("null");
-		JLabel actualPlayerMineral = new JLabel("null");
-		passTurnButton = new PassTurnButton(algoCraftModel, actualPlayerName, actualPlayerGas, actualPlayerMineral);
-		add(moveButton);
-		add(attackButton);
-		add(buildButton);
-		add(createUnitButton);
+		playerData = new ArrayList<PlayerData>();
+		createAndAddButtons(algoCraftModel);
+		createAndAddLabels(algoCraftModel);
+		passTurnButton = new PassTurnButton(algoCraftModel, playerData);
 		add(passTurnButton);
-		add(actualPlayerName);
-		add(actualPlayerGas);
-		add(actualPlayerMineral);
+	}
+
+	private void createAndAddButtons(AlgoCraftModel algoCraftModel){
+		ActionButton moveButton = new MoveButton(algoCraftModel);
+		ActionButton attackButton = new AttackButton(algoCraftModel);
+		ActionButton buildButton = new BuildButton(algoCraftModel);
+		ActionButton createUnitButton = new CreateUnitButton(algoCraftModel);
 		actionButtons.add(moveButton);
 		actionButtons.add(attackButton);
 		actionButtons.add(buildButton);
 		actionButtons.add(createUnitButton);
+		add(moveButton);
+		add(attackButton);
+		add(buildButton);
+		add(createUnitButton);
+	}
+
+	private void createAndAddLabels(AlgoCraftModel algoCraftModel){
+		PlayerData actualPlayerName = new PlayerName(algoCraftModel);
+		PlayerData actualPlayerGas = new PlayerGas(algoCraftModel);
+		PlayerData actualPlayerMineral = new PlayerMineral(algoCraftModel);
+		playerData.add(actualPlayerName);
+		playerData.add(actualPlayerGas);
+		playerData.add(actualPlayerMineral);
+		add(actualPlayerName);
+		add(actualPlayerGas);
+		add(actualPlayerMineral);
 	}
 
 	public void setMap(MapView map){
