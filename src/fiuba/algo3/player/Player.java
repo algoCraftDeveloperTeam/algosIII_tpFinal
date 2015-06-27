@@ -187,4 +187,17 @@ public class Player implements TurnAware{
         this.units.remove(unit);
         this.algoCraftMap.clearTile(unit.getPosition());
     }
+
+    public void canTrain(Unit unitToBeTrain) throws InsufficientResourcesException, InsufficientAvailablePopulationException {
+        this.verifyCost(unitToBeTrain.getTrainingCost());
+        //this.verifyPopulationAvailability(unitToBeTrain.getUnitSize());
+    }
+
+    private void verifyPopulationAvailability(int unitSize) throws InsufficientAvailablePopulationException{
+        if (this.population.getAvailablePopulation() < unitSize) throw new InsufficientAvailablePopulationException();
+    }
+
+    public void subtractResources(Cost unitCost) throws SubtractedResourcesGreaterThanStoragedException {
+        this.resources.subtractResources(unitCost);
+    }
 }

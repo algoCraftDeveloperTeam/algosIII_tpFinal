@@ -80,4 +80,19 @@ public class PlayerTest {
         this.aPlayer.addMinerals(200);
         this.aPlayer.build(new TerranFactory(this.aPlayer, new Coordinates(0, 0)));
     }
+
+    @Test
+    public void testStartTrainingOfAMarineWithTheRequirementsMet() throws Exception {
+        Barracks barracks = new Barracks(this.aPlayer, new Coordinates(0, 0));
+        this.aPlayer.addFinishedBuilding(barracks);
+        barracks.trainUnit();
+    }
+
+    @Test(expected = InsufficientResourcesException.class)
+    public void testStartTrainingOfAMarineWithoutTheRequiredResourcesThrowsInsufficientResourcesException() throws Exception {
+        Barracks barracks = new Barracks(this.aPlayer, new Coordinates(0, 0));
+        this.aPlayer.addFinishedBuilding(barracks);
+        aPlayer.substractMinerals(200);
+        barracks.trainUnit();
+    }
 }

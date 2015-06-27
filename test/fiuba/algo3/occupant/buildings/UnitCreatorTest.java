@@ -1,5 +1,8 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.exceptions.InsufficientAvailablePopulationException;
+import fiuba.algo3.exceptions.InsufficientResourcesException;
+import fiuba.algo3.exceptions.SubtractedResourcesGreaterThanStoragedException;
 import fiuba.algo3.exceptions.UnitNotReadyException;
 import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
@@ -22,7 +25,9 @@ public class UnitCreatorTest {
     }
 
     @Test(expected = UnitNotReadyException.class)
-    public void testGetInUnitInTrainingThrowsExceptionWhenUnitIsNotReady() throws UnitNotReadyException {
+    public void testGetInUnitInTrainingThrowsExceptionWhenUnitIsNotReady()
+            throws UnitNotReadyException, SubtractedResourcesGreaterThanStoragedException,
+            InsufficientAvailablePopulationException, InsufficientResourcesException {
         aBarrack.trainUnit();
         aBarrack.getUnitInTraining();
     }

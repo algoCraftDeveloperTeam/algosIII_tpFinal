@@ -1,6 +1,9 @@
 package fiuba.algo3.view;
 
 import fiuba.algo3.exceptions.EmptyTileException;
+import fiuba.algo3.exceptions.InsufficientAvailablePopulationException;
+import fiuba.algo3.exceptions.InsufficientResourcesException;
+import fiuba.algo3.exceptions.SubtractedResourcesGreaterThanStoragedException;
 import fiuba.algo3.game.AlgoCraftModel;
 import fiuba.algo3.map.Tile;
 import fiuba.algo3.occupant.Occupant;
@@ -59,6 +62,14 @@ public class CreateUnitButton extends ActionButton implements ActionListener{
     	}*/
     	System.out.println("creando...");
         UnitCreator unitCreator = (UnitCreator) occupant;
-        unitCreator.trainUnit();
+        try {
+            unitCreator.trainUnit();
+        } catch (InsufficientAvailablePopulationException e1) {
+            e1.printStackTrace();
+        } catch (InsufficientResourcesException e1) {
+            e1.printStackTrace();
+        } catch (SubtractedResourcesGreaterThanStoragedException e1) {
+            e1.printStackTrace();
+        }
     }
 }
