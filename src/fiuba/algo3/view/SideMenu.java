@@ -29,13 +29,17 @@ public class SideMenu extends JPanel{
 		BuildButton buildButton = new BuildButton(algoCraftModel);
 		CreateUnitButton createUnitButton = new CreateUnitButton(algoCraftModel);
 		JLabel actualPlayerName = new JLabel("null");
-		passTurnButton = new PassTurnButton(algoCraftModel, actualPlayerName);
+		JLabel actualPlayerGas = new JLabel("null");
+		JLabel actualPlayerMineral = new JLabel("null");
+		passTurnButton = new PassTurnButton(algoCraftModel, actualPlayerName, actualPlayerGas, actualPlayerMineral);
 		add(moveButton);
 		add(attackButton);
 		add(buildButton);
 		add(createUnitButton);
 		add(passTurnButton);
 		add(actualPlayerName);
+		add(actualPlayerGas);
+		add(actualPlayerMineral);
 		actionButtons.add(moveButton);
 		actionButtons.add(attackButton);
 		actionButtons.add(buildButton);

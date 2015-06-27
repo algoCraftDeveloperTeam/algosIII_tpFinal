@@ -13,11 +13,17 @@ public class PassTurnButton extends JButton implements ActionListener{
 	protected AlgoCraftModel gameModel;
 	protected MapView mapView;
 	protected JLabel playerName;
+	protected JLabel playerGas;
+	protected JLabel playerMineral;
 
-	public PassTurnButton(AlgoCraftModel algoCraftModel, JLabel actualPlayerName) {
+	public PassTurnButton(AlgoCraftModel algoCraftModel, JLabel actualPlayerName, JLabel actualPlayerGas, JLabel actualPlayerMineral) {
 		gameModel = algoCraftModel;
 		playerName = actualPlayerName;
+		playerGas = actualPlayerGas;
+		playerMineral = actualPlayerMineral;
 		playerName.setText(gameModel.getActivePlayer().getName());
+		playerGas.setText(gameModel.getActivePlayer().getGasStorage());
+		playerMineral.setText(gameModel.getActivePlayer().getMineralStorage());
 		setVisible(true);
 		setEnabled(true);
 		setText("Pass Turn");
@@ -33,5 +39,7 @@ public class PassTurnButton extends JButton implements ActionListener{
     	gameModel.endTurn();
     	mapView.refreshTiles();
 		playerName.setText(gameModel.getActivePlayer().getName());
+		playerGas.setText(gameModel.getActivePlayer().getGasStorage());
+		playerMineral.setText(gameModel.getActivePlayer().getMineralStorage());
     }
 }
