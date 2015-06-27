@@ -46,17 +46,11 @@ public class BuildButton extends ActionButton implements ActionListener{
                 Building building = (Building) constructor.newInstance(gameModel.getActivePlayer(), actionTile.getPosition());
 	    		gameModel.build(building);
 	    		actionTileView.printOccupied();
-	    	} catch(KeyDoesNotExistsException ex){
-	    		System.out.println("KeyDoesNotExistsException");
-	    	} catch(InsufficientResourcesException ex){
-	    		System.out.println("InsufficientResourcesException");
-	    	} catch(CannotOccupyTileException ex){
-	    		System.out.println("CannotOccupyTileException");
-	    	} catch(MissingRequiredBuildingsException ex){
-	    		System.out.println("MissingRequiredBuildingsException");
-	    	} catch(DestinationIsOccupiedException ex){
-	    		System.out.println("DestinationIsOccupiedException");
-	    	} catch(NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException | ClassNotFoundException ex){
+	    	} catch(KeyDoesNotExistsException | InsufficientResourcesException | CannotOccupyTileException | 
+	    			MissingRequiredBuildingsException | DestinationIsOccupiedException ex){
+	    		System.out.println(ex.getMessage());
+	    	} catch(NoSuchMethodException | IllegalAccessException | InvocationTargetException | 
+	    			InstantiationException | ClassNotFoundException ex){
 	    		System.out.println("Instantiation Problem");
 	    	}
     	}
