@@ -1,6 +1,10 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.exceptions.InsufficientAvailablePopulationException;
+import fiuba.algo3.exceptions.InsufficientResourcesException;
+import fiuba.algo3.exceptions.SubtractedResourcesGreaterThanStoragedException;
 import fiuba.algo3.exceptions.UnitNotReadyException;
+import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.units.Unit;
 import fiuba.algo3.occupant.units.UnitInTraining;
@@ -19,7 +23,7 @@ public abstract class UnitCreator extends Building{
         super(player, coordinate);
     }
 
-    public abstract void trainUnit();
+    public abstract void trainUnit() throws InsufficientAvailablePopulationException, InsufficientResourcesException, SubtractedResourcesGreaterThanStoragedException;
 
     public void getUnitInTraining() throws UnitNotReadyException {
         Unit current = this.trainingQueue.peek().getUnitBeingTrained();
@@ -32,4 +36,7 @@ public abstract class UnitCreator extends Building{
         return true;
     }
 
+    protected void chargeUnitCostToOwner(Cost unitCost) throws SubtractedResourcesGreaterThanStoragedException {
+        this.owner.subtractResources(unitCost);
+    }
 }
