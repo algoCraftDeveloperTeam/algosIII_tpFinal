@@ -39,6 +39,10 @@ public class EarthTileView extends TileView implements MouseListener{
 
 	@Override
 	public void refreshOccupant(){
-		setBackground(Color.ORANGE);
+		if(modelTile.isOccupied()){
+			setBackground(Color.ORANGE);
+		} else{
+			setBackground(Color.RED);
+		}
 	}
 }
