@@ -21,6 +21,7 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
 
     static int sizeForTransport;
     static Cost trainingCost;
+
     static int unitSize;
     int fieldOfVision;
     int trainingTime;
@@ -50,6 +51,10 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
 
     public Coordinates getPosition() {
         return position;
+    }
+
+    public static int getUnitSize() {
+        return unitSize;
     }
 
     public void receiveDamage(Damage damage) {
