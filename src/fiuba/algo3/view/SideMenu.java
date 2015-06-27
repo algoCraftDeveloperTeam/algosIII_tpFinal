@@ -26,37 +26,40 @@ public class SideMenu extends JPanel{
 		setLayout(new GridLayout(20, 2));
 		actionButtons = new ArrayList<ActionButton>();
 		playerData = new ArrayList<PlayerData>();
-		createAndAddButtons(algoCraftModel);
-		createAndAddLabels(algoCraftModel);
-		passTurnButton = new PassTurnButton(algoCraftModel, playerData);
-		add(passTurnButton);
+		createLabels(algoCraftModel);
+		createButtons(algoCraftModel);
+		addButtonsAndLabels();
 	}
 
-	private void createAndAddButtons(AlgoCraftModel algoCraftModel){
+	private void createButtons(AlgoCraftModel algoCraftModel){
 		ActionButton moveButton = new MoveButton(algoCraftModel);
 		ActionButton attackButton = new AttackButton(algoCraftModel);
-		ActionButton buildButton = new BuildButton(algoCraftModel);
-		ActionButton createUnitButton = new CreateUnitButton(algoCraftModel);
+		ActionButton buildButton = new BuildButton(algoCraftModel, playerData);
+		ActionButton createUnitButton = new CreateUnitButton(algoCraftModel, playerData);
+		passTurnButton = new PassTurnButton(algoCraftModel, playerData);
 		actionButtons.add(moveButton);
 		actionButtons.add(attackButton);
 		actionButtons.add(buildButton);
 		actionButtons.add(createUnitButton);
-		add(moveButton);
-		add(attackButton);
-		add(buildButton);
-		add(createUnitButton);
 	}
 
-	private void createAndAddLabels(AlgoCraftModel algoCraftModel){
+	private void createLabels(AlgoCraftModel algoCraftModel){
 		PlayerData actualPlayerName = new PlayerName(algoCraftModel);
 		PlayerData actualPlayerGas = new PlayerGas(algoCraftModel);
 		PlayerData actualPlayerMineral = new PlayerMineral(algoCraftModel);
 		playerData.add(actualPlayerName);
 		playerData.add(actualPlayerGas);
 		playerData.add(actualPlayerMineral);
-		add(actualPlayerName);
-		add(actualPlayerGas);
-		add(actualPlayerMineral);
+	}
+
+	private void addButtonsAndLabels(){
+		for(ActionButton button : actionButtons){
+			add(button);
+		}
+		for(PlayerData label : playerData){
+			add(label);
+		}
+		add(passTurnButton);
 	}
 
 	public void setMap(MapView map){
@@ -68,6 +71,10 @@ public class SideMenu extends JPanel{
 
 	public List<ActionButton> getActionButtons(){
 		return actionButtons;
+	}
+
+	public List<PlayerData> getPlayerData(){
+		return playerData;
 	}
 
 }

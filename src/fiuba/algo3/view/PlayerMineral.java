@@ -17,6 +17,6 @@ public class PlayerMineral extends PlayerData{
 
 	@Override
 	public void refreshLabel(){
-		setText(String.valueOf(gameModel.getActivePlayer().getMineralStorage()));
+		setText("Mineral: " + String.valueOf(gameModel.getActivePlayer().getMineralStorage()));
 	}
 }

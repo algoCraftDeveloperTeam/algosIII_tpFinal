@@ -8,6 +8,7 @@ import java.awt.event.*;
 import fiuba.algo3.map.Tile;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.game.AlgoCraftModel;
+import java.util.List;
 import fiuba.algo3.occupant.buildings.*;
 import java.lang.reflect.*;
 import fiuba.algo3.exceptions.*;
@@ -22,11 +23,13 @@ public class BuildButton extends ActionButton implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	private Tile actionTile;
 	private TileView actionTileView;
+	protected List<PlayerData> playerLabels;
 
-	public BuildButton(AlgoCraftModel algoCraftModel) {
+	public BuildButton(AlgoCraftModel algoCraftModel, List<PlayerData> playerData) {
 		super(algoCraftModel);
 		setText("Build");
 		addActionListener(this);
+		playerLabels = playerData;
 	}
 	
 	public void setBehavior(Tile modelTile, TileView viewTile){
@@ -53,6 +56,9 @@ public class BuildButton extends ActionButton implements ActionListener{
 	    			InstantiationException | ClassNotFoundException ex){
 	    		System.out.println("Instantiation Problem");
 	    	}
+    	}
+    	for(PlayerData data : playerLabels){
+    		data.refreshLabel();
     	}
     }  
 }

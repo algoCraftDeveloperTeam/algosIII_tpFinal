@@ -17,6 +17,6 @@ public class PlayerGas extends PlayerData{
 
 	@Override
 	public void refreshLabel(){
-		setText(String.valueOf(gameModel.getActivePlayer().getGasStorage()));
+		setText("Gas: " + String.valueOf(gameModel.getActivePlayer().getGasStorage()));
 	}
 }

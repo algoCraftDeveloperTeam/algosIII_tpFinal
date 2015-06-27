@@ -7,6 +7,7 @@ import fiuba.algo3.exceptions.SubtractedResourcesGreaterThanStoragedException;
 import fiuba.algo3.game.AlgoCraftModel;
 import fiuba.algo3.map.Tile;
 import fiuba.algo3.occupant.Occupant;
+import java.util.List;
 import fiuba.algo3.occupant.buildings.UnitCreator;
 
 import java.awt.event.ActionEvent;
@@ -19,11 +20,13 @@ public class CreateUnitButton extends ActionButton implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Occupant occupant;
+	protected List<PlayerData> playerLabels;
 
-	public CreateUnitButton(AlgoCraftModel algoCraftModel) {
+	public CreateUnitButton(AlgoCraftModel algoCraftModel, List<PlayerData> playerData) {
 		super(algoCraftModel);
 		setText("Create Unit");
 		addActionListener(this);
+		playerLabels = playerData;
 	}
 
 	public void setBehavior(Tile modelTile, TileView viewTile){
@@ -36,31 +39,6 @@ public class CreateUnitButton extends ActionButton implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-    	/*String[] options = {"Access", "Barracks", "Asimilator", "MineralCenter", "MineralNexus", "Pylon", "Refinery"};
-    	JFrame f = new JFrame("input");
-    	String choice = (String) JOptionPane.showInputDialog(f,"Choose a Building","Build", JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
-    	if(choice != null){
-	    	try{
-	    		Class<?> buildingClass = Class.forName("fiuba.algo3.occupant.buildings."+choice);
-	    		Constructor constructor = buildingClass.getConstructor(new Class[]{Player.class, Coordinates.class});
-                Building building = (Building) constructor.newInstance(gameModel.getActivePlayer(), actionTile.getPosition());
-	    		gameModel.build(building);
-	    		actionTileView.printOccupied();
-	    	} catch(KeyDoesNotExistsException ex){
-	    		System.out.println("KeyDoesNotExistsException");
-	    	} catch(InsufficientResourcesException ex){
-	    		System.out.println("InsufficientResourcesException");
-	    	} catch(CannotOccupyTileException ex){
-	    		System.out.println("CannotOccupyTileException");
-	    	} catch(MissingRequiredBuildingsException ex){
-	    		System.out.println("MissingRequiredBuildingsException");
-	    	} catch(DestinationIsOccupiedException ex){
-	    		System.out.println("DestinationIsOccupiedException");
-	    	} catch(NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException | ClassNotFoundException ex){
-	    		System.out.println("Instantiation Problem");
-	    	}
-    	}*/
-    	System.out.println("creando...");
         UnitCreator unitCreator = (UnitCreator) occupant;
         try {
             unitCreator.trainUnit();
@@ -71,5 +49,8 @@ public class CreateUnitButton extends ActionButton implements ActionListener{
         } catch (SubtractedResourcesGreaterThanStoragedException e1) {
             e1.printStackTrace();
         }
+        for(PlayerData data : playerLabels){
+    		data.refreshLabel();
+    	}
     }
 }
