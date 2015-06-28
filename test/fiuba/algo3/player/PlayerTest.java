@@ -111,7 +111,8 @@ public class PlayerTest {
     public void testStartTrainingOfAMarineWithNotEnoughPopulationRoomThrowsInsufficientAvailablePopulationException() throws Exception {
         Barracks barracks = new Barracks(this.aPlayer, new Coordinates(0, 0));
         this.aPlayer.addFinishedBuilding(barracks);
-        for (int i = 0; i < 20; i++){
+        this.aPlayer.addMinerals(10000);
+        for (int i = 0; i < 25; i++){
             barracks.trainUnit();
         }
     }
