@@ -3,15 +3,23 @@ package fiuba.algo3.view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.lang.reflect.*;
 
 /**
  * Created by mporto on 22/06/15.
  */
 public class EarthTileView extends TileView implements MouseListener{
 
+	Method method;
+
     public EarthTileView() {
 		addMouseListener(this);
 		setBackground(Color.RED);
+		try{
+			method = EarthTileView.class.getDeclaredMethod("defaultBehavior");
+		} catch(NoSuchMethodException ex){
+
+		}
     }
 
     @Override
@@ -32,9 +40,17 @@ public class EarthTileView extends TileView implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		try{
+			method.invoke(this);
+		} catch (IllegalAccessException | InvocationTargetException ex){
+
+		}
+	}
+
+	public void defaultBehavior(){
 		for(ActionButton observer : observers){
-            observer.setBehavior(modelTile, this);
-        }
+			observer.setBehavior(modelTile, this);
+		}
 	}
 
 	@Override
