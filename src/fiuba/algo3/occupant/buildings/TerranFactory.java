@@ -1,6 +1,9 @@
 
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.exceptions.InsufficientAvailablePopulationException;
+import fiuba.algo3.exceptions.InsufficientResourcesException;
+import fiuba.algo3.exceptions.SubtractedResourcesGreaterThanStoragedException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.map.Coordinates;
@@ -28,25 +31,11 @@ public class TerranFactory extends UnitCreator {
     }
 
     @Override
-    public void trainUnit() {
+    public void trainUnit() throws SubtractedResourcesGreaterThanStoragedException, InsufficientAvailablePopulationException, InsufficientResourcesException {
         Goliath aGoliathToBeTrained = new Goliath();
+        this.chargeUnitRequirementsToOwner(aGoliathToBeTrained);
         UnitInTraining aGoliathInTraining = new UnitInTraining(aGoliathToBeTrained);
         this.trainingQueue.add(aGoliathInTraining);
     }
 
-    @Override
-    public void passTurn() {
-        super.passTurn();
-        UnitInTraining firstUnit = this.trainingQueue.peek();
-        firstUnit.passTurn();
-    }
-
-    /*
-    @Override
-    public void getUnitInTraining() throws UnitNotReadyException {
-        Unit current = this.trainingQueue.peek().getUnitBeingTrained();
-        this.trainingQueue.remove();
-        this.owner.addUnit(current, this.position);
-    }
-    */
 }
