@@ -40,7 +40,7 @@ public class SpaceTileView extends TileView implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		try{
 			method.invoke(this);
-		} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException ex){
+		} catch (IllegalAccessException | InvocationTargetException ex){
 			ex.printStackTrace();
 		}
 	}
