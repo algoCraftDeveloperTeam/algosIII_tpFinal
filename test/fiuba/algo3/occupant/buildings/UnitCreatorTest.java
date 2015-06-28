@@ -16,12 +16,13 @@ import org.junit.Test;
 public class UnitCreatorTest {
     private Player player;
     private Barracks aBarrack;
+    private SupplyDepot supplyDepot;
 
     @Before
     public void setUp() throws Exception {
         player = new Player((new AlgoCraftMap(1)).testMap());
         aBarrack = new Barracks(player, new Coordinates(1, 1));
-
+        supplyDepot = new SupplyDepot(this.player, new Coordinates(2,2));
     }
 
     @Test(expected = UnitNotReadyException.class)
