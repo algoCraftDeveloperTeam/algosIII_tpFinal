@@ -3,12 +3,10 @@ package fiuba.algo3.occupant.buildings;
 import fiuba.algo3.exceptions.InsufficientAvailablePopulationException;
 import fiuba.algo3.exceptions.InsufficientResourcesException;
 import fiuba.algo3.exceptions.SubtractedResourcesGreaterThanStoragedException;
-import fiuba.algo3.exceptions.UnitNotReadyException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.units.Marine;
-import fiuba.algo3.occupant.units.Unit;
 import fiuba.algo3.occupant.units.UnitInTraining;
 import fiuba.algo3.player.Player;
 
@@ -38,20 +36,5 @@ public class Barracks extends UnitCreator{
         this.chargeUnitRequirementsToOwner(aMarineToBeTrained);
         UnitInTraining aMarineInTraining = new UnitInTraining(aMarineToBeTrained);
         this.trainingQueue.add(aMarineInTraining);
-    }
-
-    @Override
-    public void passTurn() {
-        super.passTurn();
-        if(this.trainingQueue.isEmpty()) return;
-        UnitInTraining firstUnit = this.trainingQueue.peek();
-        firstUnit.passTurn();
-        if(firstUnit.isReady()){
-            try {
-                this.trainingQueue.remove();
-                Unit trainedUnit = firstUnit.getUnitBeingTrained();
-                this.owner.addUnit(trainedUnit, this.position);
-            } catch (UnitNotReadyException e){}
-        }
     }
 }
