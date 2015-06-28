@@ -40,14 +40,14 @@ public class PlayerResourcesTest {
     @Test
     public void testSubtractGas() throws Exception {
         this.playerResources.addGas(15);
-        this.playerResources.substractGas(10);
+        this.playerResources.subtractGas(10);
         Assert.assertEquals(this.playerResources.getGasStorage(), 5);
     }
 
     @Test
     public void testSubstractMinerals() throws Exception {
         this.playerResources.addMinerals(15);
-        this.playerResources.substractMinerals(10);
+        this.playerResources.subtractMinerals(10);
         Assert.assertEquals(this.playerResources.getMineralStorage(), 5);
     }
 }

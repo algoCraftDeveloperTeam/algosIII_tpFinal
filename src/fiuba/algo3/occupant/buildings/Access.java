@@ -31,8 +31,7 @@ public class Access extends UnitCreator{
     public void trainUnit() throws InsufficientAvailablePopulationException, InsufficientResourcesException, SubtractedResourcesGreaterThanStoragedException {
         Zealot aZealotToBeTrained = new Zealot();
         this.owner.canTrain(aZealotToBeTrained);
-        this.chargeUnitCostToOwner(aZealotToBeTrained.getTrainingCost());
-        this.addUsedPopulationToOwner(aZealotToBeTrained.getUnitSize());
+        this.chargeUnitRequirementsToOwner(aZealotToBeTrained);
         UnitInTraining aZealotInTraining = new UnitInTraining(aZealotToBeTrained);
         this.trainingQueue.add(aZealotInTraining);
     }
