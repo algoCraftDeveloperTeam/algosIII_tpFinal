@@ -7,11 +7,12 @@ import fiuba.algo3.map.Gas;
 import fiuba.algo3.map.Mineral;
 import fiuba.algo3.map.Space;
 import fiuba.algo3.map.Tile;
+import fiuba.algo3.occupant.units.Unit;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.*;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +51,7 @@ public class MapView extends JPanel{
                 TileView tileView = (TileView) viewClass.newInstance();
                 tileView.setModelTile(actualTile);
                 tileView.setObservers(buttons);
+                tileView.setMap(this);
                 tiles.add(tileView);
                 add(tileView);
             }
@@ -68,5 +70,15 @@ public class MapView extends JPanel{
         for(TileView tile : tiles){
             tile.refreshOccupant();
         }
+    }
+
+    public void setMoveBehavior(Unit occupant){
+        for(TileView tile : tiles){
+            tile.setMoveBehavior(occupant);
+        }
+    }
+
+    public AlgoCraftMap getModelMap(){
+        return algoCraftMap;
     }
 }

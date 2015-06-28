@@ -3,6 +3,7 @@ package fiuba.algo3.view;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.lang.reflect.*;
 
 /**
  * Created by mporto on 22/06/15.
@@ -12,6 +13,11 @@ public class SpaceTileView extends TileView implements MouseListener{
     public SpaceTileView() {
 		addMouseListener(this);
 		setBackground(Color.BLACK);
+		try{
+			method = TileView.class.getDeclaredMethod("defaultBehavior");
+		} catch(NoSuchMethodException ex){
+			ex.printStackTrace();
+		}
     }
 
     @Override
@@ -32,9 +38,12 @@ public class SpaceTileView extends TileView implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		for(ActionButton observer : observers){
-            observer.setBehavior(modelTile, this);
-        }
+		try{
+			method.invoke(this);
+			method = TileView.class.getDeclaredMethod("defaultBehavior");
+		} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException ex){
+			ex.printStackTrace();
+		}
 	}
 	
 	@Override

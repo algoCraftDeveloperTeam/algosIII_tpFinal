@@ -10,15 +10,13 @@ import java.lang.reflect.*;
  */
 public class EarthTileView extends TileView implements MouseListener{
 
-	Method method;
-
     public EarthTileView() {
 		addMouseListener(this);
 		setBackground(Color.RED);
 		try{
-			method = EarthTileView.class.getDeclaredMethod("defaultBehavior");
+			method = TileView.class.getDeclaredMethod("defaultBehavior");
 		} catch(NoSuchMethodException ex){
-
+			ex.printStackTrace();
 		}
     }
 
@@ -42,14 +40,9 @@ public class EarthTileView extends TileView implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		try{
 			method.invoke(this);
-		} catch (IllegalAccessException | InvocationTargetException ex){
-
-		}
-	}
-
-	public void defaultBehavior(){
-		for(ActionButton observer : observers){
-			observer.setBehavior(modelTile, this);
+			method = TileView.class.getDeclaredMethod("defaultBehavior");
+		} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException ex){
+			ex.printStackTrace();
 		}
 	}
 
