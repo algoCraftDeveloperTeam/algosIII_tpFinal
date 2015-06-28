@@ -1,5 +1,6 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.exceptions.BuildingNotReadyException;
 import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
@@ -35,14 +36,24 @@ public class BuildingInConstructionTest {
 
         assertEquals(this.aMineralGetter.getConstructionTime() - 1, this.aBuildingInConstruction.getRemainingTurns());
     }
-/*
-    @Test
-    public void testGetBuildingInConstruction() throws Exception {
+
+    @Test (expected = BuildingNotReadyException.class)
+    public void testGetBuildingInConstructionRaisesAnExceptionWhenNotReady() throws Exception {
         assertEquals(this.aMineralGetter, this.aBuildingInConstruction.getBuildingInConstruction());
     }
-*/
+
     @Test
     public void testBuildingIsNotFinishedWhileTrainingTimeIsGreaterThanZero() throws Exception {
         assertFalse(this.aBuildingInConstruction.isReady());
+    }
+
+    @Test
+    public void testVitalityIsTheSameAsBuildingBeingConstructed() {
+        assertEquals(250, this.aBuildingInConstruction.getVitality());
+    }
+
+    @Test
+    public void testMineralGeterGetterInConstructionCannotOccupyGas() {
+        assertFalse(this.aBuildingInConstruction.canOccupyGas());
     }
 }

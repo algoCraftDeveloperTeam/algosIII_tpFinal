@@ -54,11 +54,4 @@ public class Barracks extends UnitCreator{
             } catch (UnitNotReadyException e){}
         }
     }
-
-    @Override
-    public void getUnitInTraining() throws UnitNotReadyException {
-        Unit current = this.trainingQueue.peek().getUnitBeingTrained();
-        this.trainingQueue.remove();
-        this.owner.addUnit(current, this.position);
-    }
 }
