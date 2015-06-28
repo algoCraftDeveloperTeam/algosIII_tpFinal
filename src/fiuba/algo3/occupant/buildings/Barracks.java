@@ -37,6 +37,7 @@ public class Barracks extends UnitCreator{
         Marine aMarineToBeTrained = new Marine();
         this.owner.canTrain(aMarineToBeTrained);
         this.chargeUnitCostToOwner(aMarineToBeTrained.getTrainingCost());
+        this.addUsedPopulationToOwner(aMarineToBeTrained.getUnitSize());
         UnitInTraining aMarineInTraining = new UnitInTraining(aMarineToBeTrained);
         this.trainingQueue.add(aMarineInTraining);
     }

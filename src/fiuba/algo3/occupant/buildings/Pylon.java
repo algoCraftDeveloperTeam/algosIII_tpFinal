@@ -1,6 +1,7 @@
 package fiuba.algo3.occupant.buildings;
 
 import fiuba.algo3.gameVariables.Cost;
+import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
@@ -14,6 +15,15 @@ public class Pylon extends PopulationStorage{
         super(player, coordinate);
         this.constructionTime = 5;
         this.constructionCost = new Cost(100, 0);
-        this. life = new Life(250, 250);
+        this.life = new Life(250, 250);
+    }
+
+    @Override
+    public void receiveDamage(Damage damage){
+        this.life.receiveAttack(damage.getGroundDamage());
+        if(this.life.getVitality() < 0){
+            this.owner.addAvailablePopulation(-5);
+            this.owner.removeBuilding(this);
+        }
     }
 }

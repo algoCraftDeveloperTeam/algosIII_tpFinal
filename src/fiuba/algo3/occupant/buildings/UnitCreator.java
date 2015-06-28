@@ -39,4 +39,8 @@ public abstract class UnitCreator extends Building{
     protected void chargeUnitCostToOwner(Cost unitCost) throws SubtractedResourcesGreaterThanStoragedException {
         this.owner.subtractResources(unitCost);
     }
+
+    protected void addUsedPopulationToOwner(int i){
+        this.owner.addUsedPopulation(i);
+    }
 }
