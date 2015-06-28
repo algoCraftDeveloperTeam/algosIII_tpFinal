@@ -31,21 +31,6 @@ public abstract class UnitCreator extends Building{
     }
 
     @Override
-    public void passTurn() {
-        super.passTurn();
-        if(this.trainingQueue.isEmpty()) return;
-        UnitInTraining firstUnit = this.trainingQueue.peek();
-        firstUnit.passTurn();
-        if(firstUnit.isReady()){
-            try {
-                this.trainingQueue.remove();
-                Unit trainedUnit = firstUnit.getUnitBeingTrained();
-                this.owner.addUnit(trainedUnit, this.position);
-            } catch (UnitNotReadyException e){}
-        }
-    }
-
-    @Override
     public boolean canCreate() {
         return true;
     }
