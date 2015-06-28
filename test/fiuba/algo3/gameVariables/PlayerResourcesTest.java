@@ -1,8 +1,11 @@
 package fiuba.algo3.gameVariables;
 
-import junit.framework.Assert;
+import fiuba.algo3.exceptions.SubtractedResourcesGreaterThanStoragedException;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+;
 
 /**
  * Created by nsueiro on 30/05/15.
@@ -49,5 +52,10 @@ public class PlayerResourcesTest {
         this.playerResources.addMinerals(15);
         this.playerResources.subtractMinerals(10);
         Assert.assertEquals(this.playerResources.getMineralStorage(), 5);
+    }
+
+    @Test (expected = SubtractedResourcesGreaterThanStoragedException.class)
+    public void testSubstractMoreResourcesThanAllowed() throws SubtractedResourcesGreaterThanStoragedException {
+        this.playerResources.subtractResources(new Cost(1000, 1000));
     }
 }

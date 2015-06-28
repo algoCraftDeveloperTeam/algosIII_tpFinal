@@ -1,6 +1,7 @@
 package fiuba.algo3.map;
 
 import fiuba.algo3.exceptions.CannotOccupyTileException;
+import fiuba.algo3.exceptions.EmptyTileException;
 import fiuba.algo3.exceptions.KeyDoesNotExistsException;
 import fiuba.algo3.occupant.Occupant;
 import fiuba.algo3.occupant.units.Marine;
@@ -75,6 +76,29 @@ public class AlgoCraftMapTest{
 		Assert.assertTrue(marine8.getPosition().equals(new Coordinates(5,6)));
 		Assert.assertTrue(marine9.getPosition().equals(new Coordinates(6,6)));
 		Assert.assertTrue(marine10.getPosition().equals(new Coordinates(3,3)));
+	}
+
+	@Test
+	public void testIsOccupiedReturnsFalseWhenNotOccupied() {
+		Assert.assertFalse(this.algoCraftMap.isOccupied(new Coordinates(0, 0)));
+	}
+
+	@Test
+	public void testIsOccupiedReturnsTrueWhenOccupied() throws CannotOccupyTileException, KeyDoesNotExistsException {
+		this.algoCraftMap.put(new Marine(), new Coordinates(0, 0));
+		Assert.assertTrue(this.algoCraftMap.isOccupied(new Coordinates(0, 0)));
+	}
+
+	@Test
+	public void testGetOccupantReturnsNullWhenNotOccupied() throws EmptyTileException {
+		Assert.assertNull(this.algoCraftMap.getOccupant(new Coordinates(0, 0)));
+	}
+
+	@Test
+	public void testGetOccupantReturnsOccupant() throws CannotOccupyTileException, KeyDoesNotExistsException, EmptyTileException {
+		Occupant marine = new Marine();
+		this.algoCraftMap.put(marine, new Coordinates(0, 0));
+		Assert.assertSame(marine, this.algoCraftMap.getOccupant(new Coordinates(0, 0)));
 	}
 
 }
