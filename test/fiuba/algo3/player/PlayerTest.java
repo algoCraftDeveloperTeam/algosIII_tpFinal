@@ -1,10 +1,12 @@
 package fiuba.algo3.player;
 
 import fiuba.algo3.exceptions.*;
+import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.MineralNexus;
+import fiuba.algo3.occupant.buildings.SupplyDepot;
 import fiuba.algo3.occupant.buildings.TerranFactory;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,10 +19,13 @@ import static org.junit.Assert.assertEquals;
 public class PlayerTest {   
 
     private Player aPlayer;
+    private SupplyDepot supplyDepot;
 
     @Before
     public void setUp() throws Exception {
         this.aPlayer = new Player((new AlgoCraftMap(1)).testMap());
+        this.supplyDepot = new SupplyDepot(this.aPlayer, new Coordinates(2,2));
+        this.aPlayer.addFinishedBuilding(this.supplyDepot);
     }
     @Test
     public void testGasInStorageIsZeroWhenInitialized(){
@@ -42,6 +47,12 @@ public class PlayerTest {
     public void testAddMinerals(){
         this.aPlayer.addMinerals(10);
         assertEquals(this.aPlayer.getMineralStorage(), 210);
+    }
+
+    @Test
+    public void testDestroyingASupplyDepotSubstractsAvailablePopulation(){
+        this.supplyDepot.receiveDamage(new Damage(10000, 10000));
+        assertEquals(0, this.aPlayer.getAvailablePopulation());
     }
 
     @Test
@@ -94,5 +105,14 @@ public class PlayerTest {
         this.aPlayer.addFinishedBuilding(barracks);
         aPlayer.substractMinerals(200);
         barracks.trainUnit();
+    }
+
+    @Test(expected = InsufficientAvailablePopulationException.class)
+    public void testStartTrainingOfAMarineWithNotEnoughPopulationRoomThrowsInsufficientAvailablePopulationException() throws Exception {
+        Barracks barracks = new Barracks(this.aPlayer, new Coordinates(0, 0));
+        this.aPlayer.addFinishedBuilding(barracks);
+        for (int i = 0; i < 20; i++){
+            barracks.trainUnit();
+        }
     }
 }

@@ -39,7 +39,7 @@ public class Player implements TurnAware{
     }
 
     public Player(AlgoCraftMap map, String name){
-        resources = new PlayerResources(200, 0);
+        resources = new PlayerResources(400, 0);
         population = new Population();
         buildingsInConstruction = new ArrayList<BuildingInConstruction>();
         buildings = new HashMap<Class<?>, List<Building>>();
@@ -74,6 +74,10 @@ public class Player implements TurnAware{
 
     public void addAvailablePopulation(int i) {
         this.population.addAvailablePopulation(i);
+    }
+
+    public void addUsedPopulation(int i) {
+        this.population.addUsedPopulation(i);
     }
 
     public BuildingInConstruction build(Building buildingToBeConstructed)
@@ -188,13 +192,13 @@ public class Player implements TurnAware{
         this.algoCraftMap.clearTile(unit.getPosition());
     }
 
-    public void canTrain(Unit unitToBeTrain) throws InsufficientResourcesException, InsufficientAvailablePopulationException {
-        this.verifyCost(unitToBeTrain.getTrainingCost());
-        //this.verifyPopulationAvailability(unitToBeTrain.getUnitSize());
+    public void canTrain(Unit unitToBeTrained) throws InsufficientResourcesException, InsufficientAvailablePopulationException {
+        this.verifyCost(unitToBeTrained.getTrainingCost());
+        this.verifyPopulationAvailability(unitToBeTrained.getUnitSize());
     }
 
     private void verifyPopulationAvailability(int unitSize) throws InsufficientAvailablePopulationException{
-        if (this.population.getAvailablePopulation() < unitSize) throw new InsufficientAvailablePopulationException();
+        if (this.population.getAvailablePopulation() < unitSize + this.population.getUsedPopulation()) throw new InsufficientAvailablePopulationException();
     }
 
     public void subtractResources(Cost unitCost) throws SubtractedResourcesGreaterThanStoragedException {
