@@ -18,6 +18,8 @@ public abstract class TileView extends JComponent{
 	public void paintComponent(Graphics g){
 		g.setColor(getBackground());
 		g.fillRect(0,0,getWidth(),getHeight());
+		g.setColor(Color.BLACK);
+		g.fillOval(0,0,getWidth(),getHeight());
 	}
 
 	public void setModelTile(Tile tile){
