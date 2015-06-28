@@ -30,11 +30,11 @@ public class PlayerResources {
         this.mineralStorage += i;
     }
 
-    public void substractGas(int i) {
+    public void subtractGas(int i) {
         this.gasStorage -= i;
     }
 
-    public void substractMinerals(int i) {
+    public void subtractMinerals(int i) {
         this.mineralStorage -= i;
     }
 

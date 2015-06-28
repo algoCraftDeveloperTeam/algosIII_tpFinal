@@ -35,8 +35,7 @@ public class Barracks extends UnitCreator{
             throws InsufficientAvailablePopulationException, InsufficientResourcesException,
             SubtractedResourcesGreaterThanStoragedException {
         Marine aMarineToBeTrained = new Marine();
-        this.owner.canTrain(aMarineToBeTrained);
-        this.chargeUnitCostToOwner(aMarineToBeTrained.getTrainingCost());
+        this.chargeUnitRequirementsToOwner(aMarineToBeTrained);
         UnitInTraining aMarineInTraining = new UnitInTraining(aMarineToBeTrained);
         this.trainingQueue.add(aMarineInTraining);
     }

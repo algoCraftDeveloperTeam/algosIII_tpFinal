@@ -137,11 +137,11 @@ public class Player implements TurnAware{
         }
     }
     public void substractMinerals(int mineralCost) {
-        this.resources.substractMinerals(mineralCost);
+        this.resources.subtractMinerals(mineralCost);
     }
 
     public void substractGas(int gasCost) {
-        this.resources.substractGas(gasCost);
+        this.resources.subtractGas(gasCost);
     }
 
     @Override
@@ -199,5 +199,12 @@ public class Player implements TurnAware{
 
     public void subtractResources(Cost unitCost) throws SubtractedResourcesGreaterThanStoragedException {
         this.resources.subtractResources(unitCost);
+    }
+
+    public void chargeUnitRequirements(Unit unit)
+            throws InsufficientAvailablePopulationException, InsufficientResourcesException,
+            SubtractedResourcesGreaterThanStoragedException {
+        this.canTrain(unit);
+        this.subtractResources(unit.getTrainingCost());
     }
 }
