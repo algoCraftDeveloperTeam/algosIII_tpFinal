@@ -40,14 +40,18 @@ public class EarthTileView extends TileView implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		try{
 			method.invoke(this);
-			method = TileView.class.getDeclaredMethod("defaultBehavior");
-		} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException ex){
+		} catch (IllegalAccessException | InvocationTargetException ex){
 			ex.printStackTrace();
 		}
 	}
 
 	@Override
 	public void refreshOccupant(){
+		try{
+			method = TileView.class.getDeclaredMethod("defaultBehavior");
+		} catch(NoSuchMethodException ex){
+			ex.printStackTrace();
+		}
 		if(modelTile.isOccupied()){
 			setBackground(Color.ORANGE);
 		} else{

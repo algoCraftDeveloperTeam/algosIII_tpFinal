@@ -40,7 +40,6 @@ public class MineralTileView extends TileView implements MouseListener{
 	public void mousePressed(MouseEvent e) {
 		try{
 			method.invoke(this);
-			method = TileView.class.getDeclaredMethod("defaultBehavior");
 		} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException ex){
 			ex.printStackTrace();
 		}
@@ -48,6 +47,11 @@ public class MineralTileView extends TileView implements MouseListener{
 	
 	@Override
 	public void refreshOccupant(){
+		try{
+			method = TileView.class.getDeclaredMethod("defaultBehavior");
+		} catch(NoSuchMethodException ex){
+			ex.printStackTrace();
+		}
 		if(modelTile.isOccupied()){
 			setBackground(Color.ORANGE);
 		} else{
