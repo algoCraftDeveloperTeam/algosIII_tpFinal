@@ -1,8 +1,13 @@
 package fiuba.algo3.occupant.buildings;
 
+import fiuba.algo3.exceptions.InsufficientAvailablePopulationException;
+import fiuba.algo3.exceptions.InsufficientResourcesException;
+import fiuba.algo3.exceptions.SubtractedResourcesGreaterThanStoragedException;
+import fiuba.algo3.exceptions.UnitNotReadyException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
 import fiuba.algo3.map.Coordinates;
+import fiuba.algo3.occupant.units.Unit;
 import fiuba.algo3.occupant.units.UnitInTraining;
 import fiuba.algo3.occupant.units.Zealot;
 import fiuba.algo3.player.Player;
@@ -23,8 +28,10 @@ public class Access extends UnitCreator{
     }
 
     @Override
-    public void trainUnit(){
+    public void trainUnit() throws InsufficientAvailablePopulationException, InsufficientResourcesException, SubtractedResourcesGreaterThanStoragedException {
         Zealot aZealotToBeTrained = new Zealot();
+        this.owner.canTrain(aZealotToBeTrained);
+        this.chargeUnitRequirementsToOwner(aZealotToBeTrained);
         UnitInTraining aZealotInTraining = new UnitInTraining(aZealotToBeTrained);
         this.trainingQueue.add(aZealotInTraining);
     }
@@ -36,12 +43,11 @@ public class Access extends UnitCreator{
         firstUnit.passTurn();
     }
 
-    /*
     @Override
     public void getUnitInTraining() throws UnitNotReadyException {
         Unit current = this.trainingQueue.peek().getUnitBeingTrained();
         this.trainingQueue.remove();
         this.owner.addUnit(current, this.position);
     }
-    */
+
 }

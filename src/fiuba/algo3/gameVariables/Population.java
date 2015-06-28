@@ -25,7 +25,12 @@ public class Population {
         }
     }
 
+    public void addUsedPopulation(int i){
+        this.usedPopulation += i;
+    }
+
     public int getUsedPopulation() {
         return usedPopulation;
     }
+
 }

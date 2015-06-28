@@ -41,5 +41,7 @@ public class PlayerResources {
     public void subtractResources(Cost resources) throws SubtractedResourcesGreaterThanStoragedException {
         if(this.mineralStorage - resources.getMineralCost() < 0 || this.gasStorage - resources.getGasCost() < 0)
             throw new SubtractedResourcesGreaterThanStoragedException();
+        this.mineralStorage -= resources.getMineralCost();
+        this.gasStorage -= resources.getGasCost();
     }
 }

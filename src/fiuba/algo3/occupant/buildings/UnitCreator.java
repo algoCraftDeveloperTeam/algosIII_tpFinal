@@ -40,4 +40,8 @@ public abstract class UnitCreator extends Building{
             InsufficientResourcesException {
        this.owner.chargeUnitRequirements(unit);
     }
+
+    protected void addUsedPopulationToOwner(int i){
+        this.owner.addUsedPopulation(i);
+    }
 }

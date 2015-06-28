@@ -7,6 +7,7 @@ import fiuba.algo3.occupant.Damageable;
 import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.BuildingInConstruction;
 import fiuba.algo3.occupant.buildings.MineralCenter;
+import fiuba.algo3.occupant.buildings.SupplyDepot;
 import fiuba.algo3.occupant.units.Marine;
 import fiuba.algo3.player.Player;
 import org.junit.Assert;
@@ -30,11 +31,11 @@ public class integrationTest {
         Player player1 = algoCraftModel.getActivePlayer();
         // Initialization tests
         Assert.assertEquals(0, algoCraftModel.getActivePlayer().getGasStorage());
-        Assert.assertEquals(200, algoCraftModel.getActivePlayer().getMineralStorage());
+        Assert.assertEquals(400, algoCraftModel.getActivePlayer().getMineralStorage());
 
         algoCraftModel.build(new MineralCenter(algoCraftModel.getActivePlayer(), new Coordinates(19, 19)));
         // Building something substracts player resources
-        Assert.assertEquals(150, algoCraftModel.getActivePlayer().getMineralStorage());
+        Assert.assertEquals(350, algoCraftModel.getActivePlayer().getMineralStorage());
 
         BuildingInConstruction current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(19, 19));
         // Building is not operational until it's finished
@@ -66,21 +67,22 @@ public class integrationTest {
         algoCraftModel.endTurn();
         algoCraftModel.endTurn();
         // Resource Getter adds resources to it's owner every turn
-        Assert.assertEquals(160, algoCraftModel.getActivePlayer().getMineralStorage());
+        Assert.assertEquals(360, algoCraftModel.getActivePlayer().getMineralStorage());
         algoCraftModel.endTurn();
         algoCraftModel.endTurn();
-        Assert.assertEquals(170, algoCraftModel.getActivePlayer().getMineralStorage());
+        Assert.assertEquals(370, algoCraftModel.getActivePlayer().getMineralStorage());
         algoCraftModel.endTurn();
         algoCraftModel.endTurn();
-        Assert.assertEquals(180, algoCraftModel.getActivePlayer().getMineralStorage());
+        Assert.assertEquals(380, algoCraftModel.getActivePlayer().getMineralStorage());
     }
 
     @Test
     public void testAlgoCraftModelScenario() throws Exception {
+        algoCraftModel.build(new SupplyDepot(algoCraftModel.getActivePlayer(), new Coordinates(5, 5)));
         algoCraftModel.build(new Barracks(algoCraftModel.getActivePlayer(), new Coordinates(1, 1)));
 
         // Building something substracts player resources
-        Assert.assertEquals(50, algoCraftModel.getActivePlayer().getMineralStorage());
+        Assert.assertEquals(150, algoCraftModel.getActivePlayer().getMineralStorage());
         BuildingInConstruction current = (BuildingInConstruction) algoCraftModel.getAlgoCraftMap().getOccupant(new Coordinates(1, 1));
 
         // Building is not operational until it's finished
@@ -88,6 +90,7 @@ public class integrationTest {
         Assert.assertFalse(current.isReady());
         algoCraftModel.endTurn();
 
+        algoCraftModel.build(new SupplyDepot(algoCraftModel.getActivePlayer(), new Coordinates(4, 4)));
         algoCraftModel.build(new Barracks(algoCraftModel.getActivePlayer(), new Coordinates(2, 2)));
 
         // I wait for the buildings to be ready.
