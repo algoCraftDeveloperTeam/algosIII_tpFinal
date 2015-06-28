@@ -15,10 +15,12 @@ public class PassTurnButton extends JButton implements ActionListener{
 	protected AlgoCraftModel gameModel;
 	protected MapView mapView;
 	protected List<PlayerData> playerLabels;
+	protected List<ActionButton> actionButtons;
 
-	public PassTurnButton(AlgoCraftModel algoCraftModel, List<PlayerData> playerData) {
+	public PassTurnButton(AlgoCraftModel algoCraftModel, List<PlayerData> playerData, List<ActionButton> buttons) {
 		gameModel = algoCraftModel;
 		playerLabels = playerData;
+		actionButtons = buttons;
 		setVisible(true);
 		setEnabled(true);
 		setText("Pass Turn");
@@ -32,6 +34,9 @@ public class PassTurnButton extends JButton implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
     	gameModel.endTurn();
     	mapView.refreshTiles();
+    	for(ActionButton button: actionButtons){
+    		button.setEnabled(false);
+    	}
     	for(PlayerData data : playerLabels){
     		data.refreshLabel();
     	}
