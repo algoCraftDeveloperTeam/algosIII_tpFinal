@@ -1,13 +1,11 @@
 package fiuba.algo3.view;
 
+import fiuba.algo3.game.AlgoCraftModel;
+
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.EtchedBorder;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
-import fiuba.algo3.game.AlgoCraftModel;
 
 public class SideMenu extends JPanel{
 
@@ -47,9 +45,11 @@ public class SideMenu extends JPanel{
 		PlayerData actualPlayerName = new PlayerName(algoCraftModel);
 		PlayerData actualPlayerGas = new PlayerGas(algoCraftModel);
 		PlayerData actualPlayerMineral = new PlayerMineral(algoCraftModel);
+		PlayerData actualPlayerPopulation = new PlayerPopulation(algoCraftModel);
 		playerData.add(actualPlayerName);
 		playerData.add(actualPlayerGas);
 		playerData.add(actualPlayerMineral);
+		playerData.add(actualPlayerPopulation);
 	}
 
 	private void addButtonsAndLabels(){
