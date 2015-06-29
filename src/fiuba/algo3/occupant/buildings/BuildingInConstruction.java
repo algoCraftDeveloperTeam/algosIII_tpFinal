@@ -120,7 +120,6 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
     public boolean isWithinRange(CombatUnit attacker) {
         Coordinates unitPosition = attacker.getPosition();
         int distance = this.position.distance(unitPosition);
-        // In the meantime this will only check with the unit's ground attack range.
         return !(distance > attacker.getGroundAttackRange());
     }
 }

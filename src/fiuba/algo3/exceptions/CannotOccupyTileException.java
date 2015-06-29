@@ -5,6 +5,6 @@ package fiuba.algo3.exceptions;
  */
 public class CannotOccupyTileException extends Exception {
 	public String getMessage(){
-		return "The tile cannot be occupied0";
+		return "The tile cannot be occupied.";
 	}
 }

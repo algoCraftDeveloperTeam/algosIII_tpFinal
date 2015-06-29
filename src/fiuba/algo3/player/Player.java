@@ -72,6 +72,9 @@ public class Player implements TurnAware{
         return this.population.getAvailablePopulation();
     }
 
+    public int getUsedPopulation() {
+        return this.population.getUsedPopulation();
+    }
     public void addAvailablePopulation(int i) {
         this.population.addAvailablePopulation(i);
     }
@@ -89,8 +92,8 @@ public class Player implements TurnAware{
         BuildingInConstruction buildingInConstruction = new BuildingInConstruction(buildingToBeConstructed, new Coordinates(coordX, coordY));
         this.algoCraftMap.put(buildingInConstruction, new Coordinates(coordX, coordY));
         buildingsInConstruction.add(buildingInConstruction);
-        this.substractMinerals(buildingToBeConstructed.getConstructionCost().getMineralCost());
-        this.substractGas(buildingToBeConstructed.getConstructionCost().getGasCost());
+        this.subtractMinerals(buildingToBeConstructed.getConstructionCost().getMineralCost());
+        this.subtractGas(buildingToBeConstructed.getConstructionCost().getGasCost());
         return buildingInConstruction;
     }
 
@@ -140,11 +143,11 @@ public class Player implements TurnAware{
             }
         }
     }
-    public void substractMinerals(int mineralCost) {
+    public void subtractMinerals(int mineralCost) {
         this.resources.subtractMinerals(mineralCost);
     }
 
-    public void substractGas(int gasCost) {
+    public void subtractGas(int gasCost) {
         this.resources.subtractGas(gasCost);
     }
 

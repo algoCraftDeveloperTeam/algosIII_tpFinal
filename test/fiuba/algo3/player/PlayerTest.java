@@ -103,7 +103,7 @@ public class PlayerTest {
     public void testStartTrainingOfAMarineWithoutTheRequiredResourcesThrowsInsufficientResourcesException() throws Exception {
         Barracks barracks = new Barracks(this.aPlayer, new Coordinates(0, 0));
         this.aPlayer.addFinishedBuilding(barracks);
-        aPlayer.substractMinerals(200);
+        aPlayer.subtractMinerals(200);
         barracks.trainUnit();
     }
 
