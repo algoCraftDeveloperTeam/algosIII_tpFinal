@@ -3,9 +3,11 @@ package fiuba.algo3.view.map;
 import fiuba.algo3.model.map.Tile;
 import fiuba.algo3.model.occupant.units.Unit;
 import fiuba.algo3.model.occupant.Damageable;
+import fiuba.algo3.model.occupant.Occupant;
 import fiuba.algo3.model.occupant.units.CombatUnit;
 import fiuba.algo3.model.exceptions.*;
 import fiuba.algo3.view.sideMenu.ActionButton;
+import fiuba.algo3.view.sideMenu.InfoArea;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,6 +27,7 @@ public abstract class TileView extends JComponent implements MouseListener{
 	protected Method method;
 	protected Unit unit;
 	protected CombatUnit combatUnit;
+	protected InfoArea infoArea;
 
 	@Override
 	public void paintComponent(Graphics g){
@@ -36,6 +39,12 @@ public abstract class TileView extends JComponent implements MouseListener{
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
+		try{
+			Occupant o = modelTile.getOccupant();
+			infoArea.setText(o.getInfo());
+		} catch(EmptyTileException ex){
+			infoArea.setText(modelTile.getInfo());
+		}
 	}
 
 	@Override
@@ -46,8 +55,9 @@ public abstract class TileView extends JComponent implements MouseListener{
 		modelTile = tile;
 	}
 
-	public void setObservers(List<ActionButton> buttons){
+	public void setObservers(List<ActionButton> buttons, InfoArea iArea){
 		observers = buttons;
+		infoArea = iArea;
 	}
 
 	public void setMap(MapView map){

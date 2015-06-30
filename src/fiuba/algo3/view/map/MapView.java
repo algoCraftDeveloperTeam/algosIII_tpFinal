@@ -10,6 +10,7 @@ import fiuba.algo3.model.map.Tile;
 import fiuba.algo3.model.occupant.units.Unit;
 import fiuba.algo3.model.occupant.units.CombatUnit;
 import fiuba.algo3.view.sideMenu.ActionButton;
+import fiuba.algo3.view.sideMenu.InfoArea;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,7 +30,7 @@ public class MapView extends JPanel{
     private List<TileView> tiles;
     private int dimention;
 
-	public MapView(int x, int y, int width, int height, AlgoCraftMap modelMap, List<ActionButton> buttons)
+	public MapView(int x, int y, int width, int height, AlgoCraftMap modelMap, List<ActionButton> buttons, InfoArea infoArea)
             throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
 		setBounds(x, y, width, height);
 		setAlignmentY(Component.TOP_ALIGNMENT);
@@ -39,10 +40,10 @@ public class MapView extends JPanel{
         algoCraftMap = modelMap;
         tiles = new ArrayList<TileView>();
         generateTileViews();
-        generateMapView(buttons);
+        generateMapView(buttons, infoArea);
 	}
 
-    private void generateMapView(List<ActionButton> buttons)
+    private void generateMapView(List<ActionButton> buttons, InfoArea infoArea)
             throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         for (int i = 0; i < dimention; i++){
             for (int j = 0; j < dimention; j++){
@@ -51,7 +52,7 @@ public class MapView extends JPanel{
                 Class<?> viewClass = tileGenerator.get(actualTile.getClass());
                 TileView tileView = (TileView) viewClass.newInstance();
                 tileView.setModelTile(actualTile);
-                tileView.setObservers(buttons);
+                tileView.setObservers(buttons, infoArea);
                 tileView.setMap(this);
                 tiles.add(tileView);
                 add(tileView);

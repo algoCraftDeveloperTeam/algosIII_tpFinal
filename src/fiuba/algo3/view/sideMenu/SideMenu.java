@@ -18,6 +18,7 @@ public class SideMenu extends JPanel{
 	List<ActionButton> actionButtons;
 	List<PlayerData> playerData;
 	PassTurnButton passTurnButton;
+	InfoArea infoArea;
 
 	public SideMenu(int x, int y, int width, int height, AlgoCraftModel algoCraftModel) {
 		setBounds(x, y, width, height);
@@ -52,6 +53,7 @@ public class SideMenu extends JPanel{
 		playerData.add(actualPlayerGas);
 		playerData.add(actualPlayerMineral);
 		playerData.add(actualPlayerPopulation);
+		infoArea = new InfoArea();
 	}
 
 	private void addButtonsAndLabels(){
@@ -62,6 +64,7 @@ public class SideMenu extends JPanel{
 			add(label);
 		}
 		add(passTurnButton);
+		add(infoArea);
 	}
 
 	public void setMap(MapView map){
@@ -73,6 +76,10 @@ public class SideMenu extends JPanel{
 
 	public List<ActionButton> getActionButtons(){
 		return actionButtons;
+	}
+
+	public InfoArea getInfoArea(){
+		return infoArea;
 	}
 
 	public List<PlayerData> getPlayerData(){
