@@ -1,6 +1,8 @@
-package fiuba.algo3.view;
+package fiuba.algo3.view.sideMenu;
 
 import fiuba.algo3.model.game.AlgoCraftModel;
+import fiuba.algo3.view.map.MapView;
+import fiuba.algo3.view.player.*;
 
 import javax.swing.*;
 import java.awt.*;

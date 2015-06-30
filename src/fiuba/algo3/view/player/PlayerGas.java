@@ -1,8 +1,9 @@
-package fiuba.algo3.view;
+package fiuba.algo3.view.player;
 
 import fiuba.algo3.model.game.AlgoCraftModel;
+import fiuba.algo3.view.player.PlayerData;
 
-public class PlayerGas extends PlayerData{
+public class PlayerGas extends PlayerData {
 
 	public PlayerGas(AlgoCraftModel algoCraftModel) {
 		super(algoCraftModel);

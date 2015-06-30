@@ -1,4 +1,4 @@
-package fiuba.algo3.view;
+package fiuba.algo3.view.map;
 
 import fiuba.algo3.model.map.AlgoCraftMap;
 import fiuba.algo3.model.map.Coordinates;
@@ -9,6 +9,7 @@ import fiuba.algo3.model.map.Space;
 import fiuba.algo3.model.map.Tile;
 import fiuba.algo3.model.occupant.units.Unit;
 import fiuba.algo3.model.occupant.units.CombatUnit;
+import fiuba.algo3.view.sideMenu.ActionButton;
 
 import javax.swing.*;
 import java.awt.*;

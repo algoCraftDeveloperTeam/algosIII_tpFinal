@@ -1,4 +1,4 @@
-package fiuba.algo3.view;
+package fiuba.algo3.view.sideMenu;
 
 import fiuba.algo3.model.exceptions.EmptyTileException;
 import fiuba.algo3.model.exceptions.InsufficientAvailablePopulationException;
@@ -9,6 +9,8 @@ import fiuba.algo3.model.map.Tile;
 import fiuba.algo3.model.occupant.Occupant;
 import java.util.List;
 import fiuba.algo3.model.occupant.buildings.UnitCreator;
+import fiuba.algo3.view.map.TileView;
+import fiuba.algo3.view.player.PlayerData;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

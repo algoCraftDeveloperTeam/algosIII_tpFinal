@@ -1,9 +1,11 @@
-package fiuba.algo3.view;
+package fiuba.algo3.view.sideMenu;
 
 import javax.swing.*;
 
 import fiuba.algo3.model.map.Tile;
 import fiuba.algo3.model.game.AlgoCraftModel;
+import fiuba.algo3.view.map.MapView;
+import fiuba.algo3.view.map.TileView;
 
 public abstract class ActionButton extends JButton{
 
