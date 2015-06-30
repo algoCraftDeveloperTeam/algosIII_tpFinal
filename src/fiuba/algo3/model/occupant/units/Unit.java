@@ -28,6 +28,7 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
     Life life;
     Coordinates position;
     Player owner;
+    int actionsPerformed;
 
     public static int getSizeForTransport() {
         return sizeForTransport;
@@ -67,9 +68,10 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
 
     public void move(AlgoCraftMap map, Coordinates destination) throws InvalidMovementException{
         try {
-            if (this.position.distance(destination) <= this.fieldOfVision) {
+            if (this.position.distance(destination) <= this.fieldOfVision && this.actionsPerformed < 2) {
                 map.move(this.position, destination);
                 this.position = destination;
+                this.actionsPerformed--;
             }
         } catch (KeyDoesNotExistsException | EmptyTileException | CannotOccupyTileException e) {
             throw new InvalidMovementException();

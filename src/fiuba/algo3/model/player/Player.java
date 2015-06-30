@@ -11,10 +11,7 @@ import fiuba.algo3.model.occupant.buildings.Building;
 import fiuba.algo3.model.occupant.buildings.BuildingInConstruction;
 import fiuba.algo3.model.occupant.units.Unit;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by nsueiro on 29/05/15.
@@ -218,5 +215,16 @@ public class Player implements TurnAware{
 
     public AlgoCraftMap getAlgoCraftMap(){
         return this.algoCraftMap;
+    }
+
+    public boolean isAlive() {
+        boolean buildingsStatus = true;
+        for(List list : this.buildings.values()) {
+            if (!list.isEmpty()) {
+                buildingsStatus = false;
+                break;
+            }
+        }
+        return !(this.buildingsInConstruction.isEmpty() && buildingsStatus && this.units.isEmpty());
     }
 }

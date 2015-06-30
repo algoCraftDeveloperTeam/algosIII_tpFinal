@@ -5,6 +5,8 @@ import fiuba.algo3.model.gameVariables.Damage;
 import fiuba.algo3.model.map.AlgoCraftMap;
 import fiuba.algo3.model.map.Coordinates;
 import fiuba.algo3.model.occupant.buildings.*;
+import fiuba.algo3.model.occupant.units.Marine;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -119,4 +121,31 @@ public class PlayerTest {
         ResourceGetter resourceGetter = new MineralCenter(this.aPlayer, new Coordinates(1, 1));
         this.aPlayer.build(resourceGetter);
     }
+
+    @Test
+    public void testAPlayerWithAtLeastABuildingIsAlive(){
+        Assert.assertTrue(this.aPlayer.isAlive());
+    }
+
+    @Test
+    public void testAPlayerWithAtLeastAUnitIsAlive(){
+        this.aPlayer.removeBuilding(this.supplyDepot);
+        this.aPlayer.addUnit(new Marine(), new Coordinates(1,1));
+        Assert.assertTrue(this.aPlayer.isAlive());
+    }
+
+    @Test
+    public void testAPlayerWithAtLeastABuildingInConstructionIsAlive() throws InsufficientResourcesException, CannotOccupyTileException, MissingRequiredBuildingsException, DestinationIsOccupiedException, KeyDoesNotExistsException {
+        this.aPlayer.removeBuilding(this.supplyDepot);
+        this.aPlayer.build(new SupplyDepot(this.aPlayer, new Coordinates(1, 1)));
+        Assert.assertTrue(this.aPlayer.isAlive());
+    }
+
+    @Test
+    public void testAPlayerWhoOwnsNothingIsDead() {
+        this.aPlayer.removeBuilding(this.supplyDepot);
+        Assert.assertFalse(this.aPlayer.isAlive());
+    }
+
+
 }
