@@ -5,6 +5,7 @@ import fiuba.algo3.model.map.Tile;
 import fiuba.algo3.model.game.AlgoCraftModel;
 import fiuba.algo3.model.exceptions.EmptyTileException;
 import fiuba.algo3.model.occupant.Occupant;
+import fiuba.algo3.model.occupant.units.CombatUnit;
 
 public class AttackButton extends ActionButton implements ActionListener{
 
@@ -30,30 +31,6 @@ public class AttackButton extends ActionButton implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-    	/*String[] options = {"Access", "Barracks", "Asimilator", "MineralCenter", "MineralNexus", "Pylon", "Refinery"};
-    	JFrame f = new JFrame("input");
-    	String choice = (String) JOptionPane.showInputDialog(f,"Choose a Building","Build", JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
-    	if(choice != null){
-	    	try{
-	    		Class<?> buildingClass = Class.forName("fiuba.algo3.model.occupant.buildings."+choice);
-	    		Constructor constructor = buildingClass.getConstructor(new Class[]{Player.class, Coordinates.class});
-                Building building = (Building) constructor.newInstance(gameModel.getActivePlayer(), actionTile.getPosition());
-	    		gameModel.build(building);
-	    		actionTileView.printOccupied();
-	    	} catch(KeyDoesNotExistsException ex){
-	    		System.out.println("KeyDoesNotExistsException");
-	    	} catch(InsufficientResourcesException ex){
-	    		System.out.println("InsufficientResourcesException");
-	    	} catch(CannotOccupyTileException ex){
-	    		System.out.println("CannotOccupyTileException");
-	    	} catch(MissingRequiredBuildingsException ex){
-	    		System.out.println("MissingRequiredBuildingsException");
-	    	} catch(DestinationIsOccupiedException ex){
-	    		System.out.println("DestinationIsOccupiedException");
-	    	} catch(NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException | ClassNotFoundException ex){
-	    		System.out.println("Instantiation Problem");
-	    	}
-    	}*/
-    	System.out.println("atacando...");
+		mapView.setAttackBehavior((CombatUnit) occupant);
     }  
 }

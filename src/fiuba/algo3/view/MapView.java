@@ -8,6 +8,7 @@ import fiuba.algo3.model.map.Mineral;
 import fiuba.algo3.model.map.Space;
 import fiuba.algo3.model.map.Tile;
 import fiuba.algo3.model.occupant.units.Unit;
+import fiuba.algo3.model.occupant.units.CombatUnit;
 
 import javax.swing.*;
 import java.awt.*;
@@ -74,6 +75,12 @@ public class MapView extends JPanel{
     public void setMoveBehavior(Unit occupant){
         for(TileView tile : tiles){
             tile.setMoveBehavior(occupant);
+        }
+    }
+
+    public void setAttackBehavior(CombatUnit occupant){
+        for(TileView tile : tiles){
+            tile.setAttackBehavior(occupant);
         }
     }
 

@@ -2,6 +2,8 @@ package fiuba.algo3.view;
 
 import fiuba.algo3.model.map.Tile;
 import fiuba.algo3.model.occupant.units.Unit;
+import fiuba.algo3.model.occupant.Damageable;
+import fiuba.algo3.model.occupant.units.CombatUnit;
 import fiuba.algo3.model.exceptions.*;
 
 import javax.swing.*;
@@ -18,7 +20,8 @@ public abstract class TileView extends JComponent{
 	protected MapView mapView;
 	protected List<ActionButton> observers;
 	protected Method method;
-	protected Unit occupant;
+	protected Unit unit;
+	protected CombatUnit combatUnit;
 
 	@Override
 	public void paintComponent(Graphics g){
@@ -54,15 +57,33 @@ public abstract class TileView extends JComponent{
 		} catch(NoSuchMethodException ex){
 			ex.printStackTrace();
 		}
-		occupant = newOccupant;
+		unit = newOccupant;
+	}
+
+	public void setAttackBehavior(CombatUnit newOccupant){
+		try{
+			method = TileView.class.getDeclaredMethod("attackBehavior");
+		} catch(NoSuchMethodException ex){
+			ex.printStackTrace();
+		}
+		combatUnit = newOccupant;
 	}
 
 	public void moveBehavior(){
 		try{
-			occupant.move(mapView.getModelMap(), modelTile.getPosition());
+			unit.move(mapView.getModelMap(), modelTile.getPosition());
 			mapView.refreshTiles();
 		} catch(InvalidMovementException ex){
 			System.out.println("no podes moverte ahi gil");
+		}
+	}
+
+	public void attackBehavior(){
+		try{
+			combatUnit.attack((Damageable) modelTile.getOccupant());
+			mapView.refreshTiles();
+		} catch(EmptyTileException ex){ 
+			System.out.println("no hay unidades ahi");
 		}
 	}
 }
