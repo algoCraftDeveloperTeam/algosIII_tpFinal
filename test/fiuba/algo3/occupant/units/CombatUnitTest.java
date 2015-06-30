@@ -1,7 +1,5 @@
 package fiuba.algo3.occupant.units;
 
-import fiuba.algo3.occupant.units.CombatUnit;
-import fiuba.algo3.occupant.units.Goliath;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,5 +32,10 @@ public class CombatUnitTest {
     @Test
     public void testAirDamage() throws Exception {
         Assert.assertEquals(10, goliath.getAirDamage());
+    }
+
+    @Test
+    public void testCanAttack() throws Exception {
+        Assert.assertTrue(goliath.canAttack());
     }
 }
