@@ -21,9 +21,4 @@ public abstract class MineralGetter extends ResourceGetter {
     public boolean canOccupyMineral(){
     	return true;
     }
-    @Override
-    public void passTurn(){
-        super.passTurn();
-        this.addToPlayerStorage();
-    }
 }

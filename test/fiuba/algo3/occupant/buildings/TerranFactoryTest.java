@@ -3,7 +3,7 @@ package fiuba.algo3.occupant.buildings;
 import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -50,5 +50,20 @@ public class TerranFactoryTest {
         owner.addGas(200);
         owner.addMinerals(200);
         factory.trainUnit();
+    }
+
+    @Test
+    public void testCanCreate() throws Exception {
+        Assert.assertTrue(factory.canCreate());
+    }
+
+    @Test
+    public void testCanAttack() throws Exception {
+        Assert.assertFalse(factory.canAttack());
+    }
+
+    @Test
+    public void testCanMove() throws Exception {
+        Assert.assertFalse(factory.canMove());
     }
 }

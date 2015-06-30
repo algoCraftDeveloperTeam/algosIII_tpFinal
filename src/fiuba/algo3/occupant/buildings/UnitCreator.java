@@ -24,12 +24,13 @@ public abstract class UnitCreator extends Building{
 
     public abstract void trainUnit() throws InsufficientAvailablePopulationException, InsufficientResourcesException, SubtractedResourcesGreaterThanStoragedException;
 
+    /*
     public void getUnitInTraining() throws UnitNotReadyException {
         Unit current = this.trainingQueue.peek().getUnitBeingTrained();
         this.trainingQueue.remove();
         this.owner.addUnit(current, this.position);
     }
-
+    */
     @Override
     public boolean canCreate() {
         return true;
@@ -41,10 +42,11 @@ public abstract class UnitCreator extends Building{
        this.owner.chargeUnitRequirements(unit);
     }
 
+    /*
     protected void addUsedPopulationToOwner(int i){
         this.owner.addUsedPopulation(i);
     }
-
+    */
     @Override
     public void passTurn() {
         super.passTurn();

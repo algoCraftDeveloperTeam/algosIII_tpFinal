@@ -4,10 +4,9 @@ import fiuba.algo3.exceptions.BuildingNotReadyException;
 import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
 import fiuba.algo3.player.Player;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by mporto on 30/05/15.
@@ -27,33 +26,58 @@ public class BuildingInConstructionTest {
 
     @Test
     public void testBuildingTimeEqualsToTheOneOfTheBuildingOnInitialize() throws Exception {
-        assertEquals(this.aMineralGetter.getConstructionTime(), this.aBuildingInConstruction.getRemainingTurns());
+        Assert.assertEquals(this.aMineralGetter.getConstructionTime(), this.aBuildingInConstruction.getRemainingTurns());
     }
 
     @Test
     public void testBuildingTimeAfterOneTurnDecreases() throws Exception {
         aBuildingInConstruction.passTurn();
 
-        assertEquals(this.aMineralGetter.getConstructionTime() - 1, this.aBuildingInConstruction.getRemainingTurns());
+        Assert.assertEquals(this.aMineralGetter.getConstructionTime() - 1, this.aBuildingInConstruction.getRemainingTurns());
     }
 
     @Test (expected = BuildingNotReadyException.class)
     public void testGetBuildingInConstructionRaisesAnExceptionWhenNotReady() throws Exception {
-        assertEquals(this.aMineralGetter, this.aBuildingInConstruction.getBuildingInConstruction());
+        Assert.assertEquals(this.aMineralGetter, this.aBuildingInConstruction.getBuildingInConstruction());
     }
 
     @Test
     public void testBuildingIsNotFinishedWhileTrainingTimeIsGreaterThanZero() throws Exception {
-        assertFalse(this.aBuildingInConstruction.isReady());
+        Assert.assertFalse(this.aBuildingInConstruction.isReady());
     }
 
     @Test
     public void testVitalityIsTheSameAsBuildingBeingConstructed() {
-        assertEquals(250, this.aBuildingInConstruction.getVitality());
+        Assert.assertEquals(250, this.aBuildingInConstruction.getVitality());
     }
 
     @Test
     public void testMineralGeterGetterInConstructionCannotOccupyGas() {
-        assertFalse(this.aBuildingInConstruction.canOccupyGas());
+        Assert.assertFalse(this.aBuildingInConstruction.canOccupyGas());
+    }
+
+    @Test
+    public void testCanCreate() throws Exception {
+        Assert.assertFalse(aBuildingInConstruction.canCreate());
+    }
+
+    @Test
+    public void testCanAttack() throws Exception {
+        Assert.assertFalse(aBuildingInConstruction.canAttack());
+    }
+
+    @Test
+    public void testCanMove() throws Exception {
+        Assert.assertFalse(aBuildingInConstruction.canMove());
+    }
+
+    @Test
+    public void testGetOwner() throws Exception {
+        Assert.assertEquals(player, aBuildingInConstruction.getOwner());
+    }
+
+    @Test
+    public void testGetPosition() throws Exception {
+        Assert.assertEquals(new Coordinates(0, 0), aBuildingInConstruction.getPosition());
     }
 }

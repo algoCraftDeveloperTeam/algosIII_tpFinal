@@ -13,17 +13,14 @@ public abstract class GasGetter extends ResourceGetter{
         this.constructionCost = new Cost(100, 0);
         this.constructionTime = 4;
     }
+
     @Override
     protected void addToPlayerStorage(){
         owner.addGas(quantity);
     }
+
     @Override
     public boolean canOccupyGas(){
     	return true;
-    }
-    @Override
-    public void passTurn(){
-        super.passTurn();
-        this.addToPlayerStorage();
     }
 }
