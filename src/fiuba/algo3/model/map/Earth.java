@@ -8,7 +8,7 @@ public class Earth extends Tile{
 
 	public Earth(Coordinates coordinates){
 		super(coordinates);
-		info = "Tierra: construi, camina, etc";
+		info = "Earth";
 	}
 
 	public void put(Occupant newOccupant) throws CannotOccupyTileException {
