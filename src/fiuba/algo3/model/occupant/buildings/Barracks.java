@@ -18,11 +18,12 @@ import java.util.LinkedList;
 public class Barracks extends UnitCreator{
 
     public Barracks(Player player, Coordinates coordinate) {
-    	super(player, coordinate);
+        super(player, coordinate);
         this.constructionCost = new Cost(150, 0);
         this.constructionTime = 12;
         this.life = new Life(1000, 0);
         this.trainingQueue = new LinkedList<UnitInTraining>();
+        this.info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
     }
 
     @Override

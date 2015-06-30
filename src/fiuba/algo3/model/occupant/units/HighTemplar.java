@@ -8,6 +8,8 @@ import fiuba.algo3.model.gameVariables.Life;
  */
 public class HighTemplar extends CombatUnit{
 
+
+
     public HighTemplar() {
         sizeForTransport = 2;
         fieldOfVision = 7;
@@ -15,5 +17,6 @@ public class HighTemplar extends CombatUnit{
         unitSize = 2;
         life = new Life(40, 40);
         trainingCost = new Cost(50, 150);
+	    info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
     }
 }

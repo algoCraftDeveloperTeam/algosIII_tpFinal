@@ -29,6 +29,7 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
     Coordinates position;
     Player owner;
     int actionsPerformed;
+    String info;
 
     public static int getSizeForTransport() {
         return sizeForTransport;
@@ -56,6 +57,10 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
 
     public static int getUnitSize() {
         return unitSize;
+    }
+
+    public String getInfo(){
+        return info;
     }
 
     public void receiveDamage(Damage damage) {

@@ -42,6 +42,10 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
         remainingTurnsToBeFinished--;
     }
 
+    public String getInfo(){
+        return buildingInConstruction.getInfo();
+    }
+
     public Building getBuildingInConstruction() throws BuildingNotReadyException {
         if(!this.isReady()) {
             throw new BuildingNotReadyException();

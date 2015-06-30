@@ -11,6 +11,8 @@ public abstract class Tile implements Pervadable{
 
 	protected Coordinates position;
 
+	protected String info;
+
 	public Tile(Coordinates coordinates){
 		occupied = false;
 		position = coordinates;
@@ -24,6 +26,10 @@ public abstract class Tile implements Pervadable{
 
 	public void clear() {
 		this.occupied = false;
+	}
+
+	public String getInfo(){
+		return info;
 	}
 
 	public Occupant getOccupant() throws EmptyTileException{

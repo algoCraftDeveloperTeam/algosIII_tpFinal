@@ -11,11 +11,13 @@ import fiuba.algo3.model.player.Player;
  */
 public class Pylon extends PopulationStorage{
 
+
     public Pylon(Player player, Coordinates coordinate) {
         super(player, coordinate);
         this.constructionTime = 5;
         this.constructionCost = new Cost(100, 0);
         this.life = new Life(250, 250);
+        this.info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
     }
 
     @Override

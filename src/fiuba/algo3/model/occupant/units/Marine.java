@@ -10,6 +10,8 @@ import fiuba.algo3.model.gameVariables.Life;
  */
 public class Marine extends CombatUnit{
 
+
+
     public Marine() {
         sizeForTransport = 1;
         fieldOfVision = 7;
@@ -19,6 +21,7 @@ public class Marine extends CombatUnit{
         life = new Life(40, 0);
         attackRange = new AttackRange(4, 4);
         damage = new Damage(6, 6);
+        info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
     }
 
 

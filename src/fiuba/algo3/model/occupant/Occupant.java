@@ -21,4 +21,6 @@ public interface Occupant {
 
 	Player getOwner();
 
+	String getInfo();
+
 }

@@ -21,6 +21,8 @@ import java.util.List;
  */
 public abstract class Building implements Occupant, Damageable, TurnAware{
 
+    String info;
+
     Cost constructionCost;
     int constructionTime;
     Life life;
@@ -75,6 +77,9 @@ public abstract class Building implements Occupant, Damageable, TurnAware{
     }
     public int getShield(){
         return life.getShield();
+    }
+    public String getInfo(){
+        return info;
     }
     @Override
     public Player getOwner() {

@@ -9,6 +9,9 @@ import fiuba.algo3.model.gameVariables.Life;
  * Created by mporto on 30/05/15.
  */
 public class Goliath extends CombatUnit{
+    
+
+
     public Goliath(){
         sizeForTransport = 2;
         fieldOfVision = 8;
@@ -18,5 +21,6 @@ public class Goliath extends CombatUnit{
         trainingCost = new Cost(100, 50);
         attackRange = new AttackRange(6, 5);
         damage = new Damage(12, 10);
+        info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
     }
 }
