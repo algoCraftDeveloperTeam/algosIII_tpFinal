@@ -36,7 +36,15 @@ public class AlgoCraftModel implements TurnAware{
 
     public void endTurn(){
         players.add(activePlayer);
-        activePlayer = players.remove();
+        Player nextPlayer = players.remove();
+        while(!nextPlayer.isAlive() && nextPlayer != activePlayer){
+            nextPlayer = players.remove();
+        }
+        /*
+        if(nextPlayer == activePlayer){
+            Game is over. ActivePlayer has won.
+        }
+         */
         this.passTurn();
     }
 
