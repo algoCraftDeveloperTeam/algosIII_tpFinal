@@ -18,6 +18,7 @@ public class AlgoCraftModel implements TurnAware{
     private Player activePlayer;
     private int setUpTurns;
     private int turnsPlayed;
+    private boolean gameEnded;
 
     public AlgoCraftModel(){
         players = new LinkedList<>();
@@ -27,6 +28,7 @@ public class AlgoCraftModel implements TurnAware{
         activePlayer = players.remove();
         setUpTurns = 20;
         turnsPlayed = 0;
+        gameEnded = false;
     }
 
     @Override
@@ -45,11 +47,9 @@ public class AlgoCraftModel implements TurnAware{
             while (!nextPlayer.isAlive() && nextPlayer != activePlayer) {
                 nextPlayer = players.remove();
             }
-            /*
             if(nextPlayer == activePlayer){
-                Game is over. ActivePlayer has won.
+                gameEnded = true;
             }
-             */
         }
         this.activePlayer = nextPlayer;
         this.turnsPlayed++;
@@ -63,4 +63,9 @@ public class AlgoCraftModel implements TurnAware{
     public AlgoCraftMap getAlgoCraftMap() {
         return this.algoCraftMap;
     }
+
+    public boolean isGameEnded() {
+        return gameEnded;
+    }
+
 }
