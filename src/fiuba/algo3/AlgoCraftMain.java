@@ -1,8 +1,7 @@
 package fiuba.algo3;
 
-import fiuba.algo3.game.AlgoCraftModel;
+import fiuba.algo3.model.game.AlgoCraftModel;
 import fiuba.algo3.view.AlgoCraftView;
-import fiuba.algo3.map.AlgoCraftMap;
 
 import java.lang.reflect.InvocationTargetException;
 

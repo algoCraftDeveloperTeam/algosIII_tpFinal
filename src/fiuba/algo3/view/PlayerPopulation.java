@@ -1,7 +1,7 @@
 package fiuba.algo3.view;
 
-import fiuba.algo3.game.AlgoCraftModel;
-import fiuba.algo3.player.Player;
+import fiuba.algo3.model.game.AlgoCraftModel;
+import fiuba.algo3.model.player.Player;
 
 /**
  * Created by mporto on 29/06/15.

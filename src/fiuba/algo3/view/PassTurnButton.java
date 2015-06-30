@@ -1,14 +1,10 @@
 package fiuba.algo3.view;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.EtchedBorder;
-import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 import java.util.List;
-import fiuba.algo3.map.Tile;
-import fiuba.algo3.game.AlgoCraftModel;
+
+import fiuba.algo3.model.game.AlgoCraftModel;
 
 public class PassTurnButton extends JButton implements ActionListener{
 

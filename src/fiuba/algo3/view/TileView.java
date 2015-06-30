@@ -1,8 +1,8 @@
 package fiuba.algo3.view;
 
-import fiuba.algo3.map.Tile;
-import fiuba.algo3.occupant.units.Unit;
-import fiuba.algo3.exceptions.*;
+import fiuba.algo3.model.map.Tile;
+import fiuba.algo3.model.occupant.units.Unit;
+import fiuba.algo3.model.exceptions.*;
 
 import javax.swing.*;
 import java.awt.*;

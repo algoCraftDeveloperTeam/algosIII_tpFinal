@@ -1,6 +1,6 @@
 package fiuba.algo3.view;
 
-import fiuba.algo3.game.AlgoCraftModel;
+import fiuba.algo3.model.game.AlgoCraftModel;
 
 import javax.swing.*;
 import java.awt.*;

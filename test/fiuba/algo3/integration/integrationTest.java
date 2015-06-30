@@ -1,15 +1,15 @@
 package fiuba.algo3.integration;
 
-import fiuba.algo3.game.AlgoCraftModel;
-import fiuba.algo3.map.Coordinates;
-import fiuba.algo3.map.AlgoCraftMap;
-import fiuba.algo3.occupant.Damageable;
-import fiuba.algo3.occupant.buildings.Barracks;
-import fiuba.algo3.occupant.buildings.BuildingInConstruction;
-import fiuba.algo3.occupant.buildings.MineralCenter;
-import fiuba.algo3.occupant.buildings.SupplyDepot;
-import fiuba.algo3.occupant.units.Marine;
-import fiuba.algo3.player.Player;
+import fiuba.algo3.model.game.AlgoCraftModel;
+import fiuba.algo3.model.map.Coordinates;
+import fiuba.algo3.model.map.AlgoCraftMap;
+import fiuba.algo3.model.occupant.Damageable;
+import fiuba.algo3.model.occupant.buildings.Barracks;
+import fiuba.algo3.model.occupant.buildings.BuildingInConstruction;
+import fiuba.algo3.model.occupant.buildings.MineralCenter;
+import fiuba.algo3.model.occupant.buildings.SupplyDepot;
+import fiuba.algo3.model.occupant.units.Marine;
+import fiuba.algo3.model.player.Player;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +43,7 @@ public class integrationTest {
         Assert.assertFalse(current.isReady());
         algoCraftModel.endTurn();
         // Testing the change of active player
-        Assert.assertNotEquals(player1, algoCraftModel.getActivePlayer());
+        Assert.assertNotSame(player1, algoCraftModel.getActivePlayer());
         algoCraftModel.endTurn();
         // Testing the change of active player cycle
         Assert.assertEquals(player1, algoCraftModel.getActivePlayer());

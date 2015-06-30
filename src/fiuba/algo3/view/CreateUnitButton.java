@@ -1,14 +1,14 @@
 package fiuba.algo3.view;
 
-import fiuba.algo3.exceptions.EmptyTileException;
-import fiuba.algo3.exceptions.InsufficientAvailablePopulationException;
-import fiuba.algo3.exceptions.InsufficientResourcesException;
-import fiuba.algo3.exceptions.SubtractedResourcesGreaterThanStoragedException;
-import fiuba.algo3.game.AlgoCraftModel;
-import fiuba.algo3.map.Tile;
-import fiuba.algo3.occupant.Occupant;
+import fiuba.algo3.model.exceptions.EmptyTileException;
+import fiuba.algo3.model.exceptions.InsufficientAvailablePopulationException;
+import fiuba.algo3.model.exceptions.InsufficientResourcesException;
+import fiuba.algo3.model.exceptions.SubtractedResourcesGreaterThanStoragedException;
+import fiuba.algo3.model.game.AlgoCraftModel;
+import fiuba.algo3.model.map.Tile;
+import fiuba.algo3.model.occupant.Occupant;
 import java.util.List;
-import fiuba.algo3.occupant.buildings.UnitCreator;
+import fiuba.algo3.model.occupant.buildings.UnitCreator;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

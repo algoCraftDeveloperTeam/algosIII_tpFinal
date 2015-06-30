@@ -1,12 +1,12 @@
 package fiuba.algo3.combat;
 
-import fiuba.algo3.map.AlgoCraftMap;
-import fiuba.algo3.map.Coordinates;
-import fiuba.algo3.occupant.buildings.Access;
-import fiuba.algo3.occupant.buildings.BuildingInConstruction;
-import fiuba.algo3.occupant.units.CombatUnit;
-import fiuba.algo3.occupant.units.Marine;
-import fiuba.algo3.player.Player;
+import fiuba.algo3.model.map.AlgoCraftMap;
+import fiuba.algo3.model.map.Coordinates;
+import fiuba.algo3.model.occupant.buildings.Access;
+import fiuba.algo3.model.occupant.buildings.BuildingInConstruction;
+import fiuba.algo3.model.occupant.units.CombatUnit;
+import fiuba.algo3.model.occupant.units.Marine;
+import fiuba.algo3.model.player.Player;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

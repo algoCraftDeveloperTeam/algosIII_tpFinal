@@ -1,14 +1,10 @@
 package fiuba.algo3.view;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.EtchedBorder;
-import java.awt.*;
 import java.awt.event.*;
-import fiuba.algo3.map.Tile;
-import fiuba.algo3.game.AlgoCraftModel;
-import fiuba.algo3.exceptions.EmptyTileException;
-import fiuba.algo3.occupant.Occupant;
+import fiuba.algo3.model.map.Tile;
+import fiuba.algo3.model.game.AlgoCraftModel;
+import fiuba.algo3.model.exceptions.EmptyTileException;
+import fiuba.algo3.model.occupant.Occupant;
 
 public class AttackButton extends ActionButton implements ActionListener{
 
@@ -39,7 +35,7 @@ public class AttackButton extends ActionButton implements ActionListener{
     	String choice = (String) JOptionPane.showInputDialog(f,"Choose a Building","Build", JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
     	if(choice != null){
 	    	try{
-	    		Class<?> buildingClass = Class.forName("fiuba.algo3.occupant.buildings."+choice);
+	    		Class<?> buildingClass = Class.forName("fiuba.algo3.model.occupant.buildings."+choice);
 	    		Constructor constructor = buildingClass.getConstructor(new Class[]{Player.class, Coordinates.class});
                 Building building = (Building) constructor.newInstance(gameModel.getActivePlayer(), actionTile.getPosition());
 	    		gameModel.build(building);

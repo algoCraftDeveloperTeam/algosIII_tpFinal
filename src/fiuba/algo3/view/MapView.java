@@ -1,17 +1,16 @@
 package fiuba.algo3.view;
 
-import fiuba.algo3.map.AlgoCraftMap;
-import fiuba.algo3.map.Coordinates;
-import fiuba.algo3.map.Earth;
-import fiuba.algo3.map.Gas;
-import fiuba.algo3.map.Mineral;
-import fiuba.algo3.map.Space;
-import fiuba.algo3.map.Tile;
-import fiuba.algo3.occupant.units.Unit;
+import fiuba.algo3.model.map.AlgoCraftMap;
+import fiuba.algo3.model.map.Coordinates;
+import fiuba.algo3.model.map.Earth;
+import fiuba.algo3.model.map.Gas;
+import fiuba.algo3.model.map.Mineral;
+import fiuba.algo3.model.map.Space;
+import fiuba.algo3.model.map.Tile;
+import fiuba.algo3.model.occupant.units.Unit;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.lang.reflect.*;
 import java.util.HashMap;
 import java.util.ArrayList;
