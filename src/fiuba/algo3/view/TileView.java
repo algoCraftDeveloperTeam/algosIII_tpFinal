@@ -80,8 +80,12 @@ public abstract class TileView extends JComponent{
 
 	public void attackBehavior(){
 		try{
-			combatUnit.attack((Damageable) modelTile.getOccupant());
-			mapView.refreshTiles();
+			if(combatUnit.getOwner() != modelTile.getOccupant().getOwner()){
+				combatUnit.attack((Damageable) modelTile.getOccupant());
+				mapView.refreshTiles();
+			} else{
+				System.out.println("no puedes atacar a tus propias unidades");
+			}
 		} catch(EmptyTileException ex){ 
 			System.out.println("no hay unidades ahi");
 		}
