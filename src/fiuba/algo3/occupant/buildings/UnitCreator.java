@@ -44,4 +44,19 @@ public abstract class UnitCreator extends Building{
     protected void addUsedPopulationToOwner(int i){
         this.owner.addUsedPopulation(i);
     }
+
+    @Override
+    public void passTurn() {
+        super.passTurn();
+        if(this.trainingQueue.isEmpty()) return;
+        UnitInTraining firstUnit = this.trainingQueue.peek();
+        firstUnit.passTurn();
+        if(firstUnit.isReady()){
+            try {
+                this.trainingQueue.remove();
+                Unit trainedUnit = firstUnit.getUnitBeingTrained();
+                this.owner.addUnit(trainedUnit, this.position);
+            } catch (UnitNotReadyException e){}
+        }
+    }
 }

@@ -43,4 +43,9 @@ public class AccessTest {
         Assert.assertEquals(150, aAccess.getConstructionCost().getMineralCost());
     }
 
+    @Test
+    public void testTrainUnitTest() throws Exception {
+        owner.addAvailablePopulation(10);
+        aAccess.trainUnit();
+    }
 }
