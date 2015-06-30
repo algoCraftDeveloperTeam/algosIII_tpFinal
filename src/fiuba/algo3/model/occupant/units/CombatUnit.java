@@ -14,7 +14,7 @@ public class CombatUnit extends Unit{
     Damage  damage;
 
     public void attack(Damageable attacked) {
-        if(attacked.isWithinRange(this)) {
+        if(attacked.isWithinRange(this) && this.actionsPerformed < 2) {
             attacked.receiveDamage(damage);
         }else{
             Damage noDamage = new Damage(0, 0);
