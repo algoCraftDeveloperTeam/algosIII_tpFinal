@@ -33,6 +33,7 @@ public class PassTurnButton extends JButton implements ActionListener{
     	gameModel.endTurn();
 		if(gameModel.isGameEnded()){
             JOptionPane.showMessageDialog(mapView, "Game ended.");
+            System.exit(0);
         }
     	mapView.refreshTiles();
     	for(ActionButton button: actionButtons){
