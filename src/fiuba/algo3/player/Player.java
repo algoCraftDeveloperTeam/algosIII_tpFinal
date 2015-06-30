@@ -215,4 +215,8 @@ public class Player implements TurnAware{
         this.subtractResources(unit.getTrainingCost());
         this.addUsedPopulation(unit.getUnitSize());
     }
+
+    public AlgoCraftMap getAlgoCraftMap(){
+        return this.algoCraftMap;
+    }
 }

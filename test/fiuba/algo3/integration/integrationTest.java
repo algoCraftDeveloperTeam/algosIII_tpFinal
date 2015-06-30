@@ -125,6 +125,5 @@ public class integrationTest {
             this.algoCraftModel.endTurn();
         }
         Assert.assertFalse(this.algoCraftModel.getAlgoCraftMap().isOccupied(new Coordinates(1, 2)));
-
     }
 }

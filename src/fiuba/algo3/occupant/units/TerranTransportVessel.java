@@ -1,8 +1,14 @@
 package fiuba.algo3.occupant.units;
 
+import fiuba.algo3.exceptions.InvalidMovementException;
+import fiuba.algo3.exceptions.NotEnoughRoomException;
 import fiuba.algo3.gameVariables.Cost;
 import fiuba.algo3.gameVariables.Life;
+import fiuba.algo3.map.AlgoCraftMap;
 import fiuba.algo3.map.Coordinates;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by mporto on 02/06/15.
@@ -10,7 +16,11 @@ import fiuba.algo3.map.Coordinates;
 public class TerranTransportVessel extends Unit{
     
     int capacity;
+    int usedCapacity;
+    List<Unit> units;
     public TerranTransportVessel() {
+        units = new ArrayList<Unit>();
+        usedCapacity = 0;
         sizeForTransport = 0;
         fieldOfVision = 8;
         trainingTime = 7;
@@ -30,5 +40,23 @@ public class TerranTransportVessel extends Unit{
         int distance = this.position.distance(unitPosition);
         // In the meantime this will only check with the unit's ground attack range.
         return !(distance > attacker.getAirAttackRange());
+    }
+
+    public void addUnit(Unit unit) throws NotEnoughRoomException {
+        if(unit.getSizeForTransport() + this.usedCapacity > this.capacity){
+            throw new NotEnoughRoomException();
+        }
+        this.units.add(unit);
+        this.usedCapacity -= unit.getSizeForTransport();
+        this.owner.getAlgoCraftMap().clearTile(unit.getPosition());
+    }
+
+    @Override
+    public void move(AlgoCraftMap algoCraftMap, Coordinates coordinate) throws InvalidMovementException{
+        super.move(algoCraftMap, coordinate);
+        for(Unit unit : this.units){
+            this.owner.getAlgoCraftMap().locate(unit, this.position);
+        }
+        this.usedCapacity = 0;
     }
 }

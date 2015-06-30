@@ -1,6 +1,7 @@
 package fiuba.algo3.occupant.units;
 
 import fiuba.algo3.gameVariables.Cost;
+import fiuba.algo3.gameVariables.Damage;
 import fiuba.algo3.gameVariables.Life;
 
 /**
@@ -14,5 +15,6 @@ public class Wraith extends CombatUnit{
         unitSize = 2;
         life = new Life(120, 0);
         trainingCost = new Cost(150, 100);
+        damage = new Damage(20, 8);
     }
 }
