@@ -49,6 +49,7 @@ public abstract class TileView extends JComponent implements MouseListener{
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+        infoArea.setText("");
 	}
 
 	public void setModelTile(Tile tile){

@@ -29,7 +29,7 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
     Coordinates position;
     Player owner;
     int actionsPerformed;
-    String info;
+    String info = "Test String";
 
     public static int getSizeForTransport() {
         return sizeForTransport;

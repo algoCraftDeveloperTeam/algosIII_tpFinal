@@ -8,7 +8,7 @@ public class Earth extends Tile{
 
 	public Earth(Coordinates coordinates){
 		super(coordinates);
-		info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
+		info = "Tierra: construi, camina, etc";
 	}
 
 	public void put(Occupant newOccupant) throws CannotOccupyTileException {

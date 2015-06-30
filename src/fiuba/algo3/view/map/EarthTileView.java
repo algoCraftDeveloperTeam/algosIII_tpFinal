@@ -30,10 +30,6 @@ public class EarthTileView extends TileView implements MouseListener{
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent e) {
-	}
-
-	@Override
 	public void mouseReleased(MouseEvent e) {
 	}
 

@@ -26,14 +26,6 @@ public class GasTileView extends TileView implements MouseListener{
 	}
 
 	@Override
-	public void mouseExited(MouseEvent e) {
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-	}
-
-	@Override
 	public void mouseReleased(MouseEvent e) {
 	}
 
