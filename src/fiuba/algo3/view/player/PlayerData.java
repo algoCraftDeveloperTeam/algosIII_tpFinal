@@ -1,4 +1,4 @@
-package fiuba.algo3.view;
+package fiuba.algo3.view.player;
 
 import javax.swing.*;
 

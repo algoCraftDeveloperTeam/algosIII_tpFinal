@@ -1,6 +1,8 @@
 package fiuba.algo3.view;
 
 import fiuba.algo3.model.game.AlgoCraftModel;
+import fiuba.algo3.view.map.MapView;
+import fiuba.algo3.view.sideMenu.SideMenu;
 
 import javax.swing.*;
 import java.lang.reflect.InvocationTargetException;

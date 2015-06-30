@@ -1,4 +1,4 @@
-package fiuba.algo3.view;
+package fiuba.algo3.view.sideMenu;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -11,6 +11,8 @@ import java.lang.reflect.*;
 import fiuba.algo3.model.exceptions.*;
 import java.lang.reflect.Constructor;
 import fiuba.algo3.model.player.Player;
+import fiuba.algo3.view.map.TileView;
+import fiuba.algo3.view.player.PlayerData;
 
 public class BuildButton extends ActionButton implements ActionListener{
 

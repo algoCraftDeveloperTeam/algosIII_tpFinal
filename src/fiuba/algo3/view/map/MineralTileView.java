@@ -1,18 +1,19 @@
-package fiuba.algo3.view;
+package fiuba.algo3.view.map;
+
+import fiuba.algo3.view.map.TileView;
 
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
 import java.lang.reflect.*;
 
 /**
  * Created by mporto on 22/06/15.
  */
-public class GasTileView extends TileView implements MouseListener{
+public class MineralTileView extends TileView implements MouseListener{
 
-    public GasTileView() {
+    public MineralTileView() {
 		addMouseListener(this);
-		setBackground(Color.GREEN);
+		setBackground(Color.BLUE);
 		try{
 			method = TileView.class.getDeclaredMethod("defaultBehavior");
 		} catch(NoSuchMethodException ex){
@@ -55,7 +56,7 @@ public class GasTileView extends TileView implements MouseListener{
 		if(modelTile.isOccupied()){
 			setBackground(Color.ORANGE);
 		} else{
-			setBackground(Color.GREEN);
+			setBackground(Color.BLUE);
 		}
 	}
 }
