@@ -21,6 +21,7 @@ public class PylonTest {
         owner = new Player((new AlgoCraftMap(1)).testMap());
         startingAvailablePopulation = owner.getAvailablePopulation();
         pylon = new Pylon(owner, new Coordinates(0, 0));
+        owner.addFinishedBuilding(pylon);
     }
 
     @Test

@@ -31,6 +31,7 @@ public abstract class Building implements Occupant, Damageable, TurnAware{
     List<Class<?>> requiredBuildings;
 
     public Building(Player player, Coordinates coordinate) {
+        info = "This is a Test";
         this.owner = player;
         requiredBuildings = new ArrayList<Class<?>>();
         this.owner = player;
@@ -115,5 +116,9 @@ public abstract class Building implements Occupant, Damageable, TurnAware{
         int distance = this.position.distance(unitPosition);
         // In the meantime this will only check with the unit's ground attack range.
         return !(distance > attacker.getGroundAttackRange());
+    }
+
+    public void applyEffect(){
+        
     }
 }

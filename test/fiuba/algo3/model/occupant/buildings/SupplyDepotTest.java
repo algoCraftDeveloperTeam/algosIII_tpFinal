@@ -17,6 +17,7 @@ public class SupplyDepotTest {
         Player aPlayer = new Player((new AlgoCraftMap(1)).testMap());
         int startingAvailablePopulation = aPlayer.getAvailablePopulation();
         SupplyDepot aSupplyDepot = new SupplyDepot(aPlayer, new Coordinates(0, 0));
+        aPlayer.addFinishedBuilding(aSupplyDepot);
 
         assertEquals(startingAvailablePopulation + 5, aPlayer.getAvailablePopulation());
     }
