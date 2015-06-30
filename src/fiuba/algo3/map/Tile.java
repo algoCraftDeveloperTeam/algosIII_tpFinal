@@ -37,10 +37,11 @@ public abstract class Tile implements Pervadable{
 		return this.occupied;
 	}
 
+	/*
 	public void ocuparTurbio(){
 		this.occupied = true;
 	}
-
+    */
 	public Coordinates getPosition(){
 		return position;
 	}

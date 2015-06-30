@@ -13,7 +13,7 @@ import org.junit.Test;
 
 public class AlgoCraftMapTest{
 
-	AlgoCraftMap algoCraftMap;
+	private AlgoCraftMap algoCraftMap;
 
 	@Before
 	public void setUp(){
@@ -101,4 +101,13 @@ public class AlgoCraftMapTest{
 		Assert.assertSame(marine, this.algoCraftMap.getOccupant(new Coordinates(0, 0)));
 	}
 
+	@Test
+	public void testGetDimention() throws Exception {
+		Assert.assertEquals(20, algoCraftMap.getDimention());
+	}
+
+	@Test
+	public void testGetTile() throws Exception {
+		Assert.assertEquals(Earth.class, algoCraftMap.getTile(new Coordinates(1, 1)).getClass());
+	}
 }

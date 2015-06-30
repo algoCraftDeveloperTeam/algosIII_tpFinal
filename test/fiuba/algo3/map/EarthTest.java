@@ -8,6 +8,7 @@ import fiuba.algo3.occupant.buildings.Barracks;
 import fiuba.algo3.occupant.buildings.MineralCenter;
 import fiuba.algo3.occupant.units.Marine;
 import fiuba.algo3.player.Player;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -105,4 +106,10 @@ public class EarthTest{
 		marine = earth.getOccupant();
 	}
 
+	@Test
+	public void testGetPosition() throws Exception {
+		Coordinates expectedPosition = new Coordinates(0, 0);
+		Assert.assertEquals(expectedPosition, earth.getPosition());
+
+	}
 }
