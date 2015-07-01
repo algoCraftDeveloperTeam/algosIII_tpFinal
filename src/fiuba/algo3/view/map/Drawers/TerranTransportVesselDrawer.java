@@ -17,6 +17,6 @@ public class TerranTransportVesselDrawer implements OccupantDrawer{
 
 	public void paintComponent(Graphics g, int w, int h){
 		g.setColor(Color.CYAN);
-		g.fillOval(w/8,h/8,w/4,h/4);
+		g.fillOval(w/4,h/4,w/2,h/2);
 	}
 }
