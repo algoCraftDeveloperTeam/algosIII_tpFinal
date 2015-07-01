@@ -80,7 +80,7 @@ public abstract class Building implements Occupant, Damageable, TurnAware{
         return life.getShield();
     }
     public String getInfo(){
-        return info;
+        return info + String.valueOf(getVitality()) + String.valueOf(getShield());
     }
     @Override
     public Player getOwner() {

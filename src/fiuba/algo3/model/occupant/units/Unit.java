@@ -60,7 +60,7 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
     }
 
     public String getInfo(){
-        return info;
+        return info + String.valueOf(getVitality()) + String.valueOf(getShield());
     }
 
     public void receiveDamage(Damage damage) {
