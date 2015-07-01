@@ -9,6 +9,7 @@ import fiuba.algo3.model.exceptions.*;
 import fiuba.algo3.view.map.Drawers.OccupantDrawer;
 import fiuba.algo3.view.sideMenu.ActionButton;
 import fiuba.algo3.view.sideMenu.InfoArea;
+import fiuba.algo3.view.ErrorMessages;
 
 import javax.swing.*;
 import java.awt.*;
