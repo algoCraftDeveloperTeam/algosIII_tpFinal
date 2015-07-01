@@ -61,7 +61,7 @@ public class EarthTileView extends TileView implements MouseListener{
 		} catch (EmptyTileException ex){
 			occupantDrawer = EmptyDrawer.getInstance();
 		} catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex){
-			System.out.println("metete la reflection en el ogt, no sabes nada");
+			System.out.println("ups");
 		}
 		repaint();
 	}

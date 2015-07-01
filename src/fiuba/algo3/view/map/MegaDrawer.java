@@ -33,4 +33,12 @@ public class MegaDrawer {
 		return BuildingInConstructionDrawer.getInstance();
 	}
 
+	public OccupantDrawer getMineralCenterDrawer(){
+		return MineralCenterDrawer.getInstance();
+	}
+
+	public OccupantDrawer getRefineryDrawer(){
+		return RefineryDrawer.getInstance();
+	}
+
 }

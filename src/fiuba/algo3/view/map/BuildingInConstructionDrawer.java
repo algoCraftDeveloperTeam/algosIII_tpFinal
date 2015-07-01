@@ -18,7 +18,7 @@ public class BuildingInConstructionDrawer implements OccupantDrawer{
 	}
 
 	public void paintComponent(Graphics g, int w, int h){
-		g.setColor(Color.BLACK);
+		g.setColor(Color.ORANGE);
 		g.fillOval(0,0,w,h);
 	}
 }
