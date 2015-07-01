@@ -12,6 +12,7 @@ import fiuba.algo3.model.exceptions.*;
 import java.lang.reflect.Constructor;
 import fiuba.algo3.model.player.Player;
 import fiuba.algo3.view.map.TileView;
+import fiuba.algo3.view.ErrorMessages;
 import fiuba.algo3.view.player.PlayerData;
 
 public class BuildButton extends ActionButton implements ActionListener{
@@ -50,7 +51,7 @@ public class BuildButton extends ActionButton implements ActionListener{
 	    		actionTileView.refreshOccupant();
 	    	} catch(KeyDoesNotExistsException | InsufficientResourcesException | CannotOccupyTileException | 
 	    			MissingRequiredBuildingsException | DestinationIsOccupiedException ex){
-	    		System.out.println(ex.getMessage());
+	    		ErrorMessages.sendMessage(ex.getMessage());
 	    	} catch(NoSuchMethodException | IllegalAccessException | InvocationTargetException | 
 	    			InstantiationException | ClassNotFoundException ex){
 	    		System.out.println("Instantiation Problem");
