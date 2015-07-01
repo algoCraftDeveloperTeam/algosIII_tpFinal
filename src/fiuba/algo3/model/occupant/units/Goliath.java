@@ -21,6 +21,6 @@ public class Goliath extends CombatUnit{
         trainingCost = new Cost(100, 50);
         attackRange = new AttackRange(6, 5);
         damage = new Damage(12, 10);
-        info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
+        info = "Goliath";
     }
 }

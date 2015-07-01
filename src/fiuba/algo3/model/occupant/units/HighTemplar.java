@@ -17,6 +17,6 @@ public class HighTemplar extends CombatUnit{
         unitSize = 2;
         life = new Life(40, 40);
         trainingCost = new Cost(50, 150);
-	    info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
+	    info = "HighTemplar";
     }
 }

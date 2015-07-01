@@ -24,7 +24,7 @@ public class Access extends UnitCreator{
         this.constructionTime = 8;
         this.life = new Life(500, 500);
         this.trainingQueue = new LinkedList<UnitInTraining>();
-        this.info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
+        this.info = "Access";
     }
 
     @Override

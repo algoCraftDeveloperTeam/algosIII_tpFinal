@@ -26,7 +26,7 @@ public class TerranFactory extends UnitCreator {
         this.constructionCost = new Cost(200, 100);
         this.life = new Life(1250, 0);
         this.trainingQueue = new LinkedList<UnitInTraining>();
-        this.info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
+        this.info = "TerranFactory";
     }
 
     @Override

@@ -17,7 +17,7 @@ public class ScienceVessel extends Unit{
         unitSize = 2;
         life = new Life(200, 0);
         trainingCost = new Cost(100, 225);
-        info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
+        info = "ScienceVessel";
     }
 
     @Override

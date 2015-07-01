@@ -30,7 +30,7 @@ public class TerranTransportVessel extends Unit{
         life = new Life(150, 0);
         trainingCost = new Cost(100, 100);
         capacity = 8;
-        info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
+        info = "TerranTransportVessel";
     }
 
     public int getCapacity() {

@@ -18,6 +18,6 @@ public class Wraith extends CombatUnit{
         life = new Life(120, 0);
         trainingCost = new Cost(150, 100);
         damage = new Damage(20, 8);
-        info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
+        info = "Wraith";
     }
 }
