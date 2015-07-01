@@ -17,6 +17,6 @@ public class GoliathDrawer implements OccupantDrawer{
 
 	public void paintComponent(Graphics g, int w, int h){
 		g.setColor(Color.BLACK);
-		g.fillOval(0,0,w,h);
+		g.fillOval(w*3/8,w*3/8,w*3/4,h*3/4);
 	}
 }
