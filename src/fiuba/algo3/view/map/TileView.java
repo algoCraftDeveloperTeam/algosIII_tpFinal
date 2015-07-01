@@ -43,15 +43,15 @@ public abstract class TileView extends JComponent implements MouseListener{
 	public void mouseEntered(MouseEvent e) {
 		try{
 			Occupant o = modelTile.getOccupant();
-			infoArea.setText(o.getInfo());
+			infoArea.setInfo(o.getInfo());
 		} catch(EmptyTileException ex){
-			infoArea.setText(modelTile.getInfo());
+			infoArea.setInfo(modelTile.getInfo());
 		}
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-        infoArea.setText("");
+        infoArea.setInfo("info.life.shield");
 	}
 
 	public void setModelTile(Tile tile){
