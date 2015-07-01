@@ -38,7 +38,7 @@ public class BuildButton extends ActionButton implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-    	String[] options = {"SupplyDepot", "Barracks", "MineralCenter", "Refinery"};
+    	String[] options = {"SupplyDepot", "Barracks", "MineralCenter", "Refinery", "TerranFactory", "StarPort"};
     	JFrame f = new JFrame("input");
     	String choice = (String) JOptionPane.showInputDialog(f,"Choose a Building","Build", JOptionPane.QUESTION_MESSAGE,null,options,options[0]);
     	if(choice != null){
