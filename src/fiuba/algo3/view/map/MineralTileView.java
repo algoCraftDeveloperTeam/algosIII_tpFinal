@@ -1,6 +1,7 @@
 package fiuba.algo3.view.map;
 
-import fiuba.algo3.view.map.TileView;
+import fiuba.algo3.view.map.Drawers.MegaDrawer;
+import fiuba.algo3.view.map.Drawers.OccupantDrawer;
 import fiuba.algo3.model.occupant.Occupant;
 import fiuba.algo3.model.exceptions.*;
 

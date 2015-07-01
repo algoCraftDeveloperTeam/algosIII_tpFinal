@@ -1,10 +1,10 @@
 package fiuba.algo3.view.map;
 
-import javax.swing.*;
-import java.awt.*;
-import java.lang.reflect.*;
+import fiuba.algo3.view.map.Drawers.OccupantDrawer;
 
-public class BuildingInConstructionDrawer implements OccupantDrawer{
+import java.awt.*;
+
+public class BuildingInConstructionDrawer implements OccupantDrawer {
 
 	private static BuildingInConstructionDrawer instance = null;
 

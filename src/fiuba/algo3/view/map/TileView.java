@@ -6,6 +6,7 @@ import fiuba.algo3.model.occupant.Damageable;
 import fiuba.algo3.model.occupant.Occupant;
 import fiuba.algo3.model.occupant.units.CombatUnit;
 import fiuba.algo3.model.exceptions.*;
+import fiuba.algo3.view.map.Drawers.OccupantDrawer;
 import fiuba.algo3.view.sideMenu.ActionButton;
 import fiuba.algo3.view.sideMenu.InfoArea;
 

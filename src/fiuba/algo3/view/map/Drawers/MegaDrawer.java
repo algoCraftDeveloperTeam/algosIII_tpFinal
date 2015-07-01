@@ -1,8 +1,7 @@
-package fiuba.algo3.view.map;
+package fiuba.algo3.view.map.Drawers;
 
-import javax.swing.*;
-import java.awt.*;
-import java.lang.reflect.*;
+import fiuba.algo3.view.map.BuildingInConstructionDrawer;
+import fiuba.algo3.view.map.EmptyDrawer;
 
 public class MegaDrawer {
 

@@ -1,4 +1,4 @@
-package fiuba.algo3.view.map;
+package fiuba.algo3.view.map.Drawers;
 
 import javax.swing.*;
 import java.awt.*;

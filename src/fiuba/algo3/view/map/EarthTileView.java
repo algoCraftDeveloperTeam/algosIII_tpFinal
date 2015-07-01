@@ -1,12 +1,15 @@
 package fiuba.algo3.view.map;
 
-import fiuba.algo3.view.map.TileView;
+import fiuba.algo3.model.exceptions.EmptyTileException;
 import fiuba.algo3.model.occupant.Occupant;
-import fiuba.algo3.model.exceptions.*;
+import fiuba.algo3.view.map.Drawers.MegaDrawer;
+import fiuba.algo3.view.map.Drawers.OccupantDrawer;
 
 import java.awt.*;
-import java.awt.event.*;
-import java.lang.reflect.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * Created by mporto on 22/06/15.
