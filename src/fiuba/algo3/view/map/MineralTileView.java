@@ -58,7 +58,7 @@ public class MineralTileView extends TileView implements MouseListener{
 		} catch (EmptyTileException ex){
 			occupantDrawer = EmptyDrawer.getInstance();
 		} catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex){
-			System.out.println("ups");
+			ex.printStackTrace();
 		}
 		repaint();
 	}

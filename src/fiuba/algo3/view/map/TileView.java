@@ -97,7 +97,7 @@ public abstract class TileView extends JComponent implements MouseListener{
 			unit.move(mapView.getModelMap(), modelTile.getPosition());
 			mapView.refreshTiles();
 		} catch(InvalidMovementException ex){
-			System.out.println("no podes moverte ahi gil");
+			ErrorMessages.sendMessage(ex.getMessage());
 		}
 	}
 
@@ -107,10 +107,10 @@ public abstract class TileView extends JComponent implements MouseListener{
 				combatUnit.attack((Damageable) modelTile.getOccupant());
 				mapView.refreshTiles();
 			} else{
-				System.out.println("no puedes atacar a tus propias unidades");
+				ErrorMessages.sendMessage("You can not attack your own units/buildings");
 			}
-		} catch(EmptyTileException ex){ 
-			System.out.println("no hay unidades ahi");
+		} catch(EmptyTileException ex){
+			ErrorMessages.sendMessage(ex.getMessage());
 		}
 	}
 }

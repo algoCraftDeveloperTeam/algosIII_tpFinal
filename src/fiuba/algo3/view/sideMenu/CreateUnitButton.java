@@ -45,7 +45,7 @@ public class CreateUnitButton extends ActionButton implements ActionListener{
         try {
             unitCreator.trainUnit();
         } catch (InsufficientAvailablePopulationException | InsufficientResourcesException | SubtractedResourcesGreaterThanStoragedException ex) {
-            System.out.println(ex.getMessage());
+            ErrorMessages.sendMessage(ex.getMessage());
         }
         for(PlayerData data : playerLabels){
     		data.refreshLabel();

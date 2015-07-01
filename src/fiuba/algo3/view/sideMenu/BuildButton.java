@@ -54,7 +54,7 @@ public class BuildButton extends ActionButton implements ActionListener{
 	    		ErrorMessages.sendMessage(ex.getMessage());
 	    	} catch(NoSuchMethodException | IllegalAccessException | InvocationTargetException | 
 	    			InstantiationException | ClassNotFoundException ex){
-	    		System.out.println("Instantiation Problem");
+	    		ErrorMessages.sendMessage("Instantiation Problem");
 	    	}
     	}
     	for(PlayerData data : playerLabels){
