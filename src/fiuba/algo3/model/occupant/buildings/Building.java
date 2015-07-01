@@ -121,4 +121,9 @@ public abstract class Building implements Occupant, Damageable, TurnAware{
     public void applyEffect(){
         
     }
+
+    @Override
+    public boolean canTransport(){
+        return false;
+    }
 }

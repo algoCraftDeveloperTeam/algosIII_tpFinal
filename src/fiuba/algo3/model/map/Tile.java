@@ -51,4 +51,5 @@ public abstract class Tile implements Pervadable{
 	public Coordinates getPosition(){
 		return position;
 	}
+
 }

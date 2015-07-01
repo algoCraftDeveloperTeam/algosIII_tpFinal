@@ -22,7 +22,11 @@ public class SpaceTest{
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testSpaceCanPutMarine() throws CannotOccupyTileException{
-		space.put(marine);
+		try {
+			space.put(marine);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -40,41 +40,77 @@ public class MineralTest{
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testMineralCanPutGasGetter() throws CannotOccupyTileException{
-		mineral.put(gasGetter);
+		try {
+			mineral.put(gasGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testMineralCanPutMineralGetter() throws CannotOccupyTileException{
-		mineral.put(mineralGetter);
+		try {
+			mineral.put(mineralGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testMineralCanPutMarine() throws CannotOccupyTileException{
-		mineral.put(marine);
+		try {
+			mineral.put(marine);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testMineralCanPutBarrack() throws CannotOccupyTileException{
-		mineral.put(barrack);
+		try {
+			mineral.put(barrack);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testOccupiedMineralCanPutMineralGetter() throws CannotOccupyTileException{
-		mineral.put(mineralGetter);
-		mineral.put(mineralGetter);
+		try {
+			mineral.put(mineralGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
+		try {
+			mineral.put(mineralGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testOccupiedMineralWithMineralGetterCanDraw() throws CannotOccupyTileException{
-		mineral.put(mineralGetter);
+		try {
+			mineral.put(mineralGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 		mineral.draw();
 	}
 
 	@Test
 	public void testVacatedMineralCanPutMineralGetter() throws CannotOccupyTileException{
-		mineral.put(mineralGetter);
+		try {
+			mineral.put(mineralGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 		mineral.draw();
-		mineral.put(mineralGetter);
+		try {
+			mineral.put(mineralGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

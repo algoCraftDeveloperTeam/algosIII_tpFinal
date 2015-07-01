@@ -133,4 +133,7 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
     public void setOwner(Player owner){
        this.owner = owner;
     }
+
+    @Override
+    public boolean canTransport() { return false; }
 }

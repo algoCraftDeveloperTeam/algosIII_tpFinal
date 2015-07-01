@@ -40,41 +40,77 @@ public class GasTest{
 
 	@Test
 	public void testGasCanPutGasGetter() throws CannotOccupyTileException{
-		gas.put(gasGetter);
+		try {
+			gas.put(gasGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testGasCanPutMineralGetter() throws CannotOccupyTileException{
-		gas.put(mineralGetter);
+		try {
+			gas.put(mineralGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testGasCanPutMarine() throws CannotOccupyTileException{
-		gas.put(marine);
+		try {
+			gas.put(marine);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testGasCanPutBarrack() throws CannotOccupyTileException{
-		gas.put(barrack);
+		try {
+			gas.put(barrack);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testOccupiedGasCanPutGasGetter() throws CannotOccupyTileException{
-		gas.put(gasGetter);
-		gas.put(gasGetter);
+		try {
+			gas.put(gasGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
+		try {
+			gas.put(gasGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testOccupiedGasWithGasGetterCanDraw() throws CannotOccupyTileException{
-		gas.put(gasGetter);
+		try {
+			gas.put(gasGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 		gas.draw();
 	}
 
 	@Test
 	public void testVacatedGasCanPutGasGetter() throws CannotOccupyTileException{
-		gas.put(gasGetter);
+		try {
+			gas.put(gasGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 		gas.draw();
-		gas.put(gasGetter);
+		try {
+			gas.put(gasGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
