@@ -25,4 +25,12 @@ public class MegaDrawer {
 		return BarracksDrawer.getInstance();
 	}
 
+	public OccupantDrawer getSupplyDepotDrawer(){
+		return SupplyDepotDrawer.getInstance();
+	}
+
+	public OccupantDrawer getBuildingInConstructionDrawer(){
+		return BuildingInConstructionDrawer.getInstance();
+	}
+
 }

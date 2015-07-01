@@ -55,7 +55,7 @@ public class EarthTileView extends TileView implements MouseListener{
 		try{
 			Occupant o = modelTile.getOccupant();
 			String path = String.valueOf(o.getClass());
-			String[] parts = path.split(".");
+			String[] parts = path.split("[.]");
 			Method m = MegaDrawer.class.getDeclaredMethod("get"+parts[parts.length - 1]+"Drawer");
 			occupantDrawer = (OccupantDrawer) m.invoke(MegaDrawer.getInstance());
 		} catch (EmptyTileException ex){
