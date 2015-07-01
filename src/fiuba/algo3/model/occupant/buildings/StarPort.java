@@ -10,6 +10,8 @@ import fiuba.algo3.model.occupant.units.TerranTransportVessel;
 import fiuba.algo3.model.occupant.units.UnitInTraining;
 import fiuba.algo3.model.player.Player;
 
+import java.util.LinkedList;
+
 /**
  * Created by nsueiro on 01/06/15.
  */
@@ -22,7 +24,8 @@ public class StarPort extends UnitCreator {
         this.constructionCost = new Cost(150, 100);
         this.life = new Life(1300, 0);
         this.constructionTime = 10;
-		this.info = "Tierra: en estos paramos se pueden construir todo tipo de edificios,\nexceptuando los de recoleccion de recursos, \ntodas las unidades pueden caminar sobre ellos.";
+        this.trainingQueue = new LinkedList<UnitInTraining>();
+		this.info = "StarPort";
     }
 
     @Override
