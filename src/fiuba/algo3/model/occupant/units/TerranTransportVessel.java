@@ -3,6 +3,7 @@ package fiuba.algo3.model.occupant.units;
 import fiuba.algo3.model.exceptions.InvalidMovementException;
 import fiuba.algo3.model.exceptions.NotEnoughRoomException;
 import fiuba.algo3.model.gameVariables.Cost;
+import fiuba.algo3.model.gameVariables.Damage;
 import fiuba.algo3.model.gameVariables.Life;
 import fiuba.algo3.model.map.AlgoCraftMap;
 import fiuba.algo3.model.map.Coordinates;
@@ -60,5 +61,13 @@ public class TerranTransportVessel extends Unit{
             this.owner.getAlgoCraftMap().locate(unit, this.position);
         }
         this.usedCapacity = 0;
+    }
+
+    @Override
+    public void receiveDamage(Damage damage) {
+        life.receiveAttack(damage.getAirDamage());
+        if(this.life.getVitality() < 0){
+            this.owner.removeUnit(this);
+        }
     }
 }
