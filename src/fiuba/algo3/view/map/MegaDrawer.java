@@ -49,6 +49,16 @@ public class MegaDrawer {
 		return TerranFactoryDrawer.getInstance();
 	}
 
-	//public OccupantDrawer getMarineDrawer
+	public OccupantDrawer getMarineDrawer(){
+		return MarineDrawer.getInstance();
+	}
+
+	public OccupantDrawer getGoliathDrawer(){
+		return GoliathDrawer.getInstance();
+	}
+
+	public OccupantDrawer getTerranTransportVesselDrawer(){
+		return TerranTransportVesselDrawer.getInstance();
+	}
 
 }
