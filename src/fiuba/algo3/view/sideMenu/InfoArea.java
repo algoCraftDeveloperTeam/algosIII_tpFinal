@@ -15,6 +15,7 @@ public class InfoArea{
 	}
 
 	public void setInfo(String data){
+		//ErrorMessages.sendMessage(data);
 		String[] parts = data.split("[.]");
 		infoLabel.setText(parts[0]);
 		lifeLabel.setText(parts[1]);
