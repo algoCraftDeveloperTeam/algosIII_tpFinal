@@ -19,6 +19,7 @@ public class GasTileView extends TileView implements MouseListener{
 		} catch(NoSuchMethodException ex){
 			ex.printStackTrace();
 		}
+		occupantDrawer = new EmptyDrawer();
     }
 
     @Override

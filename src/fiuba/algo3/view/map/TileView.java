@@ -28,13 +28,13 @@ public abstract class TileView extends JComponent implements MouseListener{
 	protected Unit unit;
 	protected CombatUnit combatUnit;
 	protected InfoArea infoArea;
+	protected OccupantDrawer occupantDrawer;
 
 	@Override
 	public void paintComponent(Graphics g){
 		g.setColor(getBackground());
 		g.fillRect(0,0,getWidth(),getHeight());
-		g.setColor(Color.BLACK);
-		g.fillOval(0,0,getWidth(),getHeight());
+		occupantDrawer.paintComponent(g, (int) getWidth(), (int) getHeight());
 	}
 
 	@Override
