@@ -41,4 +41,12 @@ public class MegaDrawer {
 		return RefineryDrawer.getInstance();
 	}
 
+	public OccupantDrawer getStarPort(){
+		return StarPort.getInstance();
+	}
+
+	public OccupantDrawer getTerranFactory(){
+		return TerranFactory.getInstance();
+	}
+
 }
