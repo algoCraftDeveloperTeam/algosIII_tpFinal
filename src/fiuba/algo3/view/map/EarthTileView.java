@@ -27,14 +27,6 @@ public class EarthTileView extends TileView implements MouseListener{
 		occupantDrawer = EmptyDrawer.getInstance();
     }
 
-    @Override
-	public void mouseClicked(MouseEvent e) {
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-	}
-
 	@Override
 	public void mouseReleased(MouseEvent e) {
 	}

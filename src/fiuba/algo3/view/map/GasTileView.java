@@ -25,10 +25,6 @@ public class GasTileView extends TileView implements MouseListener{
 		occupantDrawer = EmptyDrawer.getInstance();
     }
 
-    @Override
-	public void mouseClicked(MouseEvent e) {
-	}
-
 	@Override
 	public void mouseReleased(MouseEvent e) {
 	}

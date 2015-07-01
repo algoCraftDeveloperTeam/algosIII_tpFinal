@@ -78,7 +78,7 @@ public class AlgoCraftMap{
 			try {
 				tile.put(occupant);
 			} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
-				e.printStackTrace();
+				System.out.println("lalalala");
 			}
 		} else {
 			throw new KeyDoesNotExistsException();

@@ -76,7 +76,10 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
             if (this.position.distance(destination) <= this.fieldOfVision && this.actionsPerformed < 2) {
                 map.move(this.position, destination);
                 this.position = destination;
-                this.actionsPerformed--;
+                this.actionsPerformed++;
+            }
+            else {
+                throw new InvalidMovementException();
             }
         } catch (KeyDoesNotExistsException | EmptyTileException | CannotOccupyTileException e) {
             throw new InvalidMovementException();
@@ -120,6 +123,7 @@ public abstract class Unit implements Occupant, Damageable, TurnAware {
 
     @Override
     public void passTurn() {
+        this.actionsPerformed = 0;
         this.life.regenerateShield();
     }
 

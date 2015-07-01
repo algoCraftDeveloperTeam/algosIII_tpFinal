@@ -101,9 +101,9 @@ public class Player implements TurnAware{
             List<Building> buildingsOfTheType = new ArrayList<Building>();
             buildingsOfTheType.add(building);
             this.buildings.put(building.getClass(), buildingsOfTheType);
-            building.applyEffect();
         }
         this.algoCraftMap.clearTile(building.getPosition());
+        building.applyEffect();
         try {
             this.algoCraftMap.put(building, building.getPosition());
         } catch (CannotOccupyTileException | KeyDoesNotExistsException e) {}

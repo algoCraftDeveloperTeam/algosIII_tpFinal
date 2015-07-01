@@ -50,18 +50,22 @@ public class TerranTransportVessel extends Unit{
             throw new NotEnoughRoomException();
         }
         this.units.add(unit);
-        this.usedCapacity -= unit.getSizeForTransport();
+        this.usedCapacity += unit.getSizeForTransport();
         this.owner.getAlgoCraftMap().clearTile(unit.getPosition());
     }
 
     @Override
     public void move(AlgoCraftMap algoCraftMap, Coordinates coordinate) throws InvalidMovementException{
-        super.move(algoCraftMap, coordinate);
-        for(Unit unit : this.units){
-            this.owner.getAlgoCraftMap().locate(unit, this.position);
+        if(coordinate == this.position){
+            throw new InvalidMovementException();
         }
-        units.clear();
+        super.move(algoCraftMap, coordinate);
+        if (units.isEmpty()) return;
+        for (int i = 0; i < units.size(); i++) {
+            this.owner.getAlgoCraftMap().locate(units.get(i), this.position);
+        }
         this.usedCapacity = 0;
+        units.clear();
     }
 
     @Override

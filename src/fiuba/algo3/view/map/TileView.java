@@ -1,22 +1,24 @@
 package fiuba.algo3.view.map;
 
+import fiuba.algo3.model.exceptions.EmptyTileException;
+import fiuba.algo3.model.exceptions.InvalidMovementException;
 import fiuba.algo3.model.map.Tile;
-import fiuba.algo3.model.occupant.units.Unit;
 import fiuba.algo3.model.occupant.Damageable;
 import fiuba.algo3.model.occupant.Occupant;
 import fiuba.algo3.model.occupant.units.CombatUnit;
-import fiuba.algo3.model.exceptions.*;
+import fiuba.algo3.model.occupant.units.Unit;
+import fiuba.algo3.view.ErrorMessages;
 import fiuba.algo3.view.map.drawers.OccupantDrawer;
 import fiuba.algo3.view.sideMenu.ActionButton;
 import fiuba.algo3.view.sideMenu.InfoArea;
-import fiuba.algo3.view.ErrorMessages;
 
 import javax.swing.*;
+import javax.swing.plaf.BorderUIResource;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.lang.reflect.Method;
 import java.util.List;
-import java.lang.reflect.*;
 
 /**
  * Created by mporto on 22/06/15.
@@ -47,12 +49,20 @@ public abstract class TileView extends JComponent implements MouseListener{
 		} catch(EmptyTileException ex){
 			infoArea.setInfo(modelTile.getInfo());
 		}
+		setBorder(new BorderUIResource.LineBorderUIResource(Color.PINK, 2));
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
         infoArea.setInfo("info.life.shield");
+		setBorder(null);
 	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		setBorder(new BorderUIResource.LineBorderUIResource(Color.PINK, 4));
+	}
+
 
 	public void setModelTile(Tile tile){
 		modelTile = tile;

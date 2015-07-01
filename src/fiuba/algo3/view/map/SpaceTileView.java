@@ -1,10 +1,9 @@
 package fiuba.algo3.view.map;
 
-import fiuba.algo3.view.map.TileView;
-
 import java.awt.*;
-import java.awt.event.*;
-import java.lang.reflect.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by mporto on 22/06/15.
@@ -21,10 +20,6 @@ public class SpaceTileView extends TileView implements MouseListener{
 		}
 		occupantDrawer = EmptyDrawer.getInstance();
     }
-
-    @Override
-	public void mouseClicked(MouseEvent e) {
-	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
