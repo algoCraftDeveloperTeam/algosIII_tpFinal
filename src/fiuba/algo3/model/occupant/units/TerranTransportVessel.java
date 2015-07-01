@@ -60,6 +60,7 @@ public class TerranTransportVessel extends Unit{
         for(Unit unit : this.units){
             this.owner.getAlgoCraftMap().locate(unit, this.position);
         }
+        units.clear();
         this.usedCapacity = 0;
     }
 
