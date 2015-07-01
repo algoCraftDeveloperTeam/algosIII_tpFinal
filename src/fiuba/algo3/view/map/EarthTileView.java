@@ -19,7 +19,7 @@ public class EarthTileView extends TileView implements MouseListener{
 		} catch(NoSuchMethodException ex){
 			ex.printStackTrace();
 		}
-		occupantDrawer = new EmptyDrawer();
+		occupantDrawer = EmptyDrawer.getInstance();
     }
 
     @Override
