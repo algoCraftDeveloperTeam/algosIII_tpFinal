@@ -11,7 +11,7 @@ public class Earth extends Tile{
 
 	public Earth(Coordinates coordinates){
 		super(coordinates);
-		info = "Earth..";
+		info = "Earth. . ";
 	}
 
 	public void put(Occupant newOccupant) throws CannotOccupyTileException, NotEnoughRoomException {

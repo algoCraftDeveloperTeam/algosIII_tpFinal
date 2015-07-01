@@ -9,7 +9,7 @@ public class Mineral extends Tile{
 
 	public Mineral(Coordinates coordinates){
 		super(coordinates);
-		info = "Mineral..";
+		info = "Mineral. . ";
 	}
 
 	public void put(Occupant newOccupant) throws CannotOccupyTileException, NotEnoughRoomException {
