@@ -1,6 +1,8 @@
 package fiuba.algo3.view.map;
 
 import fiuba.algo3.view.map.TileView;
+import fiuba.algo3.model.occupant.Occupant;
+import fiuba.algo3.model.exceptions.*;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -50,10 +52,17 @@ public class EarthTileView extends TileView implements MouseListener{
 		} catch(NoSuchMethodException ex){
 			ex.printStackTrace();
 		}
-		if(modelTile.isOccupied()){
-			occupantDrawer = OccupiedDrawer.getInstance();
-		} else{
+		try{
+			Occupant o = modelTile.getOccupant();
+			String path = String.valueOf(o.getClass());
+			String[] parts = path.split(".");
+			Method m = MegaDrawer.class.getDeclaredMethod("get"+parts[parts.length - 1]+"Drawer");
+			occupantDrawer = (OccupantDrawer) m.invoke(MegaDrawer.getInstance());
+		} catch (EmptyTileException ex){
 			occupantDrawer = EmptyDrawer.getInstance();
+		} catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex){
+			System.out.println("metete la reflection en el ogt, no sabes nada");
 		}
+		repaint();
 	}
 }

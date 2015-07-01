@@ -10,10 +10,6 @@ public class EmptyDrawer implements OccupantDrawer{
 
 	private EmptyDrawer(){}
 
-	public void paintComponent(Graphics g, int w, int h){
-		
-	}
-
 	public static EmptyDrawer getInstance(){
 		if(instance == null){
 			instance = new EmptyDrawer();
@@ -21,4 +17,7 @@ public class EmptyDrawer implements OccupantDrawer{
 		return instance;
 	}
 
+	public void paintComponent(Graphics g, int w, int h){
+		
+	}
 }
