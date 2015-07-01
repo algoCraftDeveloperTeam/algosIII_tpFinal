@@ -2,20 +2,16 @@ package fiuba.algo3.view.sideMenu;
 
 import javax.swing.*;
 
-public class InfoArea extends JComponent{
+public class InfoArea{
 
-	private static final long serialVersionUID = 1L;
 	private JLabel infoLabel;
 	private JLabel lifeLabel;
 	private JLabel shieldLabel;
 
 	public InfoArea(){
-		infoLabel = new JLabel("");
-		lifeLabel = new JLabel("");
-		shieldLabel = new JLabel("");
-		add(infoLabel);
-		add(lifeLabel);
-		add(shieldLabel);
+		infoLabel = new JLabel("info");
+		lifeLabel = new JLabel("life");
+		shieldLabel = new JLabel("shield");
 	}
 
 	public void setInfo(String data){
@@ -23,5 +19,17 @@ public class InfoArea extends JComponent{
 		infoLabel.setText(parts[0]);
 		lifeLabel.setText(parts[1]);
 		shieldLabel.setText(parts[2]);
+	}
+
+	public JLabel getInfo(){
+		return infoLabel;
+	}
+	
+	public JLabel getLife(){
+		return lifeLabel;
+	}
+	
+	public JLabel getShield(){
+		return shieldLabel;
 	}
 }

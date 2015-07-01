@@ -64,7 +64,9 @@ public class SideMenu extends JPanel{
 			add(label);
 		}
 		add(passTurnButton);
-		add(infoArea);
+		add(infoArea.getInfo());
+		add(infoArea.getLife());
+		add(infoArea.getShield());
 	}
 
 	public void setMap(MapView map){
