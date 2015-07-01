@@ -1,6 +1,6 @@
 package fiuba.algo3.view.map;
 
-import fiuba.algo3.view.map.Drawers.OccupantDrawer;
+import fiuba.algo3.view.map.drawers.OccupantDrawer;
 
 import java.awt.*;
 

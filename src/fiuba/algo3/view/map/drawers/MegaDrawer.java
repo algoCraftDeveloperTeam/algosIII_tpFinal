@@ -1,4 +1,4 @@
-package fiuba.algo3.view.map.Drawers;
+package fiuba.algo3.view.map.drawers;
 
 import fiuba.algo3.view.map.BuildingInConstructionDrawer;
 import fiuba.algo3.view.map.EmptyDrawer;

@@ -1,12 +1,13 @@
 package fiuba.algo3.view.sideMenu;
 
-import javax.swing.*;
-import java.awt.event.*;
-import java.util.List;
-
 import fiuba.algo3.model.game.AlgoCraftModel;
 import fiuba.algo3.view.map.MapView;
 import fiuba.algo3.view.player.PlayerData;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
 public class PassTurnButton extends JButton implements ActionListener{
 
@@ -32,7 +33,7 @@ public class PassTurnButton extends JButton implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
     	gameModel.endTurn();
 		if(gameModel.isGameEnded()){
-            JOptionPane.showMessageDialog(mapView, "Game ended.");
+            JOptionPane.showMessageDialog(mapView, "GameOver." + gameModel.getActivePlayer().getName() + " is the winner!");
             System.exit(0);
         }
     	mapView.refreshTiles();

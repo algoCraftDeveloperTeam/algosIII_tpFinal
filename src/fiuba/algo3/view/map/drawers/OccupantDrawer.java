@@ -1,8 +1,6 @@
-package fiuba.algo3.view.map.Drawers;
+package fiuba.algo3.view.map.drawers;
 
-import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.*;
 
 public interface OccupantDrawer {
 
