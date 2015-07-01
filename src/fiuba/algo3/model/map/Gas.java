@@ -9,7 +9,7 @@ public class Gas extends Tile{
 
 	public Gas(Coordinates coordinates){
 		super(coordinates);
-		info = "Gas";
+		info = "Gas..";
 	}
 
 	public void put(Occupant newOccupant) throws CannotOccupyTileException, NotEnoughRoomException {

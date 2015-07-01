@@ -9,7 +9,7 @@ public class Space extends Tile{
 
 	public Space(Coordinates coordinates){
 		super(coordinates);
-		info = "Space";
+		info = "Space..";
 	}
 
 	public void put(Occupant newOccupant) throws CannotOccupyTileException, NotEnoughRoomException {
