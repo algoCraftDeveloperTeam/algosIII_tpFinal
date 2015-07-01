@@ -45,60 +45,116 @@ public class EarthTest{
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testEarthCanPutGasGetter() throws CannotOccupyTileException{
-		earth.put(gasGetter);
+		try {
+			earth.put(gasGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testEarthCanPutMineralGetter() throws CannotOccupyTileException{
-		earth.put(mineralGetter);
+		try {
+			earth.put(mineralGetter);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testEarthCanPutMarine() throws CannotOccupyTileException{
-		earth.put(marine);
+		try {
+			earth.put(marine);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testEarthCanPutBarrack() throws CannotOccupyTileException{
-		earth.put(barrack);
+		try {
+			earth.put(barrack);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testOccupiedEarthCanPutMarine() throws CannotOccupyTileException{
-		earth.put(barrack);
-		earth.put(marine);
+		try {
+			earth.put(barrack);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
+		try {
+			earth.put(marine);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test (expected = CannotOccupyTileException.class)
 	public void testOccupiedEarthCanPutBarrack() throws CannotOccupyTileException{
-		earth.put(marine);
-		earth.put(barrack);
+		try {
+			earth.put(marine);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
+		try {
+			earth.put(barrack);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testOccupiedEarthWithMarineCanDraw() throws CannotOccupyTileException{
-		earth.put(barrack);
+		try {
+			earth.put(barrack);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 		earth.draw();
 	}
 
 	@Test
 	public void testOccupiedEarthWithBarrackCanDraw() throws CannotOccupyTileException{
-		earth.put(marine);
+		try {
+			earth.put(marine);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 		earth.draw();
 	}
 
 	@Test
 	public void testVacatedEarthCanPutMarine() throws CannotOccupyTileException{
-		earth.put(barrack);
+		try {
+			earth.put(barrack);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 		earth.draw();
-		earth.put(marine);
+		try {
+			earth.put(marine);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testVacatedEarthCanPutBarrack() throws CannotOccupyTileException{
-		earth.put(marine);
+		try {
+			earth.put(marine);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 		earth.draw();
-		earth.put(barrack);
+		try {
+			earth.put(barrack);
+		} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test (expected = EmptyTileException.class)

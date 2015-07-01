@@ -126,4 +126,7 @@ public class BuildingInConstruction implements Occupant, Damageable, TurnAware {
         int distance = this.position.distance(unitPosition);
         return !(distance > attacker.getGroundAttackRange());
     }
+
+    @Override
+    public boolean canTransport(){ return false; }
 }

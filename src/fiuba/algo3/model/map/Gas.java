@@ -1,6 +1,7 @@
 package fiuba.algo3.model.map;
 
 import fiuba.algo3.model.exceptions.CannotOccupyTileException;
+import fiuba.algo3.model.exceptions.NotEnoughRoomException;
 import fiuba.algo3.model.occupant.Occupant;
 
 public class Gas extends Tile{
@@ -11,7 +12,7 @@ public class Gas extends Tile{
 		info = "Gas";
 	}
 
-	public void put(Occupant newOccupant) throws CannotOccupyTileException {
+	public void put(Occupant newOccupant) throws CannotOccupyTileException, NotEnoughRoomException {
 		if (!occupied && newOccupant.canOccupyGas()){
 			occupied = true;
 			occupant = newOccupant;

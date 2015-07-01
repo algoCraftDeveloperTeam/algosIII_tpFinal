@@ -23,4 +23,6 @@ public interface Occupant {
 
 	String getInfo();
 
+	boolean canTransport();
+
 }

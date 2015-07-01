@@ -70,4 +70,9 @@ public class TerranTransportVessel extends Unit{
             this.owner.removeUnit(this);
         }
     }
+
+    @Override
+    public boolean canTransport(){
+        return true;
+    }
 }

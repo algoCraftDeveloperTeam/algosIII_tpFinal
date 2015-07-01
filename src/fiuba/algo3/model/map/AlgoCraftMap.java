@@ -75,7 +75,11 @@ public class AlgoCraftMap{
 	public void put(Occupant occupant, Coordinates coord) throws CannotOccupyTileException, KeyDoesNotExistsException{
 		if (tiles.containsKey(coord)){
 			Tile tile = tiles.get(coord);
-			tile.put(occupant);
+			try {
+				tile.put(occupant);
+			} catch (fiuba.algo3.model.exceptions.NotEnoughRoomException e) {
+				e.printStackTrace();
+			}
 		} else {
 			throw new KeyDoesNotExistsException();
 		}
