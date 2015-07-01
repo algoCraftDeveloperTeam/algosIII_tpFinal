@@ -47,9 +47,9 @@ public class MineralTileView extends TileView implements MouseListener{
 			ex.printStackTrace();
 		}
 		if(modelTile.isOccupied()){
-			setBackground(Color.ORANGE);
+			occupantDrawer = OccupiedDrawer.getInstance();
 		} else{
-			setBackground(Color.BLUE);
+			occupantDrawer = EmptyDrawer.getInstance();
 		}
 	}
 }

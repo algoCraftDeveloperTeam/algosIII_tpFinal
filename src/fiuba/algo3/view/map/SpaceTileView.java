@@ -47,9 +47,9 @@ public class SpaceTileView extends TileView implements MouseListener{
 			ex.printStackTrace();
 		}
 		if(modelTile.isOccupied()){
-			setBackground(Color.ORANGE);
+			occupantDrawer = OccupiedDrawer.getInstance();
 		} else{
-			setBackground(Color.BLACK);
+			occupantDrawer = EmptyDrawer.getInstance();
 		}
 	}
 }

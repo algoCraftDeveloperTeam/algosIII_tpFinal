@@ -47,9 +47,9 @@ public class GasTileView extends TileView implements MouseListener{
 			ex.printStackTrace();
 		}
 		if(modelTile.isOccupied()){
-			setBackground(Color.ORANGE);
+			occupantDrawer = OccupiedDrawer.getInstance();
 		} else{
-			setBackground(Color.GREEN);
+			occupantDrawer = EmptyDrawer.getInstance();
 		}
 	}
 }

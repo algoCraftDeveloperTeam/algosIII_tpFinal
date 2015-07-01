@@ -51,11 +51,9 @@ public class EarthTileView extends TileView implements MouseListener{
 			ex.printStackTrace();
 		}
 		if(modelTile.isOccupied()){
-			setBackground(Color.ORANGE);
-			// levantar el ocupante, y crear un Drawer que lo dibuje
+			occupantDrawer = OccupiedDrawer.getInstance();
 		} else{
-			setBackground(Color.RED);
-			// el ocupante que dibuja es NullDrawer
+			occupantDrawer = EmptyDrawer.getInstance();
 		}
 	}
 }
