@@ -9,3 +9,5 @@ Repositorio del Trabajo Practico final de Algoritmos III : *__Starcraft__*
 + Manuel Porto
 + Ignacio Sueiro
 + Manuel Tejedor
+
+*__Cerramos con 8 :)__*
